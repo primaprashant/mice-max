@@ -1,6 +1,6 @@
 # MiceMax: data plan (hackathon)
 
-What data the demo needs, where it comes from, where it is stored and who builds it. Each task below can be handed to one person or agent. Decisions behind it: D7, D11, D14, D17, D21–D24 in [05-decisions-and-open-questions.md](05-decisions-and-open-questions.md).
+What data the demo needs, where it comes from, where it is stored and who builds it. Each task below can be handed to one person or agent. Decisions behind it: D7, D11, D14, D17, D21–D25 in [05-decisions-and-open-questions.md](05-decisions-and-open-questions.md).
 
 ## Goal
 
@@ -140,7 +140,17 @@ Run `push_neon.py` and `push_neo4j.py`. Check:
 - Real-looking variety: no plan nobody picks, no plan everybody picks.
 - Everything simulated carries the label.
 
-## What makes it feel curated
+## Built for the UI
+
+Store data in the shape the screens need, so the app doesn't patch it later. Include these in the schema (T0):
+
+- **Photos:** width, height, dominant colour (for a coloured placeholder while loading), focal point (for clean crops at any size), alt text JA/EN, and one `is_hero` photo per plan.
+- **Copy at fixed lengths:** card title (JA up to 16 characters, EN up to 40), one-line hook, detail text. Cards never truncate mid-word.
+- **One tag list** of about 20 tags, each with a JA/EN label and an icon name. Research tags are mapped to it on import.
+- **Travel time from each demo venue to each plan** (walk or transit minutes), worked out once from `places`, so cards can say "8 min walk".
+- **Prices as one all-in number** per person plus what's included, so the UI never adds prices together.
+- **Field content** from outreach ([08-outreach-plan.md](08-outreach-plan.md)): partner status, owner tips and our own photos.
+
 
 Most of the delight comes from data, not styling. Check each view has:
 
