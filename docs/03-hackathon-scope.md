@@ -100,14 +100,14 @@ Only after every "Must have" above works.
 Shows the data flywheel ([04-long-term-plan.md](04-long-term-plan.md#data-flywheel)): the product gets better with every conference.
 
 - Start with plain counts, no ML: "Attendees at your conference signed up for…" and "Attendees in Sapporo this week signed up for…". Seeing who is joining sparks more joins.
-- Seed the event log with **simulated** past conferences, clearly labelled as such.
+- Seed the event log with the two demo conferences' **simulated** data ([07-data-plan.md](07-data-plan.md)), clearly labelled as such. "Similar conferences" needs more simulated conferences, so do it only if time allows.
 - In Neo4j, link each conference to similar past ones (field, size, season, end day).
 - In the attendee view, show "Popular with attendees at similar conferences". In the organizer view, show which suggestions were skipped at similar events.
 - This is also the strongest Neo4j use case for the special prize.
 
 ## Rules for agents building this
 
-- The repository will be **open source**. No secrets in code, no copyrighted images, and every data item records its source.
+- The repository will be **open source**. No secrets in code, and every data item records its source. Copyrighted photos are allowed during the hackathon (D21); record each photo's source page and replace them before any public launch.
 - Never present simulated or estimated numbers as real. Label them on screen.
 - Log every interaction to the event log, including plans that were shown but not picked. No names or emails in the log.
 - Never invent places, prices or opening hours. If the list doesn't have it, don't show it.
