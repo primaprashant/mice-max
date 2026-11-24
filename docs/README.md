@@ -31,6 +31,8 @@ To redraw the charts after changing a number: `python charts/make_charts.py` (ne
 | [03-hackathon-scope.md](03-hackathon-scope.md) | Exactly what we build in 2 days, and what we don't | 5 min |
 | [04-long-term-plan.md](04-long-term-plan.md) | Stages after the hackathon, money model, customers, competitors | 7 min |
 | [05-decisions-and-open-questions.md](05-decisions-and-open-questions.md) | What we decided and why; what we still don't know and how to find out | 4 min |
+| [07-data-plan.md](07-data-plan.md) | What data the demo needs and the tasks to build it | 5 min |
+| [08-outreach-plan.md](08-outreach-plan.md) | Who we contact during the hackathon, what we ask, how it shows in the demo | 4 min |
 | [06-sources.md](06-sources.md) | Every source, numbered [S1]–[S28] | Reference |
 | [charts/](charts/) | The four charts above and the script that draws them | Reference |
 | [prompts/inventory-research.md](prompts/inventory-research.md) | Prompt for the AI agent that builds the activity and venue list | Reference |
