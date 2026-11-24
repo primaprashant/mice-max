@@ -25,12 +25,12 @@ Three people, three views, one conference link:
 In order of priority:
 
 1. **Extra nights.** For example: "Stay Saturday night at a Jozankei onsen", with one all-in price. This is the most clearly *new* money, because without the offer the attendee would have gone home. It works best if shown **before** attendees book flights, so it goes in the registration email.
-2. **Free time during the event.** Short things that fit between sessions or after them: a morning run, a specialty coffee tour, a brewery tour, a group dinner with co-attendees.
+2. **Free time during the event.** Short things that fit between sessions or after them: a morning run, a specialty coffee tour, a walking tour, a brewery tour, a group dinner with co-attendees.
 3. **Specialist experiences.** Visits only this audience would value and couldn't easily arrange alone: a research facility, a farm, a factory, a lab tied to the conference topic.
 
 ## Who it is for
 
-- **Attendees:** domestic Japanese attendees first, because they are about 94% of the market. International attendees are fully supported too. Previous visitors might think they've covered the basic spots, but are probably suggestible for new, less popular experiences. Find like-minded people who are also attending the conference, and foster new business relationships (like a golf outing with a potential client).
+- **Attendees:** domestic Japanese attendees first, because they are about 94% of the market. International attendees are fully supported too. Repeat visitors who feel they've seen the main sights are likely open to newer, less-known experiences (Assumption). Attendees can also meet like-minded people at the same conference and build business relationships (for example, a golf outing with a potential client).
 - **Organizers and PCOs (professional conference organizers):** a free, zero-effort add-on that makes their event more attractive.
 - **The city, the DMO (destination marketing organization) and the Convention Bureau:** a way to grow and prove spend per attendee, a goal they already fund.
 - **Local businesses:** customers who would otherwise not have come.
