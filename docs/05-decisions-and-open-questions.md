@@ -11,6 +11,7 @@ Made on 2026-11-24 unless noted. To change one, update this table and the brief 
 | D3 | **Domestic attendees first, international fully supported.** | About 94% of attendees are Japanese. Kept, together with D2, after we learned that Japanese attendees add leisure nights far less often than foreign ones. The pilot must test this first (Q1). |
 | D4 | **The city is the likely first paying customer. The business model is otherwise open.** | The city already funds this goal (¥3.99M in 2026). Commissions alone are too small. |
 | D5 | **Product name: MiceMax.** | Team choice. |
+| D5 | Name suggestions: Nezumi / Nezuko. MiceMax would appeal to a technical audience, the product should feel local. Nezuko also happens to be a protagonist of [Demon Slayer](https://en.wikipedia.org/wiki/Demon_Slayer:_Kimetsu_no_Yaiba), bringing in impressions of cuteness, mickey mouse, etc (hypothesis) |
 | D6 | **Hackathon demo: one conference link → organizer, attendee and city views.** | Shows the whole loop: easy for organizers, useful for attendees, valuable for the city. |
 | D7 | **Demo uses two real events, one big domestic and one big international.** Which ones is still open (Q9). | Proves it works on any conference, not one we hard-coded. |
 | D8 | **Mock checkout, Japanese + English, simulated city numbers clearly labelled.** | Real payments and live inventory can't be done well in 2 days, and the legal position on payments isn't clear yet (Q7). |
@@ -34,7 +35,9 @@ Ordered by how much the answer could change the plan. None of them can be answer
 | # | Question | Why it matters | How to test it |
 |---|---|---|---|
 | Q1 | **Will Japanese attendees add an extra night because of an offer?** | D2 and D3 depend on it. In Kyoto, foreign attendees added leisure nights more than 6 times as often as Japanese ones. Work, weekdays and university travel rules may stop them. | Ask 5–10 Japanese doctors and researchers: "Have you ever stayed on after a conference? What would make you?" In the pilot, compare planned and actual departure dates. Check whether conferences ending on a Friday or Saturday do better. |
+| Comment | | | Anecdotally, Japanese coworkers in the tech industry return on the last day of the conference (even when travelling overseas). Bueracratic headache might make it difficult for people to extend their trips after the end date. |
 | Q2 | **Do attendees have free time?** | Receptions (懇親会), sponsor seminars and lab dinners may already fill the evenings. | Ask attendees or a PCO: "How many free evenings did you have at your last Sapporo conference?" Check published programs for evening events. |
+| Comment | | | Attendees might not want to attend _ALL_ program events, they might skip duplicate talks or topics of their expertise/lack of interest |
 | Q3 | **Will organizers and PCOs share our link?** | They are the only way to reach attendees early. | Ask 2–3 PCOs (e.g. Nihon Convention Service, Convention Linkage, JTB Communication Design) and the Convention Bureau. |
 | Q4 | **Will the city pay for software instead of a hand-built program?** | D4. | Ask the city's tourism and MICE section: what did the 2026 program measure, will it run again in FY2027, and could it cover all conferences? |
 | Q5 | **How much of the activity spend is truly new?** | Moving dinner from one restaurant to another adds nothing for the city. | Split test in the pilot (see [04-long-term-plan.md](04-long-term-plan.md#how-we-prove-it-is-new-money)). |
