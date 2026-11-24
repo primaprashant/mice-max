@@ -21,6 +21,8 @@ What we know, how sure we are and where it comes from. Labels: **Checked** = we 
 | Same figures for 2024 | 443 conferences, 89,211 attendees, 3,509 from overseas | Checked [S1] |
 | Average attendees per conference, 2025 | about 235 | Derived |
 
+> Question: Why not include the number of conferences in Sapporo per year ? Gives a tangible proof of growth, beyond the venue limitation.
+
 ![94% of Sapporo's conference attendees are Japanese](charts/1-who-attends.png)
 
 **How to read these numbers:**

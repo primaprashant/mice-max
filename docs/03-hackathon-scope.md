@@ -6,6 +6,8 @@ This brief sets the scope for what we build at the hackathon. The vision ([02-vi
 
 **Paste a real conference link and, within a few minutes, MiceMax produces a working attendee page full of plans that fit that conference's free time. A city view then shows what that could be worth to Sapporo.**
 
+> Comment: Using the program PDF as primary would be better, because some conferences lock their itineraries behind a login wall.
+
 Everything else supports that loop.
 
 ## Demo story (end to end)
@@ -17,14 +19,17 @@ Everything else supports that loop.
    - outputs to share: an attendee page link, a QR code and ready-to-send email text in Japanese and English.
 2. **Attendee view** (Japanese and English).
    - "Your free time" timeline for this conference.
+     - Comment: Having a single timeline view for conference talks+free time timeline is better. Reduces double check fatigue and cancellations due to someone not checking both timelines.
    - Plans for each window, across the three ways to spend:
      - **extra night** after the conference (e.g. Otaru, Jozankei onsen, Yoichi wineries), with an all-in price;
      - **short activities** in free time: morning run, specialty coffee tour, walking tour, group dinner;
      - **specialist experiences** matched to the conference topic (e.g. a research facility for a science conference).
-   - **Join others:** see which plans other attendees from the same conference have joined, and join them. This is especially useful for people travelling alone.
+   - **Join others:** see which plans other attendees from the same conference have joined, and join them. This is especially useful for people travelling alone. See [nomadtable](https://nomadtable.app/).
    - **Mock checkout:** looks real, charges nothing.
+     - Question: Who pays? The attendees? The vision only states the government pays for this platform. This description gives the impression the attendess pay for this.
 3. **City view.**
-   - Attendees reached, plans booked, extra nights and estimated new spend, per conference and in total.
+   - Attendees reached (percentage), plans booked, extra nights and estimated new spend, per conference and in total.
+     - comment: Since conferences vary vastly in number of attendees, percentage reached is a better metric.
    - Split by type of spend (extra nights, short activities, specialist) and by area (Sapporo, Otaru, Jozankei…).
    - **All numbers are simulated and clearly labelled as such.** The formula behind them is shown on screen (see [04-long-term-plan.md](04-long-term-plan.md#money-model)).
 
@@ -97,6 +102,8 @@ Only after every "Must have" above works.
 
 ## Stretch goal: "attendees like you picked…"
 
+> Comment: Following nomadtable's UX, having a list of events with who are joining them would spark interest for joining. This is at 2 levels: "Attendees at your conferences signed up for ..." (no ML, just counts), and "Attendees in your city signed up for..." (city level)
+
 Shows the data flywheel ([04-long-term-plan.md](04-long-term-plan.md#data-flywheel)): the product gets better with every conference.
 
 - Seed the event log with **simulated** past conferences, clearly labelled as such.
@@ -118,6 +125,7 @@ Shows the data flywheel ([04-long-term-plan.md](04-long-term-plan.md#data-flywhe
 | Judging point | Our answer |
 |---|---|
 | How important the problem is | Sapporo can't host more conferences until about FY2033, so spend per visitor is the only way to grow. The city already pays for this by hand ([01-evidence.md](01-evidence.md)). |
+| Question | If the hosting places was a restriction, how was Sapporo able to most 115 events back in 2018 ? |
 | Demo quality | Live: paste a conference link the system hasn't seen, and get a working page. |
 | Implementation | Clean, open-source repo; the conference reading works on real, messy sites. |
 | Usefulness to Hokkaido | New money for local businesses, extra nights in Hokkaido, and measured results the city can use. |
