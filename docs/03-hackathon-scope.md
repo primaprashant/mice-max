@@ -16,15 +16,15 @@ Everything else supports that loop.
    - suggested plans for each window, which the organizer can approve or remove with one click;
    - outputs to share: an attendee page link, a QR code and ready-to-send email text in Japanese and English.
 2. **Attendee view** (Japanese and English).
-   - "Your free time" timeline for this conference.
+   - **One timeline** for this conference: sessions and free-time windows together, with the attendee's chosen plans placed in their windows. One view means no cross-checking two schedules and fewer missed plans or cancellations.
    - Plans for each window, across the three ways to spend:
      - **extra night** after the conference (e.g. Otaru, Jozankei onsen, Yoichi wineries), with an all-in price;
-     - **short activities** in free time: morning run, specialty coffee tour, walking tour, group dinner;
+     - **short activities** in free time: morning run, specialty coffee tour, walking tour, brewery tour, group dinner;
      - **specialist experiences** matched to the conference topic (e.g. a research facility for a science conference).
    - **Join others:** see which plans other attendees from the same conference have joined, and join them. This is especially useful for people travelling alone.
-   - **Mock checkout:** looks real, charges nothing.
+   - **Mock checkout:** looks real, charges nothing. In real use the attendee pays the local business for the plan they book; MiceMax earns a commission, and the city pays separately to run the service (see [04-long-term-plan.md](04-long-term-plan.md#revenue-to-micemax)).
 3. **City view.**
-   - Attendees reached, plans booked, extra nights and estimated new spend, per conference and in total.
+   - Attendees reached (count, and % of each conference's attendees, since conference sizes vary widely), plans booked, extra nights and estimated new spend, per conference and in total. The count feeds the money formula; the % makes conferences of different sizes comparable.
    - Split by type of spend (extra nights, short activities, specialist) and by area (Sapporo, Otaru, Jozankei…).
    - **All numbers are simulated and clearly labelled as such.** The formula behind them is shown on screen (see [04-long-term-plan.md](04-long-term-plan.md#money-model)).
 
@@ -54,7 +54,7 @@ The list of real activities, restaurants and extra-night plans is built **separa
 | Conference reading | URL or PDF → dates, venues, sessions, free windows (structured data) | Guess the audience's field and interests from the program |
 | Matching | Plans that fit each window: duration, distance from the venue, opening hours, price | Ranking by attendee interests |
 | Organizer view | Approve/remove plans; generate link, QR code, email text (JA/EN) | Edit the email text |
-| Attendee view | Free-time timeline, plans, join others, mock checkout (JA/EN) | Share a plan with colleagues |
+| Attendee view | One timeline (sessions + free time), plans, join others, mock checkout (JA/EN) | Share a plan with colleagues |
 | City view | Simulated numbers with labels, formula visible | Sliders to change the assumptions |
 | Event log | Every interaction (plan shown, opened, joined, booked, removed by organizer) saved as a row, from the first click. The city view reads from it | – |
 
@@ -99,6 +99,7 @@ Only after every "Must have" above works.
 
 Shows the data flywheel ([04-long-term-plan.md](04-long-term-plan.md#data-flywheel)): the product gets better with every conference.
 
+- Start with plain counts, no ML: "Attendees at your conference signed up for…" and "Attendees in Sapporo this week signed up for…". Seeing who is joining sparks more joins.
 - Seed the event log with **simulated** past conferences, clearly labelled as such.
 - In Neo4j, link each conference to similar past ones (field, size, season, end day).
 - In the attendee view, show "Popular with attendees at similar conferences". In the organizer view, show which suggestions were skipped at similar events.
