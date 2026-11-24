@@ -13,8 +13,6 @@ Apply these guidelines in every agent session.
 
 MiceMax helps people visiting Hokkaido for business events (MICE) spend more locally: it reads a conference's website, finds attendees' free time and offers plans that fit (extra night first, then short activities, then specialist visits). Built for a 2-day hackathon in Sapporo. Organizer, attendee and city views share one conference link.
 
-Only planning docs exist so far; no app code yet.
-
 ## Files
 
 - `docs/README.md`: entry point, five-line summary, glossary, reading order.
@@ -23,11 +21,3 @@ Only planning docs exist so far; no app code yet.
 - `docs/01-evidence.md`, `02-vision.md`, `04-long-term-plan.md`, `06-sources.md`: background, vision, business plan, sources [S1]...
 - `docs/charts/`: chart PNGs and `make_charts.py` that draws them.
 - `docs/prompts/inventory-research.md`: prompt for building the activity and venue list.
-
-## Key rules
-
-- Open-source repo: no secrets, no copyrighted images, every data item records its source.
-- Never invent places, prices or opening hours; never present simulated numbers as real.
-- Japanese is primary; English must be complete.
-- Nothing hard-coded to the demo conferences.
-- Every number in the docs carries a label (Checked, Reported, Derived, Assumption) and a source.
