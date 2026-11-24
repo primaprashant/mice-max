@@ -85,7 +85,45 @@ The new money goes to local businesses, not to us. Our income is a small part of
 
 **Honest read:** in Sapporo alone, commissions at the "Middle" scenario come to a few million yen a year. That is not a business on its own. The business is **city contracts across many cities**, with commissions on top. This is why stage 4 matters.
 
-## Customers
+## Data flywheel
+
+Every conference we run makes the next one better. Over time this data, not the software, is what competitors can't copy.
+
+```
+More conferences → more data on what attendees chose and skipped
+      ↑                                      ↓
+Cities and organizers see better results ← Better plans, ranked better, for the next similar conference
+```
+
+### What we log
+
+Log every interaction from the first conference onwards, as an **append-only event log** (rows are added, never changed). Each row records:
+
+| Field | Example |
+|---|---|
+| When, which conference, which time window | 2027-04-16 18:30, Ophthalmology 2027, Thursday evening |
+| Who, without identifying them | A random attendee ID, plus coarse profile: role, home region, travelling alone or in a group |
+| What happened | Plan **shown** (and in which position), opened, video watched, joined others, booked, cancelled, rated after the event |
+| What the organizer did | Approved or removed a suggested plan |
+| What actually happened | Departure date changed, booking confirmed by the business, spend reported |
+| Which version made the choice | Ranking version or model name, so we can compare versions fairly |
+
+**Logging what was shown, not only what was booked, is the important part.** A plan shown 500 times and never picked tells us as much as one that sells out.
+
+### Where it lives
+
+- **Event log:** a Postgres table (e.g. Neon). It's simple, cheap and easy to query for the city reports.
+- **What it means:** the Neo4j graph gets summary links built from the log, e.g. *Conference → similar to → Conference* (same field, size, season, overseas share, weekday it ends) and *Attendee type → tends to book → Plan*.
+- **Privacy:** attendees agree to it on first use; no names or emails in the event log; follow Japan's personal information law (APPI). Organizers and cities see totals, never individuals.
+
+### How the data improves the product
+
+1. **New conferences start smart.** "Attendees at similar conferences (medical, 2,000+ people, ending on a Saturday in spring) mostly booked these." No guessing for the first conference in a new field.
+2. **Ranking learns.** Plans that are often shown but rarely picked move down. Plans that people rate well move up. A small share of picks are shown at random, so new plans get a fair chance.
+3. **Better extra-night offers.** We learn which offers, prices and conference end days actually make people stay. This is the main unknown today (Q1 in [05-decisions-and-open-questions.md](05-decisions-and-open-questions.md)).
+4. **Better decisions and words.** Past results for similar conferences go into the decision model and the LLM as context.
+5. **New things to sell.** Restaurants and operators get demand forecasts ("2,000 doctors finish at 18:00 on Thursday, 600 m away"). Cities get benchmarks by conference type.
+
 
 | Who | What they want | Role |
 |---|---|---|

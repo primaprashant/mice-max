@@ -56,6 +56,7 @@ The list of real activities, restaurants and extra-night plans is built **separa
 | Organizer view | Approve/remove plans; generate link, QR code, email text (JA/EN) | Edit the email text |
 | Attendee view | Free-time timeline, plans, join others, mock checkout (JA/EN) | Share a plan with colleagues |
 | City view | Simulated numbers with labels, formula visible | Sliders to change the assumptions |
+| Event log | Every interaction (plan shown, opened, joined, booked, removed by organizer) saved as a row, from the first click. The city view reads from it | – |
 
 ## Do not build
 
@@ -70,7 +71,7 @@ Use hackathon partners only where they genuinely fit. Each piece of intelligence
 | **Filter what is possible:** which plans fit this time window, near this venue, open at this hour; who else from this conference joined | **Neo4j** (graph database). Use it | The data is naturally a graph (below). Neo4j also offers a special prize for the best use case |
 | **Read and write words:** turn a messy conference site or PDF into a clean schedule; write plan descriptions, email text and specialist-visit ideas in Japanese and English | **An LLM, called through OrcaRouter** [S26] | One OpenAI-compatible endpoint for many models. Send hard extraction to a strong model and routine cleanup or translation to a cheap one. Automatic failover keeps the live demo running if one provider is slow |
 | **Make choices:** is this session block free time? Does this plan suit this audience? Which 3 plans should we show first? | **TypeSafe's Jev** (decision model) [S27] | Returns a structured answer with a probability instead of free text. Low-confidence answers go to the organizer to approve, and the confidence can show on screen. It is in early access, so **confirm access on day 1**. If it isn't available, use the LLM with structured output instead |
-| Store mock orders and the event log behind the city view | **Neon** (serverless Postgres). Optional | Only if Neo4j alone gets awkward. Two databases add work |
+| Store the event log and mock orders | **Neon** (serverless Postgres). Recommended | An append-only log is a plain table. Keeping it out of the graph keeps both simple |
 | Look up missing details on the web (venue address, hotel list) | **Linkup** (web search API). Optional | Only if conference pages leave gaps |
 
 **In short:** the graph decides what is *possible*, the decision model decides what is *best*, and the LLM writes the *words*.
@@ -94,10 +95,20 @@ Only after every "Must have" above works.
 - Label anything AI-generated.
 - Pre-generate videos for the demo events. Don't generate them live on stage.
 
+## Stretch goal: "attendees like you picked…"
+
+Shows the data flywheel ([04-long-term-plan.md](04-long-term-plan.md#data-flywheel)): the product gets better with every conference.
+
+- Seed the event log with **simulated** past conferences, clearly labelled as such.
+- In Neo4j, link each conference to similar past ones (field, size, season, end day).
+- In the attendee view, show "Popular with attendees at similar conferences". In the organizer view, show which suggestions were skipped at similar events.
+- This is also the strongest Neo4j use case for the special prize.
+
 ## Rules for agents building this
 
 - The repository will be **open source**. No secrets in code, no copyrighted images, and every data item records its source.
 - Never present simulated or estimated numbers as real. Label them on screen.
+- Log every interaction to the event log, including plans that were shown but not picked. No names or emails in the log.
 - Never invent places, prices or opening hours. If the list doesn't have it, don't show it.
 - Japanese is the primary language. English must be complete, not partial.
 - Design for any conference. Nothing may be hard-coded to the demo events.

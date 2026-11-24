@@ -22,6 +22,7 @@ Made on 2026-11-24 unless noted. To change one, update this table and the brief 
 | D14 | **We estimate money only with the formula in [04-long-term-plan.md](04-long-term-plan.md#money-model).** Never "every attendee × ¥X". | Uptake is never 100%, and some spending would have happened anyway. |
 | D15 | **Stretch goal: 15–30 second preview videos for plans**, with real photos, PixVerse motion and an ElevenLabs or Fish Audio voiceover. | Extra-night decisions are emotional and made early; video persuades better than text. Only after the must-haves work. |
 | D16 | **A few charts in the briefs (PNG), drawn by a script kept in the folder.** | People look at pictures before they read. The script lets anyone redraw the charts when the numbers change. |
+| D17 | **Log every interaction from day 1, including plans shown but not picked, in an append-only event log (Postgres). Build a data flywheel on it. In the hackathon, demo it as a stretch goal with simulated past conferences.** | Data on what attendees at similar conferences chose is what competitors can't copy, and it can't be collected after the fact. Logging is cheap now and very hard to add later. |
 
 ## Open questions
 

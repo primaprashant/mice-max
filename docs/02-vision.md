@@ -45,6 +45,8 @@ In order of priority:
 
 Start with Sapporo. Then the conferences already going to other Hokkaido cities (Hakodate first). Then Japan's other big conference cities. Every city with a convention bureau and a tourism budget has the same problem. See [04-long-term-plan.md](04-long-term-plan.md).
 
+Every conference also makes the next one better: we learn what attendees at similar conferences chose and skipped, and that data is hard for anyone else to copy ([data flywheel](04-long-term-plan.md#data-flywheel)).
+
 ## What success looks like
 
 A city official can say: *"Last year MiceMax reached X conference attendees, Y of them stayed an extra night, and local businesses earned ¥Z they would not have earned otherwise."* Every number in that sentence is measured, not estimated.
