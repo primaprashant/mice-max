@@ -1,3 +1,4 @@
 # Install: uv venv .venv && uv pip install --python .venv/bin/python -r data/requirements.txt
 relate-db==1.2.0
 psycopg[binary]>=3.2
+neo4j>=5.20
