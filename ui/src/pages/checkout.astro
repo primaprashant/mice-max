@@ -9,7 +9,7 @@ import { yen } from "../data/city";
 import { t } from "../i18n";
 
 const exp = experienceById(Astro.url.searchParams.get("exp") ?? "");
-if (!exp) return Astro.redirect("/");
+if (!exp) return Astro.redirect("/nav");
 
 /** The conference an experience belongs to, via the events it was shown in. */
 function confIdFor(experienceId: string): string | undefined {

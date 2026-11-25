@@ -24,7 +24,7 @@ import { fitsWindow } from "../../../../data/fit";
 const { conference, experience } = Astro.params;
 const conf = conferenceById(conference ?? "");
 const exp = experience ? experienceById(experience) : undefined;
-if (!conf || !exp) return Astro.redirect("/");
+if (!conf || !exp) return Astro.redirect("/nav");
 
 // The window the attendee would take this experience in: the first window
 // whose kind accepts it and that it fits (same rule as the calendar

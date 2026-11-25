@@ -26,15 +26,15 @@ Astro 7 with Tailwind 4 and Phosphor icons, server-rendered (Netlify adapter). P
 
 | Route | Screen |
 | :---- | :----- |
-| `/` | Home: links to the two demo conferences and the login page |
-| `/login` | Attendee login: name, dummy password, required consent line; full-bleed Sapporo photo (random from `public/images/login`), language toggle |
+| `/` | Login for all three views: role tabs (attendee default, organizer, city), name, dummy password; attendee consent line required, hidden for the other roles. Full-bleed Sapporo photo (random from `public/images/login`), language toggle. The tab picks the redirect |
+| `/nav` | Screen index: links to the login page, both demo conferences and their experiences, and the Ops view |
 | `/c/:conference` | Attendee calendar: day tabs, one Google-Calendar-style grid per day (sessions tinted by type, free-time windows dashed), suggestion cards below the grid, extra-night banner, moment line (weather, computed sunset, city events), first-visit banner |
 | `/c/:conference/e/:experience` | Experience page: photos, price, travel time, stops for combos, tags, who is going (from the simulated log), book/join |
 | `/checkout` | Mock checkout; nothing is charged |
 | `/organize` | Organizer entry: upload path (progress, error, retry) or a stored conference |
 | `/organize/:conference` | Program calendar with windows, suggestions with shown/joined counts, one-click remove, share screen (link, QR, email text) |
 | `/city` | City dashboard: reached, bookings, scaled spend, splits by type and area, next-12-months table, the money formula, all labelled simulated |
-| `/api/login` | Endpoint that sets the attendee and consent cookies |
+| `/api/login` | Endpoint that sets the attendee and consent cookies, and redirects per role |
 
 ## What exists
 

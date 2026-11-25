@@ -29,14 +29,14 @@ npm install
 npm run dev
 ```
 
-Open the printed URL (default `http://localhost:4321`). The home page (`/`) links to every screen worth visiting: attendee login, both demo conference calendars (JADM32, ICEP 2027), the organizer view (`/organize`) and the city view (`/city`). Start there. The event pages, mock checkout and organizer program are reachable by following links from the calendars.
+Open the printed URL (default `http://localhost:4321`). The login page (`/`) is the front door: pick a role tab (attendee, organizer, city) and enter. The screen index (`/nav`) links to every screen worth visiting: both demo conference calendars (JADM32, ICEP 2027), the organizer view (`/organize`) and the city view (`/city`). The event pages, mock checkout and organizer program are reachable by following links from the calendars.
 
 ## Screens
 
 | Path | Screen |
 |---|---|
-| `/` | Home: links to every screen below |
-| `/login` | Attendee login (name only; the password is never checked) |
+| `/` | Login for all three views: role tabs (attendee default), name only; the password is never checked |
+| `/nav` | Screen index: links to every screen below |
 | `/c/jadm32`, `/c/icep2027` | Attendee calendar: sessions, free-time windows, suggested experiences |
 | `/c/jadm32/e/…` | Experience page: photos, price, who is joining, book/join |
 | `/checkout?exp=…` | Mock checkout; nothing is charged |
