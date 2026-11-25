@@ -58,8 +58,8 @@ Things every view needs. Build once, share everywhere.
 
 The tokens live in [ui/src/styles/global.css](../ui/src/styles/global.css). The rules that go with them:
 
-1. One accent color. CTAs, links and focus rings all use the theme color. Banana yellow marks our events in data views; it is never a CTA color.
-2. No gradients. All buttons use solid fills.
+1. One accent color. CTAs, links and focus rings all use the theme color. Banana marks our events and suggestion cards in data views; it is never a button color.
+2. No gradients on buttons or panels. All buttons use solid fills. The one exception is the login photo scrim, which fades the photo under the card for legibility.
 3. Fonts: Geist for UI text, Geist Mono for code and numbers. Weights 400, 500 and 600. Headlines use tight letter spacing.
 4. Motion: page and panel changes run 200 ms with a small translate and fade. Button press scales down slightly. Loading states use a shimmer, not circular spinners.
 5. Full-height sections use `min-h-[100dvh]`, never `h-screen`.

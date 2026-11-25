@@ -49,6 +49,7 @@ Netlify CDN ──> static Astro build (calls the backend at API_BASE)
 | GET | /api/experiences/{id} | one experience: copy, photos, stops, tags, travel | SQLite |
 | GET | /api/experiences/{id}/attendees | who joined (circular icons) | SQLite |
 | GET | /api/experiences/{id}/counts | join counts per conference | SQLite |
+| GET | /api/experiences/{id}/travel | travel time from the conference venue | SQLite |
 | GET | /api/headlines/{conference} | the 8 demo experiences | SQLite |
 | GET | /api/city | city view aggregates | SQLite |
 | GET | /api/attendees/{id} | one attendee (name for header) | SQLite |
@@ -77,8 +78,8 @@ in is a follow-up, not a demo blocker.
 
 ## Frontend changes
 
-1. Remove the Node adapter; build fully static. The two `api/*.ts` endpoints and
-   `export const prerender = false` lines go away.
+1. Remove the Node adapter; build fully static. The one `api/*.ts` endpoint
+   (`api/login.ts`) and `export const prerender = false` lines go away.
 2. Pages fetch JSON in the frontmatter from `API_BASE` (build-time env), or a
    small client island loads it. Static + fetch keeps the screens unchanged.
 3. Attendee state stays in the browser: `plan-store.ts` (localStorage) and the
