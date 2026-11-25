@@ -1,0 +1,29 @@
+---
+import "../styles/global.css";
+import { getLang } from "../data/attendee";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const lang = getLang(Astro.cookies);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="MiceMax helps conference attendees in Sapporo plan what to do in their free time between sessions."
+    />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="flex min-h-[100dvh] flex-col bg-paper font-sans text-ink antialiased">
+    <slot />
+  </body>
+</html>

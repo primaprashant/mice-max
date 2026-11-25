@@ -1,0 +1,39 @@
+---
+/** Shared header: MiceMax wordmark on the left, language toggle on the right.
+ * The toggle is a client island so it works on any static page. */
+---
+
+<header class="border-b border-ink/10 bg-paper/90 backdrop-blur">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+    <a href="/" class="text-sm font-semibold tracking-tight">MiceMax</a>
+    <lang-toggle class="inline-flex rounded-md border border-ink/15 p-0.5 text-xs">
+      <button data-lang="en" class="rounded px-2 py-1 font-medium">EN</button>
+      <button data-lang="ja" class="rounded px-2 py-1 font-medium">JA</button>
+    </lang-toggle>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector("lang-toggle");
+  const buttons = toggle?.querySelectorAll("button");
+
+  function setActive(lang: string) {
+    buttons?.forEach((b) => {
+      const on = b.dataset.lang === lang;
+      b.classList.toggle("bg-ink", on);
+      b.classList.toggle("text-paper", on);
+    });
+  }
+
+  buttons?.forEach((b) =>
+    b.addEventListener("click", () => {
+      const lang = b.dataset.lang ?? "en";
+      setActive(lang);
+      document.cookie = `lang=${lang}; path=/; max-age=31536000`;
+      location.reload();
+    })
+  );
+
+  const cookie = document.cookie.match(/(?:^|;\s*)lang=(\w+)/);
+  setActive(cookie?.[1] ?? "en");
+</script>
