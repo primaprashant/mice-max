@@ -101,6 +101,8 @@ Run [prompts/inventory-research.md](prompts/inventory-research.md). 80–100 rea
 
 ### T5. Photos (agent, ~1 h, after T4)
 
+**Done 2026-11-25:** 198 photos for 83 of 88 plans in `data/images/`, sources in `data/raw/photos/` ([NOTES.md](../data/raw/photos/NOTES.md): gaps and photos to ask owners for), loaded by `import_photos.py`.
+
 2–3 photos per plan, saved as `data/images/<plan_id>/1.jpg`, 1600 px wide, landscape, no text or logos on them, similar mood across plans. Source page of each photo goes in `plan_photos`. Copyrighted photos are fine for the demo (D21). Flag plans with no usable photo.
 
 ### T6. Plan copy in JA and EN (LLM + human check, ~1 h, after T4)
