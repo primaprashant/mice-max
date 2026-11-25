@@ -83,6 +83,8 @@ export interface Experience {
   english_ok: boolean;
   needs_agreement: boolean;
   fields: string[];
+  months: number[] | null;
+  days_closed: string | null;
 }
 
 export interface ExperienceCopy {
@@ -127,6 +129,13 @@ export interface Tag {
   label_ja: string;
   label_en: string;
   icon: string;
+}
+
+/** The place an experience happens at, from its first stop's plan row. */
+export interface ExperiencePlace {
+  name_en: string;
+  name_ja: string;
+  address: string | null;
 }
 
 /** The demo headline: the one experience per kind the demo opens live (D29). */
