@@ -85,7 +85,8 @@ in is a follow-up, not a demo blocker.
 3. Attendee state stays in the browser: `plan-store.ts` (localStorage) and the
    language cookie already work without a server.
 4. The login POST becomes a client call that sets the attendee and consent cookies
-   client-side and appends a `reached` event through the backend.
+   client-side, applies the role tab's redirect (attendee calendar, organizer or
+   city view), and appends a `reached` event through the backend.
 
 ## Deployment
 
