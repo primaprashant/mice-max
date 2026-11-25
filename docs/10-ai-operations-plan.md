@@ -27,7 +27,7 @@ Pasting the URL only sets the conference up. Bookings, calls and reminders happe
 
 One table, `agent_steps`, in `schema.sql`. `push_neon.py` copies it to Neon automatically. The full version adds live rows to the same table.
 
-`id, conference_id, phase (setup/before/during/after), ts, step (1–12 from the brief), agent, title_ja, title_en, tool (llm/jev/graph/voice/video/search), model, mode (live/replay), ms, tokens_in, tokens_out, confidence, handed_to_human, summary_ja, summary_en, output (JSON), artifact (file path, e.g. call audio), simulated`
+`id, conference_id, phase (setup/before/during/after), ts, step (1–12 from the brief), agent, title_ja, title_en, tool (llm/jev/graph/voice/video/search/rules), model, mode (live/replay), ms, tokens_in, tokens_out, confidence, handed_to_human, summary_ja, summary_en, output (JSON), artifact (file path, e.g. call audio), simulated`
 
 Replay rows leave `ms`, tokens and `confidence` empty unless they were really measured. Don't invent them.
 
