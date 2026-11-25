@@ -97,6 +97,7 @@
     "count": "Plans",
     "spend": "Spend",
     "next12Months": "Next 12 months, all Sapporo conferences",
+    "uptakeNote": "Early, Middle and Strong are three scenarios, from pessimistic to optimistic: how many attendees the organizer's link reaches, how many of them book an activity, and how many add a hotel night. Middle is the working estimate.",
     "conference": "Conference",
     "attendees": "Attendees",
     "early": "Early",
@@ -104,7 +105,13 @@
     "strong": "Strong",
     "total": "Total",
     "formulaTitle": "The money formula",
-    "formula": "attendees reached × extra-night rate (end weekday × overseas share × long weekend) × spend per extra night + activity take-up × average activity price. Early, Middle and Strong are three uptake assumptions."
+    "formula": "attendees reached × extra-night rate (end weekday × overseas share × long weekend) × spend per extra night + activity take-up × average activity price. Early, Middle and Strong are three uptake assumptions.",
+    "overTime": "New spend over time",
+    "overTimeNote": "Committed plans per month, from the simulated event log",
+    "exportCsv": "Export CSV",
+    "month": "Month",
+    "chartTable": "View as table",
+    "chartTableClose": "Back to chart"
   },
   "organizer": {
     "title": "For organizers",

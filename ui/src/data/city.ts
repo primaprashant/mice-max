@@ -28,3 +28,11 @@ export function sunsetSapporo(dateIso: string): string {
 export function yen(n: number): string {
   return "¥" + n.toLocaleString("ja-JP");
 }
+
+/** Month axis label from 'YYYY-MM': Jan '27 (en) / 2027年1月 (ja). */
+export function monthLabel(month: string, lang: "en" | "ja"): string {
+  const [y, m] = month.split("-").map(Number);
+  if (lang === "ja") return `${y}年${m}月`;
+  const names = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${names[m - 1]} '${String(y).slice(2)}`;
+}
