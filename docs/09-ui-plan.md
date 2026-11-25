@@ -17,7 +17,7 @@ A foundations skeleton exists on this branch in [ui/](../ui/): an Astro 7 + Tail
 
 ### Attendee view
 
-Simple login page: name, plus a password field that is never checked. The login page also carries the consent line for event logging ([04-long-term-plan.md](04-long-term-plan.md): attendees agree on first use, no names in the log).
+Simple login page: name, plus a password field that is never checked.
 
 Then a calendar view with the conference sessions (in default theme color) and our events (in a yellow banana color). Scroll down to see all available events (like connpass).
 
@@ -31,7 +31,9 @@ Then a calendar view with the conference sessions (in default theme color) and o
 
 Free-time windows are visible on the calendar, because plans are offered per window.
 
-No onboarding screen. The attendee lands straight on the calendar. Name and consent are on the login page, language is the header toggle, and interests stay out of scope for the demo. Instead of a wizard, surface personalization in place: a dismissible banner on first visit, for example "Thursday evening is free. 3 plans fit." Reason: the attendee arrives from a link or QR with one goal, to see the schedule; a wizard between login and calendar adds a screen the docs do not require.
+No onboarding screen. The attendee lands straight on the calendar. Name is on the login page, language is the header toggle, and interests stay out of scope for the demo. Instead of a wizard, surface personalization in place: a dismissible banner on first visit, for example "Thursday evening is free. 3 plans fit." Reason: the attendee arrives from a link or QR with one goal, to see the schedule; a wizard between login and calendar adds a screen the docs do not require.
+
+No consent checkbox. [04-long-term-plan.md](04-long-term-plan.md) originally asked for a first-use consent line for the event log. Dropped: a forced checkbox at login is the pattern users blind-click, so it adds friction without buying trust. The log holds no names or emails (only a random attendee ID and coarse profile), which keeps it outside APPI's personal-information scope for the demo. Revisit consent before any real deployment.
 
 ### City view
 
@@ -49,8 +51,18 @@ Things every view needs. Build once, share everywhere.
 1. Language toggle. English is the default. Displayed strings come from a language module with two files, `en.json` and `ja.json`; for now the files are identical. The docs require Japanese as the primary language and English complete, not partial, so no screen hardcodes strings.
 2. Shared plan components. One calendar block and one card render any plan (session or event), colored by kind: sessions in theme color, our events in banana yellow.
 3. Simulated label. One component that marks data as simulated, used in the city view and wherever simulated data shows.
-4. Consent line. One sentence on the login page.
+4. Consent line. Dropped, see the attendee-view section.
 5. Theme tokens: the default theme color, banana yellow for our events.
+
+### Design tokens
+
+The tokens live in [ui/src/styles/global.css](../ui/src/styles/global.css). The rules that go with them:
+
+1. One accent color. CTAs, links and focus rings all use the theme color. Banana yellow marks our events in data views; it is never a CTA color.
+2. No gradients. All buttons use solid fills.
+3. Fonts: Geist for UI text, Geist Mono for code and numbers. Weights 400, 500 and 600. Headlines use tight letter spacing.
+4. Motion: page and panel changes run 200 ms with a small translate and fade. Button press scales down slightly. Loading states use a shimmer, not circular spinners.
+5. Full-height sections use `min-h-[100dvh]`, never `h-screen`.
 
 ## Event data
 

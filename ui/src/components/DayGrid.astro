@@ -1,0 +1,176 @@
+---
+/** A Google Calendar-style day grid: time gutter on the left, events as
+ * absolutely positioned blocks, overlapping events share the width.
+ * Sessions tinted by type, free-time windows dashed amber, client plans
+ * (my-plans) add their own blocks with the same positioning rules. */
+import { type Lang } from "../i18n";
+import type { Session, Window as FreeWindow } from "../data/types";
+
+interface Props {
+  lang?: Lang;
+  day: string;
+  sessions: Session[];
+  windows: FreeWindow[];
+  /** Experience id to card title, for client-side plan blocks. */
+  titles: Record<string, string>;
+}
+
+const { lang = "en", day, sessions, windows, titles } = Astro.props;
+
+// Grid range: first event start to last event end, padded to whole hours so
+// hour lines land on clean offsets.
+const allEvents = [
+  ...sessions.map((s) => ({ start: s.start_time, end: s.end_time })),
+  ...windows.map((w) => ({ start: w.start_time, end: w.end_time })),
+];
+if (allEvents.length === 0) return; // no grid without content
+
+const firstStart = allEvents.reduce((min, e) => (e.start < min ? e.start : min), allEvents[0].start);
+const lastEnd = allEvents.reduce((max, e) => (e.end > max ? e.end : max), allEvents[0].end);
+const gridStart = `${firstStart.slice(0, 2)}:00`;
+const gridEndHour = Number(lastEnd.slice(0, 2)) + (lastEnd.slice(3) !== "00" ? 1 : 0);
+const gridEnd = `${String(gridEndHour).padStart(2, "0")}:00`;
+
+const toMinutes = (time: string) => Number(time.slice(0, 2)) * 60 + Number(time.slice(3, 5));
+const gridStartMin = toMinutes(gridStart);
+const gridEndMin = toMinutes(gridEnd);
+const pos = (time: string) => ((toMinutes(time) - gridStartMin) / (gridEndMin - gridStartMin)) * 100;
+
+const HOUR_LINE_COUNT = gridEndHour - Number(gridStart.slice(0, 2));
+const hourLabels = Array.from({ length: HOUR_LINE_COUNT + 1 }, (_, i) => `${String(Number(gridStart.slice(0, 2)) + i).padStart(2, "0")}:00`);
+
+// Colors per session type: tinted backgrounds with dark text of the same hue,
+// same tint depth as banana-soft so everything reads at the same level.
+const TYPE_STYLES: Record<string, string> = {
+  oral: "bg-session-oral text-session-oral-ink",
+  symposium: "bg-session-symposium text-session-symposium-ink",
+  poster: "bg-session-poster text-session-poster-ink",
+  sponsor: "bg-session-sponsor text-session-sponsor-ink",
+  social: "bg-session-social text-session-social-ink",
+  plenary: "bg-session-oral text-session-oral-ink",
+  excursion: "bg-session-poster text-session-poster-ink",
+  other: "bg-session-other text-session-other-ink",
+};
+
+// Positioning blocks for one day: sessions, windows, and client plans.
+type GridBlock = {
+  start: string;
+  end: string;
+  kind: "session" | "window" | "plan";
+  session?: Session;
+  win?: FreeWindow;
+};
+
+const blocks: GridBlock[] = [
+  ...sessions.map((s) => ({ start: s.start_time, end: s.end_time, kind: "session" as const, session: s })),
+  ...windows.map((w) => ({ start: w.start_time, end: w.end_time, kind: "window" as const, win: w })),
+];
+
+// Google Calendar overlap layout: sort by start; walk through and cut the day
+// into clusters of overlapping blocks; within a cluster each block takes the
+// first column free at its start (a column frees when its events end); the
+// cluster's column count is the max simultaneous count, so each block spans
+// width / count, offset by column.
+const sorted = [...blocks].sort((a, b) => a.start.localeCompare(b.start) || b.end.localeCompare(a.end));
+type Placed = GridBlock & { col: number; cols: number };
+const placed: Placed[] = [];
+
+let cluster: { block: GridBlock; col: number }[] = [];
+let colEnds: number[] = [];
+let clusterEnd = -1;
+
+function flushCluster() {
+  if (cluster.length === 0) return;
+  for (const c of cluster) placed.push({ ...c.block, col: c.col, cols: colEnds.length });
+  cluster = [];
+  colEnds = [];
+  clusterEnd = -1;
+}
+
+for (const block of sorted) {
+  const startMin = toMinutes(block.start);
+  if (cluster.length > 0 && startMin >= clusterEnd) flushCluster();
+  let col = colEnds.findIndex((end) => end <= startMin);
+  if (col === -1) {
+    col = colEnds.length;
+    colEnds.push(toMinutes(block.end));
+  } else {
+    colEnds[col] = Math.max(colEnds[col], toMinutes(block.end));
+  }
+  cluster.push({ block, col });
+  clusterEnd = Math.max(clusterEnd, toMinutes(block.end));
+}
+flushCluster();
+---
+
+<div class="grid min-w-[640px] grid-cols-[3.5rem_1fr] text-xs" data-day-grid data-grid-start={gridStart} data-grid-end={gridEnd}>
+  <!-- Time gutter -->
+  <div class="relative" style={`height: ${HOUR_LINE_COUNT * 3}rem`}>
+    {
+      hourLabels.map((label, i) => (
+        <span
+          class="absolute right-2 -translate-y-1/2 font-mono text-[11px] tabular-nums text-ink-soft"
+          style={`top: ${(i / hourLabels.length) * 100}%`}
+        >
+          {label}
+        </span>
+      ))
+    }
+  </div>
+  <div class="relative border-l border-ink/10" style={`height: ${HOUR_LINE_COUNT * 3}rem`}>
+    {
+      hourLabels.map((_, i) => (
+        <div
+          class="absolute inset-x-0 border-t border-ink/5"
+          style={`top: ${(i / hourLabels.length) * 100}%`}
+        />
+      ))
+    }
+    {
+      placed.map((p) => {
+        const top = pos(p.start);
+        const bottom = pos(p.end);
+        const width = 100 / p.cols;
+        const left = p.col * width;
+        const inset = 1; // gap between side-by-side blocks
+        const innerWidth = width - inset;
+        const long = bottom - top > 6; // enough vertical room for hook text
+
+        if (p.kind === "window") {
+          const w = p.win!;
+          return (
+            <div
+              class="absolute rounded-md border border-dashed border-banana/60 bg-banana-soft/40 px-1.5 py-0.5"
+              style={`top: ${top}%; height: ${bottom - top}%; left: ${left + inset / 2}%; width: ${innerWidth}%`}
+            >
+              <p class="truncate font-medium text-banana">{lang === "ja" ? w.name_ja : w.name_en}</p>
+              <p class="truncate font-mono text-[10px] tabular-nums text-banana/80">
+                {w.start_time}–{w.end_time}
+              </p>
+            </div>
+          );
+        }
+
+        const s = p.session!;
+        const title = (lang === "ja" ? s.title_ja : s.title_en) ?? s.id;
+        return (
+          <div
+            class="absolute overflow-hidden rounded-md px-1.5 py-0.5"
+            class:list={[TYPE_STYLES[s.type] ?? TYPE_STYLES.other]}
+            style={`top: ${top}%; height: ${bottom - top}%; left: ${left + inset / 2}%; width: ${innerWidth}%`}
+          >
+            <p class="truncate text-[11px] font-medium leading-tight">{title}</p>
+            {long && <p class="truncate text-[10px] leading-tight opacity-70 font-mono tabular-nums">{s.start_time}–{s.end_time}</p>}
+          </div>
+        );
+      })
+    }
+    <my-plans
+      class="absolute inset-0"
+      data-day={day}
+      data-grid-start={gridStart}
+      data-grid-end={gridEnd}
+      data-titles={JSON.stringify(titles)}
+    />
+  </div>
+</div>
