@@ -33,4 +33,4 @@ def load(db):
         insert(db, ops_setup.rows(db, cid, setup_ts))
         insert(db, ops_events.rows(db, cid))
         start = db.execute("SELECT start_date FROM conferences WHERE id = ?", (cid,)).fetchone()[0]
-        insert(db, ops_files.rows(cid, start))
+        insert(db, ops_files.rows(db, cid, start))

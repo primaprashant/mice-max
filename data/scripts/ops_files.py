@@ -40,5 +40,48 @@ def qa_rows(cid, start_date):
     return out
 
 
-def rows(cid, start_date):
-    return call_row(cid) + qa_rows(cid, start_date)
+def disruption_rows(db, cid):
+    path = OPS / cid / "disruption.json"
+    if not path.exists():
+        return []
+    d = json.loads(path.read_text())
+    day, model = d["alert"]["ts"][:10], d["written_by"]["model"]
+    groups = {}
+    for a in d["affected"]:
+        groups[a["experience_id"]] = groups.get(a["experience_id"], 0) + a["party_size"]
+    people = sum(groups.values())
+    T = {}
+    for e, lang, t in db.execute("SELECT experience_id, lang, card_title FROM experience_copy"):
+        T.setdefault(e, {})[lang] = t
+    picks = [(T[p["from_experience_id"]], T[p["to_experience_id"]], groups.get(p["from_experience_id"], 0))
+             for p in d["picks"]]
+    base = {"conference_id": cid, "phase": "during", "simulated": 1}
+    steps = [
+        ("07:00", "watcher", "search", None, "運行情報（模擬警報）", "Transport alert (simulated)",
+         d["alert"]["ja"], d["alert"]["en"], {"alert": d["alert"], "area": d["area"]}),
+        ("07:01", "replanner", "graph", None, "影響を受ける参加者", "Find affected attendees",
+         f"グラフ検索で{len(d['affected'])}件の予約（{people}人、{len(groups)}つの体験）が該当。",
+         f"Graph query found {len(d['affected'])} bookings ({people} people, {len(groups)} experiences).",
+         {"query": d["query"], "params": {"area": d["area"], "window": d["window_id"]}, "affected": d["affected"]}),
+        ("07:03", "replanner", "llm", model, "代わりの案を選ぶ", "Pick alternatives",
+         "".join(f"「{a['ja']}」の{n}人は「{b['ja']}」へ。" for a, b, n in picks),
+         " ".join(f"\"{a['en']}\" ({n} people) moves to \"{b['en']}\"." for a, b, n in picks),
+         {"picks": d["picks"], "candidates": d["alternatives"]}),
+        ("07:05", "mailer", "llm", model, "参加者への案内", "Messages to attendees",
+         f"{len(d['affected'])}人に日本語と英語で案内を送信。部屋の確認後に確定。",
+         f"Sent JA/EN messages to {len(d['affected'])} attendees. Plans are final once rooms are confirmed.",
+         {"messages": d["messages"]}),
+        ("09:00", "booker", "voice", None, "宿に予約の変更を連絡", "Call the hotel about the bookings",
+         d["ryokan_call_ja"], d["ryokan_call_en"], None),
+    ]
+    out = []
+    for n, (hm, agent, tool, m, tja, ten, sja, sen, output) in enumerate(steps, 1):
+        out.append({**base, "id": f"{cid}-disruption-{n:02d}", "ts": f"{day}T{hm}:00+09:00", "agent": agent,
+                    "tool": tool, "model": m, "title_ja": tja, "title_en": ten, "summary_ja": sja,
+                    "summary_en": sen, "output": {"label_ja": d["label_ja"], "label_en": d["label_en"],
+                                                  **(output or {})}})
+    return out
+
+
+def rows(db, cid, start_date):
+    return call_row(cid) + qa_rows(cid, start_date) + disruption_rows(db, cid)
