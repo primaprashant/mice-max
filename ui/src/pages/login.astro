@@ -2,56 +2,99 @@
 export const prerender = false;
 
 import Base from "../layouts/Base.astro";
-import Header from "../components/Header.astro";
 import { getLang } from "../data/attendee";
 import { t } from "../i18n";
 
+/* Sapporo photos (from Unsplash, free license), served from /images/login. */
+const SAPPROO_PHOTOS = [
+  { src: "/images/login/odori-park-tv-tower-summer.jpg", alt: "Sapporo TV Tower behind the flower beds of Odori Park" },
+  { src: "/images/login/tv-tower-blue-sky.jpg", alt: "Sapporo TV Tower on a clear summer day" },
+  { src: "/images/login/tv-tower-skyline-dusk.jpg", alt: "Sapporo skyline with the TV Tower at dusk" },
+  { src: "/images/login/tv-tower-winter.jpg", alt: "Sapporo TV Tower above the city in winter" },
+  { src: "/images/login/snowy-street-downtown.jpg", alt: "Snowy street in central Sapporo" },
+  { src: "/images/login/odori-park-snow-night.jpg", alt: "Odori Park stretching through snowy Sapporo at night" },
+  { src: "/images/login/nikka-whisky-billboard-susukino.jpg", alt: "Illuminated Nikka whisky mosaic billboard in Susukino at night" },
+  { src: "/images/login/moerenuma-park-glass-pyramid.jpg", alt: "Grassy hillside view over Sapporo from Moerenuma Park" },
+  { src: "/images/login/moine-mountains-ski-jump-city.jpg", alt: "Moiwa mountains and ski jump above Sapporo at golden hour" },
+  { src: "/images/login/hokkaido-seafood-market.jpg", alt: "Seafood stall with dried fish at a Hokkaido morning market" },
+  { src: "/images/login/hokkaido-shrine-snow.jpg", alt: "Hokkaido Shrine main hall in winter with crowds" },
+  { src: "/images/login/sapporo-night-view-elevated.jpg", alt: "Sapporo cityscape at dusk seen from a high-rise window" },
+  { src: "/images/login/sapporo-street-sunset-mountains.jpg", alt: "Sapporo street at sunset with TV tower antenna and mountains" },
+  { src: "/images/login/sapporo-tram-street-day.jpg", alt: "Pink decorated Sapporo tram on snowy street in winter" },
+  { src: "/images/login/snowy-street-night-crowd.jpg", alt: "People walking through falling snow on a downtown Sapporo street at night" },
+  { src: "/images/login/susukino-snowy-storefront-night.jpg", alt: "Snow-covered izakaya storefront with lantern at night in Sapporo" },
+  { src: "/images/login/susukino-winter-illuminations.jpg", alt: "Sapporo street with snow and lit trees in winter illuminations" },
+  { src: "/images/login/tanukikoji-shopping-arcade-night.jpg", alt: "Covered Tanukikoji shopping arcade entrance at night" },
+  { src: "/images/login/tv-tower-panasonic-night-snow.jpg", alt: "Sapporo TV Tower lit at night over snowy street with Panasonic clock" },
+  { src: "/images/login/toyako-lake-winter-shore.jpg", alt: "Lake Toya with volcanic islands and snow-dusted hills in winter" },
+  { src: "/images/login/yokoshi-tomamu-flower-field.jpg", alt: "Marigold flower fields in the hills of Biei, Hokkaido" },
+];
+
 const lang = getLang(Astro.cookies);
+const photo = SAPPROO_PHOTOS[Math.floor(Math.random() * SAPPROO_PHOTOS.length)]!;
 ---
 
 <Base title={t(lang, "app.name")}>
-  <Header />
-  <main class="mx-auto flex w-full max-w-md flex-1 flex-col justify-center px-6 py-12">
-    <h1 class="text-2xl font-semibold tracking-tight">{t(lang, "login.title")}</h1>
-    <p class="mt-2 text-sm text-ink-soft">{t(lang, "login.conference")}</p>
+  <img
+    src={photo.src}
+    alt=""
+    aria-hidden="true"
+    class="fixed inset-0 h-full w-full object-cover"
+  />
+  <div
+    class="fixed inset-0 bg-gradient-to-r from-ink/80 via-ink/40 to-ink/10"
+    aria-hidden="true"
+  >
+  </div>
 
-    <form id="login-form" method="POST" action="/api/login" class="mt-8 flex flex-col gap-5">
-      <div class="flex flex-col gap-2">
-        <label for="name" class="text-sm font-medium">{t(lang, "login.name")}</label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          autocomplete="name"
-          class="rounded-md border border-ink/15 bg-paper px-3 py-2 text-sm focus:border-theme"
-          placeholder={t(lang, "login.namePlaceholder")}
-        />
+  <div class="relative z-10 flex flex-1 flex-col">
+    <main class="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 py-12">
+      <div class="w-full max-w-md rounded-xl border border-white/10 bg-paper/85 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl md:p-8">
+        <p class="text-xs font-semibold uppercase tracking-widest text-theme">
+          {t(lang, "login.conferenceName")}
+        </p>
+        <h1 class="mt-1 text-2xl font-semibold tracking-tight">{t(lang, "login.title")}</h1>
+        <p class="mt-2 text-sm text-ink-soft">{t(lang, "login.conferenceWhere")}</p>
+
+        <form id="login-form" method="POST" action="/api/login" class="mt-8 flex flex-col gap-5">
+          <div class="flex flex-col gap-2">
+            <label for="name" class="text-sm font-medium">{t(lang, "login.name")}</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              autocomplete="name"
+              class="rounded-md border border-ink/15 bg-paper px-3 py-2 text-sm focus:border-theme"
+              placeholder={t(lang, "login.namePlaceholder")}
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label for="password" class="text-sm font-medium">{t(lang, "login.password")}</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              class="rounded-md border border-ink/15 bg-paper px-3 py-2 text-sm focus:border-theme"
+            />
+            <p class="text-xs text-ink-soft">{t(lang, "login.passwordHint")}</p>
+          </div>
+
+          <button
+            type="submit"
+            class="rounded-md bg-theme px-4 py-2.5 text-sm font-medium text-paper transition-transform active:scale-[0.98]"
+          >
+            {t(lang, "login.enter")}
+          </button>
+        </form>
       </div>
-      <div class="flex flex-col gap-2">
-        <label for="password" class="text-sm font-medium">{t(lang, "login.password")}</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          class="rounded-md border border-ink/15 bg-paper px-3 py-2 text-sm focus:border-theme"
-        />
-        <p class="text-xs text-ink-soft">{t(lang, "login.passwordHint")}</p>
-      </div>
-
-      <label class="flex items-start gap-2 text-xs leading-relaxed text-ink-soft">
-        <input type="checkbox" name="consent" required class="mt-0.5 accent-theme" />
-        <span>{t(lang, "login.consent")}</span>
-      </label>
-
-      <button
-        type="submit"
-        class="rounded-md bg-theme px-4 py-2.5 text-sm font-medium text-paper transition-transform active:scale-[0.98]"
-      >
-        {t(lang, "login.enter")}
-      </button>
-    </form>
-  </main>
+    </main>
+    <footer class="pb-4">
+      <p class="mx-auto max-w-7xl px-6 text-right text-[11px] text-paper/70">
+        Photo: {photo.alt} — Unsplash
+      </p>
+    </footer>
+  </div>
 </Base>
 
 <script>
