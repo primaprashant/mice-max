@@ -102,8 +102,8 @@ const cityEvents = cityEventsBetween(conf.start_date, conf.end_date);
 const expTitles = Object.fromEntries(exps.map((e) => [e.id, experienceCopy(e.id, lang)?.card_title ?? e.id]));
 
 // Default tab: today when the visit falls inside the conference dates, else
-// Day 1. The attendee's local date (JST), not UTC, so the morning of day 2
-// and 3 shows the right day.
+// Day 1. The visitor's local date, not UTC, so the morning of day 2 and 3
+// shows the right day for them.
 const today = new Intl.DateTimeFormat("en-CA", { dateStyle: "short" }).format(new Date());
 const activeDay = days.includes(today) ? today : days[0];
 ---
