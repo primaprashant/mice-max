@@ -5,7 +5,7 @@
  * plans (my-plans) spanning the full grid width. Sessions tinted by type. */
 import { type Lang, t } from "../i18n";
 import type { Session, Window as FreeWindow } from "../data/types";
-import { layoutBlocks, toMinutes } from "../scripts/layout";
+import { layoutBlocks, toMinutes, type PlacedBlock } from "../scripts/layout";
 
 interface Props {
   lang?: Lang;
@@ -15,9 +15,11 @@ interface Props {
   /** Experience id to card title, for client-side plan blocks. */
   titles: Record<string, string>;
   today: string;
+  /** Attendee only: draw the attendee's own plans and the now line. */
+  showPlans?: boolean;
 }
 
-const { lang = "en", day, sessions, windows, titles, today } = Astro.props;
+const { lang = "en", day, sessions, windows, titles, today, showPlans = true } = Astro.props;
 
 // Grid range: first event start to last event end, padded to whole hours so
 // hour lines land on clean offsets.
@@ -55,9 +57,10 @@ const TYPE_STYLES: Record<string, string> = {
   other: "bg-session-other text-session-other-ink",
 };
 
-// Whole-day-event types span every room column; parallel track types sit in
-// their room's column.
-const FULL_WIDTH_TYPES = new Set(["social", "excursion", "plenary", "other"]);
+// Logistical types span every room column, like the reference agenda's
+// "doors open" and party rows. Program types stay in their room's column,
+// even when the program data types them "other".
+const FULL_WIDTH_TYPES = new Set(["social", "excursion"]);
 
 // Room columns in first-appearance order; null room gets a catch-all column.
 const roomNames: string[] = [];
@@ -68,11 +71,12 @@ for (const s of sessions) {
 const hasUnnamed = roomNames.includes("");
 const namedRooms = roomNames.filter((r) => r !== "");
 const columns = [...namedRooms, ...(hasUnnamed ? [""] : [])];
-const ROOM_COL_WIDTH_REM = 11;
+const ROOM_COL_WIDTH_REM = 14;
 const GRID_MIN_WIDTH_REM = 3.5 + columns.length * ROOM_COL_WIDTH_REM;
 
-// Positioning blocks for one day: sessions (in their room column), windows
-// and client plans (span all columns).
+// Positioning blocks for one day: whole-day sessions span all columns.
+// Free-time windows do not render in the grid; the suggestion cards below
+// carry them, and the attendee's own plans (my-plans) draw over the grid.
 type GridBlock = {
   start: string;
   end: string;
@@ -82,18 +86,55 @@ type GridBlock = {
 };
 
 const fullWidthBlocks: GridBlock[] = [
-  ...windows.map((w) => ({ start: w.start_time, end: w.end_time, kind: "window" as const, win: w })),
   ...sessions.filter((s) => FULL_WIDTH_TYPES.has(s.type) || !s.room).map((s) => ({ start: s.start_time, end: s.end_time, kind: "session" as const, session: s })),
 ];
 const roomSessions = sessions.filter((s) => s.room && !FULL_WIDTH_TYPES.has(s.type));
 
 // Within one room column, the same overlap layout as main's grid: the shared
-// layout module cuts into clusters of overlapping blocks per column.
+// layout module cuts into clusters of overlapping blocks per column. When a
+// cluster holds more sessions than fit side by side at a readable width, the
+// widest ones render and the rest collapse into one "+N more" chip.
+const MAX_SUB_COLS = 3;
 const fullWidthPlaced = layoutBlocks(fullWidthBlocks);
 const roomPlacedByRoom = new Map<string, GridBlock[]>();
 for (const room of columns) roomPlacedByRoom.set(room, []);
 for (const s of roomSessions) roomPlacedByRoom.get(s.room!)!.push({ start: s.start_time, end: s.end_time, kind: "session", session: s });
-const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => ({ index: i, placed: layoutBlocks(blocks) }));
+
+const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => {
+  const placed: (GridBlock & PlacedBlock & { chipTitles?: string[] })[] = [];
+  const sorted = [...blocks].sort((a, b) => a.start.localeCompare(b.start) || b.end.localeCompare(a.end));
+  // Walk the sorted blocks and cut the day into overlap clusters, the same
+  // way layoutBlocks does, so a cluster's members can be capped together.
+  let cluster: (GridBlock & PlacedBlock)[] = [];
+  let clusterEnd = -1;
+  const flush = () => {
+    if (cluster.length === 0) return;
+    if (cluster.length <= MAX_SUB_COLS) {
+      placed.push(...cluster);
+    } else {
+      // Widest first: the longest sessions keep their text; the rest
+      // collapse into one "+N" chip whose tooltip lists their titles.
+      const keep = [...cluster]
+        .sort((a, b) => (toMinutes(b.end) - toMinutes(b.start)) - (toMinutes(a.end) - toMinutes(a.start)) || a.start.localeCompare(b.start))
+        .slice(0, MAX_SUB_COLS);
+      placed.push(...keep);
+      const dropped = [...cluster].sort((a, b) => a.start.localeCompare(b.start)).filter((p) => !keep.includes(p));
+      const titles = dropped.map((p) => (lang === "ja" ? p.session!.title_ja : p.session!.title_en) ?? p.session!.id);
+      placed.push({ start: dropped[0].start, end: dropped[0].end, kind: "session", session: dropped[0].session, col: MAX_SUB_COLS, cols: MAX_SUB_COLS + 1, chipTitles: titles });
+    }
+    cluster = [];
+    clusterEnd = -1;
+  };
+  for (const block of sorted) {
+    const startMin = toMinutes(block.start);
+    if (cluster.length > 0 && startMin >= clusterEnd) flush();
+    const col = (cluster.at(-1)?.col ?? -1) + 1;
+    cluster.push({ ...block, col, cols: MAX_SUB_COLS });
+    clusterEnd = Math.max(clusterEnd, toMinutes(block.end));
+  }
+  flush();
+  return { index: i, placed };
+});
 ---
 
 <div
@@ -104,7 +145,7 @@ const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => ({ ind
   style={`min-width: ${GRID_MIN_WIDTH_REM}rem`}
 >
   <!-- Time gutter: sticky with the room headers on horizontal scroll -->
-  <div class="sticky left-0 z-20 bg-paper">
+  <div class="sticky left-0 z-[400] bg-paper">
     <div class="h-9"></div>
     <div class="relative" style={`height: ${HOUR_LINE_COUNT * 3}rem`}>
       {
@@ -127,7 +168,7 @@ const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => ({ ind
   </div>
   <div class="min-w-0">
     <!-- Room headers: sticky to the top of the scroll container -->
-    <div class="sticky top-0 z-10 flex h-9 bg-paper">
+    <div class="sticky top-0 z-[300] flex h-9 bg-paper">
       {
         columns.map((room) => (
           <div
@@ -165,11 +206,32 @@ const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => ({ ind
             const long = bottom - top > 6; // enough vertical room for meta text
             const s = p.session!;
             const title = (lang === "ja" ? s.title_ja : s.title_en) ?? s.id;
+            const isOverflowChip = p.col === MAX_SUB_COLS && p.cols === MAX_SUB_COLS + 1;
+            const overflowList = p.chipTitles ?? [];
+            // The band's percentage width can leave a sub-column under the
+            // text's minimum readable width; floor it to 7rem and keep the
+            // block anchored at its left so neighbours stay visible.
+            const pxPerPct = GRID_MIN_WIDTH_REM / 100;
+            const widthRem = Math.max(innerWidth * pxPerPct, 7);
+            if (isOverflowChip) {
+              return (
+                <button
+                  type="button"
+                  data-session-id={s.id}
+                  class="absolute flex items-center justify-center rounded-full border border-session-border bg-session-other px-2 text-[11px] font-medium text-session-other-ink"
+                  style={`top: ${top}%; height: ${bottom - top}%; left: ${(left + inset / 2) * pxPerPct}rem; min-width: 2rem; max-width: ${widthRem}rem`}
+                  title={overflowList.join("\n")}
+                >
+                  {`+${overflowList.length}`}
+                </button>
+              );
+            }
             return (
               <div
-                class="group absolute cursor-default overflow-hidden rounded-md px-1.5 py-0.5 ring-theme/0 transition-shadow hover:ring-2 hover:ring-theme/40"
+                data-session-id={s.id}
+                class="group absolute cursor-default overflow-hidden rounded-md border border-session-border px-1.5 py-0.5 ring-theme/0 transition-shadow hover:ring-2 hover:ring-theme/40"
                 class:list={[TYPE_STYLES[s.type] ?? TYPE_STYLES.other]}
-                style={`top: ${top}%; height: ${bottom - top}%; left: ${left + inset / 2}%; width: ${innerWidth}%`}
+                style={`top: ${top}%; height: ${bottom - top}%; left: ${(left + inset / 2) * pxPerPct}rem; width: ${widthRem}rem`}
                 title={title}
               >
                 <p class="truncate text-[11px] font-medium leading-tight">{title}</p>
@@ -192,34 +254,19 @@ const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => ({ ind
         })
       }
       {
-        // Full-width blocks: windows, whole-day events, no-room sessions.
+        // Full-width blocks: whole-day events and no-room sessions.
         fullWidthPlaced.map((p) => {
           const top = pos(p.start);
           const bottom = pos(p.end);
           const long = bottom - top > 6;
-
-          if (p.kind === "window") {
-            const w = p.win!;
-            return (
-              <div
-                class="absolute rounded-md border border-dashed border-banana/60 bg-banana-soft/40 px-1.5 py-0.5"
-                style={`top: ${top}%; height: ${bottom - top}%; left: 0.5%; width: 99%`}
-              >
-                <p class="truncate font-medium text-banana">{lang === "ja" ? w.name_ja : w.name_en}</p>
-                <p class="truncate font-mono text-[10px] tabular-nums text-banana/80">
-                  {w.start_time}–{w.end_time}
-                </p>
-              </div>
-            );
-          }
-
           const s = p.session!;
           const title = (lang === "ja" ? s.title_ja : s.title_en) ?? s.id;
           return (
             <div
-              class="absolute overflow-hidden rounded-md px-1.5 py-0.5 ring-theme/0 transition-shadow hover:ring-2 hover:ring-theme/40"
+              data-session-id={s.id}
+              class="absolute overflow-hidden rounded-md border border-session-border px-1.5 py-0.5 ring-theme/0 transition-shadow hover:ring-2 hover:ring-theme/40"
               class:list={[TYPE_STYLES[s.type] ?? TYPE_STYLES.other]}
-              style={`top: ${top}%; height: ${bottom - top}%; left: 0.5%; width: 99%`}
+              style={`top: ${top}%; height: ${bottom - top}%; left: ${GRID_MIN_WIDTH_REM * 0.005}rem; width: ${GRID_MIN_WIDTH_REM * 0.99}rem`}
               title={title}
             >
               <p class="truncate text-[11px] font-medium leading-tight">{title}</p>
@@ -237,14 +284,16 @@ const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => ({ ind
           );
         })
       }
-      <my-plans
-        class="absolute inset-0"
-        data-day={day}
-        data-grid-start={gridStart}
-        data-grid-end={gridEnd}
-        data-titles={JSON.stringify(titles)}
-      />
-      {day === today && <now-line data-grid-start={gridStart} data-grid-end={gridEnd} class="absolute inset-0" />}
+      {showPlans && (
+        <my-plans
+          class="absolute inset-0"
+          data-day={day}
+          data-grid-start={gridStart}
+          data-grid-end={gridEnd}
+          data-titles={JSON.stringify(titles)}
+        />
+      )}
+      {showPlans && day === today && <now-line data-grid-start={gridStart} data-grid-end={gridEnd} class="absolute inset-0" />}
     </div>
   </div>
 </div>
