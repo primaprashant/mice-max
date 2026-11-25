@@ -1,0 +1,15 @@
+# Backend service only. The frontend deploys on Netlify from ui/.
+services:
+  - type: web
+    name: micemax-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: "pip install uv && uv sync --no-dev"
+    startCommand: ".venv/bin/uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
