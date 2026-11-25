@@ -3,6 +3,7 @@ export const prerender = false;
 
 import Base from "../../../../layouts/Base.astro";
 import Header from "../../../../components/Header.astro";
+import OpsBadge from "../../../../components/OpsBadge.astro";
 import {
   conferenceById,
   experienceById,
@@ -117,6 +118,10 @@ const priceLine = (() => {
         <p class="mt-1 whitespace-pre-line text-sm leading-relaxed text-ink-soft">{copy.good_to_know}</p>
       </div>
     )}
+
+    <div class="mt-4">
+      <OpsBadge lang={lang} conference={conf.id} text={t(lang, "ops.badges.experience")} />
+    </div>
 
     {tags.length > 0 && (
       <div class="mt-6 flex flex-wrap gap-2">
