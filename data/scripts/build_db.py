@@ -7,6 +7,7 @@ import sqlite3
 from pathlib import Path
 
 import compute_travel
+import import_copy
 import import_conferences
 import import_photos
 import import_places
@@ -27,6 +28,7 @@ def main():
     import_conferences.load(db, raw / "conferences")
     import_programs.load(db, raw / "programs", dt.date.today().isoformat())
     import_plans.load(db, raw / "plans", raw / "places")
+    import_copy.load(db, raw / "copy")
     import_photos.load(db, raw / "photos", DATA / "images", dt.date.today().isoformat())
     compute_travel.load(db)
     db.commit()

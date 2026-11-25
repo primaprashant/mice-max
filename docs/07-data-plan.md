@@ -107,6 +107,8 @@ Run [prompts/inventory-research.md](prompts/inventory-research.md). 80–100 rea
 
 ### T6. Plan copy in JA and EN (LLM + human check, ~1 h, after T4)
 
+**Done 2026-11-25:** [data/raw/copy/plan_copy.csv](../data/raw/copy/plan_copy.csv) (88 plans, JA and EN, `checked_by_human` = 0), [STYLE.md](../data/raw/copy/STYLE.md), [NOTES.md](../data/raw/copy/NOTES.md); window names polished. `import_copy.py` warns about numbers not in a plan's fields.
+
 Per plan: title, a one-line hook, a 2–3 sentence description, what's included, and "good to know" (cash only, English OK, solo-friendly, last train). Written from `plans` fields only. A Japanese speaker reads the Japanese.
 
 ### T7. Places and seasons (agent, ~1.5 h)

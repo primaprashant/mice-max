@@ -1,16 +1,16 @@
 day,start_time,end_time,kind,name_ja,name_en,overlaps_program,overlap_note,plan_kinds,reason
-2027-03-17,17:00,22:00,evening,前日の夜,Evening before the meeting,0,,"[""evening""]",Board and councillors meet the day before (評議員会 ends 17:00); early arrivals have the evening free.
-2027-03-18,06:30,08:30,early_morning,朝の自由時間,Early morning,0,,"[""short""]",The opening ceremony starts at 8:30.
-2027-03-18,12:05,15:00,lunch,長めの昼休み,Long lunch break,1,"Luncheon seminars 1–4 12:15–13:05; general assembly 13:10–13:50; posters 13:55–14:55; 特別企画2 from 14:00","[""short"", ""specialist""]",Most rooms are empty from about 12:05 until 15:00.
-2027-03-18,16:05,19:15,during_program,夕方の分科会の時間,Late afternoon parallel sessions,1,"Symposia, panels and orals in up to 10 rooms at once; exhibition until 17:30","[""short"", ""specialist""]",With ten rooms running in parallel each attendee follows only a few sessions.
+2027-03-17,17:00,22:00,evening,開会前日の夜,Evening before day 1,0,,"[""evening""]",Board and councillors meet the day before (評議員会 ends 17:00); early arrivals have the evening free.
+2027-03-18,06:30,08:30,early_morning,1日目の朝,Day 1 early morning,0,,"[""short""]",The opening ceremony starts at 8:30.
+2027-03-18,12:05,15:00,lunch,1日目の長い昼休み,Day 1 long lunch,1,Luncheon seminars 1–4 12:15–13:05; general assembly 13:10–13:50; posters 13:55–14:55; 特別企画2 from 14:00,"[""short"", ""specialist""]",Most rooms are empty from about 12:05 until 15:00.
+2027-03-18,16:05,19:15,during_program,1日目の夕方セッション中,Day 1 late afternoon sessions,1,"Symposia, panels and orals in up to 10 rooms at once; exhibition until 17:30","[""short"", ""specialist""]",With ten rooms running in parallel each attendee follows only a few sessions.
 2027-03-18,19:15,23:00,evening,懇親会の夜,Reception night,1,"Welcome reception 19:25–20:45, free for all attendees","[""evening""]",Sessions end at 19:15; the reception leaves time for a second stop after 20:45.
-2027-03-19,06:30,09:00,early_morning,朝の自由時間,Early morning,1,"教育講演11 (specialist supervisor course) from 7:50; two panels from 8:30","[""short""]",Most rooms start at 9:00; the early slots serve small groups.
-2027-03-19,11:40,13:00,lunch,昼休み,Lunch break,1,"Luncheon seminars 5–8 12:00–12:50","[""short""]",Rooms are empty between the morning sessions and the presidential lecture at 13:00.
-2027-03-19,13:45,16:10,during_program,午後の抜け時間,Early afternoon,1,"Posters 13:55–14:55; from 15:00 lectures, panels and orals in 10 rooms","[""short"", ""specialist""]",After the presidential lecture only posters and parallel sessions run.
-2027-03-19,19:20,23:00,evening,金曜の夜,Friday night,1,"National meeting of disaster base hospitals 19:30–20:30 (its members only)","[""evening""]",The longest day ends at 19:20 with no reception.
-2027-03-20,06:30,09:10,early_morning,朝の自由時間,Early morning,1,"MCLS-CBRNE course from 8:20 (registrants only)","[""short""]",The last day starts at 9:10.
-2027-03-20,11:50,14:20,lunch,長めの昼休み,Long lunch break,1,"Luncheon seminars 9–11 12:10–13:00; posters 13:10–14:10; public disaster event until 14:00","[""short"", ""specialist""]",Rooms are empty from 11:50 to 14:20 apart from lunch seminars and posters.
-2027-03-20,14:20,16:30,during_program,最終日の午後,Last afternoon,1,"Final sessions in 10 rooms 14:20–15:50; closing ceremony 16:00–16:30","[""short"", ""specialist""]",Many attendees skip the last afternoon; exhibition closes at 15:00.
-2027-03-20,16:30,18:30,after_close,閉会後,After closing,1,"Student forum and public lecture run until 17:00","[""short""]",The meeting is over; a short outing fits before dinner or the flight home.
-2027-03-20,18:30,23:00,evening,土曜の夜,Saturday night,0,,"[""evening"", ""extra_night""]",First free evening with nothing the next day.
-2027-03-20,16:30,20:00,extra_night,もう一泊（土曜泊）,Extra night (Saturday to Sunday),0,,"[""extra_night""]","Stay Saturday night and return Sunday 3/21 by 20:00; Mon 3/22 is a public holiday (春分の日 substitute), so it is a three-day weekend."
+2027-03-19,06:30,09:00,early_morning,2日目の朝,Day 2 early morning,1,教育講演11 (specialist supervisor course) from 7:50; two panels from 8:30,"[""short""]",Most rooms start at 9:00; the early slots serve small groups.
+2027-03-19,11:40,13:00,lunch,2日目の昼休み,Day 2 lunch,1,Luncheon seminars 5–8 12:00–12:50,"[""short""]",Rooms are empty between the morning sessions and the presidential lecture at 13:00.
+2027-03-19,13:45,16:10,during_program,2日目の午後,Day 2 early afternoon,1,"Posters 13:55–14:55; from 15:00 lectures, panels and orals in 10 rooms","[""short"", ""specialist""]",After the presidential lecture only posters and parallel sessions run.
+2027-03-19,19:20,23:00,evening,2日目の夜,Day 2 evening,1,National meeting of disaster base hospitals 19:30–20:30 (its members only),"[""evening""]",The longest day ends at 19:20 with no reception.
+2027-03-20,06:30,09:10,early_morning,最終日の朝,Last day early morning,1,MCLS-CBRNE course from 8:20 (registrants only),"[""short""]",The last day starts at 9:10.
+2027-03-20,11:50,14:20,lunch,最終日の長い昼休み,Last day long lunch,1,Luncheon seminars 9–11 12:10–13:00; posters 13:10–14:10; public disaster event until 14:00,"[""short"", ""specialist""]",Rooms are empty from 11:50 to 14:20 apart from lunch seminars and posters.
+2027-03-20,14:20,16:30,during_program,最終日の午後,Last day afternoon,1,Final sessions in 10 rooms 14:20–15:50; closing ceremony 16:00–16:30,"[""short"", ""specialist""]",Many attendees skip the last afternoon; exhibition closes at 15:00.
+2027-03-20,16:30,18:30,after_close,閉会後の夕方,After the close,1,Student forum and public lecture run until 17:00,"[""short""]",The meeting is over; a short outing fits before dinner or the flight home.
+2027-03-20,18:30,23:00,evening,閉会後の夜,Evening after the close,0,,"[""evening"", ""extra_night""]",First free evening with nothing the next day.
+2027-03-20,16:30,20:00,extra_night,土曜にもう一泊,Extra night on Saturday,0,,"[""extra_night""]","Stay Saturday night and return Sunday 3/21 by 20:00; Mon 3/22 is a public holiday (春分の日 substitute), so it is a three-day weekend."
