@@ -1,5 +1,7 @@
 # Plan copy style
 
+Applies to `plan_copy.csv` (one plan) and `experience_copy.csv` (combos; facts come from all their stops and `data/raw/experiences/`).
+
 Reader: a busy doctor or engineer at a conference in Sapporo with a free evening or a spare hour. They want to decide in seconds.
 
 ## What to answer

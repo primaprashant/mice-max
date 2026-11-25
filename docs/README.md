@@ -6,7 +6,7 @@ Briefs for MiceMax, a product that gets people visiting Hokkaido for business ev
 
 1. Sapporo hosts about 109,000 conference attendees a year, but its venue is full until about FY2033, so it can't grow by hosting more conferences.
 2. The only way to grow is to earn more from each attendee, and the city already pays to try this by hand for one conference a year.
-3. MiceMax reads a conference's website, finds attendees' free time and offers them plans that fit: **an extra night first**, then short activities and evenings, then specialist visits.
+3. MiceMax reads a conference's website, finds attendees' free time and offers them experiences that fit: **an extra night first**, then short activities and evenings, then specialist visits.
 4. The organizer shares it with one link, attendees book, and the city sees how much new money came in.
 5. We start in Sapporo, then other Hokkaido cities, then Japan's other big conference cities.
 
@@ -58,3 +58,5 @@ If you add a number, add a label and a source.
 - **Convention Bureau:** the city-backed organization that attracts and supports conferences (Sapporo Convention Bureau).
 - **Extra night:** a night an attendee stays beyond what the conference needs.
 - **New money:** spending that would not have happened without MiceMax.
+- **Experience:** what an attendee sees and books: one place or activity, or a combo of several (e.g. lamb dinner, then a closing parfait), with one all-in price.
+- **Plan:** one real place or activity in our data (a restaurant, a hot spring, a hotel night). Experiences are built from plans.

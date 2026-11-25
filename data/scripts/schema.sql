@@ -151,7 +151,7 @@ CREATE TABLE windows (
   name_en        TEXT NOT NULL,
   overlaps_program INTEGER NOT NULL DEFAULT 0,  -- 1 = runs alongside sessions attendees may skip (D26)
   overlap_note   TEXT,                          -- what runs at the same time, e.g. 'parallel orals, posters'
-  plan_kinds     TEXT,                          -- JSON plan kinds that fit, e.g. ['short','specialist']
+  plan_kinds     TEXT,                          -- JSON experience kinds that fit, e.g. ['short','specialist']
   checked_by_human INTEGER NOT NULL DEFAULT 0
 );
 

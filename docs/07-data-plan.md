@@ -24,8 +24,8 @@ All other conferences get **stats only** (dates, size, field, scope), no individ
 - **Scripts in `data/scripts/`:**
   - `schema.sql`: all tables. Written after the recon in T0, and changed whenever the research shows something new.
   - `import_*.py`: research agents save their output as CSV or JSON in `data/raw/`. A small import script loads it into SQLite. Raw files are kept, so a schema change means re-running the import, not redoing the research.
-  - `simulate.py`: reads conferences, programs and plans from SQLite, writes attendees and events back. Fixed random seed, so re-running gives the same data.
-  - `push_neon.py`, `push_neo4j.py`: wipe and reload the online databases from SQLite. Safe to run any time. Neon gets the event log and bookings; Neo4j gets the graph (conferences, windows, plans, places, attendees, joins).
+  - `simulate.py`: reads conferences, programs and experiences from SQLite, writes attendees and events back. Fixed random seed, so re-running gives the same data.
+  - `push_neon.py`, `push_neo4j.py`: wipe and reload the online databases from SQLite. Safe to run any time. Neon gets the event log and bookings; Neo4j gets the graph (conferences, windows, experiences and their plans, places, attendees, joins).
 - Connection strings come from a local `.env`, never committed.
 
 ### Tables
@@ -96,13 +96,13 @@ For each demo event:
 
 ### T4. Plan list (research agent, ~3 h)
 
-**Done 2026-11-25:** 88 plans (30 short, 25 evening, 15 extra-night, 18 specialist) in `data/raw/plans/`, 24 tags in `tags.csv`. Run `data/scripts/geocode.py` after adding addresses.
+**Done 2026-11-25:** 88 plans (30 short, 25 evening, 15 extra-night, 18 specialist) in `data/raw/plans/`, 24 tags in `tags.csv`. 8 more added as combo stops in `stops-*.csv` (96 in all). Run `data/scripts/geocode.py` after adding addresses.
 
 Run [prompts/inventory-research.md](prompts/inventory-research.md). 80–100 real items: ~30 short, ~25 evening, ~15 extra-night, ~15 specialist. Extra nights get the most care: all-in price (transport + stay + main activity) and how it was computed. Specialist visits must cover both demo events' fields (re-run that group after T2 if needed).
 
 ### T5. Photos (agent, ~1 h, after T4)
 
-**Done 2026-11-25:** 198 photos for 83 of 88 plans in `data/images/`, sources in `data/raw/photos/` ([NOTES.md](../data/raw/photos/NOTES.md): gaps and photos to ask owners for), loaded by `import_photos.py`.
+**Done 2026-11-25:** 198 photos for 83 of 88 plans in `data/images/` (plus 15 for the 8 combo stops in `batch-7.csv`), sources in `data/raw/photos/` ([NOTES.md](../data/raw/photos/NOTES.md): gaps and photos to ask owners for), loaded by `import_photos.py`.
 
 2–3 photos per plan, saved as `data/images/<plan_id>/1.jpg`, 1600 px wide, landscape, no text or logos on them, similar mood across plans. Source page of each photo goes in `plan_photos`. Copyrighted photos are fine for the demo (D21). Flag plans with no usable photo.
 
@@ -154,7 +154,7 @@ Run `push_neon.py` and `push_neo4j.py`. Check:
 
 - Each demo event's estimated new money sits inside the money model's Early–Strong range for its size.
 - The city view's "next 12 months" figure is the money formula applied to each listed upcoming conference's stats, using the same drivers as the table above, plus one "other smaller meetings" row for the rest of the city's yearly total (about 466 events and 109,311 attendees [S1] minus the listed ones). Labelled as an estimate.
-- No plan shows a price, time or place that isn't in `plans`.
+- No experience shows a price, time or place that isn't in `plans` or `experience_stops`.
 - Real-looking variety: no plan nobody picks, no plan everybody picks.
 - Everything simulated carries the label.
 
@@ -162,11 +162,12 @@ Run `push_neon.py` and `push_neo4j.py`. Check:
 
 Store data in the shape the screens need, so the app doesn't patch it later. Include these in the schema (T0):
 
-- **Photos:** width, height, dominant colour (for a coloured placeholder while loading), focal point (for clean crops at any size), alt text JA/EN, and one `is_hero` photo per plan.
+- **Photos:** width, height, dominant colour (for a coloured placeholder while loading), focal point (for clean crops at any size), alt text JA/EN, and one `is_hero` photo per experience.
 - **Copy at fixed lengths:** card title (JA up to 16 characters, EN up to 40), one-line hook, detail text. Cards never truncate mid-word.
 - **One tag list** of about 20 tags, each with a JA/EN label and an icon name. Research tags are mapped to it on import.
-- **Travel time from each demo venue to each plan** (walk or transit minutes), worked out once from `places`, so cards can say "8 min walk".
+- **Travel time from each demo venue to each experience** (walk or transit minutes to its first stop), worked out once from `places`, so cards can say "8 min walk".
 - **Prices as one all-in number** per person plus what's included, so the UI never adds prices together.
+- **Experiences, not plans** (D27): the UI reads `experiences`. A combo lists its stops in order with time at each, travel between them and what you do there, so a card can show a timeline.
 - **Field content** from outreach ([08-outreach-plan.md](08-outreach-plan.md)): partner status, owner tips and our own photos.
 
 

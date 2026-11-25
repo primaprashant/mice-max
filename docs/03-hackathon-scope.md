@@ -4,7 +4,7 @@ This brief sets the scope for what we build at the hackathon. The vision ([02-vi
 
 ## The one thing the demo must prove
 
-**Paste a real conference link and, within a few minutes, MiceMax produces a working attendee page full of plans that fit that conference's free time. A city view then shows what that could be worth to Sapporo.**
+**Paste a real conference link and, within a few minutes, MiceMax produces a working attendee page full of experiences that fit that conference's free time. A city view then shows what that could be worth to Sapporo.**
 
 Everything else supports that loop.
 
@@ -13,18 +13,18 @@ Everything else supports that loop.
 1. **Organizer view.** Paste a conference URL (or upload the program PDF). The AI reads it and shows:
    - dates, venues and session times;
    - the attendees' **free time windows**: early morning, lunch, evenings, any free afternoon, and the day after the conference ends;
-   - suggested plans for each window, which the organizer can approve or remove with one click;
+   - suggested experiences for each window, which the organizer can approve or remove with one click;
    - outputs to share: an attendee page link, a QR code and ready-to-send email text in Japanese and English.
 2. **Attendee view** (Japanese and English).
-   - **One timeline** for this conference: sessions and free-time windows together, with the attendee's chosen plans placed in their windows. One view means no cross-checking two schedules and fewer missed plans or cancellations.
-   - Plans for each window, across the three ways to spend:
+   - **One timeline** for this conference: sessions and free-time windows together, with the attendee's chosen experiences placed in their windows. One view means no cross-checking two schedules and fewer missed bookings or cancellations.
+   - Experiences for each window, across the three ways to spend:
      - **extra night** after the conference (e.g. Otaru, Jozankei onsen, Yoichi wineries), with an all-in price;
      - **short activities** in free time: morning run, specialty coffee tour, walking tour, brewery tour, group dinner;
      - **specialist experiences** matched to the conference topic (e.g. a research facility for a science conference).
-   - **Join others:** see which plans other attendees from the same conference have joined, and join them. This is especially useful for people travelling alone.
-   - **Mock checkout:** looks real, charges nothing. In real use the attendee pays the local business for the plan they book; MiceMax earns a commission, and the city pays separately to run the service (see [04-long-term-plan.md](04-long-term-plan.md#revenue-to-micemax)).
+   - **Join others:** see which experiences other attendees from the same conference have joined, and join them. This is especially useful for people travelling alone.
+   - **Mock checkout:** looks real, charges nothing. In real use the attendee pays the local business for the experience they book; MiceMax earns a commission, and the city pays separately to run the service (see [04-long-term-plan.md](04-long-term-plan.md#revenue-to-micemax)).
 3. **City view.**
-   - Attendees reached (count, and % of each conference's attendees, since conference sizes vary widely), plans booked, extra nights and estimated new spend, per conference and in total. The count feeds the money formula; the % makes conferences of different sizes comparable.
+   - Attendees reached (count, and % of each conference's attendees, since conference sizes vary widely), experiences booked, extra nights and estimated new spend, per conference and in total. The count feeds the money formula; the % makes conferences of different sizes comparable.
    - Split by type of spend (extra nights, short activities, specialist) and by area (Sapporo, Otaru, Jozankei…).
    - **All numbers are simulated and clearly labelled as such.** The formula behind them is shown on screen (see [04-long-term-plan.md](04-long-term-plan.md#money-model)).
 
@@ -45,18 +45,18 @@ Dates come from the organizers' or the city's pages (Reported, [S25] and [S1] in
 
 ## Activity and venue list
 
-The list of real activities, restaurants and extra-night plans is built **separately** by an AI agent using [prompts/inventory-research.md](prompts/inventory-research.md), and checked by a person. The demo reads that list. It never makes up places or prices on screen.
+The list of real activities, restaurants and extra-night stays is built **separately** by an AI agent using [prompts/inventory-research.md](prompts/inventory-research.md), and checked by a person. The demo reads that list. It never makes up places or prices on screen.
 
 ## Build
 
 | Part | Must have | Nice to have |
 |---|---|---|
 | Conference reading | URL or PDF → dates, venues, sessions, free windows (structured data) | Guess the audience's field and interests from the program |
-| Matching | Plans that fit each window: duration, distance from the venue, opening hours, price | Ranking by attendee interests |
-| Organizer view | Approve/remove plans; generate link, QR code, email text (JA/EN) | Edit the email text |
-| Attendee view | One timeline (sessions + free time), plans, join others, mock checkout (JA/EN) | Share a plan with colleagues |
+| Matching | Experiences that fit each window: duration, distance from the venue, opening hours, price | Ranking by attendee interests |
+| Organizer view | Approve/remove experiences; generate link, QR code, email text (JA/EN) | Edit the email text |
+| Attendee view | One timeline (sessions + free time), experiences, join others, mock checkout (JA/EN) | Share an experience with colleagues |
 | City view | Simulated numbers with labels, formula visible | Sliders to change the assumptions |
-| Event log | Every interaction (plan shown, opened, joined, booked, removed by organizer) saved as a row, from the first click. The city view reads from it | – |
+| Event log | Every interaction (experience shown, opened, joined, booked, removed by organizer) saved as a row, from the first click. The city view reads from it | – |
 
 ## Do not build
 
@@ -68,15 +68,15 @@ Use hackathon partners only where they genuinely fit. Each piece of intelligence
 
 | Job | Tool | Why this tool |
 |---|---|---|
-| **Filter what is possible:** which plans fit this time window, near this venue, open at this hour; who else from this conference joined | **Neo4j** (graph database). Use it | The data is naturally a graph (below). Neo4j also offers a special prize for the best use case |
-| **Read and write words:** turn a messy conference site or PDF into a clean schedule; write plan descriptions, email text and specialist-visit ideas in Japanese and English | **An LLM, called through OrcaRouter** [S26] | One OpenAI-compatible endpoint for many models. Send hard extraction to a strong model and routine cleanup or translation to a cheap one. Automatic failover keeps the live demo running if one provider is slow |
-| **Make choices:** is this session block free time? Does this plan suit this audience? Which 3 plans should we show first? | **TypeSafe's Jev** (decision model) [S27] | Returns a structured answer with a probability instead of free text. Low-confidence answers go to the organizer to approve, and the confidence can show on screen. It is in early access, so **confirm access on day 1**. If it isn't available, use the LLM with structured output instead |
+| **Filter what is possible:** which experiences fit this time window, near this venue, open at this hour; who else from this conference joined | **Neo4j** (graph database). Use it | The data is naturally a graph (below). Neo4j also offers a special prize for the best use case |
+| **Read and write words:** turn a messy conference site or PDF into a clean schedule; write experience descriptions, email text and specialist-visit ideas in Japanese and English | **An LLM, called through OrcaRouter** [S26] | One OpenAI-compatible endpoint for many models. Send hard extraction to a strong model and routine cleanup or translation to a cheap one. Automatic failover keeps the live demo running if one provider is slow |
+| **Make choices:** is this session block free time? Does this experience suit this audience? Which 3 experiences should we show first? | **TypeSafe's Jev** (decision model) [S27] | Returns a structured answer with a probability instead of free text. Low-confidence answers go to the organizer to approve, and the confidence can show on screen. It is in early access, so **confirm access on day 1**. If it isn't available, use the LLM with structured output instead |
 | Store the event log and mock orders | **Neon** (serverless Postgres). Recommended | An append-only log is a plain table. Keeping it out of the graph keeps both simple |
 | Look up missing details on the web (venue address, hotel list) | **Linkup** (web search API). Optional | Only if conference pages leave gaps |
 
 **In short:** the graph decides what is *possible*, the decision model decides what is *best*, and the LLM writes the *words*.
 
-Example graph: Conference → has → Time window; Plan → located at → Place → in → Area; Plan → fits → Time window; Attendee → attends → Conference; Attendee → joined → Plan; Conference topic → relates to → Specialist plan.
+Example graph: Conference → has → Time window; Experience → has stop → Plan → located at → Place → in → Area; Experience → fits → Time window; Attendee → attends → Conference; Attendee → joined → Experience; Conference topic → relates to → Specialist experience.
 
 Not needed for the core scope: Hyper3D, Cascadeur, Dify, Hermes Agent, Adaption Labs. ElevenLabs, Fish Audio and PixVerse only for the stretch goal below.
 
@@ -84,7 +84,7 @@ Not needed for the core scope: Hyper3D, Cascadeur, Dify, Hermes Agent, Adaption 
 
 Only after every "Must have" above works.
 
-**What:** each plan, especially extra-night plans, gets a 15–30 second preview: a few real photos with gentle motion, short captions and a voiceover in Japanese or English ("Finish your conference on Saturday, and by 6 pm you're in an open-air onsen in Jozankei…").
+**What:** each experience, especially extra nights, gets a 15–30 second preview: a few real photos with gentle motion, short captions and a voiceover in Japanese or English ("Finish your conference on Saturday, and by 6 pm you're in an open-air onsen in Jozankei…").
 
 **Why it's worth it:** the decision to stay an extra night is emotional and is made when booking flights. A short video in the pre-arrival email persuades far better than text. It also demos well.
 
@@ -109,7 +109,7 @@ Shows the data flywheel ([04-long-term-plan.md](04-long-term-plan.md#data-flywhe
 
 - The repository will be **open source**. No secrets in code, and every data item records its source. Copyrighted photos are allowed during the hackathon (D21); record each photo's source page and replace them before any public launch.
 - Never present simulated or estimated numbers as real. Label them on screen.
-- Log every interaction to the event log, including plans that were shown but not picked. No names or emails in the log.
+- Log every interaction to the event log, including experiences that were shown but not picked. No names or emails in the log.
 - Never invent places, prices or opening hours. If the list doesn't have it, don't show it.
 - Japanese is the primary language. English must be complete, not partial.
 - Design for any conference. Nothing may be hard-coded to the demo events.
