@@ -37,7 +37,10 @@ const gridEndMin = toMinutes(gridEnd);
 const pos = (time: string) => ((toMinutes(time) - gridStartMin) / (gridEndMin - gridStartMin)) * 100;
 
 const HOUR_LINE_COUNT = gridEndHour - Number(gridStart.slice(0, 2));
-const hourLabels = Array.from({ length: HOUR_LINE_COUNT + 1 }, (_, i) => `${String(Number(gridStart.slice(0, 2)) + i).padStart(2, "0")}:00`);
+const hourLabels = Array.from({ length: HOUR_LINE_COUNT + 1 }, (_, i) =>
+  `${String(Number(gridStart.slice(0, 2)) + i).padStart(2, "0")}:00`,
+);
+// Last slot is the grid end boundary; label it 24:00 as a boundary, not a clock time.
 
 // Colors per session type: tinted backgrounds with dark text of the same hue,
 // same tint depth as banana-soft so everything reads at the same level.
@@ -76,7 +79,7 @@ const placed = layoutBlocks(blocks);
       hourLabels.map((label, i) => (
         <span
           class="absolute right-2 -translate-y-1/2 font-mono text-[11px] tabular-nums text-ink-soft"
-          style={`top: ${(i / hourLabels.length) * 100}%`}
+          style={`top: ${(i / (hourLabels.length - 1)) * 100}%`}
         >
           {label}
         </span>
@@ -88,7 +91,7 @@ const placed = layoutBlocks(blocks);
       hourLabels.map((_, i) => (
         <div
           class="absolute inset-x-0 border-t border-ink/5"
-          style={`top: ${(i / hourLabels.length) * 100}%`}
+          style={`top: ${(i / (hourLabels.length - 1)) * 100}%`}
         />
       ))
     }
