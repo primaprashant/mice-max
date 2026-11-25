@@ -25,7 +25,9 @@ All other conferences get **stats only** (dates, size, field, scope), no individ
   - `schema.sql`: all tables. Written after the recon in T0, and changed whenever the research shows something new.
   - `import_*.py`: research agents save their output as CSV or JSON in `data/raw/`. A small import script loads it into SQLite. Raw files are kept, so a schema change means re-running the import, not redoing the research.
   - `simulate.py`: reads conferences, programs and experiences from SQLite, writes attendees and events back. Fixed random seed, so re-running gives the same data.
-  - `push_neon.py`, `push_neo4j.py`: wipe and reload the online databases from SQLite. Safe to run any time. Neon gets the event log and bookings; Neo4j gets the graph (conferences, windows, experiences and their plans, places, attendees, joins).
+  - `push_neon.py`, `push_neo4j.py`: wipe and reload the online databases from SQLite. Safe to run any time. Neon gets a copy of every table, so the UI reads everything from one place (decided 2026-11-25); Neo4j gets the graph (conferences, windows, experiences and their plans, places, attendees, joins).
+  - `build_graph.py`: runs last in `build_db.py` and builds the graph as a local RelateDB file, `data/micemax.rl`, committed next to `micemax.db`. `push_neo4j.py` copies that file to Neo4j Aura. Nodes, relationships and their rules are listed at the top of [build_graph.py](../data/scripts/build_graph.py); example queries are in [graph-examples.cypher](../data/graph-examples.cypher).
+  - `city_estimate.py`: the city view's next-12-months estimate (see T9). `check_t9.py`: the T9 checks.
 - Connection strings come from a local `.env`, never committed.
 
 ### Tables
@@ -39,6 +41,7 @@ All other conferences get **stats only** (dates, size, field, scope), no individ
 | `plan_travel` | Minutes from each demo venue to each plan, computed from `places` | after T4, T7 |
 | `places`, `routes`, `seasons`, `city_events` | Venues, areas, transit routes, monthly weather and highlights (sunset computed in code) | T7 |
 | `attendees`, `session_attendance`, `events`, `simulation_runs` | Simulated, demo events only | T8 |
+| `city_estimates` | Estimate only: money formula per upcoming listed conference, plus other smaller meetings | T9 |
 | `contacts`, `outreach`, `interviews` | Real outreach, organizations only | T10–T12 |
 
 ## Rules for every research task
@@ -77,7 +80,7 @@ Sapporo business events from **Dec 2025 to Nov 2027**. No cap: list every event 
 - **Sources:** city MICE page [S1], Sapporo Convention Bureau upcoming and past events, Sapporo Convention Center calendar, big hotels, Hokkaido University. Example searches: "札幌 学術集会 2027", "第◯回 日本◯◯学会 総会 札幌", "札幌コンベンションセンター 開催予定", "international conference Sapporo 2027".
 - **Fields:** `id, name_ja, name_en, start_date, end_date, end_weekday, venue, field, field_detail, scope (international/national/regional), attendees (actual if past, expected if upcoming), overseas_attendees, organizer_or_pco, website_url, program_status (full_online/partial/pdf_only/login_required/not_yet), source_url, confidence, notes`.
 - **Done when:** every row has a source, and a short note lists the top 3 domestic and top 3 international demo candidates.
-- **Done 2026-11-25:** 269 events in `data/micemax.db`; shortlist and gaps in [data/raw/conferences/NOTES.md](../data/raw/conferences/NOTES.md). Rebuild with `python3 data/scripts/build_db.py`.
+- **Done 2026-11-25:** 269 events in `data/micemax.db`; shortlist and gaps in [data/raw/conferences/NOTES.md](../data/raw/conferences/NOTES.md). Rebuild with `.venv/bin/python data/scripts/build_db.py` (see T9).
 
 ### T2. Pick the two demo conferences (human, 15 min)
 
@@ -151,6 +154,19 @@ These let the attendee view say "Sunset 18:52, 14 °C, bring a light jacket" or 
 Timing: registration waves, a bump after the organizer's email, extra-night bookings mostly weeks ahead (when flights are booked), short activities mostly in the last week and on site.
 
 ### T9. Push and check (~1 h)
+
+**Done 2026-11-25:** `check_t9.py` passes all 7 checks. Neon has all 29 tables (50,743 rows); Aura and `micemax.rl` have 2,985 nodes and 5,349 relationships. City estimate, Dec 2026 to Nov 2027: 31 listed conferences plus 435 other smaller meetings, 109,311 attendees, Early ¥3.3M, Middle ¥32.5M, Strong ¥167.5M. Drivers change only the extra-night share (as in `simulate.py`, a domestic conference ending Fri or Sat gets the scenario's share); season is a label. Fixed on the way: Tokumitsu Coffee price (¥650), Noboribetsu combo hotel stop (¥26,920, so the combo is ¥32,960).
+
+How to rebuild and push (packages in [data/requirements.txt](../data/requirements.txt); connection details in `.env`):
+
+```
+uv venv .venv && uv pip install --python .venv/bin/python -r data/requirements.txt
+.venv/bin/python data/scripts/build_db.py     # SQLite, city estimate, simulation, graph file
+.venv/bin/python data/scripts/push_neon.py    # wipe and reload every table in Neon
+.venv/bin/python data/scripts/push_neo4j.py   # wipe Aura in batches, load the graph from micemax.rl
+.venv/bin/python data/scripts/check_t9.py
+relate query --read-only -d data/micemax.rl < data/graph-examples.cypher
+```
 
 Run `push_neon.py` and `push_neo4j.py`. Check:
 
