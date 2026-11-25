@@ -1,6 +1,7 @@
 /** Day tabs on the attendee calendar: one panel visible at a time.
  * Server picks the default (today inside the dates, else Day 1); this only
- * toggles visibility and tab styling. */
+ * toggles visibility and the pressed styling. Plain toggle buttons with
+ * aria-pressed, not a tab pattern: three panels do not need arrow keys. */
 class DayTabs extends HTMLElement {
   connectedCallback() {
     const tabs = this.querySelectorAll<HTMLButtonElement>("[data-day-tab]");
@@ -11,7 +12,7 @@ class DayTabs extends HTMLElement {
         const day = tab.dataset.dayTab ?? "";
         for (const t of tabs) {
           const on = t === tab;
-          t.setAttribute("aria-selected", on ? "true" : "false");
+          t.setAttribute("aria-pressed", on ? "true" : "false");
           t.classList.toggle("bg-ink", on);
           t.classList.toggle("text-paper", on);
           t.classList.toggle("text-ink-soft", !on);

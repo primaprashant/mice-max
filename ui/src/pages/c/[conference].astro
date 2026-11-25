@@ -101,8 +101,10 @@ const cityEvents = cityEventsBetween(conf.start_date, conf.end_date);
 // Experience id to card title, for client-side plan blocks in the grid.
 const expTitles = Object.fromEntries(exps.map((e) => [e.id, experienceCopy(e.id, lang)?.card_title ?? e.id]));
 
-// Default tab: today when the visit falls inside the conference dates, else Day 1.
-const today = new Date().toISOString().slice(0, 10);
+// Default tab: today when the visit falls inside the conference dates, else
+// Day 1. The attendee's local date (JST), not UTC, so the morning of day 2
+// and 3 shows the right day.
+const today = new Intl.DateTimeFormat("en-CA", { dateStyle: "short" }).format(new Date());
 const activeDay = days.includes(today) ? today : days[0];
 ---
 
@@ -194,7 +196,7 @@ const activeDay = days.includes(today) ? today : days[0];
 
     <section class="mt-10">
       <day-tabs class="block">
-        <div class="flex flex-wrap gap-1" role="tablist">
+        <div class="flex flex-wrap gap-1">
           {days.map((day, i) => {
             const weekday = new Date(day + "T00:00:00Z").toLocaleDateString("en-US", { weekday: "long", timeZone: "UTC" });
             const label =
@@ -204,9 +206,9 @@ const activeDay = days.includes(today) ? today : days[0];
             const active = day === activeDay;
             return (
               <button
-                role="tab"
+                type="button"
                 data-day-tab={day}
-                aria-selected={active ? "true" : "false"}
+                aria-pressed={active ? "true" : "false"}
                 class:list={[
                   "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
                   active ? "bg-ink text-paper" : "text-ink-soft hover:bg-ink/5",
@@ -233,18 +235,20 @@ const activeDay = days.includes(today) ? today : days[0];
             {(() => {
               const dayWindows = windows.filter((w) => w.day === day);
               const seen = new Set<string>();
-              const cards: { experience: (typeof exps)[number]; copy: NonNullable<ReturnType<typeof experienceCopy>>; travel?: ReturnType<typeof experienceTravel>; windowName: string }[] = [];
+              const cards: { experience: (typeof exps)[number]; copy: NonNullable<ReturnType<typeof experienceCopy>>; travel?: ReturnType<typeof experienceTravel>; windowName: string; windowId: string }[] = [];
               for (const w of dayWindows) {
                 const name = lang === "ja" ? w.name_ja : w.name_en;
                 for (const s of suggestionsByWindow.get(w.id) ?? []) {
                   if (seen.has(s.experience.id)) continue;
                   seen.add(s.experience.id);
-                  cards.push({ ...s, windowName: name });
+                  cards.push({ ...s, windowName: name, windowId: w.id });
                 }
               }
-              return cards.map(({ experience, copy, travel, windowName }) => (
+              return cards.map(({ experience, copy, travel, windowName, windowId }) => (
                 <a
                   href={`/c/${conf.id}/e/${experience.id}`}
+                  data-suggest={experience.id}
+                  data-suggest-window={windowId}
                   class="group block rounded-md bg-banana-soft border border-banana px-3 py-2 transition-transform active:scale-[0.98]"
                 >
                   <div class="flex items-baseline justify-between gap-3">
@@ -276,4 +280,5 @@ const activeDay = days.includes(today) ? today : days[0];
   import "../../scripts/my-plans";
   import "../../scripts/first-visit-banner";
   import "../../scripts/day-tabs";
+  import "../../scripts/suggest-log";
 </script>

@@ -14,26 +14,5 @@
 </header>
 
 <script>
-  const toggle = document.querySelector("lang-toggle");
-  const buttons = toggle?.querySelectorAll("button");
-
-  function setActive(lang: string) {
-    buttons?.forEach((b) => {
-      const on = b.dataset.lang === lang;
-      b.classList.toggle("bg-ink", on);
-      b.classList.toggle("text-paper", on);
-    });
-  }
-
-  buttons?.forEach((b) =>
-    b.addEventListener("click", () => {
-      const lang = b.dataset.lang ?? "en";
-      setActive(lang);
-      document.cookie = `lang=${lang}; path=/; max-age=31536000`;
-      location.reload();
-    })
-  );
-
-  const cookie = document.cookie.match(/(?:^|;\s*)lang=(\w+)/);
-  setActive(cookie?.[1] ?? "en");
+  import "../scripts/lang-toggle";
 </script>

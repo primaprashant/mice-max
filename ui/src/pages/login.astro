@@ -5,18 +5,34 @@ import Base from "../layouts/Base.astro";
 import { getLang } from "../data/attendee";
 import { t } from "../i18n";
 
-/* Sapporo photos (from Unsplash, free license), served from /images/login. */
-const SAPPROO_PHOTOS = [
-  { src: "/images/login/odori-park-tv-tower-summer.jpg", alt: "Sapporo TV Tower behind the flower beds of Odori Park" },
-  { src: "/images/login/tv-tower-blue-sky.jpg", alt: "Sapporo TV Tower on a clear summer day" },
-  { src: "/images/login/tv-tower-skyline-dusk.jpg", alt: "Sapporo skyline with the TV Tower at dusk" },
-  { src: "/images/login/tv-tower-winter.jpg", alt: "Sapporo TV Tower above the city in winter" },
-  { src: "/images/login/snowy-street-downtown.jpg", alt: "Snowy street in central Sapporo" },
-  { src: "/images/login/odori-park-snow-night.jpg", alt: "Odori Park stretching through snowy Sapporo at night" },
+/* Sapporo photos (from Unsplash, free license; sources in
+   public/images/login/MANIFEST.md), served from /images/login as WebP. */
+const LOGIN_PHOTOS = [
+  { src: "/images/login/odori-park-tv-tower-summer.webp", credit: "Odori Park and the TV Tower in summer" },
+  { src: "/images/login/tv-tower-blue-sky.webp", credit: "Sapporo TV Tower on a clear day" },
+  { src: "/images/login/tv-tower-skyline-dusk.webp", credit: "Sapporo skyline at dusk" },
+  { src: "/images/login/tv-tower-winter.webp", credit: "Sapporo TV Tower in winter" },
+  { src: "/images/login/snowy-street-downtown.webp", credit: "Snowy street in central Sapporo" },
+  { src: "/images/login/odori-park-snow-night.webp", credit: "Odori Park at night in winter" },
+  { src: "/images/login/nikka-whisky-billboard-susukino.webp", credit: "Susukino at night" },
+  { src: "/images/login/moerenuma-park-glass-pyramid.webp", credit: "Moerenuma Park" },
+  { src: "/images/login/moine-mountains-ski-jump-city.webp", credit: "Mt. Moiwa and the ski jump" },
+  { src: "/images/login/hokkaido-seafood-market.webp", credit: "Hokkaido morning market" },
+  { src: "/images/login/hokkaido-shrine-snow.webp", credit: "Hokkaido Shrine in winter" },
+  { src: "/images/login/sapporo-night-view-elevated.webp", credit: "Sapporo at dusk from above" },
+  { src: "/images/login/sapporo-street-sunset-mountains.webp", credit: "Sapporo street at sunset" },
+  { src: "/images/login/sapporo-tram-street-day.webp", credit: "Sapporo streetcar in winter" },
+  { src: "/images/login/snowy-street-night-crowd.webp", credit: "Snowfall downtown" },
+  { src: "/images/login/susukino-snowy-storefront-night.webp", credit: "Izakaya storefront in Susukino" },
+  { src: "/images/login/susukino-winter-illuminations.webp", credit: "Winter illuminations" },
+  { src: "/images/login/tanukikoji-shopping-arcade-night.webp", credit: "Tanukikoji arcade at night" },
+  { src: "/images/login/tv-tower-panasonic-night-snow.webp", credit: "TV Tower at night in the snow" },
+  { src: "/images/login/toyako-lake-winter-shore.webp", credit: "Lake Toya in winter" },
+  { src: "/images/login/yokoshi-tomamu-flower-field.webp", credit: "Flower fields in Biei" },
 ];
 
 const lang = getLang(Astro.cookies);
-const photo = SAPPROO_PHOTOS[Math.floor(Math.random() * SAPPROO_PHOTOS.length)]!;
+const photo = LOGIN_PHOTOS[Math.floor(Math.random() * LOGIN_PHOTOS.length)]!;
 ---
 
 <Base title={t(lang, "app.name")}>
@@ -33,6 +49,12 @@ const photo = SAPPROO_PHOTOS[Math.floor(Math.random() * SAPPROO_PHOTOS.length)]!
   </div>
 
   <div class="relative z-10 flex flex-1 flex-col">
+    <div class="flex justify-end px-6 pt-4">
+      <lang-toggle class="inline-flex rounded-md border border-white/20 bg-paper/20 p-0.5 text-xs backdrop-blur">
+        <button data-lang="en" class="rounded px-2 py-1 font-medium text-paper">EN</button>
+        <button data-lang="ja" class="rounded px-2 py-1 font-medium text-paper">JA</button>
+      </lang-toggle>
+    </div>
     <main class="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 py-12">
       <div class="w-full max-w-md rounded-xl border border-white/10 bg-paper/85 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl md:p-8">
         <p class="text-xs font-semibold uppercase tracking-widest text-theme">
@@ -75,14 +97,16 @@ const photo = SAPPROO_PHOTOS[Math.floor(Math.random() * SAPPROO_PHOTOS.length)]!
       </div>
     </main>
     <footer class="pb-4">
-      <p class="mx-auto max-w-7xl px-6 text-right text-[11px] text-paper/70">
-        Photo: {photo.alt} — Unsplash
+      <p class="mx-auto max-w-7xl px-6 text-right text-[11px] text-paper/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.6)]">
+        <span>{photo.credit}</span>
+        <span class="block">Unsplash</span>
       </p>
     </footer>
   </div>
 </Base>
 
 <script>
+  import "../scripts/lang-toggle";
   import { logEvent } from "../scripts/event-log";
 
   document.getElementById("login-form")?.addEventListener("submit", () => {
