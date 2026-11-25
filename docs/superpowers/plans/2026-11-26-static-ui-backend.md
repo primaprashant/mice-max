@@ -41,7 +41,7 @@ The spec implies these inputs but no task's tests fully exercise them; the revie
 - `backend/app/main.py` (345 lines) already exists with GET endpoints: `/health`, `/api/conferences`, `/api/conferences/{cid}/sessions`, `/api/conferences/{cid}/windows`, `/api/conferences/{cid}/experiences`, `/api/experiences/{eid}`, `/api/experiences/{eid}/attendees`, `/api/experiences/{eid}/counts`, `/api/experiences/{eid}/travel`, `/api/headlines/{cid}`, `/api/attendees/{aid}`, `/api/city`, `/api/organize/{cid}`, and POST `/api/events`. **It has a broken SQL join in `experiences()` (`w.venue_place_id` does not exist) and one bug in `append_event`** — Task 1 fixes both. `backend/tests/` does not exist yet.
 - `ui/src/scripts/` already has the client islands: `plan-store.ts` (localStorage plans), `book-button.ts`, `my-plans.ts`, `first-visit-banner.ts`, `organizer-approve.ts`, `event-log.ts` (POSTs to `PUBLIC_API_BASE`).
 - `ui/src/components/` has `Header.astro`, `PlanCard.astro`, `WindowRow.astro`, `SimulatedLabel.astro`. `WindowRow` renders suggestions as an Astro template — it moves to a TS island renderer in this plan.
-- Uncommitted working-tree changes exist in `ui/src/pages/index.astro`, `ui/src/pages/login.astro`, `ui/src/pages/api/login.ts`, `ui/src/data/attendee.ts`, `ui/src/i18n/*.json`, `ui/src/styles/global.css`, `docs/09-ui-plan.md` (login redesign, consent line dropped, new `home.*` i18n keys). These are deliberate; build on them.
+- Committed (branch `worktree-common-login`): one login page at `/` with role tabs (attendee default, organizer, city), attendee-only consent, `login.astro` becomes `index.astro`, the screen index moves to `/nav`. Build on this.
 
 ### Data-module functions to port to the backend (from `ui/src/data/index.ts`)
 
@@ -488,25 +488,25 @@ git commit -m "ui: organizer pages read the backend organize view"
 
 ---
 
-### Task 8: Home + login pages (`/`, `/login`)
+### Task 8: Home + login pages (`/nav`, `/`)
 
 **Files:**
-- Modify: `ui/src/pages/index.astro` (the routes list becomes an island: fetch `/api/conferences` + both view bundles in parallel — 90 experiences each, small JSON — and render the links plus the first 3 experience links per conference), `ui/src/pages/login.astro` (form stops POSTing to `/api/login`; the submit handler sets the attendee cookie client-side — `document.cookie = "micemax_attendee=jadm32-a0081; path=/; max-age=2592000"` — then `logEvent("page_visited")` and `location.href = "/c/jadm32"`; the password-hint line and consent removal already in the working tree stay)
+- Modify: `ui/src/pages/nav.astro` (the routes list becomes an island: fetch `/api/conferences` + both view bundles in parallel — 90 experiences each, small JSON — and render the links plus the first 3 experience links per conference), `ui/src/pages/index.astro` (the login form stops POSTing to `/api/login`; the submit handler sets the attendee cookie client-side — `document.cookie = "micemax_attendee=jadm32-a0081; path=/; max-age=2592000"` — then `logEvent("page_visited")` and follows the active role tab's redirect: `/c/jadm32`, `/organize` or `/city`)
 - Delete: `ui/src/pages/api/login.ts`, `ui/src/pages/api/book.ts` (the SSR endpoints doc 11 says go away)
 
 **Interfaces:**
 - Consumes: `/api/conferences`, both view bundles (home); the client-side cookie (login).
-- Produces: home island `<home-links>`; login is plain static HTML + the small script. `ATTENDEE_COOKIE`/`DEMO_ATTENDEE_ID` move from `ui/src/data/attendee.ts` into a shared `ui/src/scripts/attendee-cookie.ts` (the old file keeps `getLang` for any straggler imports until Task 9 deletes it).
+- Produces: nav island `<home-links>` on /nav; the login page is plain static HTML + the small script. `ATTENDEE_COOKIE`/`DEMO_ATTENDEE_ID` move from `ui/src/data/attendee.ts` into a shared `ui/src/scripts/attendee-cookie.ts` (the old file keeps `getLang` for any straggler imports until Task 9 deletes it).
 
-- [ ] **Step 1: Write the failing test — `ui/tests/home.test.ts`** for `routeList(conferences, lang)` returning `{path, label, note}[]` including `/login` first (the experience sub-links are an island nicety; keep them out of the tested surface — they render from the same data without extra logic).
+- [ ] **Step 1: Write the failing test — `ui/tests/nav.test.ts`** for `routeList(conferences, lang)` returning `{path, label, note}[]` including `/` (login) first (the experience sub-links are an island nicety; keep them out of the tested surface — they render from the same data without extra logic).
 
 - [ ] **Step 2: Run the test, watch it fail**
 - [ ] **Step 3: Implement both pages; delete the two api endpoints**
-- [ ] **Step 4: Run the test, watch it pass** (`npx vitest run tests/home.test.ts && npx astro check`)
+- [ ] **Step 4: Run the test, watch it pass** (`npx vitest run tests/nav.test.ts && npx astro check`)
 - [ ] **Step 5: Commit**
 
 ```bash
-git add ui/src/pages/index.astro ui/src/pages/login.astro ui/src/scripts/ ui/tests/
+git add ui/src/pages/nav.astro ui/src/pages/index.astro ui/src/scripts/ ui/tests/
 git rm ui/src/pages/api/login.ts ui/src/pages/api/book.ts
 git commit -m "ui: home and login go client-side; SSR endpoints deleted"
 ```
@@ -567,7 +567,7 @@ Expected: backend all pass; UI 0 errors, all pass.
 - [ ] **Step 5: Commit**
 
 ```bash
-git add ui/src/scripts/event-log.ts ui/src/scripts/book-button.ts ui/src/pages/checkout.astro ui/src/pages/login.astro backend/tests/
+git add ui/src/scripts/event-log.ts ui/src/scripts/book-button.ts ui/src/pages/checkout.astro ui/src/pages/index.astro backend/tests/
 git commit -m "event log: explicit conference id, CORS preflight test"
 ```
 

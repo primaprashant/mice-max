@@ -17,7 +17,7 @@ A foundations skeleton exists on this branch in [ui/](../ui/): an Astro 7 + Tail
 
 ### Attendee view
 
-Simple login page: name, plus a password field that is never checked.
+One login page for all three views, at /, with role tabs styled like the calendar's day tabs (attendee default, organizer, city). The tab picks where login redirects. Name, plus a password field that is never checked for any role. The screen index lives at /nav, linked from the header wordmark.
 
 Then a calendar view with the conference sessions (in default theme color) and our events (in a yellow banana color). Scroll down to see all available events (like connpass).
 

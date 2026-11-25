@@ -21,6 +21,7 @@ import type {
   CityEstimate,
   Season,
   CityEvent,
+  AgentStep,
 } from "./types";
 
 const DEMO_CONFERENCE_IDS = ["jadm32", "icep2027"] as const;
@@ -406,4 +407,38 @@ export function reachByConference(): Map<string, { reached: number; total: numbe
     map.set(r.conference_id, { reached: Number(r.reached), total: Number(r.total) });
   }
   return map;
+}
+
+// --- operations log (agent_steps, docs/10) -----------------------------------
+
+const OPS_ORDER = `CASE phase WHEN 'setup' THEN 0 WHEN 'before' THEN 1 WHEN 'during' THEN 2 ELSE 3 END`;
+
+function mapStep(r: any): AgentStep {
+  return {
+    ...r,
+    handed_to_human: r.handed_to_human === 1,
+    simulated: r.simulated === 1,
+    output: r.output ? JSON.parse(r.output) : null,
+  };
+}
+
+/** All agent steps for one conference, timeline order (phase, then ts). */
+export function agentSteps(conferenceId: string): AgentStep[] {
+  const rows = getDb()
+    .prepare(
+      `SELECT * FROM agent_steps WHERE conference_id = ? ORDER BY ${OPS_ORDER}, ts, id`
+    )
+    .all(conferenceId);
+  return rows.map(mapStep);
+}
+
+/** Conferences that have agent_steps rows, newest first by start_date. */
+export function opsConferenceIds(): string[] {
+  const rows = getDb()
+    .prepare(
+      `SELECT DISTINCT s.conference_id FROM agent_steps s
+       JOIN conferences c ON c.id = s.conference_id ORDER BY c.start_date DESC`
+    )
+    .all();
+  return (rows as any[]).map((r) => r.conference_id);
 }

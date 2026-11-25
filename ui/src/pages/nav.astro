@@ -1,0 +1,120 @@
+---
+export const prerender = false;
+
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import PlanCard from "../components/PlanCard.astro";
+import WindowRow from "../components/WindowRow.astro";
+import SimulatedLabel from "../components/SimulatedLabel.astro";
+import {
+  conferences,
+  experiencesForConference,
+  experienceCopy,
+  windowsForConference,
+  experienceTravel,
+  sessionsForConference,
+} from "../data";
+import { t, type Lang } from "../i18n";
+
+const lang: Lang = Astro.cookies.get("lang")?.value === "ja" ? "ja" : "en";
+const demoConfs = conferences();
+
+const routes = [
+  { path: "/", label: t(lang, "nav.login"), note: t(lang, "nav.loginNote") },
+  ...demoConfs.map((c) => ({
+    path: `/c/${c.id}`,
+    label: (lang === "ja" && c.name_ja) || c.name_en,
+    note: t(lang, "nav.calendarNote"),
+    experiences: experiencesForConference(c.id).slice(0, 3).map((e) => ({
+      path: `/c/${c.id}/e/${e.id}`,
+      label: experienceCopy(e.id, lang)?.card_title ?? e.id,
+    })),
+  })),
+  { path: "/ops", label: t(lang, "ops.title"), note: t(lang, "nav.opsNote") },
+];
+
+// One real experience per conference for the component preview row.
+const sampleExperiences = demoConfs
+  .flatMap((c) => {
+    const exp = experiencesForConference(c.id)[0];
+    if (!exp) return [];
+    const copy = experienceCopy(exp.id, lang);
+    if (!copy) return [];
+    const win = windowsForConference(c.id).find((w) => w.kind === "evening") ?? windowsForConference(c.id)[0];
+    return [{
+      experience: exp,
+      copy,
+      travel: experienceTravel(exp.id, c.main_venue_place_id),
+      win,
+    }];
+  });
+
+const firstConf = demoConfs[0];
+const firstSession = firstConf ? sessionsForConference(firstConf.id)[0] : undefined;
+const sampleSession = firstSession
+  ? {
+      title: (lang === "ja" && firstSession.title_ja) || firstSession.title_en || firstSession.id,
+      start: firstSession.start_time,
+      end: firstSession.end_time,
+    }
+  : null;
+---
+
+<Base title={t(lang, "app.name")}>
+  <Header />
+  <main class="mx-auto max-w-7xl px-6 py-12">
+    <h1 class="text-3xl font-semibold tracking-tight">{t(lang, "app.name")}</h1>
+    <p class="mt-2 max-w-[65ch] text-sm text-ink-soft">{t(lang, "nav.intro")}</p>
+
+    <ul class="mt-8 flex max-w-xl flex-col gap-3">
+      {routes.map((r) => (
+        <li>
+          <a href={r.path} class="block rounded-lg border border-ink/10 bg-paper px-4 py-3 transition-transform active:scale-[0.99]">
+            <span class="block text-sm font-medium">{r.label}</span>
+            <span class="mt-0.5 block text-xs text-ink-soft">{r.note}</span>
+          </a>
+          {"experiences" in r && (
+            <ul class="mt-2 flex flex-col gap-1 pl-4">
+              {r.experiences.map((e) => (
+                <li>
+                  <a href={e.path} class="block rounded border-l-2 border-ink/15 pl-3 py-1 text-xs text-ink-soft hover:text-ink">
+                    {e.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+
+    <section class="mt-14 border-t border-ink/10 pt-8">
+      <div class="flex items-center justify-between gap-3">
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "home.componentsTitle")}</h2>
+        <SimulatedLabel lang={lang} />
+      </div>
+      <p class="mt-1 max-w-[65ch] text-sm text-ink-soft">{t(lang, "home.componentsNote")}</p>
+
+      <div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div class="flex flex-col gap-3">
+          {sampleSession && (
+            <PlanCard
+              lang={lang}
+              variant="row"
+              time={{ start: sampleSession.start, end: sampleSession.end }}
+              title={sampleSession.title}
+            />
+          )}
+          {sampleExperiences.map(({ win, ...sample }) => (
+            <WindowRow lang={lang} win={win} suggestions={[sample]} />
+          ))}
+        </div>
+        <div class="flex flex-col gap-3">
+          {sampleExperiences.map(({ experience, copy }) => (
+            <PlanCard lang={lang} variant="card" kindLabel={t(lang, `experienceKind.${experience.kind}`)} title={copy.card_title} hook={copy.hook} experience={experience} />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

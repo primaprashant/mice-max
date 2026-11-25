@@ -4,11 +4,12 @@
   },
   "nav": {
     "intro": "Two demo conferences with real programs and simulated attendee data. Start with the attendee view.",
-    "login": "Attendee login",
+    "login": "Login",
     "loginNote": "Name only, no password check",
     "calendarNote": "Attendee calendar with free-time windows and plans",
     "organizerNote": "Approve or remove suggestions, get the share links",
-    "cityNote": "Simulated reach, spend and the money formula"
+    "cityNote": "Simulated reach, spend and the money formula",
+    "opsNote": "Every AI agent step, Live or Replay"
   },
   "home": {
     "componentsTitle": "What the screens are made of",
@@ -21,8 +22,10 @@
     "name": "Your name",
     "namePlaceholder": "Yamada Hanako",
     "password": "Password",
-    "passwordHint": "",
-    "consent": "I agree that my clicks and bookings in this demo are logged without my name or email, to improve the service.",
+    "roleAttendee": "Attendees",
+    "roleOrganizer": "Organizers",
+    "roleCity": "Cities",
+    "consent": "I agree that my clicks and bookings are logged without my name or email, to improve the service.",
     "enter": "Enter",
     "photoCreditSuffix": "Photo: Unsplash",
     "photoOdoriParkTvTowerSummer": "Odori Park and the TV Tower in summer",
@@ -181,5 +184,66 @@
     "social": "Social",
     "excursion": "Excursion",
     "other": "Other"
+  },
+  "ops": {
+    "title": "Operations",
+    "intro": "How the AI agents ran this conference: every step they took, with the tool used and the output. Live rows ran on the site; replay rows were recorded earlier.",
+    "pickerNote": "Conference",
+    "replay": "Replay",
+    "live": "Live",
+    "phase": {
+      "setup": "Setup",
+      "before": "Before",
+      "during": "During",
+      "after": "After"
+    },
+    "phaseNote": {
+      "setup": "Organizer pastes the URL. The agents read the site and build the conference.",
+      "before": "Registration to arrival. Emails, groups, booking calls, reminders.",
+      "during": "Conference days. Questions answered, disruptions replanned, hosts set.",
+      "after": "The money flows into the city view."
+    },
+    "stepCount": "{n} steps",
+    "tool": {
+      "llm": "LLM",
+      "jev": "Jev",
+      "graph": "Graph",
+      "voice": "Voice",
+      "video": "Video",
+      "search": "Search",
+      "rules": "Rules"
+    },
+    "handedToHuman": "Passed to a person",
+    "detail": "Details",
+    "output": "Output JSON",
+    "truncated": "{n} more items",
+    "model": "Model",
+    "tokens": "{tin} in / {tout} out tokens",
+    "ms": "{ms} ms",
+    "call": "Booking call",
+    "playCall": "Play the call",
+    "transcript": "Transcript",
+    "speakerAgent": "MiceMax agent",
+    "speakerStaff": "Staff",
+    "qaTitle": "Questions and answers",
+    "qaNote": "Sample questions written from this conference's data.",
+    "question": "Q",
+    "answer": "A",
+    "disruption": "Disruption replanning",
+    "alert": "Alert",
+    "messages": "Messages to attendees",
+    "alternatives": "Moved to",
+    "affected": "{n} bookings affected",
+    "badges": {
+      "organizer": "Set up by AI agents",
+      "calendar": "Windows found by AI",
+      "experience": "Page written by AI",
+      "city": "Estimate computed by AI",
+      "viewAll": "See the full log"
+    },
+    "who": {
+      "organizer": "Organizer",
+      "attendee": "Attendee"
+    }
   }
 }
