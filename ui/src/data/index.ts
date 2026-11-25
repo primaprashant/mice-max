@@ -318,6 +318,31 @@ export function allTags(): Tag[] {
   return getDb().prepare(`SELECT * FROM tags ORDER BY label_en`).all() as unknown as Tag[];
 }
 
+/** The conference days an experience is offered on (from its windows),
+ * sorted, for the card's availability line. */
+export function experienceOfferedDays(experienceId: string): string[] {
+  const rows = getDb()
+    .prepare(
+      `SELECT DISTINCT w.day FROM windows w JOIN events ev ON ev.window_id = w.id
+       WHERE ev.experience_id = ? AND ev.event_type != 'plan_removed_by_organizer'
+       ORDER BY w.day`
+    )
+    .all(experienceId) as { day: string }[];
+  return rows.map((r) => r.day);
+}
+
+/** Ids of every experience of the given kind offered to a conference,
+ * from the offered events, not the headline table. */
+export function offeredExperienceIds(conferenceId: string, kind: ExperienceKind): string[] {
+  const rows = getDb()
+    .prepare(
+      `SELECT DISTINCT ev.experience_id FROM events ev JOIN experiences e ON e.id = ev.experience_id
+       WHERE ev.conference_id = ? AND e.kind = ? AND ev.event_type != 'plan_removed_by_organizer'`
+    )
+    .all(conferenceId, kind) as { experience_id: string }[];
+  return rows.map((r) => r.experience_id);
+}
+
 export function headlines(conferenceId: string): Headline[] {
   const rows = getDb()
     .prepare(`SELECT * FROM headlines WHERE conference_id = ?`)
