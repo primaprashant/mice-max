@@ -1,0 +1,22 @@
+---
+/** Small "done by AI" badge for the other views, linking to the Ops log (D34). */
+import { t, type Lang } from "../i18n";
+
+interface Props {
+  lang?: Lang;
+  conference?: string;
+  text: string;
+}
+
+const { lang = "en", conference, text } = Astro.props;
+const href = conference ? `/ops/${conference}` : "/ops";
+---
+
+<a
+  href={href}
+  class="group inline-flex items-center gap-1.5 rounded-full border border-ink/15 bg-paper px-2.5 py-2.5 text-[11px] font-medium text-ink-soft transition-colors hover:border-ink/30 hover:text-ink"
+>
+  <i class="ph ph-robot text-[13px] text-banana transition-transform group-hover:scale-110" aria-hidden="true"></i>
+  {text}
+  <i class="ph ph-arrow-right text-[11px] opacity-0 transition-opacity group-hover:opacity-60" aria-hidden="true"></i>
+</a>

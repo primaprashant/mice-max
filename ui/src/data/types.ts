@@ -83,6 +83,8 @@ export interface Experience {
   english_ok: boolean;
   needs_agreement: boolean;
   fields: string[];
+  months: number[] | null;
+  days_closed: string | null;
 }
 
 export interface ExperienceCopy {
@@ -127,6 +129,13 @@ export interface Tag {
   label_ja: string;
   label_en: string;
   icon: string;
+}
+
+/** The place an experience happens at, from its first stop's plan row. */
+export interface ExperiencePlace {
+  name_en: string;
+  name_ja: string;
+  address: string | null;
 }
 
 /** The demo headline: the one experience per kind the demo opens live (D29). */
@@ -209,4 +218,32 @@ export interface CityEvent {
   status: "confirmed" | "planned" | "expected";
   summary_ja: string | null;
   summary_en: string | null;
+}
+
+/** One AI agent step in the operations log (agent_steps table, docs/10). */
+export type OpsPhase = "setup" | "before" | "during" | "after";
+export type OpsMode = "live" | "replay";
+
+export interface AgentStep {
+  id: string;
+  conference_id: string;
+  phase: OpsPhase;
+  ts: string;
+  step: number | null;
+  agent: string;
+  title_ja: string;
+  title_en: string;
+  tool: "llm" | "jev" | "graph" | "voice" | "video" | "search" | "rules" | null;
+  model: string | null;
+  mode: OpsMode;
+  ms: number | null;
+  tokens_in: number | null;
+  tokens_out: number | null;
+  confidence: number | null;
+  handed_to_human: boolean;
+  summary_ja: string;
+  summary_en: string;
+  output: unknown | null;
+  artifact: string | null;
+  simulated: boolean;
 }

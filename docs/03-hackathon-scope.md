@@ -115,6 +115,7 @@ Shows the data flywheel ([04-long-term-plan.md](04-long-term-plan.md#data-flywhe
 - Never invent places, prices or opening hours. If the list doesn't have it, don't show it.
 - Japanese is the primary language. English must be complete, not partial.
 - Design for any conference. Nothing may be hard-coded to the demo events.
+- Every PR opens from [.github/pull_request_template.md](../.github/pull_request_template.md): Screenshots first (local captures with `<details><kbd>`, URLs added after upload), then What (one bullet per change, naming the file or function), then Why (one bullet per reason). No AI review-notes block in the template; a reviewer reads the diff itself.
 
 ## How the judges will score us, and our answer
 

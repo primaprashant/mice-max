@@ -1,0 +1,217 @@
+---
+export const prerender = false;
+
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
+import ModeLabel from "../../components/ModeLabel.astro";
+import OpsStepCard from "../../components/OpsStepCard.astro";
+import { conferenceById, agentSteps, experienceById, experienceCopy } from "../../data";
+import { PHASES, callDetail, qaItems, disruptionDetail, disruptionExperienceIds, truncateOutput } from "../../data/ops";
+import { getLang } from "../../data/attendee";
+import { t } from "../../i18n";
+
+const { conference } = Astro.params;
+const conf = conferenceById(conference ?? "");
+if (!conf) return Astro.redirect("/ops");
+
+const lang = getLang(Astro.cookies);
+const confName = (lang === "ja" && conf.name_ja) || conf.name_en;
+const steps = agentSteps(conf.id);
+const byPhase = new Map<string, typeof steps>();
+for (const p of PHASES) byPhase.set(p, []);
+for (const s of steps) byPhase.get(s.phase)!.push(s);
+
+const call = callDetail(steps, conf.id);
+const qa = qaItems(steps, conf.id);
+const disruption = disruptionDetail(steps, conf.id);
+const pickTitles = new Map<string, string>();
+for (const eid of disruptionExperienceIds(disruption)) {
+  const c = experienceCopy(eid, lang);
+  if (c) pickTitles.set(eid, c.card_title);
+}
+---
+
+<Base title={`${t(lang, "ops.title")}: ${confName} (MiceMax)`}>
+  <Header />
+  <main class="mx-auto w-full min-w-0 max-w-5xl overflow-x-clip px-6 py-8">
+    <div class="flex flex-wrap items-baseline justify-between gap-3">
+      <div>
+        <a href="/ops" class="text-sm text-ink-soft hover:underline">← {t(lang, "ops.title")}</a>
+        <h1 class="mt-2 break-words text-2xl font-semibold tracking-tight">{confName}</h1>
+        <p class="mt-1 font-mono text-xs tabular-nums text-ink-soft">{conf.start_date} – {conf.end_date}</p>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-ink-soft">
+        <span>{t(lang, "ops.stepCount", { n: steps.length })}</span>
+      </div>
+    </div>
+    <p class="mt-2 max-w-[75ch] break-words text-sm text-ink-soft">{t(lang, "ops.intro")}</p>
+
+    {call && call.call.audio && (
+      <section class="mt-6 rounded-xl border border-ink/10 bg-ink text-paper">
+        <div class="flex flex-wrap items-center justify-between gap-3 px-5 pt-4">
+          <h2 class="flex items-center gap-2 text-sm font-semibold">
+            <i class="ph ph-phone-call text-base text-banana" aria-hidden="true"></i>
+            {t(lang, "ops.call")}
+          </h2>
+          <ModeLabel lang={lang} mode={call.step.mode} />
+        </div>
+        <div class="px-5 pb-4 pt-2">
+          <audio controls preload="none" class="w-full" src={`/api/ops-audio/${conf.id}`} aria-label={t(lang, "ops.call")}></audio>
+          <details class="mt-3">
+            <summary class="cursor-pointer list-none text-xs font-medium text-paper/70 hover:text-paper">
+              {t(lang, "ops.transcript")} ({call.call.lines.length})
+            </summary>
+            <ol class="mt-3 space-y-2">
+              {call.call.lines.map((line) => (
+                <li class="flex gap-3 text-sm">
+                  <span class:list={[
+                    "w-24 shrink-0 font-mono text-[10px] uppercase tracking-wider pt-1",
+                    line.speaker === "agent" ? "text-banana" : "text-paper/50",
+                  ]}>
+                    {line.speaker === "agent" ? t(lang, "ops.speakerAgent") : t(lang, "ops.speakerStaff")}
+                  </span>
+                  <span class="min-w-0 break-words">
+                    <span class="block break-words">{line.ja}</span>
+                    <span class="mt-0.5 block break-words text-xs text-paper/50">{line.en}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </details>
+        </div>
+      </section>
+    )}
+
+    {disruption && (
+      <section class="mt-6 rounded-xl border border-ink/10">
+        <div class="flex flex-wrap items-center justify-between gap-3 px-5 pt-4">
+          <h2 class="flex items-center gap-2 text-sm font-semibold">
+            <i class="ph ph-cloud-snow text-base" aria-hidden="true"></i>
+            {t(lang, "ops.disruption")}
+          </h2>
+          <ModeLabel lang={lang} mode="replay" />
+        </div>
+        <div class="px-5 pb-5 pt-2">
+          <p class="break-words rounded-md bg-theme-soft px-3 py-2 text-xs text-theme-strong">{disruption.alert_ja}</p>
+          <p class="mt-1 break-words text-xs text-ink-soft">{disruption.alert_en}</p>
+          {disruption.picks.length > 0 && (
+            <div class="mt-4">
+              <p class="font-mono text-[10px] uppercase tracking-wider text-ink-soft">{t(lang, "ops.alternatives")}</p>
+              <ul class="mt-1 space-y-1 text-sm">
+                {disruption.picks.map((p) => (
+                  <li class="flex items-center gap-2">
+                    <span>{pickTitles.get(p.from) ?? p.from}</span>
+                    <i class="ph ph-arrow-right text-xs text-ink-soft" aria-hidden="true"></i>
+                    <span class="font-medium">{pickTitles.get(p.to) ?? p.to}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {disruption.messages.length > 0 && (
+            <div class="mt-4">
+              <p class="font-mono text-[10px] uppercase tracking-wider text-ink-soft">{t(lang, "ops.messages")}</p>
+              <div class="mt-2 grid grid-cols-1 gap-3 md:grid-cols-2">
+                {disruption.messages.map((m) => (
+                  <div class="min-w-0 rounded-lg bg-banana-soft border border-banana px-4 py-3">
+                    <p class="break-words text-sm">{m.ja}</p>
+                    <p class="mt-1 break-words text-xs text-ink-soft">{m.en}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+    )}
+
+    {qa.length > 0 && (
+      <section class="mt-6">
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "ops.qaTitle")}</h2>
+        <p class="mt-1 text-xs text-ink-soft">{t(lang, "ops.qaNote")}</p>
+        <div class="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
+          {qa.map(({ step, item }) => (
+            <div
+              class={[
+                "rounded-lg px-4 py-3",
+                // Organizer questions are the decision-maker rows: full width.
+                item.who === "organizer" ? "border md:col-span-2 border-ink/10" : "border border-ink/10",
+                step.handed_to_human ? "bg-banana-soft border-banana" : "",
+              ].join(" ")}
+            >
+              <div class="flex items-baseline justify-between gap-2">
+                <span class="font-mono text-[10px] uppercase tracking-wider text-ink-soft">
+                  {t(lang, `ops.who.${item.who}`)}
+                </span>
+                <div class="flex items-center gap-1.5">
+                  {step.simulated && (
+                    <span class="inline-flex items-center gap-1 rounded-full border border-current/30 px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide">
+                      <i class="ph ph-flask text-[12px]" aria-hidden="true"></i>
+                      {t(lang, "common.simulated")}
+                    </span>
+                  )}
+                  {step.handed_to_human && (
+                    <span class="inline-flex items-center gap-1 rounded-full border border-current/30 px-2 py-0.5 text-[11px] font-medium">
+                      <i class="ph ph-hand-heart text-[12px]" aria-hidden="true"></i>
+                      {t(lang, "ops.handedToHuman")}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <p class="mt-2 text-sm font-medium">{lang === "ja" ? item.q_ja : item.q_en}</p>
+              <p class="mt-1 text-sm text-ink-soft">{lang === "ja" ? item.a_ja : item.a_en}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="mt-8">
+      {PHASES.map((phase) => {
+        const rows = byPhase.get(phase)!;
+        if (rows.length === 0) return null;
+        // Collapsed per-row labels when every row shares the same flags; the
+        // phase heading carries them once and exceptions stay on their rows.
+        const allSimulated = rows.every((s) => s.simulated);
+        const allReplay = rows.every((s) => s.mode === "replay");
+        const showDefaults = { simulated: allSimulated, mode: allReplay ? ("replay" as const) : null };
+        return (
+          <div class="mt-6 first:mt-0">
+            <div class="flex flex-wrap items-baseline gap-x-3">
+              <h2 class="text-sm font-semibold uppercase tracking-wide">{t(lang, `ops.phase.${phase}`)}</h2>
+              <span class="font-mono text-[11px] tabular-nums text-ink-soft">{rows.length}</span>
+              <span class="text-xs text-ink-soft">{t(lang, `ops.phaseNote.${phase}`)}</span>
+              {allSimulated && (
+                <span class="inline-flex items-center gap-1 rounded-full border border-current/30 px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide text-ink-soft">
+                  <i class="ph ph-flask text-[12px]" aria-hidden="true"></i>
+                  {t(lang, "common.simulated")}
+                </span>
+              )}
+              {allReplay && <ModeLabel lang={lang} mode="replay" />}
+            </div>
+            <div class="mt-3 flex flex-col gap-2">
+              {rows.map((s) => (
+                <OpsStepCard
+                  lang={lang}
+                  step={s}
+                  showDefaults={showDefaults}
+                  output={truncateOutput(s.output, (n) => t(lang, "ops.truncated", { n }))}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </section>
+  </main>
+</Base>
+
+<script>
+  import "../../scripts/ops-output";
+</script>
+
+<style>
+  details.ops-details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

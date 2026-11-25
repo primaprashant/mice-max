@@ -3,6 +3,7 @@ export const prerender = false;
 
 import Base from "../../../../layouts/Base.astro";
 import Header from "../../../../components/Header.astro";
+import OpsBadge from "../../../../components/OpsBadge.astro";
 import {
   conferenceById,
   experienceById,
@@ -14,6 +15,8 @@ import {
   attendeesJoined,
   joinedCounts,
   windowsForConference,
+  headlineFor,
+  experiencePlace,
 } from "../../../../data";
 import { getLang } from "../../../../data/attendee";
 import { yen } from "../../../../data/city";
@@ -23,7 +26,7 @@ import { fitsWindow } from "../../../../data/fit";
 const { conference, experience } = Astro.params;
 const conf = conferenceById(conference ?? "");
 const exp = experience ? experienceById(experience) : undefined;
-if (!conf || !exp) return Astro.redirect("/");
+if (!conf || !exp) return Astro.redirect("/nav");
 
 // The window the attendee would take this experience in: the first window
 // whose kind accepts it and that it fits (same rule as the calendar
@@ -42,55 +45,112 @@ const travel = experienceTravel(exp.id, conf.main_venue_place_id);
 const joiners = attendeesJoined(exp.id);
 const joins = joinedCounts(conf.id).get(exp.id) ?? 0;
 
+// Attending counter: the cap only when the demo headline names this
+// experience (people range is simulated data), else no cap.
+const headline = headlineFor(conf.id, exp.kind);
+const hasCap = headline?.experience_id === exp.id;
+
+const place = experiencePlace(exp.id);
+const placeName = place ? ((lang === "ja" ? place.name_ja : place.name_en) ?? "") : "";
+// Plan names carry the descriptive tail after a colon ("The Windsor Hotel
+// Toya: hilltop resort ..."); show only the venue name part on a card.
+const placeShort = placeName.split(":")[0].trim();
+const mapsUrl = place?.address
+  ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}`
+  : null;
+
 const confName = (lang === "ja" && conf.name_ja) || conf.name_en;
 
+// The demo books at exactly this number, so the price shows as fixed; the
+// price note carries any variation ("other room types go up to ...").
 const priceLine = (() => {
   if (exp.price_jpy == null) return null;
   if (exp.price_jpy === 0) return t(lang, "common.free");
-  const base = yen(exp.price_jpy);
-  return exp.price_max_jpy != null ? t(lang, "common.priceFrom", { price: base }) : base;
+  return yen(exp.price_jpy);
 })();
+
+// The conference days this experience is available on: the conference days
+// whose window kind accepts it (extra nights only the extra-night window),
+// months (when seasonal) and closed days applied. The page's own fits rule
+// narrows windows, so a day counts when any of its windows accepts the kind.
+const windowsByKind = windowsForConference(conf.id);
+const availableDayDates = confDays(conf).filter((day) => {
+  if (exp.months && !exp.months.includes(Number(day.slice(5, 7)))) return false;
+  if (exp.days_closed && closedOn(exp.days_closed, day)) return false;
+  const kinds = exp.kind === "extra_night" ? ["extra_night"] : windowsByKind.filter((w) => w.day === day).map((w) => w.kind).filter((k) => k !== "extra_night");
+  return kinds.length > 0;
+});
+function closedOn(daysClosed: string, day: string): boolean {
+  // One line per stop for combos; a line mentions the month-day (MM-DD) when
+  // the plan is closed that day. No entry means the day is open.
+  const monthDay = day.slice(5);
+  return daysClosed.split("\n").some((line) => line.includes(monthDay) && /(休|closed|定休)/i.test(line));
+}
+
+function confDays(conf: { start_date: string; end_date: string }): string[] {
+  const days: string[] = [];
+  for (let t = Date.parse(conf.start_date + "T00:00:00Z"); t <= Date.parse(conf.end_date + "T00:00:00Z"); t += 86400000) {
+    days.push(new Date(t).toISOString().slice(0, 10));
+  }
+  return days;
+}
 ---
 
 <Base title={`${copy.card_title} (MiceMax)`}>
   <Header />
-  <main class="mx-auto max-w-3xl px-6 py-8">
-    <a href={`/c/${conf.id}`} class="text-sm text-ink-soft hover:underline">← {confName}</a>
-
-    {photos[0] && (
-      <img
-        src={photos[0].path}
-        alt={(lang === "ja" ? photos[0].alt_ja : photos[0].alt_en) ?? ""}
-        width={photos[0].width}
-        height={photos[0].height}
-        class="mt-4 aspect-[16/9] w-full rounded-xl object-cover"
-        style={`background-color: ${photos[0].dominant_color ?? "var(--color-placeholder)"}`}
-      />
-    )}
-
-    <div class="mt-6 flex flex-col gap-2">
-      <span class="text-xs font-medium uppercase tracking-wide text-ink-soft">{t(lang, `experienceKind.${exp.kind}`)}</span>
-      <h1 class="text-2xl font-semibold tracking-tight">{copy.card_title}</h1>
-      <p class="text-base text-ink-soft">{copy.hook}</p>
+  <main class="mx-auto max-w-6xl px-6 py-8">
+    <div
+      data-hero-title
+      class="fixed top-0 left-0 z-50 w-full bg-paper/85 px-6 py-3 backdrop-blur"
+      style="opacity: 0; pointer-events: none;"
+    >
+      <a href={`/c/${conf.id}`} class="text-xs text-ink-soft hover:underline">← {confName}</a>
+      <p data-hero-title-target class="text-base font-semibold tracking-tight">{copy.card_title}</p>
     </div>
 
-    <div class="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 text-sm md:grid-cols-3">
-      {travel && (
-        <div>
-          <p class="text-xs text-ink-soft">{t(lang, "event.travel")}</p>
-          <p class="font-medium">{t(lang, travel.mode === "walk" ? "common.minWalk" : "common.minTransit", { n: travel.minutes })}</p>
+
+    <hero-shrink class="contents">
+      {photos[0] && (
+        <img
+          data-hero-overlay
+          src={photos[0].path}
+          alt={(lang === "ja" ? photos[0].alt_ja : photos[0].alt_en) ?? ""}
+          width={photos[0].width}
+          height={photos[0].height}
+          class="fixed z-40 hidden object-cover border border-ink/10"
+          style={`background-color: ${photos[0].dominant_color ?? "#ddd"}`}
+        />
+      )}
+      {photos[0] && (
+        <div data-hero-title-hero class="fixed inset-x-0 top-0 z-50 flex flex-col items-center gap-4 px-6 pt-[30vh] text-center">
+          <p class="inline-block rounded-lg bg-ink/55 px-6 py-4 text-3xl font-semibold leading-9 tracking-tight text-paper backdrop-blur-sm">
+            {copy.card_title}
+          </p>
+          <button
+            data-scroll-hint
+            aria-label={t(lang, "event.scrollDown")}
+            class="scroll-hint rounded-full bg-paper/90 p-3 text-ink shadow-lg backdrop-blur hover:bg-paper"
+          >
+            <i class="ph ph-caret-down text-xl" aria-hidden="true"></i>
+          </button>
         </div>
       )}
+    </hero-shrink>
+
+    <div class="mt-24 grid grid-cols-1 gap-8 lg:grid-cols-12">
+      <div class="flex flex-col lg:col-span-8">
+
+        <div class="mt-6 flex flex-col gap-2">
+          <span class="text-xs font-medium uppercase tracking-wide text-ink-soft">{t(lang, `experienceKind.${exp.kind}`)}</span>
+          <h1 class="text-2xl font-semibold tracking-tight">{copy.card_title}</h1>
+          <p class="text-base text-ink-soft">{copy.hook}</p>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 text-sm md:grid-cols-3">
       {exp.duration_min && (
         <div>
           <p class="text-xs text-ink-soft">{t(lang, "event.duration")}</p>
           <p class="font-medium font-mono tabular-nums">{t(lang, "common.minutes", { n: exp.duration_min })}</p>
-        </div>
-      )}
-      {priceLine && (
-        <div>
-          <p class="text-xs text-ink-soft">{t(lang, "event.price")}</p>
-          <p class="font-medium font-mono tabular-nums">{priceLine}</p>
         </div>
       )}
       {(exp.party_min || exp.party_max) && (
@@ -117,6 +177,10 @@ const priceLine = (() => {
         <p class="mt-1 whitespace-pre-line text-sm leading-relaxed text-ink-soft">{copy.good_to_know}</p>
       </div>
     )}
+
+    <div class="mt-4">
+      <OpsBadge lang={lang} conference={conf.id} text={t(lang, "ops.badges.experience")} />
+    </div>
 
     {tags.length > 0 && (
       <div class="mt-6 flex flex-wrap gap-2">
@@ -155,61 +219,147 @@ const priceLine = (() => {
             width={p.width}
             height={p.height}
             class="aspect-[4/3] w-full rounded-lg object-cover"
-            style={`background-color: ${p.dominant_color ?? "var(--color-placeholder)"}`}
+            style={`background-color: ${p.dominant_color ?? "#ddd"}`}
           />
         ))}
       </div>
     )}
 
-    <div class="mt-10 rounded-xl border border-ink/10 p-5">
-      <div class="flex items-baseline justify-between gap-4">
-        <h2 class="text-sm font-semibold">{t(lang, "event.joinOthers")}</h2>
-        <span class="font-mono text-sm tabular-nums text-ink-soft">{joins}</span>
-      </div>
-      {joiners.length > 0 ? (
-        <div class="mt-3 flex flex-wrap gap-2">
-          {joiners.map((a) => {
-            const name = lang === "ja" ? a.name_ja : a.name_en;
-            return (
-              <span class="inline-flex items-center gap-1.5 rounded-full border border-ink/10 px-2 py-1 text-xs">
-                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-banana-soft text-[10px] font-semibold text-ink">{name.slice(0, 1)}</span>
-                {name}
-              </span>
-            );
-          })}
+      <div class="mt-10 rounded-xl border border-ink/10 p-5">
+        <div class="flex items-baseline justify-between gap-4">
+          <h2 class="text-sm font-semibold">{t(lang, "event.joinOthers")}</h2>
+          <span class="font-mono text-sm tabular-nums text-ink-soft">{joins}</span>
         </div>
-      ) : (
-        <p class="mt-2 text-sm text-ink-soft">{t(lang, "event.noJoiners")}</p>
-      )}
-    </div>
+        {joiners.length > 0 ? (
+          <div class="mt-3 flex flex-wrap gap-2">
+            {joiners.map((a) => {
+              const name = lang === "ja" ? a.name_ja : a.name_en;
+              return (
+                <span class="inline-flex items-center gap-1.5 rounded-full border border-ink/10 px-2 py-1 text-xs">
+                  <span class="flex h-5 w-5 items-center justify-center rounded-full bg-banana-soft text-[10px] font-semibold text-ink">{name.slice(0, 1)}</span>
+                  {name}
+                </span>
+              );
+            })}
+          </div>
+        ) : (
+          <p class="mt-2 text-sm text-ink-soft">{t(lang, "event.noJoiners")}</p>
+        )}
+      </div>
+      </div>
 
-    <div class="sticky bottom-4 mt-8 rounded-xl border border-ink/10 bg-paper/90 p-3 backdrop-blur">
-      <attendee-book
-        class="block"
-        data-labels={JSON.stringify({
-          booked: t(lang, "common.booked"),
-          joined: t(lang, "common.joined"),
-          cancel: t(lang, "common.cancelBooking"),
-          blocked: t(lang, "event.blockedBooking"),
-        })}
-      >
-        <button
-          data-exp={exp.id}
-          data-conf={conf.id}
-          data-price={exp.price_jpy ?? 0}
-          data-day={planWindow?.day ?? ""}
-          data-start={planWindow?.start_time ?? ""}
-          data-end={planWindow?.end_time ?? ""}
-          data-kind={exp.kind}
-          class="w-full rounded-lg bg-theme px-4 py-3 text-sm font-medium text-paper transition-transform active:scale-[0.98]"
-        >
-          {(exp.price_jpy ?? 0) > 0 ? t(lang, "event.book") : t(lang, "event.join")}
-        </button>
-      </attendee-book>
+      <aside class="lg:col-span-4">
+        <div class="flex flex-col gap-3 lg:sticky lg:top-20">
+          <div
+            data-hero-band
+            class="aspect-[4/3] w-full overflow-hidden rounded-xl border border-ink/10"
+            style={`background-color: ${photos[0]?.dominant_color ?? "#ddd"}`}
+          >
+            {photos[0] && (
+              <img
+                src={photos[0].path}
+                alt={(lang === "ja" ? photos[0].alt_ja : photos[0].alt_en) ?? ""}
+                class="h-full w-full object-cover"
+              />
+            )}
+          </div>
+          <attendee-book
+            class="block rounded-xl border border-ink/10 bg-paper p-5 shadow-lg"
+            data-labels={JSON.stringify({
+              booked: t(lang, "common.booked"),
+              joined: t(lang, "common.joined"),
+              cancel: t(lang, "common.cancelBooking"),
+            })}
+          >
+            <div class="flex flex-col gap-3">
+              {(exp.price_jpy ?? 0) > 0 && (
+                <p class="text-center font-mono text-lg font-semibold tabular-nums text-ink">
+                  {yen(exp.price_jpy!)}
+                  <span class="ml-1 font-sans text-xs font-normal text-ink-soft">{t(lang, "common.perPerson")}</span>
+                </p>
+              )}
+              {availableDayDates.length > 1 && (
+                <label class="flex items-center justify-between gap-3">
+                  <span class="text-xs font-medium uppercase tracking-wide text-ink-soft">{t(lang, "event.chooseDate")}</span>
+                  <select
+                    data-book-date
+                    class="w-1/2 rounded-lg border border-ink/15 bg-paper px-3 py-2 text-right font-mono text-sm tabular-nums text-ink"
+                  >
+                    {availableDayDates.map((day, i) => (
+                      <option value={day} selected={i === 0}>
+                        {day.slice(5).replace("-", "/")}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
+              <button
+                data-exp={exp.id}
+                data-conf={conf.id}
+                data-price={exp.price_jpy ?? 0}
+                data-day={planWindow?.day ?? ""}
+                data-start={planWindow?.start_time ?? ""}
+                data-end={planWindow?.end_time ?? ""}
+                data-kind={exp.kind}
+                data-available-days={JSON.stringify(availableDayDates)}
+                class="w-full rounded-lg bg-theme px-4 py-3 text-sm font-medium text-paper transition-transform active:scale-[0.98]"
+              >
+                {(exp.price_jpy ?? 0) > 0 ? t(lang, "event.book") : t(lang, "event.join")}
+              </button>
+              <p class="flex items-center justify-center gap-1.5 text-xs text-ink-soft">
+                <i class="ph ph-users text-[13px]" aria-hidden="true"></i>
+                <span class="font-mono tabular-nums">
+                  {hasCap
+                    ? t(lang, "event.attendingOf", { n: String(joins), spots: String(headline!.people_max - joins) })
+                    : t(lang, "event.attending", { n: String(joins) })}
+                </span>
+              </p>
+            </div>
+          </attendee-book>
+
+          {place && (
+            <a
+              href={mapsUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(placeShort)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-start gap-3 rounded-xl border border-ink/10 p-4 transition-colors hover:bg-ink/5"
+            >
+              <i class="ph ph-map-pin text-2xl text-theme" aria-hidden="true"></i>
+              <span>
+                <span class="block text-xs font-medium uppercase tracking-wide text-ink-soft">{t(lang, "event.location")}</span>
+                <span class="mt-0.5 block text-sm font-medium underline decoration-ink/30 underline-offset-2">{placeShort}</span>
+                {place.address && <span class="mt-0.5 block text-xs text-ink-soft">{place.address}</span>}
+              </span>
+            </a>
+          )}
+          {travel && (
+            <div class="flex items-start gap-3 rounded-xl border border-ink/10 p-4">
+              <i class={travel.mode === "walk" ? "ph ph-person-simple-walk text-2xl text-theme" : "ph ph-train text-2xl text-theme"} aria-hidden="true"></i>
+              <span>
+                <span class="block text-xs font-medium uppercase tracking-wide text-ink-soft">{t(lang, "event.travel")}</span>
+                <span class="mt-0.5 block text-sm font-medium font-mono tabular-nums">
+                  {t(lang, travel.mode === "walk" ? "common.minWalk" : "common.minTransit", { n: travel.minutes })}
+                </span>
+              </span>
+            </div>
+          )}
+          {priceLine && (
+            <div class="flex items-start gap-3 rounded-xl border border-ink/10 p-4">
+              <i class="ph ph-tag text-2xl text-theme" aria-hidden="true"></i>
+              <span>
+                <span class="block text-xs font-medium uppercase tracking-wide text-ink-soft">{t(lang, "event.price")}</span>
+                <span class="mt-0.5 block font-mono text-sm font-medium tabular-nums">{priceLine}</span>
+                {exp.price_note && <span class="mt-0.5 block text-xs text-ink-soft">{exp.price_note}</span>}
+              </span>
+            </div>
+          )}
+        </div>
+      </aside>
     </div>
   </main>
 </Base>
 
 <script>
   import "../../../../scripts/book-button";
+  import "../../../../scripts/hero-shrink";
 </script>
