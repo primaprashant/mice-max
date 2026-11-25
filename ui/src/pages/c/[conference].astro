@@ -3,8 +3,7 @@ export const prerender = false;
 
 import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
-import PlanCard from "../../components/PlanCard.astro";
-import WindowRow from "../../components/WindowRow.astro";
+import DayGrid from "../../components/DayGrid.astro";
 import {
   conferenceById,
   sessionsForConference,
@@ -22,7 +21,7 @@ import {
 } from "../../data";
 import { fitsWindow } from "../../data/fit";
 import { getLang, ATTENDEE_COOKIE, DEMO_ATTENDEE_ID } from "../../data/attendee";
-import { sunsetSapporo } from "../../data/city";
+import { sunsetSapporo, yen } from "../../data/city";
 import { t } from "../../i18n";
 
 const { conference } = Astro.params;
@@ -98,6 +97,13 @@ const extraNightExperiences = extraNightWindows
 const month = Number(conf.start_date.slice(5, 7));
 const season = seasonFor(month);
 const cityEvents = cityEventsBetween(conf.start_date, conf.end_date);
+
+// Experience id to card title, for client-side plan blocks in the grid.
+const expTitles = Object.fromEntries(exps.map((e) => [e.id, experienceCopy(e.id, lang)?.card_title ?? e.id]));
+
+// Default tab: today when the visit falls inside the conference dates, else Day 1.
+const today = new Date().toISOString().slice(0, 10);
+const activeDay = days.includes(today) ? today : days[0];
 ---
 
 <Base title={`${confName} (MiceMax)`}>
@@ -187,39 +193,81 @@ const cityEvents = cityEventsBetween(conf.start_date, conf.end_date);
     </first-visit-banner>
 
     <section class="mt-10">
-      <div class="flex items-center justify-between">
-        <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "common.freeTime")}</h2>
-      </div>
+      <day-tabs class="block">
+        <div class="flex flex-wrap gap-1" role="tablist">
+          {days.map((day, i) => {
+            const weekday = new Date(day + "T00:00:00Z").toLocaleDateString("en-US", { weekday: "long", timeZone: "UTC" });
+            const label =
+              lang === "ja"
+                ? `${i + 1}日目 (${day.slice(5).replace("-", "/")} ${new Date(day + "T00:00:00Z").toLocaleDateString("ja-JP", { weekday: "short", timeZone: "UTC" })})`
+                : `Day ${i + 1} (${day.slice(5).replace("-", "/")}, ${weekday})`;
+            const active = day === activeDay;
+            return (
+              <button
+                role="tab"
+                data-day-tab={day}
+                aria-selected={active ? "true" : "false"}
+                class:list={[
+                  "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
+                  active ? "bg-ink text-paper" : "text-ink-soft hover:bg-ink/5",
+                ]}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
 
-      {days.map((day) => (
-        <div class="mt-8">
-          <h3 class="font-mono text-sm font-semibold tabular-nums text-ink-soft">{day}</h3>
-          <div class="mt-2 flex flex-col gap-2">
-            {(sessionsByDay.get(day) ?? [])
-              .sort((a, b) => a.start_time.localeCompare(b.start_time))
-              .map((s) => (
-                <PlanCard
-                  lang={lang}
-                  variant="row"
-                  time={{ start: s.start_time, end: s.end_time }}
-                  title={(lang === "ja" ? s.title_ja : s.title_en) ?? s.id}
-                />
-              ))}
-            {windows
-              .filter((w) => w.day === day)
-              .map((w) => (
-                <WindowRow lang={lang} win={w} suggestions={suggestionsByWindow.get(w.id)} />
-              ))}
+        {days.map((day) => (
+          <div data-day-panel={day} class:list={["mt-6", day === activeDay ? "" : "hidden"]}>
+            <div class="overflow-x-auto pt-4">
+              <DayGrid
+                lang={lang}
+                day={day}
+                sessions={sessionsByDay.get(day) ?? []}
+                windows={windows.filter((w) => w.day === day)}
+                titles={expTitles}
+              />
+            </div>
+          <div class="mt-3 grid grid-cols-1 gap-2 md:grid-cols-2">
+            {(() => {
+              const dayWindows = windows.filter((w) => w.day === day);
+              const seen = new Set<string>();
+              const cards: { experience: (typeof exps)[number]; copy: NonNullable<ReturnType<typeof experienceCopy>>; travel?: ReturnType<typeof experienceTravel>; windowName: string }[] = [];
+              for (const w of dayWindows) {
+                const name = lang === "ja" ? w.name_ja : w.name_en;
+                for (const s of suggestionsByWindow.get(w.id) ?? []) {
+                  if (seen.has(s.experience.id)) continue;
+                  seen.add(s.experience.id);
+                  cards.push({ ...s, windowName: name });
+                }
+              }
+              return cards.map(({ experience, copy, travel, windowName }) => (
+                <a
+                  href={`/c/${conf.id}/e/${experience.id}`}
+                  class="group block rounded-md bg-banana-soft border border-banana px-3 py-2 transition-transform active:scale-[0.98]"
+                >
+                  <div class="flex items-baseline justify-between gap-3">
+                    <span class="text-sm font-semibold">{copy.card_title}</span>
+                    {experience.price_jpy != null && (
+                      <span class="font-mono text-xs tabular-nums">
+                        {experience.price_jpy === 0 ? t(lang, "common.free") : yen(experience.price_jpy)}
+                      </span>
+                    )}
+                  </div>
+                  <p class="mt-0.5 line-clamp-1 text-xs text-ink-soft">{copy.hook}</p>
+                  <div class="flex gap-2 text-[11px] text-ink-soft">
+                    <span>{windowName}</span>
+                    {travel && <span>{t(lang, travel.mode === "walk" ? "common.minWalk" : "common.minTransit", { n: travel.minutes })}</span>}
+                    {experience.duration_min && <span>{t(lang, "common.minutes", { n: experience.duration_min })}</span>}
+                  </div>
+                </a>
+              ));
+            })()}
           </div>
-          <my-plans
-            class="mt-2 flex flex-col gap-2"
-            data-day={day}
-            data-titles={JSON.stringify(
-              Object.fromEntries(experiencesForConference(conf.id).map((e) => [e.id, experienceCopy(e.id, lang)?.card_title ?? e.id]))
-            )}
-          />
         </div>
       ))}
+      </day-tabs>
     </section>
   </main>
 </Base>
@@ -227,4 +275,5 @@ const cityEvents = cityEventsBetween(conf.start_date, conf.end_date);
 <script>
   import "../../scripts/my-plans";
   import "../../scripts/first-visit-banner";
+  import "../../scripts/day-tabs";
 </script>
