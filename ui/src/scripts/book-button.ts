@@ -57,7 +57,7 @@ class BookButton extends HTMLElement {
   renderDone(btn: HTMLButtonElement, labels: Record<string, string>, status: string, expId: string) {
     const label = status === "booked" ? labels.booked : labels.joined;
     btn.textContent = label ?? "✓";
-    btn.classList.add("bg-banana", "text-ink");
+    btn.classList.add("bg-banana-soft", "text-banana");
     btn.classList.remove("bg-theme", "text-paper");
     btn.setAttribute("disabled", "true");
     const cancel = document.createElement("button");
