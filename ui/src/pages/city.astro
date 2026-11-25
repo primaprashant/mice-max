@@ -1,0 +1,172 @@
+---
+export const prerender = false;
+
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import SimulatedLabel from "../components/SimulatedLabel.astro";
+import {
+  cityEstimates,
+  demoConferenceIds,
+  committedSpend,
+  simulationScales,
+  reachByConference,
+} from "../data";
+import { spendByKind, spendByArea, totalsOf } from "../data/city-view";
+import { getLang } from "../data/attendee";
+import { yen } from "../data/city";
+import { t } from "../i18n";
+
+const lang = getLang(Astro.cookies);
+const estimates = cityEstimates();
+const totals = totalsOf(estimates);
+const scales = simulationScales();
+const reach = reachByConference();
+const demoIds = demoConferenceIds();
+
+// Committed spend from the simulated log, scaled up to real conference sizes.
+const reachedTotal = demoIds.reduce((s, id) => {
+  const r = reach.get(id);
+  if (!r || r.total === 0) return s;
+  return s + Math.round(r.reached * ((scales.get(id) ?? 1) * r.total) / r.total);
+}, 0);
+const scaledTotals = (() => {
+  let count = 0;
+  let jpy = 0;
+  for (const id of demoIds) {
+    const scale = scales.get(id) ?? 1;
+    const rows = committedSpend(id);
+    count += rows.length * scale;
+    jpy += rows.reduce((s, r) => s + (r.jpy ?? 0), 0) * scale;
+  }
+  return { count: Math.round(count), jpy: Math.round(jpy) };
+})();
+
+const byKind = spendByKind(
+  demoIds.flatMap((id) => {
+    // Count scaled by repeating each row proportionally is overkill for the
+    // demo; show the raw log counts with the scaled money.
+    return committedSpend(id);
+  })
+);
+const byArea = spendByArea(demoIds.flatMap((id) => committedSpend(id)));
+
+const formula = t(lang, "city.formula");
+---
+
+<Base title={`${t(lang, "city.title")} (MiceMax)`}>
+  <Header />
+  <main class="mx-auto max-w-7xl px-6 py-8">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <h1 class="text-2xl font-semibold tracking-tight">{t(lang, "city.title")}</h1>
+      <SimulatedLabel lang={lang} />
+    </div>
+    <p class="mt-2 max-w-[75ch] text-sm text-ink-soft">{t(lang, "city.intro")}</p>
+
+    <section class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div class="rounded-xl border border-ink/10 p-5">
+        <p class="text-xs uppercase tracking-wide text-ink-soft">{t(lang, "city.reached")}</p>
+        <p class="mt-2 font-mono text-3xl font-semibold tabular-nums">{reachedTotal.toLocaleString("ja-JP")}</p>
+        <p class="mt-1 text-xs text-ink-soft">{t(lang, "city.reachedNote")}</p>
+      </div>
+      <div class="rounded-xl border border-ink/10 p-5">
+        <p class="text-xs uppercase tracking-wide text-ink-soft">{t(lang, "city.booked")}</p>
+        <p class="mt-2 font-mono text-3xl font-semibold tabular-nums">{scaledTotals.count.toLocaleString("ja-JP")}</p>
+        <p class="mt-1 text-xs text-ink-soft">{t(lang, "city.bookedNote")}</p>
+      </div>
+      <div class="rounded-xl border border-ink/10 p-5">
+        <p class="text-xs uppercase tracking-wide text-ink-soft">{t(lang, "city.newSpend")}</p>
+        <p class="mt-2 font-mono text-3xl font-semibold tabular-nums">{yen(scaledTotals.jpy)}</p>
+        <p class="mt-1 text-xs text-ink-soft">{t(lang, "city.newSpendNote")}</p>
+      </div>
+    </section>
+
+    <section class="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <div>
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "city.byKind")}</h2>
+        <table class="mt-3 w-full text-sm">
+          <thead>
+            <tr class="border-b border-ink/10 text-left text-xs text-ink-soft">
+              <th class="py-2 font-medium">{t(lang, "city.kind")}</th>
+              <th class="py-2 text-right font-medium">{t(lang, "city.count")}</th>
+              <th class="py-2 text-right font-medium">{t(lang, "city.spend")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {byKind.map((k) => (
+              <tr class="border-b border-ink/5">
+                <td class="py-2">{t(lang, `experienceKind.${k.kind}`)}</td>
+                <td class="py-2 text-right font-mono tabular-nums">{k.count}</td>
+                <td class="py-2 text-right font-mono tabular-nums">{yen(k.jpy)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "city.byArea")}</h2>
+        <table class="mt-3 w-full text-sm">
+          <thead>
+            <tr class="border-b border-ink/10 text-left text-xs text-ink-soft">
+              <th class="py-2 font-medium">{t(lang, "city.area")}</th>
+              <th class="py-2 text-right font-medium">{t(lang, "city.count")}</th>
+              <th class="py-2 text-right font-medium">{t(lang, "city.spend")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {byArea.slice(0, 9).map((a) => (
+              <tr class="border-b border-ink/5">
+                <td class="py-2">{lang === "ja" ? a.area_ja : a.area}</td>
+                <td class="py-2 text-right font-mono tabular-nums">{a.count}</td>
+                <td class="py-2 text-right font-mono tabular-nums">{yen(a.jpy)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "city.next12Months")}</h2>
+      <div class="mt-3 overflow-x-auto">
+        <table class="w-full min-w-[720px] text-sm">
+          <thead>
+            <tr class="border-b border-ink/10 text-left text-xs text-ink-soft">
+              <th class="py-2 font-medium">{t(lang, "city.conference")}</th>
+              <th class="py-2 text-right font-medium">{t(lang, "city.attendees")}</th>
+              <th class="py-2 text-right font-medium">{t(lang, "city.early")}</th>
+              <th class="py-2 text-right font-medium">{t(lang, "city.middle")}</th>
+              <th class="py-2 text-right font-medium">{t(lang, "city.strong")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {estimates.map((e) => (
+              <tr class="border-b border-ink/5">
+                <td class="py-2 pr-4">
+                  <span class="block max-w-[40ch] truncate font-medium">{e.name_en}</span>
+                  {e.start_date && <span class="font-mono text-[11px] tabular-nums text-ink-soft">{e.start_date}</span>}
+                </td>
+                <td class="py-2 text-right font-mono tabular-nums">{e.attendees.toLocaleString("ja-JP")}</td>
+                <td class="py-2 text-right font-mono tabular-nums text-ink-soft">{yen(e.early_jpy)}</td>
+                <td class="py-2 text-right font-mono tabular-nums">{yen(e.middle_jpy)}</td>
+                <td class="py-2 text-right font-mono tabular-nums text-ink-soft">{yen(e.strong_jpy)}</td>
+              </tr>
+            ))}
+            <tr class="font-semibold">
+              <td class="py-2">{t(lang, "city.total")}</td>
+              <td class="py-2 text-right font-mono tabular-nums">{estimates.reduce((s, e) => s + e.attendees, 0).toLocaleString("ja-JP")}</td>
+              <td class="py-2 text-right font-mono tabular-nums">{yen(totals.early)}</td>
+              <td class="py-2 text-right font-mono tabular-nums">{yen(totals.middle)}</td>
+              <td class="py-2 text-right font-mono tabular-nums">{yen(totals.strong)}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mt-10 rounded-xl border border-ink/10 p-5">
+      <h2 class="text-sm font-semibold">{t(lang, "city.formulaTitle")}</h2>
+      <p class="mt-2 max-w-[80ch] font-mono text-xs leading-relaxed">{formula}</p>
+    </section>
+  </main>
+</Base>

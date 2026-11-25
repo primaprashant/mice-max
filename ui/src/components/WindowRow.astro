@@ -1,0 +1,50 @@
+---
+/** A free-time window on the calendar: a dashed block with its name,
+ * optionally carrying plan rows (personal plans) or suggested experiences. */
+import { t, type Lang } from "../i18n";
+import type { Window as FreeWindow, Experience, ExperienceCopy, Travel } from "../data/types";
+import { yen } from "../data/city";
+
+interface Props {
+  lang?: Lang;
+  win: FreeWindow;
+  /** Experiences suggested for this window, headline first. */
+  suggestions?: { experience: Experience; copy: ExperienceCopy; travel?: Travel }[];
+}
+
+const { lang = "en", win, suggestions } = Astro.props;
+---
+
+<div class="rounded-lg border border-dashed border-ink/25 bg-transparent px-3 py-2">
+  <div class="flex items-baseline justify-between gap-3">
+    <span class="font-mono text-xs tabular-nums text-ink-soft">{win.start_time}–{win.end_time}</span>
+    <span class="text-xs font-medium uppercase tracking-wide text-ink-soft">{t(lang, `windowKind.${win.kind}`)}</span>
+  </div>
+  <p class="mt-1 text-sm font-medium">{lang === "ja" ? win.name_ja : win.name_en}</p>
+  {win.overlaps_program && win.overlap_note && (
+    <p class="mt-1 max-w-[65ch] text-xs leading-relaxed text-ink-soft">{win.overlap_note}</p>
+  )}
+  {suggestions && suggestions.length > 0 ? (
+    <div class="mt-3 grid grid-cols-1 gap-2 md:grid-cols-2">
+      {suggestions.map(({ experience, copy, travel }) => (
+        <a href={`/c/${win.conference_id}/e/${experience.id}`} class="group block rounded-md bg-banana-soft border border-banana px-3 py-2 transition-transform active:scale-[0.98]">
+          <div class="flex items-baseline justify-between gap-3">
+            <span class="text-sm font-semibold">{copy.card_title}</span>
+            {experience.price_jpy != null && (
+              <span class="font-mono text-xs tabular-nums">
+                {experience.price_jpy === 0 ? t(lang, "common.free") : yen(experience.price_jpy)}
+              </span>
+            )}
+          </div>
+          <p class="mt-0.5 line-clamp-1 text-xs text-ink-soft">{copy.hook}</p>
+          <div class="mt-1 flex gap-2 text-[11px] text-ink-soft">
+            {travel && <span>{t(lang, travel.mode === "walk" ? "common.minWalk" : "common.minTransit", { n: travel.minutes })}</span>}
+            {experience.duration_min && <span>{t(lang, "common.minutes", { n: experience.duration_min })}</span>}
+          </div>
+        </a>
+      ))}
+    </div>
+  ) : (
+    <p class="mt-2 text-xs text-ink-soft">{t(lang, "calendar.noPlans")}</p>
+  )}
+</div>

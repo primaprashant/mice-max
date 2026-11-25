@@ -1,0 +1,92 @@
+---
+export const prerender = false;
+
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import { demoConferenceIds, experiencesForConference, experienceById, experienceCopy } from "../data";
+import { getLang } from "../data/attendee";
+import { yen } from "../data/city";
+import { t } from "../i18n";
+
+const exp = experienceById(Astro.url.searchParams.get("exp") ?? "");
+if (!exp) return Astro.redirect("/");
+
+/** The conference an experience belongs to, via the events it was shown in. */
+function confIdFor(experienceId: string): string | undefined {
+  for (const confId of demoConferenceIds()) {
+    if (experiencesForConference(confId).some((e) => e.id === experienceId)) return confId;
+  }
+  return undefined;
+}
+
+const backHref = `/c/${Astro.url.searchParams.get("conf") ?? confIdFor(exp.id) ?? ""}`;
+
+const lang = getLang(Astro.cookies);
+const copy = experienceCopy(exp.id, lang)!;
+const price = exp.price_jpy ?? 0;
+const party = Number(Astro.url.searchParams.get("party") ?? "1");
+const total = price * party;
+---
+
+<Base title={`${t(lang, "checkout.title")} (MiceMax)`}>
+  <Header />
+  <main class="mx-auto max-w-md px-6 py-10">
+    <h1 class="text-xl font-semibold tracking-tight">{t(lang, "checkout.title")}</h1>
+    <p class="mt-1 text-sm text-ink-soft">{t(lang, "checkout.demoNote")}</p>
+
+    <div class="mt-8 flex flex-col gap-4">
+      <div class="flex items-baseline justify-between gap-4">
+        <div>
+          <p class="text-sm font-medium">{copy.card_title}</p>
+          <p class="text-xs text-ink-soft">{copy.hook}</p>
+        </div>
+        <span class="font-mono text-sm tabular-nums">{yen(price)}</span>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="text-sm font-medium" for="card">{t(lang, "checkout.card")}</label>
+        <input
+          id="card"
+          class="rounded-md border border-ink/15 bg-paper px-3 py-2 font-mono text-sm focus:border-theme"
+          value="4242 4242 4242 4242"
+          readonly
+        />
+      </div>
+
+      <div class="flex items-baseline justify-between border-t border-ink/10 pt-3">
+        <span class="text-sm font-medium">{t(lang, "checkout.total")}</span>
+        <span class="font-mono text-lg font-semibold tabular-nums">{yen(total)}</span>
+      </div>
+
+      <form id="pay-form" data-exp={exp.id} data-day={Astro.url.searchParams.get("day") ?? ""} data-start={Astro.url.searchParams.get("start") ?? ""} data-end={Astro.url.searchParams.get("end") ?? ""} data-party={String(party)} data-price={String(price)}>
+        <button
+          type="submit"
+          class="w-full rounded-lg bg-theme px-4 py-3 text-sm font-medium text-paper transition-transform active:scale-[0.98]"
+        >
+          {t(lang, "checkout.pay")}
+        </button>
+      </form>
+
+      <a href={backHref} class="text-center text-sm text-ink-soft hover:underline">
+        {t(lang, "checkout.back")}
+      </a>
+    </div>
+  </main>
+</Base>
+
+<script>
+  import { putPlan } from "../scripts/plan-store";
+  import { logEvent } from "../scripts/event-log";
+
+  const form = document.getElementById("pay-form") as HTMLFormElement | null;
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const expId = form.dataset.exp ?? "";
+    const party = Number(form.dataset.party ?? "1");
+    const price = Number(form.dataset.price ?? "0");
+    putPlan({ kind: "event", ref_id: expId, day: form.dataset.day ?? "", start: form.dataset.start ?? "", end: form.dataset.end ?? "", status: "booked", party_size: party || 1 });
+    logEvent("plan_booked", { experienceId: expId, partySize: party || 1, priceJpy: price * (party || 1) });
+    const conf = new URLSearchParams(window.location.search).get("conf") ?? "";
+    window.location.href = `/c/${conf}/e/${expId}`;
+  });
+</script>

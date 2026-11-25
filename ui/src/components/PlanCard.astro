@@ -1,0 +1,59 @@
+---
+/** One calendar block or card for any plan: sessions in theme color,
+ * MiceMax experiences in banana yellow. Used by attendee and organizer views. */
+import { t, type Lang } from "../i18n";
+import type { Experience } from "../data/types";
+
+interface Props {
+  lang?: Lang;
+  /** "row" is the compact calendar block; "card" is the rich experience card. */
+  variant?: "row" | "card";
+  /** For row blocks: the time span to show. */
+  time?: { start: string; end: string };
+  title: string;
+  /** Set for experience rows/cards; sessions pass no kindLabel. */
+  kindLabel?: string;
+  hook?: string;
+  experience?: Experience;
+  class?: string;
+}
+
+const { lang = "en", variant = "row", time, title, kindLabel, hook, experience, class: className } = Astro.props;
+
+const rowClass = kindLabel
+  ? "bg-banana-soft text-ink border-l-4 border-banana"
+  : "bg-theme-soft text-theme-strong border-l-4 border-theme";
+const cardClass = "bg-banana-soft border border-banana";
+
+const priceLabel = (() => {
+  if (!experience || experience.price_jpy == null) return null;
+  if (experience.price_jpy === 0) return t(lang, "common.free");
+  const base = "¥" + experience.price_jpy.toLocaleString("ja-JP");
+  if (experience.price_max_jpy != null) {
+    return t(lang, "common.priceFrom", { price: base });
+  }
+  return base;
+})();
+---
+
+<div class:list={["rounded-lg", variant === "row" ? rowClass : cardClass, className]}>
+  {
+    variant === "row" ? (
+      <div class="flex items-baseline gap-3 px-3 py-2">
+        {time && (
+          <span class="font-mono text-xs tabular-nums opacity-70">
+            {time.start}–{time.end}
+          </span>
+        )}
+        <span class="truncate text-sm font-medium">{title}</span>
+      </div>
+    ) : (
+      <div class="flex flex-col gap-1.5 p-4">
+        {kindLabel && <span class="text-xs font-medium uppercase tracking-wide text-ink-soft">{kindLabel}</span>}
+        <h3 class="text-base font-semibold leading-snug">{title}</h3>
+        {hook && <p class="text-sm text-ink-soft">{hook}</p>}
+        {priceLabel && <p class="font-mono text-sm font-medium tabular-nums">{priceLabel}</p>}
+      </div>
+    )
+  }
+</div>
