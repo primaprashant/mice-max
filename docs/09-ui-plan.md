@@ -93,10 +93,9 @@ plans
 
 ## Tech stack
 
-- Node for the app.
-- Astra (DataStax Astra DB) for storage. The dummy JSON shapes match what we store, so swapping the data layer later is a one-file change.
-- The browser can call Astra directly through its Data API with an application token, no backend needed. Fine for a hackathon: use a token with the smallest rights that work, and keep it out of the repo.
-- Anything Neo4j computes (matching, ranking) lands in Astra or the JSONs first. The browser never talks to Neo4j directly.
+- Astro for the UI. Static pages and components by default, with small client-side islands where a screen needs interaction (calendar, event page, mock checkout, organizer actions).
+- Data comes from a dummy folder of JSONs, read through one data module, so the same calls hit the database later and the swap is a one-file change ([07-data-plan.md](07-data-plan.md)).
+- Anything Neo4j computes (matching, ranking) lands in the JSONs first. The browser never talks to Neo4j directly.
 
 ## Screens and states to add
 
