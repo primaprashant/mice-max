@@ -33,7 +33,7 @@ All other conferences get **stats only** (dates, size, field, scope), no individ
 | Table | Rows | Filled by |
 |---|---|---|
 | `conferences`, `conference_venues` | Every Sapporo event we can find, Dec 2025–Nov 2027, plus the previous edition of each demo event | T1, T3 |
-| `sessions`, `windows` | Program and free-time windows of the demo events | T3 |
+| `sessions`, `windows`, `headlines` | Program, free-time windows and the one experience per kind the demo opens live (D29) | T3 |
 | `plans`, `plan_photos`, `plan_copy`, `tags`, `plan_tags` | 80–100 real plans, their photos, JA/EN text, ~20 tags | T4–T6 |
 | `experiences`, `experience_stops`, `experience_copy`, `experience_photos`, `experience_tags`, `experience_travel` | What the attendee sees: every plan as a one-stop experience, plus combos that chain several plans (D27) | T6 |
 | `plan_travel` | Minutes from each demo venue to each plan, computed from `places` | after T4, T7 |
@@ -96,7 +96,7 @@ For each demo event:
 
 ### T4. Plan list (research agent, ~3 h)
 
-**Done 2026-11-25:** 88 plans (30 short, 25 evening, 15 extra-night, 18 specialist) in `data/raw/plans/`, 24 tags in `tags.csv`. 8 more added as combo stops in `stops-*.csv` (96 in all). Run `data/scripts/geocode.py` after adding addresses.
+**Done 2026-11-25:** 88 plans (30 short, 25 evening, 15 extra-night, 18 specialist) in `data/raw/plans/`, 24 tags in `tags.csv`. 8 more added as combo stops in `stops-*.csv` (96 in all). Opening hours as `opens`, `closes` and `leave_by` (extra nights) in `hours.csv`, conservative for March and May. Run `data/scripts/geocode.py` after adding addresses.
 
 Run [prompts/inventory-research.md](prompts/inventory-research.md). 80–100 real items: ~30 short, ~25 evening, ~15 extra-night, ~15 specialist. Extra nights get the most care: all-in price (transport + stay + main activity) and how it was computed. Specialist visits must cover both demo events' fields (re-run that group after T2 if needed).
 
@@ -126,7 +126,7 @@ These let the attendee view say "Sunset 18:52, 14 °C, bring a light jacket" or 
 
 ### T8. Simulator (Python, ~4 h, can start with stub data)
 
-**Done 2026-11-25:** [simulate.py](../data/scripts/simulate.py) runs last in `build_db.py` (fixed seed) and prints a check. Lists in `data/raw/sim/`. About 180 reached per conference; both land inside the Early–Strong range.
+**Done 2026-11-25:** [simulate.py](../data/scripts/simulate.py) runs last in `build_db.py` (fixed seed) and prints a check. Experiences are only offered when open (`experiences.start_from`, `start_until`); all-day poster displays and exhibitions don't fill anyone's day; each window's group stays within `party_max`; headlines (`headlines.csv`, D29) are boosted and topped up to their people range, and those people skip clashing sessions. Specialist visits are one person; extra nights book in pairs. Lists in `data/raw/sim/`. About 180 reached per conference; both land inside the Early–Strong range.
 
 `simulate.py` runs once per demo conference. Generic: no demo event names in the code.
 

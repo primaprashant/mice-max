@@ -178,6 +178,9 @@ CREATE TABLE plans (
   party_max           INTEGER,
   private_room_max    INTEGER,
   opening_hours       TEXT,
+  opens               TEXT,                -- 'HH:MM' earliest start, from data/raw/plans/hours.csv; NULL = any time
+  closes              TEXT,                -- 'HH:MM' visit must be over by then ('24:00' = midnight)
+  leave_by            TEXT,                -- extra nights: latest time to leave central Sapporo on day 1
   days_closed         TEXT,
   closed_periods      TEXT,                -- JSON [{from:'MM-DD', to:'MM-DD'}]
   months              TEXT,                -- JSON [1..12] when seasonal; NULL = all year
@@ -274,6 +277,8 @@ CREATE TABLE experiences (
   stop_count       INTEGER NOT NULL,
   area_id          TEXT REFERENCES places(id),  -- area of the first stop
   duration_min     INTEGER,             -- start of first stop to end of last, travel included; NULL overnight
+  start_from       TEXT,                -- 'HH:MM' earliest start so every day-1 stop is open; NULL = any time
+  start_until      TEXT,                -- 'HH:MM' latest start (closing times, or leave_by for extra nights)
   price_jpy        INTEGER,             -- all-in per person: stop prices plus extra transport
   price_max_jpy    INTEGER,             -- one-stop only
   price_note       TEXT,
@@ -285,6 +290,19 @@ CREATE TABLE experiences (
   months           TEXT,                -- JSON months every stop runs; NULL = all year
   days_closed      TEXT,                -- one line per stop for combos
   notes            TEXT
+);
+
+-- The one experience per kind that the demo opens live, with the window it is shown in.
+CREATE TABLE headlines (
+  conference_id  TEXT NOT NULL REFERENCES conferences(id),
+  kind           TEXT NOT NULL CHECK (kind IN ('short','evening','extra_night','specialist')),
+  experience_id  TEXT NOT NULL REFERENCES experiences(id),
+  window_id      TEXT NOT NULL REFERENCES windows(id),
+  start_time     TEXT NOT NULL,       -- suggested start, 'HH:MM'
+  people_min     INTEGER NOT NULL,    -- simulated people who should have joined in this window
+  people_max     INTEGER NOT NULL,
+  note           TEXT,
+  PRIMARY KEY (conference_id, kind)
 );
 
 CREATE TABLE experience_stops (

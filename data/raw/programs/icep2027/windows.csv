@@ -13,6 +13,7 @@ day,start_time,end_time,kind,name_ja,name_en,overlaps_program,overlap_note,plan_
 2027-05-14,12:30,16:05,during_program,3日目の午後セッション中,Day 3 afternoon sessions,1,Sessions 8-9 in 6 parallel rooms,"[""specialist"",""short""]",Last full block of parallel tracks; a good slot for a specialist visit.
 2027-05-14,16:05,18:00,during_program,3日目の最後のセッション,Day 3 last session slot,1,"Session 10 in only 3 rooms (Optoelectronics, TSV, Reliability-3)","[""short""]","Only three rooms run, so most attendees are free."
 2027-05-14,18:00,23:00,evening,3日目の夜,Day 3 evening,0,,"[""evening""]",No official event; the main night for group dinners.
-2027-05-15,09:00,15:00,free_afternoon,セッションのない土曜日,"Saturday, no sessions",1,Optional paid excursion 09:00-15:00,"[""short"",""specialist""]",No sessions; only excursion buyers are busy.
+2027-05-15,09:00,15:00,free_afternoon,セッションのない土曜日,"Saturday, no sessions",1,Optional paid excursion 09:00-15:00,"[""short""]",No sessions; only excursion buyers are busy.
 2027-05-15,15:00,18:00,after_close,土曜の夕方,Saturday late afternoon,0,,"[""short""]",Excursion ends 15:00; time for one more outing before dinner or the airport.
-2027-05-15,18:00,23:59,extra_night,土曜にもう一泊,Extra night on Saturday,0,,"[""extra_night""]","Conference ends on a Saturday; one more night (Sat 5/15 to Sun 5/16) for Otaru, Jozankei or Lake Toya."
+2027-05-15,10:00,23:59,extra_night,土曜にもう一泊,Extra night on Saturday,1,Optional excursion 09:00-15:00,"[""extra_night""]","Saturday has no sessions; leave after hotel check-out (10:00-11:00) for the 13:40 Noboribetsu bus, the 10:56 JR, Otaru or Jozankei. One more night (Sat 5/15 to Sun 5/16)."
+2027-05-14,11:40,18:00,during_program,3日目の昼から夕方,Day 3 lunch to evening,1,"Lunch, then Sessions 8-10 (6 parallel rooms, then 3)","[""specialist""]","Half a day for a field visit near New Chitose Airport; universities host on weekdays only, and Friday afternoon skips at most three session slots."

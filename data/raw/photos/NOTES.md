@@ -7,6 +7,8 @@
 **Under 600 px:** spec-sapporo-city-fire-academy (350), spec-snow-brand-megmilk-dairy, eve-mingle-ramen-food-hall, eve-bb7771b7 (氷雪の門), spec-civil-engineering-research-institute.
 **600–1000 px:** 13 more plans (query `max(width) < 1000` in plan_photos), mostly Gnavi or Hot Pepper restaurants.
 
+**Hero:** the largest landscape photo, unless `heroes.csv` picks one (used for season fit and wrong places).
+
 **Square heroes (10):** Gnavi and Hot Pepper photos are often square. The UI crops them.
 
 **Ask owners for photos during outreach (O5 and specialist visits):**

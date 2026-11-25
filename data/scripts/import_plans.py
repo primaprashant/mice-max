@@ -3,6 +3,7 @@
 - Coordinates come from data/raw/places/geocode.csv (run geocode.py first).
 - Research tags are mapped to the ~20 tags in tags.csv; unmapped ones are kept in plans.extra.
 - Image URLs are kept in plans.extra for T5 (photos).
+- hours.csv gives opens, closes and leave_by per plan (checked against the demo months, March and May).
 """
 import csv
 import hashlib
@@ -80,7 +81,7 @@ def load(db, folder, places_folder):
     areas = area_lookup(db)
     used, unmapped = set(), set()
     for path in sorted(folder.glob("*.csv")):
-        if path.name == "tags.csv":
+        if path.name in ("tags.csv", "hours.csv"):
             continue
         for r in read_csv(path):
             pid = plan_id(r, used)
@@ -110,3 +111,18 @@ def load(db, folder, places_folder):
                 db.execute("INSERT INTO plan_tags VALUES (?,?)", (pid, tag))
     if unmapped:
         print("plans: unmapped tags:", " ".join(sorted(unmapped)))
+    load_hours(db, folder / "hours.csv")
+
+
+def load_hours(db, path):
+    """opens, closes, leave_by per plan ('HH:MM'); every plan should have a row."""
+    rows = {r["plan_id"]: r for r in read_csv(path)}
+    for (pid,) in db.execute("SELECT id FROM plans").fetchall():
+        r = rows.pop(pid, None)
+        if r is None:
+            print(f"plans: {pid}: no row in hours.csv")
+            continue
+        db.execute("UPDATE plans SET opens = ?, closes = ?, leave_by = ? WHERE id = ?",
+                   (r["opens"] or None, r["closes"] or None, r["leave_by"] or None, pid))
+    for pid in rows:
+        print(f"plans: hours.csv: unknown plan {pid}")

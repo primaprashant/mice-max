@@ -15,15 +15,14 @@ combo-specialty-coffee-walk,1,short-marumi-coffee-odori-main,1,30,,,,丸美珈�
 combo-specialty-coffee-walk,2,short-tokumitsu-coffee-odori,1,30,,,650,徳光珈琲のドリップコーヒー,Drip coffee at Tokumitsu
 combo-specialty-coffee-walk,3,short-morihico-main-store,1,45,,,,森彦で深煎りブレンド「森の雫」,Deep-roast Mori no Shizuku at Morihico
 combo-lamb-and-closing-parfait,1,eve-939a0d4f,1,120,,,,味付けジンギスカンの食べ飲み放題,Marinated lamb with unlimited food and drinks
-combo-lamb-and-closing-parfait,2,eve-yoru-parfait-mua,1,45,,,,シメのパフェ,Closing parfait
+combo-lamb-and-closing-parfait,2,eve-yoru-parfait-mua,1,45,walk,3,,シメのパフェ,Closing parfait
 combo-moiwa-night-view-and-miso-ramen,1,short-sapporo-mt-moiwa-ropeway,1,90,,,,ロープウェイで山頂へ、夜景,Ropeway to the summit for the night view
-combo-moiwa-night-view-and-miso-ramen,2,eve-sumire-susukino,1,30,transit,30,,すみれの味噌ラーメン,Miso ramen at Sumire
+combo-moiwa-night-view-and-miso-ramen,2,eve-sumire-susukino,1,30,transit,35,,すみれの味噌ラーメン,Miso ramen at Sumire
 combo-yoichi-whisky-and-otaru-sushi,1,xn-yoichi-nikka-whisky-distillery,1,70,,,,ニッカ余市蒸溜所の見学と試飲,Nikka distillery tour and tasting
 combo-yoichi-whisky-and-otaru-sushi,2,eve-otaru-masazushi-honten-sushi,1,90,transit,40,,寿司屋通りで握りの夕食,Nigiri dinner on Sushiya-dori
 combo-jozankei-and-market-brunch,1,xn-jozankei-onsen-resort-hotel,1,,,,,温泉と夕食ビュッフェ、1泊,Onsen and dinner buffet overnight
 combo-jozankei-and-market-brunch,2,short-kita-no-gurume-tei,2,45,transit,90,,場外市場で海鮮丼のブランチ,Seafood bowl brunch at the Curb Market
 combo-noboribetsu-and-upopoy,1,xn-noboribetsu-dai-ichi-takimotokan,1,,,,26770,地獄谷の散策と温泉、1泊,Hell Valley walk and onsen overnight
 combo-noboribetsu-and-upopoy,2,short-upopoy-national-ainu-museum,2,180,transit,60,,国立アイヌ民族博物館と公園,National Ainu Museum and Park
-combo-chitose-semiconductor-day,1,short-new-chitose-airport-observation,1,30,,,,展望デッキからRapidus IIM-1の方向を見る,View toward the Rapidus IIM-1 fab from the deck
-combo-chitose-semiconductor-day,2,spec-chitose-institute-of-science,1,60,transit,11,,共用研究機器とクリーンルーム（要調整）,Shared research equipment and clean room (by arrangement)
-combo-chitose-semiconductor-day,3,spec-sumco-chitose-plant,1,60,transit,,,エピタキシャルウェーハ工場（要調整）,Epitaxial wafer plant (by arrangement)
+combo-chitose-semiconductor-day,1,spec-chitose-institute-of-science,1,90,,,,共用研究機器とクリーンルームを見学（要調整）,Shared research equipment and clean room (by arrangement)
+combo-chitose-semiconductor-day,2,short-new-chitose-airport-observation,1,30,transit,7,,展望デッキからRapidus IIM-1の方向を見る,Look toward the Rapidus IIM-1 fab from the deck

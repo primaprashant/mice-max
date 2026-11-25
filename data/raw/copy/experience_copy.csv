@@ -51,21 +51,21 @@ combo-specialty-coffee-walk,en,Sapporo specialty coffee walk,"Three Sapporo coff
 Tokumitsu opens 10:00
 Morihico is 4 min from Maruyama-koen Station
 Subway fare extra"
-combo-lamb-and-closing-parfait,ja,ジンギスカンとシメパフェ,"ラムの食べ飲み放題のあと、シメのパフェ。7,600円",すすきのの松尾ジンギスカンで、味付けジンギスカンの食べ飲み放題（約2時間）。そのあと11階のパフェバー「夜パフェ MUA」で、シメのパフェを食べます。飲んだあとをパフェで締めるのは札幌の習慣です。,松尾ジンギスカンの食べ飲み放題コース、パフェ1つ,"2人から
+combo-lamb-and-closing-parfait,ja,ジンギスカンとシメパフェ,"ラムの食べ飲み放題のあと、シメのパフェ。7,700円から",すすきのの松尾ジンギスカンで、味付けジンギスカンの120分食べ飲み放題。そのあと近くのビルの11階にある「夜パフェ MUA」で、シメのパフェを1つ食べます。飲んだあとをパフェで締めるのは札幌の習慣です。,松尾ジンギスカンの120分食べ飲み放題、パフェ1つ,"2人から
 火曜はどちらも休み
-パフェ店のラストオーダーは23:30
+パフェ店は16席、ラストオーダー23:30
 カード払い可"
-combo-lamb-and-closing-parfait,en,"Lamb grill, then a closing parfait","Sapporo's way to end a night: lamb, then a parfait. ¥7,600","Marinated lamb with unlimited food and drinks for about 2 hours at Matsuo Jingisukan in Susukino. Then go up to Yoru Parfait MUA, an 11th-floor parfait bar, for a closing parfait, a Sapporo habit after a night out.",Matsuo eat-and-drink course and one parfait,"From 2 people
+combo-lamb-and-closing-parfait,en,"Lamb grill, then a closing parfait","Sapporo's way to end a night: lamb, then a parfait. From ¥7,700","Marinated lamb with unlimited food and drinks for 120 minutes at Matsuo Jingisukan in Susukino. Then walk over to Yoru Parfait MUA, an 11th-floor parfait bar nearby, for one closing parfait, a Sapporo habit after a night out.",Matsuo 120-minute eat-and-drink course and one parfait,"From 2 people
 Both closed Tuesdays
-Parfait bar last order 23:30
+Parfait bar has 16 seats, last order 23:30
 Card accepted"
-combo-moiwa-night-view-and-miso-ramen,ja,藻岩山の夜景と味噌ラーメン,"山頂から夜景を見て、すすきので味噌ラーメン。3,600円",ロープウェイとミニケーブルカーで藻岩山の山頂へ上り、360度の夜景を見ます。無料シャトルバスと市電ですすきのへ移り、「すみれ」で味噌ラーメンを食べます。約2時間半です。,ロープウェイとミニケーブルカーの往復、市電（200円）、味噌ラーメン1杯,"ロープウェイの最終上りは21:30
-すみれのラストオーダーは24:00
-予約不要
+combo-moiwa-night-view-and-miso-ramen,ja,藻岩山の夜景と味噌ラーメン,"藻岩山の夜景のあと、すすきので味噌ラーメン。3,630円",ロープウェイとミニケーブルカーで藻岩山の山頂へ上り、360度の夜景を見ます。帰りは無料シャトルバスと市電ですすきのへ移り、「すみれ」で味噌ラーメンを食べます。全体で約2時間半です。,ロープウェイとミニケーブルカーの往復、市電（230円）、味噌ラーメン1杯,"予約不要
+ロープウェイの最終上りは21:30、悪天候で運休あり
+すみれはラストオーダー24:00、24席
 ロープウェイは現金、カード、QR決済可"
-combo-moiwa-night-view-and-miso-ramen,en,Mt Moiwa night view and miso ramen,"City lights from Mt Moiwa, then miso ramen in Susukino. ¥3,600",Ride the ropeway and mini cable car to the top of Mt Moiwa for a 360-degree night view. Take the free shuttle and the tram to Susukino for miso ramen at Sumire. About 2.5 hours.,"Ropeway and cable car return, tram (¥200), one bowl of miso ramen","Last ropeway up 21:30
-Sumire last order 24:00
-No booking needed
+combo-moiwa-night-view-and-miso-ramen,en,Mt Moiwa night view and miso ramen,"City lights from Mt Moiwa, then miso ramen in Susukino. ¥3,630",Ride the ropeway and mini cable car to the top of Mt Moiwa for a 360-degree night view. Then take the free shuttle and the tram to Susukino for miso ramen at Sumire. About 2.5 hours in all.,"Ropeway and mini cable car return, tram (¥230), one bowl of miso ramen","No booking needed
+Last ropeway up 21:30; it can stop in bad weather
+Sumire: last order 24:00, 24 seats
 Ropeway takes cash, card or QR"
 combo-yoichi-whisky-and-otaru-sushi,ja,余市ウイスキーと小樽の寿司,"蒸溜所見学、寿司の夕食、運河そばに1泊。18,750円から",ニッカウヰスキー余市蒸溜所を無料で見学し（約70分、試飲あり）、JRで小樽へ。寿司屋通りの「おたる政寿司」で握りの夕食をとり、運河そばのホテルノルド小樽に泊まります。,ホテル素泊まり（2名1室）、JR札幌〜余市〜小樽〜札幌、蒸溜所見学、宿泊税、握りセット匠,"料金は2人1室で1人あたり
 蒸溜所は前日11:59までにネット予約
@@ -91,9 +91,11 @@ combo-noboribetsu-and-upopoy,en,Noboribetsu onsen and Upopoy,"Onsen by Hell Vall
 Bus leaves Sapporo 13:40
 Upopoy closed Mondays
 Upopoy winter hours end at 17:00"
-combo-chitose-semiconductor-day,ja,千歳の半導体拠点めぐり,Rapidus周辺の大学と工場を訪ねる。見学は要調整,JRで新千歳空港へ行き（約37分）、展望デッキから滑走路の先のRapidus IIM-1を見ます。市バスで約11分の公立千歳科学技術大学で共用研究機器とクリーンルームを見て、SUMCO千歳工場へ。大学と工場は一般公開がなく、個別の調整が必要です。,"JR快速エアポート往復（2,460円）、展望デッキ（無料）。市内のバスとタクシーは別","展望デッキは4月から11月のみ
-大学と工場は見学できない場合あり
-市内の移動はバスかタクシー"
-combo-chitose-semiconductor-day,en,Chitose semiconductor day,A university clean room and a wafer plant near Rapidus. By arrangement,"Take JR to New Chitose Airport (about 37 min) and look toward the Rapidus IIM-1 fab from the observation deck. A city bus takes about 11 minutes to CIST for its shared research equipment and clean room, then go on to the SUMCO Chitose wafer plant. Neither is a public tour, so both need a special arrangement.","JR Rapid Airport return (¥2,460) and the free deck; local bus and taxi extra","Deck open April to November only
-The CIST and SUMCO visits may not be possible
-Local bus or taxi between sites"
+combo-chitose-semiconductor-day,ja,千歳の半導体研究と展望デッキ,大学のクリーンルームとRapidus方面の眺め。要調整,JRで新千歳空港へ行き、タクシーで約7分の公立千歳科学技術大学で、共用研究機器（ARIM）とクリーンルーム、2024年に立ち上げたシリコンリサーチセンターを見学します。空港に戻ったら、展望デッキから滑走路の向こうのRapidus IIM-1の方向を眺めます。大学の見学は一般公開ではなく、特別な調整が必要です。,"JR快速エアポート往復（2,460円）、展望デッキ（無料）。タクシーは別","一般向けの見学ではなく、実施できない場合あり
+平日のみ
+展望デッキは4月から11月、8:00から20:00
+空港と大学の間はタクシーで約7分"
+combo-chitose-semiconductor-day,en,Chitose semiconductor research visit,"A university clean room near Rapidus, then the deck. By arrangement","Take JR to New Chitose Airport and a 7-minute taxi to the Chitose Institute of Science and Technology (CIST) to see its shared research equipment (ARIM), clean room and the Silicon Research Center it set up in 2024. Back at the airport, look across the airfield toward the Rapidus IIM-1 fab from the observation deck. The university visit is not a public tour and needs a special arrangement.","JR Rapid Airport return (¥2,460) and the free deck; taxis extra","Not a public tour, so the visit may not happen
+Weekdays only
+Deck open April to November, 8:00 to 20:00
+Taxi between the airport and CIST, about 7 min"

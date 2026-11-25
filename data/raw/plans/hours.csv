@@ -1,0 +1,97 @@
+plan_id,opens,closes,leave_by,note
+eve-008530cb,17:00,24:00,,Sat from 12:00
+eve-03477ef5,17:00,22:30,,
+eve-07500563,11:30,22:30,,
+eve-1705e0f3,16:00,23:00,,Fri/Sat to 24:00
+eve-18488276,11:00,21:00,,
+eve-1868ffb1,17:00,23:00,,closed Tue
+eve-238d9c01,17:30,23:30,,
+eve-24cf3e2b,11:00,21:00,,closed Wed
+eve-25959002,17:00,22:00,,
+eve-2bf7d83c,18:00,24:00,,closed Mon; Sun 17:30-24:00
+eve-3373d943,17:00,22:50,,closed Sun; weekday lunch 11:00-14:00
+eve-48802ccc,17:00,23:00,,closed Sun
+eve-5b208569,17:00,22:45,,
+eve-762e7596,17:00,23:15,,
+eve-7d4d077a,17:00,24:00,,"open to 02:00, capped at 24:00"
+eve-939a0d4f,17:30,23:30,,closed Tue
+eve-9548bd7a,17:00,23:30,,Sat from 16:00
+eve-957c9708,16:00,23:30,,Sat from 13:00
+eve-a1b59cc3,17:00,23:15,,
+eve-bb7771b7,11:00,23:00,,
+eve-beer-bar-north-island,17:30,23:30,,closed Thu; Sat from 15:00
+eve-ef3aefe1,17:00,24:00,,"listed 24h, closes when meat sells out; evening assumed"
+eve-f61f3452,18:00,23:30,,
+eve-mingle-ramen-food-hall,11:00,24:00,,varies by shop
+eve-otaru-masazushi-honten-sushi,17:00,21:00,,lunch 11:00-15:00; closed Wed
+eve-sapporo-kanihonke-sapporo-ekimae,11:30,22:00,,
+eve-sumire-susukino,11:00,24:00,,24:00 is last order (official)
+eve-yoru-parfait-mua,17:00,24:00,,closed Tue
+xn-asahikawa-asahiyama-zoo-with,,,11:00,"assumed: zoo closes 15:30 in winter, 2h+ travel"
+xn-furano-ski-day-march,,,14:00,assumed: May (no ski) bus ~3 h; a March ski day needs 08:00
+xn-ginrinso-historic-herring-mansion,,,17:00,"last station pickup 18:00, train 35 min"
+xn-jozankei-forest-onsen-resort,,,16:00,last Kappa Liner from Sapporo Sta 16:00; last shuttle Makomanai 16:30 (from SCC about 45 min)
+xn-jozankei-onsen-resort-hotel,,,14:30,free shuttle from Sapporo Station 14:30
+xn-kiroro-ski-in-luxury,,,09:00,"assumed: liner times not found, ski day"
+xn-lake-toya-onsen-resort,,,13:00,hotel bus leaves Odori 13:00
+xn-niseko-ski-day-at,,,09:20,ski bus 09:20 for a ski day (also 07:50)
+xn-noboribetsu-dai-ichi-takimotokan,,,13:40,bus leaves Sapporo 13:40
+xn-otaru-canal-front-onsen,,,16:00,"assumed: cruise from ~16:30, train 35 min"
+xn-otaru-canal-side-onsen,,,15:00,"assumed: check-in 15:00, glass workshop"
+xn-rusutsu-ski-day-and,,,09:00,"assumed: bus times not found, ski day"
+xn-suizantei-club-jozankei-adults,,,17:00,"free shuttle from Odori 17:00 (also 11:30, 14:40)"
+xn-the-windsor-hotel-toya,,,16:30,"assumed: last hotel shuttle at JR Toya 19:00, train 1h50"
+xn-yoichi-nikka-whisky-distillery,,,13:30,"assumed: last tour ~15:00, 80 min travel"
+short-authentic-sapporo-nijo-market,10:00,12:30,,fixed start 10:00
+short-chitosetsuru-sake-museum,10:00,18:00,,17:00 on last day of month
+short-donbe-nijo-market,07:00,20:00,,until rice or fish runs out
+short-historical-village-of-hokkaido,09:00,16:30,,May-Sep to 17:00; Mon closed Oct-Apr
+short-hitsujigaoka-observation-hill,09:00,17:00,,Jun-Sep to 18:00
+short-hokkaido-university-museum,10:00,17:00,,closed Mon
+short-jr-tower-observatory-t38,10:00,22:00,,last entry 21:30
+short-kita-no-gurume-tei,07:00,15:00,,
+short-kuranoyu-hot-spring-naebo,10:00,24:00,,last entry 23:00
+short-marumi-coffee-odori-main,09:00,19:00,,
+short-mituki-sakura-tea-ceremony,11:00,15:40,,"starts 11:00, 13:00, 15:00"
+short-morihico-main-store,09:00,19:00,,
+short-morning-run-hokkaido-university,05:30,09:00,,
+short-morning-run-nakajima-park,05:30,09:00,,
+short-morning-run-odori-park,05:30,09:00,,
+short-morning-run-shiroishi-kokoro,05:30,09:00,,
+short-new-chitose-airport-observation,08:00,20:00,,Apr-Nov hours only
+short-nijo-market,07:00,17:00,,varies by shop
+short-okurayama-ski-jump-observatory,09:30,17:00,,lift Apr22-Oct 08:30-18:00; museum Nov-Apr from 09:30
+short-sapporo-ainu-culture-promotion,09:00,17:00,,"assumed; no hours found. Closed Mon, last Tue"
+short-sapporo-beer-museum-guided,11:00,18:00,,last entry 17:30; no guided tours Mon
+short-sapporo-clock-tower,08:45,17:10,,last entry 17:00
+short-sapporo-curb-market-jogai,07:00,15:00,,"market 06:00-17:00; eateries from 07:00, many close from 15:00"
+short-sapporo-maruyama-zoo,09:30,16:30,,closed some Wednesdays
+short-sapporo-moiwa-ski-area,09:00,21:00,,"day 09:00-16:00, night 16:00-21:00"
+short-sapporo-mt-moiwa-ropeway,11:00,22:00,,Dec-Mar 11:00; Apr-Nov 10:30; last up 21:30
+short-sapporo-tv-tower,09:00,22:00,,
+short-sapporo-walking-tour-h,09:00,17:00,,assumed; start time not published
+short-shiroi-koibito-park,10:00,18:00,,paid area last entry 16:30
+short-snowshoe-trek-in-asahiyama,09:00,12:00,,incl. hotel transfer; winter only
+short-soup-curry-king-central,11:30,21:30,,Mon-Fri closed 15:30-17:30; closes when soup runs out
+short-susukino-natural-hot-spring,10:00,24:00,,Mon from 12:00; last entry 23:00
+short-takino-snow-world-takino,09:00,15:45,,rental hours; winter only
+short-tokumitsu-coffee-odori,10:00,19:30,,
+short-upopoy-national-ainu-museum,09:00,17:00,,"Apr-Oct to 18:00; closed Mon; park entry 1h, museum 30 min before close"
+spec-chitose-institute-of-science,09:30,16:30,,assumed office hours
+spec-civil-engineering-research-institute,09:30,16:30,,assumed office hours
+spec-hokkaido-research-organization-industrial,09:30,17:00,,closed Sat; 12:00-13:00 break
+spec-hokkaido-university-museum,10:00,17:00,,closed Mon
+spec-hokkaido-university-research-center,09:30,16:30,,assumed office hours
+spec-japanese-red-cross-hokkaido,09:00,17:00,,closed Sat; 12:00-13:00 break; last entry 16:00
+spec-jgsdf-camp-makomanai-unit,08:30,17:00,,closed Sat
+spec-naro-hokkaido-agricultural-research,09:30,16:30,,assumed office hours; closed Sat
+spec-rapidus-chitose-iim-1,09:30,16:30,,assumed office hours
+spec-sapporo-breweries-hokkaido-brewery,10:30,16:00,,"closed Mon, Tue; starts 10:30-15:00"
+spec-sapporo-citizens-disaster-prevention,09:30,16:30,,"closed Tue (open if holiday), 3rd Thu, day after a holiday, 12/28-1/4"
+spec-sapporo-city-fire-academy,09:30,16:30,,assumed office hours
+spec-sapporo-komaoka-waste-incineration,09:30,16:30,,assumed office hours
+spec-sapporo-medical-university-advanced,09:30,16:30,,assumed office hours
+spec-sapporo-regional-headquarters-japan,10:00,15:45,,"tours Tue-Thu only, 10:00 and 15:00"
+spec-snow-brand-megmilk-dairy,10:00,16:00,,"closed Sat; starts 10,11,13,14,15"
+spec-sumco-chitose-plant,09:30,16:30,,assumed office hours
+spec-teine-keijinkai-hospital-emergency,09:30,16:30,,assumed office hours

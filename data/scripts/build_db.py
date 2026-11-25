@@ -34,6 +34,7 @@ def main():
     import_photos.load(db, raw / "photos", DATA / "images", dt.date.today().isoformat())
     compute_travel.load(db)
     import_experiences.load(db, raw / "experiences", raw / "copy")
+    import_programs.load_headlines(db, raw / "programs")
     simulate.load(db)
     db.commit()
     for (table,) in db.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"):

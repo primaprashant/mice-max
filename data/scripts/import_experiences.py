@@ -5,6 +5,7 @@ Combos come from data/raw/experiences/:
 - stops.csv: experience_id, n, plan_id, day, minutes, travel_mode, travel_min, price_jpy, what_ja, what_en
   Blank minutes or price_jpy fall back to the plan's own; blank travel is estimated from coordinates.
 Combo copy is in data/raw/copy/experience_copy.csv and checked like plan copy.
+start_from and start_until come from the stops' opens, closes and leave_by (hours.csv).
 Run after plans, copy, photos and travel are loaded.
 """
 import json
@@ -15,7 +16,7 @@ from compute_travel import km
 
 EXP_COLS = ["id", "kind", "is_combo", "stop_count", "area_id", "duration_min", "price_jpy", "price_max_jpy",
             "price_note", "party_min", "party_max", "english_ok", "needs_agreement", "fields", "months",
-            "days_closed", "notes"]
+            "days_closed", "notes", "start_from", "start_until"]
 STOP_COLS = ["experience_id", "n", "plan_id", "day", "offset_min", "minutes", "travel_mode", "travel_min",
              "price_jpy", "what_ja", "what_en"]
 
@@ -26,6 +27,32 @@ def insert(db, table, cols, values):
 
 def as_int(text):
     return int(text) if text not in (None, "") else None
+
+
+def mins(hhmm):
+    h, m = hhmm.split(":")
+    return int(h) * 60 + int(m)
+
+
+def hhmm(n):
+    return f"{n // 60:02d}:{n % 60:02d}"
+
+
+def start_bounds(stops, plans):
+    """Earliest and latest start ('HH:MM') so each day-1 stop is open when you get there.
+    stops: (plan_id, day, offset_min, minutes). Extra nights' leave_by caps the latest start."""
+    lo, hi = [], []
+    for pid, day, offset, minutes in stops:
+        p = plans[pid]
+        if day != 1:
+            continue
+        if p["opens"]:
+            lo.append(mins(p["opens"]) - offset)
+        if p["closes"]:
+            hi.append(mins(p["closes"]) - offset - (minutes or 0))
+        if p["leave_by"]:
+            hi.append(mins(p["leave_by"]) - offset)
+    return (hhmm(max(0, max(lo))) if lo else None), (hhmm(max(0, min(hi))) if hi else None)
 
 
 def estimate(a, b):
@@ -40,7 +67,8 @@ def estimate(a, b):
 def singles(db, plans):
     for p in plans.values():
         insert(db, "experiences", EXP_COLS,
-               [p["id"], p["kind"], 0, 1, p["area_id"]] + [p[c] for c in EXP_COLS[5:16]] + [None])
+               [p["id"], p["kind"], 0, 1, p["area_id"]] + [p[c] for c in EXP_COLS[5:16]] + [None]
+               + list(start_bounds([(p["id"], 1, 0, p["duration_min"])], plans)))
         insert(db, "experience_stops", STOP_COLS,
                [p["id"], 1, p["id"], 1, 0, p["duration_min"], None, None, p["price_jpy"], None, None])
     db.execute("""INSERT INTO experience_copy SELECT plan_id, lang, card_title, hook, description, included,
@@ -97,7 +125,8 @@ def add_combo(db, c, stops, plans):
         max(p["needs_agreement"] for p in ps),
         json.dumps(fields) if fields else None,
         json.dumps(sorted(set.intersection(*months))) if months else None,
-        "\n".join(closed) or None, c.get("notes") or None])
+        "\n".join(closed) or None, c.get("notes") or None,
+        *start_bounds([(r[2], r[3], r[4], r[5]) for r in rows], plans)])
     for r in rows:
         insert(db, "experience_stops", STOP_COLS, r)
     hero = c.get("hero_plan") or ps[0]["id"]

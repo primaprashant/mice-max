@@ -1,6 +1,7 @@
 """Load data/raw/programs/<conference_id>/ into sessions, windows and conferences.attendee_mix.
 
-Each folder holds sessions.csv, windows.csv and mix.json (see T3 in docs/07-data-plan.md).
+Each folder holds sessions.csv, windows.csv and mix.json (see T3 in docs/07-data-plan.md), plus headlines.csv:
+the one experience per kind the demo opens live (loaded by load_headlines after experiences).
 Session buildings are matched to places by Japanese or English name; unmatched names stay in extra.
 """
 import csv
@@ -50,3 +51,15 @@ def load(db, folder, checked_on):
         mix = conf / "mix.json"
         if mix.exists():
             db.execute("UPDATE conferences SET attendee_mix = ? WHERE id = ?", (mix.read_text(), cid))
+
+
+def load_headlines(db, folder):
+    """headlines.csv per conference: kind, experience_id, window_id, start_time, people_min, people_max, note.
+    Run after experiences are built."""
+    for path in sorted(folder.glob("*/headlines.csv")):
+        cid = path.parent.name
+        for r in rows(path):
+            db.execute("""INSERT INTO headlines (conference_id, kind, experience_id, window_id, start_time,
+                            people_min, people_max, note) VALUES (?,?,?,?,?,?,?,?)""",
+                       (cid, r["kind"], r["experience_id"], r["window_id"], r["start_time"], int(r["people_min"]),
+                        int(r["people_max"]), r.get("note")))

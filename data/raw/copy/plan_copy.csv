@@ -119,11 +119,11 @@ eve-7d4d077a,en,Kita no Utage private-room izakaya,"Seafood, yakitori and oden. 
 Open 17:00 to 2:00 (last order 1:00), irregular closed days
 Cards: VISA and Mastercard only
 Smoking allowed at all seats"
-eve-939a0d4f,ja,松尾ジンギスカン すすきの店,"味付けジンギスカンの食べ飲み放題。5,300円から",松尾ジンギスカンの味付けラムを、約2時間の食べ飲み放題コースで楽しめます。コースは2人からで、当日予約もできます。最大24人の掘りごたつ個室があります。,ジンギスカン食べ放題と飲み放題（約2時間）,"2人から、当日予約も可
+eve-939a0d4f,ja,松尾ジンギスカン すすきの店,"味付けジンギスカンの食べ飲み放題。5,600円から",松尾ジンギスカンの味付けラムを、約2時間の食べ飲み放題コースで楽しめます。コースは2人からで、当日予約もできます。最大16人の掘りごたつ個室があります。,ジンギスカン食べ放題と飲み放題（約2時間）,"2人から、当日予約も可
 英語OK
 カード、QR決済可
 火曜定休"
-eve-939a0d4f,en,"Matsuo Jingisukan lamb grill, Susukino","Marinated lamb grill, all you can eat and drink. From ¥5,300","Jingisukan is Hokkaido's grilled lamb, and Matsuo serves the marinated style. Courses give about 2 hours of unlimited food and drinks, from 2 people, and can be booked the same day. Private sunken-floor rooms seat up to 24.",Unlimited lamb and drinks for about 2 hours,"From 2 people, same-day booking OK
+eve-939a0d4f,en,"Matsuo Jingisukan lamb grill, Susukino","Marinated lamb grill, all you can eat and drink. From ¥5,600","Jingisukan is Hokkaido's grilled lamb, and Matsuo serves the marinated style. Courses give about 2 hours of unlimited food and drinks, from 2 people, and can be booked the same day. Private sunken-floor rooms seat up to 16.",Unlimited lamb and drinks for about 2 hours,"From 2 people, same-day booking OK
 English OK
 Card or QR
 Closed Tuesdays"
@@ -235,13 +235,13 @@ short-chitosetsuru-sake-museum,en,Chitosetsuru Sake Museum,"Sapporo sake brewery
 No booking, fine alone
 Alcohol tasting from age 20
 Closed over New Year"
-short-donbe-nijo-market,ja,丼兵衛 二条市場店,"7:00から営業。満足丼3,480円","二条市場の海鮮丼の店です。7:00から20:00まで毎日営業しています。名物の満足丼は3,480円で、数量限定の海鮮バラちらし丼は500円です。",満足丼1杯（税込）,"年中無休、ラストオーダー19:30
-500円の丼は1人1点で、売り切れることがあります
-英語メニューあり
+short-donbe-nijo-market,ja,丼兵衛 二条市場店,"二条市場の海鮮丼。満足丼3,480円、7:00から",二条市場にある海鮮丼の店で、毎日7:00から20:00まで営業しています。満足丼はまぐろ、サーモン、ぼたん海老、うに、かになどをのせた丼です。500円の海鮮バラちらし丼は数量限定で、売り切れることがあります。,満足丼1杯（税込）,"年中無休、ラストオーダー19:30
+酢飯やネタがなくなり次第終了
+英語メニューあり、26席
 カード、QR決済可"
-short-donbe-nijo-market,en,Donbe Nijo Market seafood bowls,"Seafood bowls from 07:00 daily. Signature bowl ¥3,480","A seafood-bowl shop in Nijo Market, open 07:00 to 20:00 every day. The signature bowl is ¥3,480, and a limited mini bara-chirashi bowl is ¥500. It has 26 seats.","One signature seafood bowl, tax included","Open daily, last order 19:30
-The ¥500 bowl is limited to one per person and can sell out
-English menu
+short-donbe-nijo-market,en,Donbe Nijo Market seafood bowls,"Seafood bowls in Nijo Market from 07:00. Manzoku bowl ¥3,480","A seafood-bowl shop in Nijo Market, open 07:00 to 20:00 every day. The Manzoku bowl has tuna, salmon, botan shrimp, sea urchin and crab. A ¥500 chopped-seafood bowl is made in limited numbers and can sell out.","One Manzoku bowl, tax included","Open daily, last order 19:30
+Closes early when rice or fish runs out
+English menu, 26 seats
 Card or QR payment"
 short-historical-village-of-hokkaido,ja,北海道開拓の村,"明治・大正の建物を移築した野外博物館。1,000円",北海道各地の明治・大正の建物を移築した野外博物館で、馬車鉄道もあります。見学は約150分です。,入場料（大人）,"予約不要、英語OK
 9:00から、閉園は夏期17:00、冬期16:30
@@ -554,12 +554,12 @@ spec-sapporo-breweries-hokkaido-brewery,en,Sapporo Breweries Hokkaido Brewery to
 Book online by 15:00 the day before; opens 4 weeks ahead
 Closed Mondays and Tuesdays
 Groups of 11 or more call first"
-spec-sapporo-citizens-disaster-prevention,ja,札幌市民防災センター,地震、煙避難、消火、AEDを体験。無料、約90分,地震、煙からの避難、暴風、消火器、応急手当とAEDの体験コーナーがあり、白石消防署に併設されています。見学は1時間から1時間半ほどです。,体験コーナー（無料）,"個人は予約不要、9:30〜16:30
-10人以上の団体は電話で予約、011-868-3535
-火曜（祝日は開館）、第3木曜、祝日の翌日は休み"
-spec-sapporo-citizens-disaster-prevention,en,Sapporo Disaster Prevention Center,"Hands-on earthquake, smoke and first-aid corners. Free, 90 min","Hands-on corners for earthquakes, smoke evacuation, storm wind, fire extinguishers and first aid with an AED, attached to Shiroishi fire station. A visit takes 1 to 1.5 hours.",Hands-on corners (free),"Individuals walk in, open 9:30-16:30
-Groups of 10 or more book by phone, 011-868-3535
-Closed Tuesdays (open if a holiday), 3rd Thursdays, the day after a holiday"
+spec-sapporo-citizens-disaster-prevention,ja,札幌市民防災センター,地震、煙避難、消火、AEDを体験。無料、約90分,白石消防署に併設された防災学習施設です。地震、煙の中の避難、暴風、消火器、応急手当とAEDを体験できます。見学は1時間から1時間半ほどです。,体験コーナー（無料）,"個人は予約不要、9:30〜16:30
+10人以上は電話で予約（011-868-3535）、土日祝は団体不可
+火曜（祝日は開館）、第3木曜、祝日の翌日は休館"
+spec-sapporo-citizens-disaster-prevention,en,Sapporo Disaster Prevention Center,"Hands-on earthquake, smoke, fire and AED corners. Free, about 90 min","A disaster-prevention learning center attached to Shiroishi fire station. You can try an earthquake, smoke evacuation, storm wind, fire extinguishers and first aid with an AED. A visit takes 1 to 1.5 hours.",Hands-on corners (free),"Individuals walk in, 9:30 to 16:30
+Groups of 10 or more book by phone (011-868-3535), weekdays only
+Closed Tuesdays (open on holidays), 3rd Thursdays and the day after a holiday"
 spec-sapporo-city-fire-academy,ja,札幌市消防学校,消防職員と救急救命士の養成所。一般見学なし、要相談,札幌市の新任消防職員を教育し、訓練施設を備えた救急救命士養成所も運営しています。一般向けの見学ページはありません。2024年に救急救命士の専門学校の団体が新任職員の訓練を見学した例があります。見学には特別な調整が必要です。,,"一般向けの見学ではない
 見学できない場合あり
 連絡先は教務課、011-616-2262"
@@ -628,14 +628,14 @@ xn-ginrinso-historic-herring-mansion,en,"Ginrinso, historic ryokan above Otaru",
 Station pickup: email or phone your time, last pickup 18:00
 Check-in 15:00 to 18:00 (by 18:00 with dinner)
 Check-out 11:00"
-xn-jozankei-forest-onsen-resort,ja,定山渓鶴雅リゾートスパ 森の謌,"真駒内から無料送迎の温泉宿。27,065円から",定山渓にある森のそばの温泉リゾートで、夕食と朝食はビュッフェです。地下鉄真駒内駅から無料送迎があり、約30分です。,夕朝食ビュッフェ付き宿泊（ツイン2名利用）、じょうてつバスのカッパライナー札幌〜定山渓往復、宿泊税と入湯税。無料送迎は別,"料金は2人1室で1人あたり
-無料送迎は前日17:00までに電話（011-598-2671）
-真駒内発10:30、14:30、16:30、ホテル発9:30、11:30、15:30
-早期割は90〜120日前までの予約"
-xn-jozankei-forest-onsen-resort,en,Jozankei Tsuruga Mori no Uta,"Forest onsen resort, free shuttle from Makomanai. From ¥27,065",A forest-side onsen resort in Jozankei with a dinner and breakfast buffet. A free shuttle runs from Makomanai subway station and takes about 30 min. The Kappa Liner bus from Sapporo takes about 60 min.,"Dinner and breakfast buffet (twin, 2 sharing), Kappa Liner bus return from Sapporo, local taxes. The free shuttle is a no-cost alternative","Price per person, 2 sharing
-Free shuttle: phone 011-598-2671 by 17:00 the day before
-Shuttle from Makomanai 10:30, 14:30, 16:30; from hotel 9:30, 11:30, 15:30
-Early plans need booking 90 to 120 days ahead; last Kappa Liner back 17:06"
+xn-jozankei-forest-onsen-resort,ja,定山渓鶴雅リゾートスパ 森の謌,"定山渓の温泉に1泊2食、34,446円から",定山渓温泉にあるリゾートホテルで、大浴場と露天風呂があります。夕食と朝食はビュッフェです。地下鉄真駒内駅から予約制の無料送迎バスで約30分です。,夕朝食ビュッフェ付き1泊（2名1室）、かっぱライナー札幌〜定山渓の往復、宿泊税と入湯税,"料金は2名1室の1人あたり、早期割は90〜120日前までの予約
+無料送迎は前日17:00までに電話予約（011-598-2671）
+送迎は真駒内発10:30、14:30、16:30、ホテル発9:30、11:30、15:30
+チェックイン15:00、チェックアウト10:00"
+xn-jozankei-forest-onsen-resort,en,Jozankei Tsuruga Mori no Uta,"Jozankei onsen night with dinner and breakfast. From ¥34,446","An onsen resort hotel in Jozankei with indoor and outdoor baths. Dinner and breakfast are buffets. A free shuttle bus, booked ahead, runs from Makomanai subway station and takes about 30 min.","One night with dinner and breakfast buffet (2 sharing), Kappa Liner bus return from Sapporo, local taxes","Price per person with 2 sharing; early-booking rates need 90 to 120 days' notice
+Free shuttle: book by phone 011-598-2671 by 17:00 the day before
+Shuttle from Makomanai 10:30, 14:30, 16:30; from the hotel 9:30, 11:30, 15:30
+Check-in 15:00, check-out 10:00"
 xn-jozankei-onsen-resort-hotel,ja,定山渓万世閣ホテルミリオーネ,"札幌駅から無料送迎の温泉宿、2食付き22,903円から",定山渓温泉の大型ホテルで、夕食は目の前で調理するライブビュッフェです。札幌駅北口14:30発の無料送迎バスがあり、帰りはホテル10:00発です。,ツイン2名利用の夕朝食付き宿泊、無料送迎バス、宿泊税と入湯税,"送迎バスは部屋の予約後に申し込み
 早割は60日前までの予約
 10人以上のグループは送迎バス不可
@@ -668,14 +668,14 @@ xn-niseko-ski-day-at,en,Hilton Niseko Village and a ski day,"Ski-in hotel night 
 Early plan needs booking 7 days ahead
 Free hotel bus from Kutchan runs December 1 to March 31
 Ski season runs December to March"
-xn-noboribetsu-dai-ichi-takimotokan,ja,第一滝本館と登別地獄谷,"登別温泉に1泊、2食付き29,970円から","登別温泉の老舗ホテルで、5種類の温泉がある1,500坪の大浴場があります。地獄谷はすぐ隣で、散策は無料です。札幌からは予約制の高速バスで約1時間50分です。",夕朝食ビュッフェ付き宿泊（和室2名利用）、札幌〜登別の高速バス往復、宿泊税と入湯税,"料金は2人1室で1人あたり
-札幌13:40発、帰りは9:20発
-バスはネットで事前決済、出発2時間前まで
-早割は30日前までの予約"
-xn-noboribetsu-dai-ichi-takimotokan,en,"Dai-ichi Takimotokan, Noboribetsu","Onsen hotel by Jigokudani, dinner and breakfast. From ¥29,970","A historic Noboribetsu onsen hotel with a 1,500-tsubo bath hall of five spring types, next to Jigokudani (Hell Valley). The Jigokudani walk is free. The reserved highway bus from Sapporo takes about 1 h 50.","Dinner and breakfast buffet (Japanese room, 2 sharing), highway bus return from Sapporo, local taxes","Price per person, 2 sharing
-Bus leaves Sapporo 13:40, returns 9:20
-Bus is prepaid online, up to 2 hours before departure
-Early plan needs booking 30 days ahead"
+xn-noboribetsu-dai-ichi-takimotokan,ja,第一滝本館と登別地獄谷,"登別温泉に1泊、夕朝食ビュッフェ付き。30,120円から","登別温泉の老舗ホテルで、日本の10泉質のうち5つを源泉かけ流しで楽しめる1,500坪の大浴場があります。地獄谷はすぐ隣で、散策は無料です。札幌から予約制の高速バスで、ホテル前のバス停まで直行します。",夕朝食ビュッフェ付き宿泊（和室2名利用）、札幌〜登別温泉の高速バス往復、宿泊税と入湯税,"料金は2人1室の1人分、早割は30日前までの予約
+バスは札幌13:40発、第一滝本前15:23着
+帰りは9:24発で札幌11:15着、新千歳空港行きは10:24発
+バスはネットで予約、出発2時間前まで"
+xn-noboribetsu-dai-ichi-takimotokan,en,"Dai-ichi Takimotokan, Noboribetsu","Onsen hotel by Hell Valley, buffet dinner and breakfast. From ¥30,120","A historic Noboribetsu onsen hotel with a separate bath building fed straight from the source, five spring types in all. Jigokudani (Hell Valley) is next door and free to walk. A reserved highway bus runs from Sapporo to the stop at the hotel.","Buffet dinner and breakfast (Japanese room, 2 sharing), highway bus return from Sapporo, local taxes","Price per person, 2 sharing; the early rate needs booking 30 days ahead
+Bus leaves Sapporo 13:40, arrives at the hotel 15:23
+Back: 9:24 bus to Sapporo (11:15) or 10:24 bus to New Chitose Airport
+Buses are booked online, up to 2 hours before departure"
 xn-otaru-canal-front-onsen,ja,運河の宿 おたる ふる川,"運河沿いの温泉旅館に1泊。25,650円から",小樽運河に面した温泉旅館で、明治の商家をイメージした造りです。露天風呂があり、小樽運河クルーズの夜便が付きます。小樽駅から徒歩13分、札幌からJRで32〜36分です。,朝食付きショートステイ（17時〜10時）（ツイン2名利用）、JR札幌〜小樽往復、運河クルーズ（約40分）、宿泊税と入湯税,"料金は2人1室で1人あたり
 公式サイトのネット予約は停止中、電話は0134-29-2345
 クルーズは12月31日〜1月1日休み

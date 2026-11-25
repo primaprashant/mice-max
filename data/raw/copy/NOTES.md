@@ -1,6 +1,8 @@
 # Plan copy notes (T6)
 
-Show a native speaker these Japanese rows first: the 13 combos in `experience_copy.csv`, the 15 extra nights (long `included`), `eve-25959002`, `eve-ef3aefe1`, `eve-9548bd7a`, `spec-rapidus-chitose-iim-1`, `spec-snow-brand-megmilk-dairy`, and the window names in `data/raw/programs/*/windows.csv`.
+The 8 headline experiences (D29, `data/raw/programs/*/headlines.csv`) were checked against their sources on 2026-11-25 and their copy rewritten; a native speaker should still read them first.
+
+Show a native speaker these Japanese rows next: the 13 combos in `experience_copy.csv`, the 15 extra nights (long `included`), `eve-25959002`, `eve-ef3aefe1`, `eve-9548bd7a`, `spec-rapidus-chitose-iim-1`, `spec-snow-brand-megmilk-dairy`, and the window names in `data/raw/programs/*/windows.csv`.
 
 Fields too thin for good copy:
 - No price: `short-marumi-coffee-odori-main`, `short-morihico-main-store`, `short-nijo-market`, `short-sapporo-curb-market-jogai`, `eve-07500563`, `eve-48802ccc`, `eve-beer-bar-north-island` (per drink only).

@@ -1,5 +1,7 @@
 """Load data/raw/photos/batch-*.csv and data/images/<plan_id>/<n>.jpg into plan_photos.
 
+The hero is the largest landscape photo unless data/raw/photos/heroes.csv picks one.
+
 Photos are fetched with fetch_photo.sh (T5). Size and dominant colour are measured with ImageMagick.
 Notes may hold "focal x,y" and "square" (both dropped from alt text);
 notes_ja and notes say what the photo shows and feed the alt text.
@@ -57,6 +59,12 @@ def load(db, folder, images, checked_on):
                     SELECT (SELECT rowid FROM plan_photos p WHERE p.plan_id = q.plan_id
                             ORDER BY width > height DESC, width * height DESC, n LIMIT 1)
                     FROM (SELECT DISTINCT plan_id FROM plan_photos) q)""")
+    # Hand-picked heroes override the rule (heroes.csv: plan_id, n, reason).
+    if (folder / "heroes.csv").exists():
+        with (folder / "heroes.csv").open(encoding="utf-8-sig") as f:
+            for r in csv.DictReader(f):
+                db.execute("UPDATE plan_photos SET is_hero = 0 WHERE plan_id = ?", (r["plan_id"],))
+                db.execute("UPDATE plan_photos SET is_hero = 1 WHERE plan_id = ? AND n = ?", (r["plan_id"], int(r["n"])))
     missing = [pid for pid in names if not db.execute("SELECT 1 FROM plan_photos WHERE plan_id = ?", (pid,)).fetchone()]
     if missing:
         print(f"photos: {len(missing)} plans without photos (see data/raw/photos/NOTES.md)")
