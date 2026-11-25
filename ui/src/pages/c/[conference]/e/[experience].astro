@@ -190,6 +190,7 @@ const priceLine = (() => {
           booked: t(lang, "common.booked"),
           joined: t(lang, "common.joined"),
           cancel: t(lang, "common.cancelBooking"),
+          blocked: t(lang, "event.blockedBooking"),
         })}
       >
         <button
@@ -199,6 +200,7 @@ const priceLine = (() => {
           data-day={planWindow?.day ?? ""}
           data-start={planWindow?.start_time ?? ""}
           data-end={planWindow?.end_time ?? ""}
+          data-kind={exp.kind}
           class="w-full rounded-lg bg-theme px-4 py-3 text-sm font-medium text-paper transition-transform active:scale-[0.98]"
         >
           {(exp.price_jpy ?? 0) > 0 ? t(lang, "event.book") : t(lang, "event.join")}
