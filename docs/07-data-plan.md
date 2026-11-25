@@ -42,6 +42,7 @@ All other conferences get **stats only** (dates, size, field, scope), no individ
 | `places`, `routes`, `seasons`, `city_events` | Venues, areas, transit routes, monthly weather and highlights (sunset computed in code) | T7 |
 | `attendees`, `session_attendance`, `events`, `simulation_runs` | Simulated, demo events only | T8 |
 | `city_estimates` | Estimate only: money formula per upcoming listed conference, plus other smaller meetings | T9 |
+| `agent_steps` | AI operations log for the Ops view: setup steps from real data, operations from the simulated events, saved LLM text (docs/10) | `record_ops.py` |
 | `contacts`, `outreach`, `interviews` | Real outreach, organizations only | T10–T12 |
 
 ## Rules for every research task

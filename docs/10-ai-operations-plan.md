@@ -47,6 +47,8 @@ Generic per conference; both demo conferences get M2 and M3. M4–M6 cover JADM3
 
 LLM text in M4–M6 is generated once by a script (OrcaRouter) and saved in `data/raw/ops/`, so rebuilds stay the same.
 
+**Built (2026-11-26):** M1–M7 done; M4–M6 for JADM32 only (ICEP2027 skipped). `record_ops.py` fills `agent_steps` from `ops_setup.py` (M2), `ops_events.py` (M3) and `ops_files.py` (imports `data/raw/ops/<conf>/*.json`). `make_call.py`, `make_qa.py` and `make_disruption.py` write those files (model `anthropic/claude-opus-5.5`; call voices in `call.json`). `check_t9.py` checks every row has a mode, a simulated flag and JA/EN text.
+
 ### UI (teammate)
 
 The Ops page: the four-phase timeline of step cards, a player and transcript for the call, the disruption card with its messages, the Q&A samples. Small badges in the other views link to their step.
