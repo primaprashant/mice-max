@@ -20,6 +20,7 @@ MiceMax helps people visiting Hokkaido for business events (MICE) spend more loc
 - `docs/05-decisions-and-open-questions.md`: decisions (D1, D2, ...) and open questions (Q1, Q2, ...). Update it when a decision changes.
 - `docs/07-data-plan.md`: data the demo needs (real, written, simulated), where it is stored (SQLite master copy) and tasks T0–T9 to build it.
 - `docs/08-outreach-plan.md`: real outreach during the hackathon (interviews, businesses, organizers, city) and how it shows in the demo.
+- `docs/10-ai-operations-plan.md`: the AI operations layer for the final demo (live pipeline, agents, Ops view), work streams and order. Read before building it.
 - `docs/01-evidence.md`, `02-vision.md`, `04-long-term-plan.md`, `06-sources.md`: background, vision, business plan, sources [S1]...
 - `docs/charts/`: chart PNGs and `make_charts.py` that draws them.
 - `docs/prompts/inventory-research.md`: prompt for building the activity and venue list.

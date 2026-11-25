@@ -1,0 +1,115 @@
+{
+ "label_ja": "AIが作成した質問と回答の例",
+ "label_en": "AI-written sample Q&A",
+ "items": [
+  {
+   "who": "attendee",
+   "q_ja": "3月の札幌は初めてです。会期中の天気と、どんな服装で行けばよいか教えてください。",
+   "q_en": "It's my first time in Sapporo in March. What's the weather like during the meeting, and what should I wear?",
+   "a_ja": "この時期の最高気温は約4.5℃、最低気温は約−2.4℃で、積雪は82cmほどです。冬のコートと手袋、滑り止め付きの靴をご用意ください。足元は雪とぬかるみになります。",
+   "a_en": "This month the high is about 4.5°C, the low about −2.4°C, and snow lies about 82 cm deep. Bring a winter coat, gloves and boots with grip. Expect snow and slush underfoot.",
+   "handed_to_human": false,
+   "sources": [
+    "weather_that_month"
+   ],
+   "ts": "2027-03-12T20:10:00+09:00"
+  },
+  {
+   "who": "attendee",
+   "q_ja": "2日目の夜に藻岩山の夜景を見てからラーメンを食べたいのですが、移動はどうなりますか？予約は必要ですか？",
+   "q_en": "On Day 2 evening I'd like to see the Mt Moiwa night view and then have ramen. How do I get between them, and do I need to book?",
+   "a_ja": "予約は不要で、20:00開始、料金は3,630円（ロープウェイとミニケーブルカーの往復、市電230円、味噌ラーメン1杯込み）です。ロープウェイから電停までは無料シャトル、そこから市電ですすきのへ向かいます。ロープウェイの最終上りは21:30で、悪天候時は運休することがあります。すみれのラストオーダーは24:00です。",
+   "a_en": "No booking is needed. It starts at 20:00 and costs ¥3,630, which covers the ropeway and mini cable car return, the tram (¥230) and one bowl of miso ramen. A free shuttle runs from the ropeway to the tram stop, and the tram takes you to Susukino. The last ropeway up is at 21:30 and may stop in bad weather. Sumire's last order is 24:00.",
+   "handed_to_human": false,
+   "sources": [
+    "jadm32-w09",
+    "combo-moiwa-night-view-and-miso-ramen"
+   ],
+   "ts": "2027-03-15T21:30:00+09:00"
+  },
+  {
+   "who": "attendee",
+   "q_ja": "閉会後の土曜にもう一泊して温泉に行きたいです。定山渓の森の謌の料金と、行き方を教えてください。",
+   "q_en": "I'd like to stay an extra night on Saturday after the close and go to a hot spring. What does Jozankei Mori no Uta cost, and how do I get there?",
+   "a_ja": "2名1室の場合、1人あたり34,446円です。夕朝食ビュッフェ付きの1泊、札幌〜定山渓のかっぱライナー往復、宿泊税と入湯税が含まれます。無料送迎（真駒内発10:30、14:30、16:30）もあり、前日17:00までに電話（011-598-2671）で予約が必要です。チェックインは15:00です。",
+   "a_en": "It is ¥34,446 per person with two sharing a room. That includes one night with dinner and breakfast buffet, the Kappa Liner bus return from Sapporo, and local taxes. A free shuttle leaves Makomanai at 10:30, 14:30 and 16:30, and you book it by phone (011-598-2671) by 17:00 the day before. Check-in is at 15:00.",
+   "handed_to_human": false,
+   "sources": [
+    "jadm32-w15",
+    "xn-jozankei-forest-onsen-resort"
+   ],
+   "ts": "2027-03-17T19:45:00+09:00"
+  },
+  {
+   "who": "attendee",
+   "q_ja": "2日目の午後、同じ病院の12人で札幌市民防災センターを見学したいです。予約は必要ですか？",
+   "q_en": "On Day 2 afternoon, 12 of us from the same hospital want to visit the Sapporo Disaster Prevention Center. Do we need to book?",
+   "a_ja": "10人以上の団体は、電話（011-868-3535）での予約が必要で、団体の受け入れは平日のみです。体験コーナーは無料で、2日目午後の枠では14:10開始、会場から約19分です。",
+   "a_en": "Groups of 10 or more must book by phone (011-868-3535), and groups are accepted on weekdays only. The hands-on corners are free. In the Day 2 afternoon window the visit starts at 14:10, about 19 minutes from the venue.",
+   "handed_to_human": false,
+   "sources": [
+    "jadm32-w08",
+    "spec-sapporo-citizens-disaster-prevention"
+   ],
+   "ts": "2027-03-18T07:20:00+09:00"
+  },
+  {
+   "who": "attendee",
+   "q_ja": "小麦アレルギーがあります。丼兵衛の海鮮丼で、小麦を使っていない醤油に変えてもらえますか？",
+   "q_en": "I have a wheat allergy. Can Donbe make a seafood bowl with wheat-free soy sauce?",
+   "a_ja": "申し訳ございません。アレルギー対応については手元の情報では確認できません。担当スタッフから改めてご連絡いたします。",
+   "a_en": "We're sorry, but the information we have doesn't cover allergy options. A member of our team will get back to you.",
+   "handed_to_human": true,
+   "sources": [
+    "short-donbe-nijo-market"
+   ],
+   "ts": "2027-03-19T11:50:00+09:00"
+  },
+  {
+   "who": "organizer",
+   "q_ja": "現時点で、どの種類の企画がどのくらい参加されていますか？",
+   "q_en": "How is uptake so far by type of activity?",
+   "a_ja": "シミュレーションによる推計値（2027-03-16 15:00時点）では、ショート企画60件、夜の企画50件、追加泊7件、専門企画5件です。実際の参加者規模に換算する3倍の場合、それぞれ約180件、150件、21件、15件となります。",
+   "a_en": "These are simulated estimates as of 2027-03-16 15:00: 60 short activities, 50 evening, 7 extra-night and 5 specialist joins. At the 3x scale for the real conference size, that is about 180, 150, 21 and 15.",
+   "handed_to_human": false,
+   "sources": [
+    "organizer_stats_simulated.joins_by_kind"
+   ],
+   "ts": "2027-03-16T15:00:00+09:00"
+  },
+  {
+   "who": "organizer",
+   "q_ja": "伸び悩んでいる企画はどれですか？何を重点的に案内すべきでしょうか？",
+   "q_en": "Which activities are lagging, and what should we promote?",
+   "a_ja": "シミュレーションによる推計値では、専門企画が5件（3倍換算で約15件）と最も少なくなっています。札幌市民防災センターは無料で個人は予約不要のため、2日目午後の枠で案内を強化する候補になります。",
+   "a_en": "In the simulated estimates, specialist activities are the lowest at 5 joins (about 15 at 3x scale). The Sapporo Disaster Prevention Center is free and walk-in for individuals, so it is a good candidate to promote for the Day 2 afternoon window.",
+   "handed_to_human": false,
+   "sources": [
+    "organizer_stats_simulated.joins_by_kind",
+    "spec-sapporo-citizens-disaster-prevention",
+    "jadm32-w08"
+   ],
+   "ts": "2027-03-17T10:00:00+09:00"
+  },
+  {
+   "who": "organizer",
+   "q_ja": "メール開封から参加確定までの流れと、人気の企画を教えてください。",
+   "q_en": "What does the funnel from emails to confirmed joins look like, and which experiences are most popular?",
+   "a_ja": "シミュレーションによる推計値では、ページ閲覧481件、メール開封327件、参加継続122件、キャンセル9件です（3倍換算で約1,443件、981件、366件、27件）。最も人気なのは丼兵衛 二条市場店の12件で、次がすみれ すすきの店の味噌ラーメンの8件です。",
+   "a_en": "In the simulated estimates there are 481 page visits, 327 emails opened, 122 joins kept and 9 cancellations (about 1,443, 981, 366 and 27 at 3x scale). The top experience is Donbe Nijo Market seafood bowls with 12 joins, followed by Sumire Susukino miso ramen with 8.",
+   "handed_to_human": false,
+   "sources": [
+    "organizer_stats_simulated",
+    "short-donbe-nijo-market",
+    "eve-sumire-susukino"
+   ],
+   "ts": "2027-03-17T16:00:00+09:00"
+  }
+ ],
+ "written_by": {
+  "model": "anthropic/claude-opus-5.5",
+  "ms": 44569,
+  "tokens_in": 14082,
+  "tokens_out": 7153
+ }
+}
