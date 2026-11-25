@@ -11,15 +11,20 @@ class BookButton extends HTMLElement {
     const expId = btn.dataset.exp ?? "";
     const conf = btn.dataset.conf ?? "";
     const price = Number(btn.dataset.price ?? "0");
-    const day = btn.dataset.day ?? "";
     const start = btn.dataset.start ?? "";
     const end = btn.dataset.end ?? "";
+    const availableDays = JSON.parse(btn.dataset.availableDays ?? "[]") as string[];
     const labels = JSON.parse(this.dataset.labels ?? "{}") as Record<string, string>;
+    // Multi-day: the dropdown decides. Single-day: the one day. None: the
+    // first fitting window the server picked.
+    const dateSelect = this.querySelector<HTMLSelectElement>("[data-book-date]");
+    const chosenDay = () => (dateSelect?.value || availableDays[0] || btn.dataset.day || "");
 
     // Back from the mock checkout: turn the URL params into a booked plan,
     // then clean the query string so a reload does not add it again.
     const url = new URL(window.location.href);
     if (url.searchParams.get("booked") === "1" && !planFor(expId)) {
+      const day = url.searchParams.get("day") || "";
       putPlan({
         kind: "event",
         ref_id: expId,
@@ -42,6 +47,7 @@ class BookButton extends HTMLElement {
     }
 
     btn.addEventListener("click", () => {
+      const day = chosenDay();
       if (price > 0) {
         const params = new URLSearchParams({ exp: expId, conf, day, start, end, price: String(price) });
         window.location.href = `/checkout?${params}`;

@@ -68,7 +68,13 @@
     "joinOthers": "参加する人",
     "noJoiners": "まだ参加者がいません。最初の参加者になりましょう。",
     "book": "予約して支払う",
-    "join": "参加する"
+    "join": "参加する",
+    "attendingOf": "{n}名が参加、残り{spots}枠",
+    "attending": "{n}名が参加",
+    "spotsLeft": "残り{spots}枠",
+    "location": "場所",
+    "chooseDate": "日付",
+    "scrollDown": "下へスクロール"
   },
   "checkout": {
     "title": "購入手続き",
