@@ -4,7 +4,10 @@ Runs in build_db.py after simulate.py. Every row is mode = 'replay'. Setup rows 
 built; before and during rows from the simulated events (simulated = 1); LLM text from data/raw/ops/<conf>/*.json.
 Never calls an API, so rebuilds give the same rows.
 """
+import datetime as dt
 import json
+
+import ops_setup
 
 COLS = ["id", "conference_id", "phase", "ts", "step", "agent", "title_ja", "title_en", "tool", "model", "mode",
         "ms", "tokens_in", "tokens_out", "confidence", "handed_to_human", "summary_ja", "summary_en", "output",
@@ -22,4 +25,7 @@ def insert(db, rows):
 def load(db):
     ids = [r[0] for r in db.execute("SELECT id FROM conferences WHERE is_demo = 1 ORDER BY id")]
     for cid in ids:
-        insert(db, [])
+        first = db.execute("SELECT min(ts) FROM events WHERE conference_id = ?", (cid,)).fetchone()[0]
+        setup_ts = (dt.datetime.fromisoformat(first) - dt.timedelta(days=1)).replace(
+            hour=10, minute=0, second=0).isoformat()  # organizer pastes the URL the day before the first email
+        insert(db, ops_setup.rows(db, cid, setup_ts))
