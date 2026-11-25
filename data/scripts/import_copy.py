@@ -23,6 +23,11 @@ def norm(text):
     return re.sub(r"(?<=\d),(?=\d{3})", "", unicodedata.normalize("NFKC", text or ""))
 
 
+def num(x):
+    """'08' and '8' are the same number."""
+    return x if "." in x else str(int(x))
+
+
 def times(text):
     """Clock times as (h, m); '22時' counts as 22:00."""
     return ({(int(h), int(m)) for h, m in re.findall(r"(\d{1,2}):(\d{2})", text)}
@@ -40,7 +45,7 @@ def plan_facts(db):
     facts = {}
     for r in cur.execute("SELECT * FROM plans"):
         text = norm(" ".join(str(v) for v in tuple(r) if v is not None) + " " + " ".join(tags.get(r["id"], [])))
-        nums = set(re.findall(r"\d+(?:\.\d+)?", text)) | {"1"}
+        nums = {num(x) for x in re.findall(r"\d+(?:\.\d+)?", text)} | {"1"}
         if r["duration_min"]:
             h = r["duration_min"] / 60
             nums |= {f"{h:g}", str(int(h)), f"{round(h * 2) / 2:g}"}
@@ -72,7 +77,7 @@ def check(row, facts):
     for t in times(copy) - known_times:
         out.append(f"time {t[0]}:{t[1]:02d} not in plan fields")
     for x in re.findall(r"\d+(?:\.\d+)?", re.sub(r"\d{1,2}:\d{2}", " ", copy)):
-        if x not in nums:
+        if num(x) not in nums:
             out.append(f"number {x} not in plan fields")
     return out
 

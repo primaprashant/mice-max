@@ -35,6 +35,7 @@ All other conferences get **stats only** (dates, size, field, scope), no individ
 | `conferences`, `conference_venues` | Every Sapporo event we can find, Dec 2025–Nov 2027, plus the previous edition of each demo event | T1, T3 |
 | `sessions`, `windows` | Program and free-time windows of the demo events | T3 |
 | `plans`, `plan_photos`, `plan_copy`, `tags`, `plan_tags` | 80–100 real plans, their photos, JA/EN text, ~20 tags | T4–T6 |
+| `experiences`, `experience_stops`, `experience_copy`, `experience_photos`, `experience_tags`, `experience_travel` | What the attendee sees: every plan as a one-stop experience, plus combos that chain several plans (D27) | T6 |
 | `plan_travel` | Minutes from each demo venue to each plan, computed from `places` | after T4, T7 |
 | `places`, `routes`, `seasons`, `city_events` | Venues, areas, transit routes, monthly weather and highlights (sunset computed in code) | T7 |
 | `attendees`, `session_attendance`, `events` | Simulated, demo events only | T8 |
@@ -109,6 +110,8 @@ Run [prompts/inventory-research.md](prompts/inventory-research.md). 80–100 rea
 
 **Done 2026-11-25:** [data/raw/copy/plan_copy.csv](../data/raw/copy/plan_copy.csv) (88 plans, JA and EN, `checked_by_human` = 0), [STYLE.md](../data/raw/copy/STYLE.md), [NOTES.md](../data/raw/copy/NOTES.md); window names polished. `import_copy.py` warns about numbers not in a plan's fields.
 
+**Combos added 2026-11-25:** 13 combos (4 short, 3 evening, 3 extra nights, 3 specialist) in [data/raw/experiences/](../data/raw/experiences/), 8 new stops in `data/raw/plans/stops-*.csv`, combo copy in `experience_copy.csv`. Built by `import_experiences.py`.
+
 Per plan: title, a one-line hook, a 2–3 sentence description, what's included, and "good to know" (cash only, English OK, solo-friendly, last train). Written from `plans` fields only. A Japanese speaker reads the Japanese.
 
 ### T7. Places and seasons (agent, ~1.5 h)
@@ -131,7 +134,7 @@ These let the attendee view say "Sunset 18:52, 14 °C, bring a light jacket" or 
 
 **Sessions.** Each attendee follows 1–2 tracks and skips some sessions, so their free time is personal, not just the program's gaps.
 
-**Event log** (`events`, same columns as the real log): `event_id, ts, conference_id, attendee_id, plan_id, window_id, event_type (email_opened, page_visited, plan_shown, plan_opened, plan_saved, plan_joined, plan_booked, plan_cancelled, plan_removed_by_organizer), channel (email/qr/site), party_size, price_jpy, simulated`. No names in the log.
+**Event log** (`events`, same columns as the real log): `event_id, ts, conference_id, attendee_id, experience_id, window_id, event_type (email_opened, page_visited, plan_shown, plan_opened, plan_saved, plan_joined, plan_booked, plan_cancelled, plan_removed_by_organizer), channel (email/qr/site), party_size, price_jpy, simulated`. No names in the log.
 
 **Behaviour, varied around the Middle scenario (D22):**
 

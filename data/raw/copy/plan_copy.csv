@@ -191,6 +191,14 @@ eve-mingle-ramen-food-hall,en,"Mingle ramen food hall, Susukino","Ramen food hal
 Ezo Shokudo is open 11:00 to 24:00; hours vary by shop
 Ezo Shokudo takes cash, card, e-money and QR
 Fine alone"
+eve-otaru-masazushi-honten-sushi,ja,おたる政寿司 本店,"寿司屋通りの寿司店。握りセット6,820円","小樽の寿司屋通りにある寿司店で、昼と夜に営業します。握りセットの匠は6,820円で、カウンター限定のコースは13,200円から19,800円です。個室は2人から30人以上まであります。",握りセット匠1人前（税込）,"水曜と元日は休み
+夜は17:00から21:00、ラストオーダー20:30
+ネット予約可、英語の予約ページあり
+4,180円の握りセットもあり"
+eve-otaru-masazushi-honten-sushi,en,Otaru Masazushi Honten sushi restaurant,"Sushi on Otaru Sushiya-dori. Nigiri set ¥6,820","A sushi restaurant on Sushiya-dori in Otaru, open for lunch and dinner. The Takumi nigiri set is ¥6,820, and the counter-only courses run from ¥13,200 to ¥19,800. Private rooms seat 2 to 30 or more.","One Takumi nigiri set, tax included","Closed Wednesdays and Jan 1
+Dinner 17:00 to 21:00, last order 20:30
+Book online any time, in Japanese or English
+Cheaper nigiri sets from ¥4,180"
 eve-sapporo-kanihonke-sapporo-ekimae,ja,札幌かに本家 札幌駅前本店,"蟹のコース。7,800円から、英語メニューあり","蟹料理のコースが7,800円から最大26,000円まであります。席は約2時間制で、最大60人の個室があります。飲み物は別です。全館禁煙です。",蟹コース料理。飲み物は別,"英語OK
 ネット予約、電話も可
 現金、カード、QR決済可
@@ -199,6 +207,20 @@ eve-sapporo-kanihonke-sapporo-ekimae,en,Sapporo Kanihonke crab restaurant,"Crab 
 Book online or by phone
 Cash, card or QR
 Open 11:30 to 22:00 (last order 21:30); takeout only on Dec 31"
+eve-sumire-susukino,ja,すみれ 札幌すすきの店,"24:00まで営業の味噌ラーメン。1,300円から","札幌味噌ラーメンの店です。11:00から24:00（ラストオーダー）まで営業しています。味噌ラーメンは1,300円で、大盛は1,500円です。",味噌ラーメン1杯,"予約不要、24席
+食券機で注文
+禁煙
+支払い方法は店で確認"
+eve-sumire-susukino,en,Sumire Susukino miso ramen,"Miso ramen until midnight (last order). From ¥1,300","A Sapporo miso ramen shop open 11:00 to 24:00 (last order). A bowl of miso ramen is ¥1,300 and a large bowl is ¥1,500. It has 24 seats.",One bowl of miso ramen,"No booking, walk in
+Order at a ticket machine
+Non-smoking
+Check payment methods at the shop"
+eve-yoru-parfait-mua,ja,夜パフェ MUA,"24:00まで営業のパフェ。2,100円から","11階にある夜パフェの店です。17:00から24:00まで営業し、ラストオーダーは23:30です。パフェは2,100円から2,700円です。",パフェ1つ（税込）,"火曜定休
+カード可、QR決済は不可
+ネット予約可"
+eve-yoru-parfait-mua,en,Yoru Parfait MUA late-night parfaits,"Parfaits until midnight, last order 23:30. From ¥2,100","A parfait bar on the 11th floor, open 17:00 to 24:00. Parfaits cost ¥2,100 to ¥2,700. You can book online.","One parfait, tax included","Closed Tuesdays
+Card accepted, QR payments not accepted
+Book online"
 short-authentic-sapporo-nijo-market,ja,二条市場 海鮮ランチ散歩,"英語対応の少人数ツアー。昼食付き約9,500円",時計台から市役所、テレビ塔、創成川を歩き、二条市場で寿司か丼のランチをとる約150分のツアーです。定員は8人で、英語と日本語に対応します。,ガイド、テレビ塔入場、昼食,"10:00開始
 オンライン予約、英語OK
 悪天候の場合は返金または日程変更"
@@ -213,6 +235,14 @@ short-chitosetsuru-sake-museum,en,Chitosetsuru Sake Museum,"Sapporo sake brewery
 No booking, fine alone
 Alcohol tasting from age 20
 Closed over New Year"
+short-donbe-nijo-market,ja,丼兵衛 二条市場店,"7:00から営業。満足丼3,480円","二条市場の海鮮丼の店です。7:00から20:00まで毎日営業しています。名物の満足丼は3,480円で、数量限定の海鮮バラちらし丼は500円です。",満足丼1杯（税込）,"年中無休、ラストオーダー19:30
+500円の丼は1人1点で、売り切れることがあります
+英語メニューあり
+カード、QR決済可"
+short-donbe-nijo-market,en,Donbe Nijo Market seafood bowls,"Seafood bowls from 07:00 daily. Signature bowl ¥3,480","A seafood-bowl shop in Nijo Market, open 07:00 to 20:00 every day. The signature bowl is ¥3,480, and a limited mini bara-chirashi bowl is ¥500. It has 26 seats.","One signature seafood bowl, tax included","Open daily, last order 19:30
+The ¥500 bowl is limited to one per person and can sell out
+English menu
+Card or QR payment"
 short-historical-village-of-hokkaido,ja,北海道開拓の村,"明治・大正の建物を移築した野外博物館。1,000円",北海道各地の明治・大正の建物を移築した野外博物館で、馬車鉄道もあります。見学は約150分です。,入場料（大人）,"予約不要、英語OK
 9:00から、閉園は夏期17:00、冬期16:30
 冬期は月曜休み、年末年始も休み
@@ -240,6 +270,14 @@ short-jr-tower-observatory-t38,ja,JRタワー展望室 T38,札幌駅上の地上
 short-jr-tower-observatory-t38,en,JR Tower Observatory T38,"360-degree deck above Sapporo Station. ¥740, about 45 min","A 360-degree observatory 160 m above Sapporo Station, with a café. Allow about 45 min. The entrance is by Stellar Place Center elevator II to East 6F.",Entry (adult),"No booking needed, online tickets available
 Open 10:00 to 22:00, last entry 21:30
 ¥640 for ages 60+ and groups of 10 or more"
+short-kita-no-gurume-tei,ja,北のグルメ亭,"7:00から営業の海鮮丼。3,600円から","札幌場外市場の海鮮丼の食堂です。7:00から15:00（ラストオーダー14:30）まで年中無休で営業しています。海鮮丼は3,600円で、ミニは2,940円です。",海鮮丼1杯（税込）,"年中無休
+現金、カード可
+予約不要、320席
+色彩七色丼は1,730円"
+short-kita-no-gurume-tei,en,Kita no Gurume-tei seafood bowls,"Open 07:00 to 15:00 daily. Seafood bowl from ¥3,600","A seafood-bowl restaurant in the Sapporo Curb Market, open 07:00 to 15:00 (last order 14:30) all year. The seafood bowl is ¥3,600 and the mini is ¥2,940. It has 320 seats.","One seafood bowl, tax included","Open all year
+Cash or card
+No booking needed, 320 seats
+Seven-color bowl is ¥1,730"
 short-kuranoyu-hot-spring-naebo,ja,苗穂駅前温泉 蔵ノ湯,天然温泉と洞窟風の露天風呂。550円、予約不要,札幌駅から1駅、苗穂駅から徒歩4分の天然温泉です。洞窟風の露天風呂と94℃のサウナがあり、銭湯と同じ料金で入れます。館内に食事処もあります。,入浴料（大人）,"予約不要
 24:00まで（最終受付23:00）
 1人でも利用しやすい
@@ -248,9 +286,9 @@ short-kuranoyu-hot-spring-naebo,en,Kuranoyu hot spring by Naebo Station,"Natural
 Open until 24:00, last entry 23:00
 Fine alone
 Restaurant and massage on site"
-short-marumi-coffee-odori-main,ja,丸美珈琲店 大通本店,自家焙煎のスペシャルティコーヒー店。予約不要,焙煎士でコーヒーテイスターの後藤さんが、産地で季節のコーヒーを買い付けるスペシャルティコーヒー店です。滞在は約45分です。,,"予約不要
+short-marumi-coffee-odori-main,ja,丸美珈琲店 大通本店,自家焙煎のスペシャルティコーヒー。1杯660円から,焙煎士でコーヒーテイスターの後藤さんが、産地で季節のコーヒーを買い付けるスペシャルティコーヒー店です。滞在は約45分です。,ドリップコーヒー1杯,"予約不要
 9:00から19:00"
-short-marumi-coffee-odori-main,en,Marumi Coffee Odori main store,"Specialty coffee shop in Odori. No booking, open 9:00 to 19:00","A specialty coffee shop run by roaster and coffee taster Goto, who buys seasonal coffee at the origin. Allow about 45 min.",,"No booking needed
+short-marumi-coffee-odori-main,en,Marumi Coffee Odori main store,"Specialty coffee shop in Odori. Drip coffee ¥660, no booking","A specialty coffee shop run by roaster and coffee taster Goto, who buys seasonal coffee at the origin. Allow about 45 min.",One drip coffee,"No booking needed
 Open 9:00 to 19:00"
 short-mituki-sakura-tea-ceremony,ja,美月桜 茶道体験,"茶道の先生と抹茶と和菓子。3,850円から、約40分",狸小路の着物レンタル店の離れの茶室で、茶道の先生と抹茶と和菓子をいただく初心者向けの体験です。定員は6人です。,"茶道体験（着物レンタル付きは7,150円）","11:00、13:00、15:00開始
 前日17:00までにオンライン予約
@@ -260,10 +298,10 @@ short-mituki-sakura-tea-ceremony,en,Mituki Sakura tea ceremony trial,"Matcha and
 Book online by 17:00 the day before
 Card
 English website"
-short-morihico-main-store,ja,森彦 本店,戦後の木造家屋のカフェ。予約不要、約60分,戦後の木造家屋を改装したカフェで、薪ストーブがあります。看板は深煎りブレンド「森の雫」です。,,"予約不要
+short-morihico-main-store,ja,森彦 本店,"戦後の木造家屋のカフェ。森の雫1,430円",戦後の木造家屋を改装したカフェで、薪ストーブがあります。看板は深煎りブレンド「森の雫」です。,森の雫1杯,"予約不要
 9:00から19:00（L.O. 18:30）
 年始休みあり"
-short-morihico-main-store,en,Morihico main store,"Café in a post-war wooden house. No booking, about 60 min",A café in a renovated post-war wooden house with a wood stove. Its signature is the deep-roast blend Mori no Shizuku.,,"No reservations
+short-morihico-main-store,en,Morihico main store,"Café in a post-war wooden house. Mori no Shizuku ¥1,430",A café in a renovated post-war wooden house with a wood stove. Its signature is the deep-roast blend Mori no Shizuku.,One cup of Mori no Shizuku,"No reservations
 Open 9:00 to 19:00, last order 18:30
 Closed over New Year"
 short-morning-run-hokkaido-university,ja,北大キャンパス 朝ラン,メインストリート約1.2km、外周約6km。無料,北海道大学のキャンパスを走るコースです。銀杏並木のメインストリートはまっすぐ約1.2km、外周は6.2kmです。所要は約40分です。,無料,"予約不要
@@ -296,6 +334,14 @@ short-morning-run-shiroishi-kokoro,en,Morning run on Shiroishi Kokoro-do path,"C
 About 45 min
 Suited to Apr to Nov
 Not cleared of snow in winter"
+short-new-chitose-airport-observation,ja,新千歳空港 展望デッキ,入場無料。4月から11月の8:00から20:00,国内線ターミナル4階の屋外デッキです。入場は無料で、双眼鏡は1回100円です。見学は30分ほどです。,入場無料,"冬は閉鎖、営業は4月から11月
+強風や積雪の日は閉まることがある
+入口は3階、エアポートヒストリーミュージアムの横
+滑走路の先にラピダスのIIM-1が見えるとの報告あり"
+short-new-chitose-airport-observation,en,New Chitose Airport Observation Deck,"Free open-air deck. Open 8:00 to 20:00, Apr to Nov","An open-air deck on the 4th floor of the domestic terminal. Entry is free, and binoculars are ¥100 per use. Plan about 30 minutes.",Free entry,"Closed from December to March
+Closes in strong wind or snow
+Entrance on the 3rd floor, beside the Airport History Museum
+Reported view of the Rapidus IIM-1 fab across the runway"
 short-nijo-market,ja,二条市場,創成川沿いの鮮魚市場。海鮮丼の店あり、約60分,明治初期からある、創成川沿いの市街地の鮮魚市場です。海鮮丼を出す店があります。,,"予約不要
 営業時間は店による、目安は7:00から17:00
 休みは店による
@@ -398,6 +444,14 @@ short-snowshoe-trek-in-asahiyama,en,"Asahiyama snowshoe trek, hotel pickup","Gui
 Book by phone or email
 Cancel fee 50% the day before, 100% on the day, free for weather
 Winter gear rental ¥2,000; Dec to Mar"
+short-soup-curry-king-central,ja,SOUP CURRY KING,"ランチもあるスープカレー。1,400円から","地下にあるスープカレーの店です。平日は11:30から15:30（ラストオーダー15:00）、土日祝は11:30から21:30まで営業しています。チキンカリーは1,400円です。",チキンカリー1杯,"スープがなくなり次第終了
+不定休
+28席、禁煙
+予約不要"
+short-soup-curry-king-central,en,Soup Curry King Central,"Soup curry for lunch, no booking. From ¥1,400","A basement soup curry restaurant. Weekday lunch is 11:30 to 15:30 (last order 15:00); Saturday, Sunday and holidays it is open 11:30 to 21:30. Chicken curry is ¥1,400, seafood curry ¥2,100.",One chicken curry,"Closes when the soup runs out
+Closed on irregular days
+28 seats, non-smoking
+No booking needed"
 short-susukino-natural-hot-spring,ja,すすきの天然温泉 湯香郷,"深さ800mの源泉。1,980円から、タオル付き",すすきのにある、深さ800mの自家源泉の温泉で、花崗岩の大浴場とひのきの露天風呂があります。タオルと浴衣が付きます。所要は約90分です。,入浴料、タオル、浴衣,"予約不要
 10:00から24:00（月曜は12:00から、最終入場23:00）
 通常2,750円。火〜金の正午まで、または21:00以降の入館は1,980円
@@ -422,6 +476,14 @@ short-tokumitsu-coffee-odori,en,Tokumitsu Coffee Odori,Specialty roaster at Odor
 Open 10:00 to 20:00, last order 19:00
 Closed over New Year
 Drip coffee about ¥650, refill ¥350"
+short-upopoy-national-ainu-museum,ja,ウポポイ アイヌ民族博物館,"入場1,200円。冬期は17:00まで","白老町にある国立アイヌ民族博物館と国立民族共生公園です。見学は3時間ほどです。大人1,200円、高校生600円、中学生以下は無料で、体験プログラムと特別展は別料金です。",1日券の入場料（体験プログラムと特別展は別）,"月曜休み、祝日の場合は翌日以降の平日
+冬期（11月から3月）は9:00から17:00、入園は閉園の1時間前まで
+12月28日から1月4日、2月27日から3月8日は休園
+現金、カード、QR決済可"
+short-upopoy-national-ainu-museum,en,Upopoy National Ainu Museum and Park,"Admission ¥1,200. Winter hours end at 17:00","A national museum on Ainu history and culture, with a national park, in Shiraoi. Plan about 3 hours. Adults ¥1,200, high school ¥600, junior high and under free. Experience programs and special exhibits cost extra.",Day admission (experience programs and special exhibits extra),"Closed Mondays, or the next weekday if Monday is a holiday
+Winter (Nov to Mar) 9:00 to 17:00, last entry 1 hour before closing
+Closed Dec 28 to Jan 4 and Feb 27 to Mar 8
+Cash, card or QR"
 spec-chitose-institute-of-science,ja,公立千歳科学技術大学,共用の研究機器とクリーンルーム。一般見学なし、要相談,FE-SEM、TEM、ラマンイメージング、NMRなどの共用研究機器があり、企業との共同研究に使うクリーンルームもあります。2024年に開所したシリコンリサーチセンターを含みます。一般向けの見学ではなく、特別な調整が必要です。,,"一般向けの見学ではない
 見学できない場合あり
 問い合わせは0123-25-1001

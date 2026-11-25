@@ -8,6 +8,7 @@ from pathlib import Path
 
 import compute_travel
 import import_copy
+import import_experiences
 import import_conferences
 import import_photos
 import import_places
@@ -31,6 +32,7 @@ def main():
     import_copy.load(db, raw / "copy")
     import_photos.load(db, raw / "photos", DATA / "images", dt.date.today().isoformat())
     compute_travel.load(db)
+    import_experiences.load(db, raw / "experiences", raw / "copy")
     db.commit()
     for (table,) in db.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"):
         n = db.execute(f"SELECT count(*) FROM {table}").fetchone()[0]

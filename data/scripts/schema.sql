@@ -263,6 +263,91 @@ CREATE TABLE plan_travel (
   PRIMARY KEY (venue_place_id, plan_id)
 );
 
+-- ---------- Experiences: what the attendee sees ----------
+-- One or more plans offered as one thing. Every plan is also a one-stop experience (same id);
+-- combos (id 'combo-...') chain several plans. Built by import_experiences.py; columns are copied
+-- or derived from the stops so the UI never has to combine plans itself.
+CREATE TABLE experiences (
+  id               TEXT PRIMARY KEY,
+  kind             TEXT NOT NULL CHECK (kind IN ('short','evening','extra_night','specialist')),
+  is_combo         INTEGER NOT NULL,
+  stop_count       INTEGER NOT NULL,
+  area_id          TEXT REFERENCES places(id),  -- area of the first stop
+  duration_min     INTEGER,             -- start of first stop to end of last, travel included; NULL overnight
+  price_jpy        INTEGER,             -- all-in per person: stop prices plus extra transport
+  price_max_jpy    INTEGER,             -- one-stop only
+  price_note       TEXT,
+  party_min        INTEGER,             -- largest minimum of any stop
+  party_max        INTEGER,             -- smallest maximum of any stop
+  english_ok       INTEGER,             -- 1 only if every stop is; 0 if any is not
+  needs_agreement  INTEGER NOT NULL DEFAULT 0,
+  fields           TEXT,                -- JSON conference fields it suits
+  months           TEXT,                -- JSON months every stop runs; NULL = all year
+  days_closed      TEXT,                -- one line per stop for combos
+  notes            TEXT
+);
+
+CREATE TABLE experience_stops (
+  experience_id  TEXT NOT NULL REFERENCES experiences(id),
+  n              INTEGER NOT NULL,
+  plan_id        TEXT NOT NULL REFERENCES plans(id),
+  day            INTEGER NOT NULL DEFAULT 1,     -- 2 = the morning after (extra nights)
+  offset_min     INTEGER NOT NULL,               -- minutes after the start of that day's part
+  minutes        INTEGER,                        -- time spent at this stop
+  travel_mode    TEXT CHECK (travel_mode IN ('walk','transit')),
+  travel_min     INTEGER,                        -- from the previous stop
+  price_jpy      INTEGER,                        -- what this stop adds to the all-in price
+  what_ja        TEXT,                           -- what you do here, one line
+  what_en        TEXT,
+  PRIMARY KEY (experience_id, n)
+);
+
+-- Same columns as plan_copy. One-stop experiences copy their plan's copy.
+CREATE TABLE experience_copy (
+  experience_id TEXT NOT NULL REFERENCES experiences(id),
+  lang          TEXT NOT NULL CHECK (lang IN ('ja','en')),
+  card_title    TEXT NOT NULL,
+  hook          TEXT NOT NULL,
+  description   TEXT NOT NULL,
+  included      TEXT,
+  good_to_know  TEXT,
+  checked_by_human INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (experience_id, lang),
+  CHECK ((lang = 'ja' AND length(card_title) <= 16) OR (lang = 'en' AND length(card_title) <= 40))
+);
+
+-- Copied from plan_photos: all photos for one stop, each stop's hero for combos.
+CREATE TABLE experience_photos (
+  experience_id   TEXT NOT NULL REFERENCES experiences(id),
+  n               INTEGER NOT NULL,
+  plan_id         TEXT NOT NULL REFERENCES plans(id),
+  path            TEXT NOT NULL,
+  width           INTEGER NOT NULL,
+  height          INTEGER NOT NULL,
+  dominant_color  TEXT,
+  focal_x         REAL,
+  focal_y         REAL,
+  alt_ja          TEXT,
+  alt_en          TEXT,
+  is_hero         INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (experience_id, n)
+);
+
+CREATE TABLE experience_tags (
+  experience_id  TEXT NOT NULL REFERENCES experiences(id),
+  tag_id         TEXT NOT NULL REFERENCES tags(id),
+  PRIMARY KEY (experience_id, tag_id)
+);
+
+-- Venue to the first stop, copied from plan_travel.
+CREATE TABLE experience_travel (
+  venue_place_id  TEXT NOT NULL REFERENCES places(id),
+  experience_id   TEXT NOT NULL REFERENCES experiences(id),
+  mode            TEXT NOT NULL CHECK (mode IN ('walk','transit')),
+  minutes         INTEGER NOT NULL,
+  PRIMARY KEY (venue_place_id, experience_id)
+);
+
 -- ---------- Simulated (demo events only) ----------
 
 CREATE TABLE attendees (
@@ -298,7 +383,7 @@ CREATE TABLE events (
   ts             TEXT NOT NULL,
   conference_id  TEXT NOT NULL REFERENCES conferences(id),
   attendee_id    TEXT,
-  plan_id        TEXT REFERENCES plans(id),
+  experience_id  TEXT REFERENCES experiences(id),
   window_id      TEXT REFERENCES windows(id),
   event_type     TEXT NOT NULL CHECK (event_type IN ('email_opened','page_visited','plan_shown','plan_opened','plan_saved','plan_joined','plan_booked','plan_cancelled','plan_removed_by_organizer')),
   channel        TEXT CHECK (channel IN ('email','qr','site')),
