@@ -31,6 +31,30 @@
      never a CTA. Deep enough to pass 4.5:1 on its soft background. */
   --color-banana: #b45309;
   --color-banana-soft: #fef3c7;
+  /* Text on gold surfaces: amber, same hue as banana. slate ink-soft is
+     4.3:1 on banana-soft, below AA; these pass (6.4:1 and 8.2:1). */
+  --color-banana-ink: #78350f;
+  --color-banana-ink-soft: #92400e;
+
+  /* Session type tints for the day grid: light background of the type's
+     hue with dark text of the same hue, same tint depth as banana-soft
+     so everything reads at the same level. */
+  --color-session-oral: #dbeafe;
+  --color-session-oral-ink: #1e3a5f;
+  --color-session-symposium: #e0e7ff;
+  --color-session-symposium-ink: #312e81;
+  --color-session-poster: #dcfce7;
+  --color-session-poster-ink: #14532d;
+  --color-session-sponsor: #fef3c7;
+  --color-session-sponsor-ink: #78350f;
+  --color-session-social: #ffe4e6;
+  --color-session-social-ink: #881337;
+  /* plenary reuses session-oral; excursion reuses session-poster. */
+  --color-session-other: #f1f5f9;
+  --color-session-other-ink: #334155;
+
+  /* Image placeholder behind photos while they load. */
+  --color-placeholder: #e2e8f0;
 
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
@@ -39,6 +63,16 @@
 :focus-visible {
   outline: 2px solid var(--color-theme);
   outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {

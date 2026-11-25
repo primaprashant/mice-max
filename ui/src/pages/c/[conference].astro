@@ -167,7 +167,7 @@ const activeDay = days.includes(today) ? today : days[0];
                     width={hero.width}
                     height={hero.height}
                     class="h-20 w-32 flex-shrink-0 rounded-lg object-cover"
-                    style={`background-color: ${hero.dominant_color ?? "#ddd"}`}
+                    style={`background-color: ${hero.dominant_color ?? "var(--color-placeholder)"}`}
                   />
                 ) : null;
               })()}
@@ -188,13 +188,13 @@ const activeDay = days.includes(today) ? today : days[0];
             });
           })()}
         </p>
-        <button data-dismiss class="flex-shrink-0 text-xs text-ink-soft hover:underline">{t(lang, "common.dismiss")}</button>
+        <button data-dismiss class="flex-shrink-0 text-xs text-theme-strong hover:underline">{t(lang, "common.dismiss")}</button>
       </div>
     </first-visit-banner>
 
     <section class="mt-10">
       <day-tabs class="block">
-        <div class="flex flex-wrap gap-1" role="tablist">
+        <div class="flex flex-wrap gap-1">
           {days.map((day, i) => {
             const weekday = new Date(day + "T00:00:00Z").toLocaleDateString("en-US", { weekday: "long", timeZone: "UTC" });
             const label =
@@ -204,9 +204,8 @@ const activeDay = days.includes(today) ? today : days[0];
             const active = day === activeDay;
             return (
               <button
-                role="tab"
                 data-day-tab={day}
-                aria-selected={active ? "true" : "false"}
+                aria-pressed={active ? "true" : "false"}
                 class:list={[
                   "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
                   active ? "bg-ink text-paper" : "text-ink-soft hover:bg-ink/5",
@@ -255,8 +254,8 @@ const activeDay = days.includes(today) ? today : days[0];
                       </span>
                     )}
                   </div>
-                  <p class="mt-0.5 line-clamp-1 text-xs text-ink-soft">{copy.hook}</p>
-                  <div class="flex gap-2 text-[11px] text-ink-soft">
+                  <p class="mt-0.5 line-clamp-1 text-xs text-banana-ink-soft">{copy.hook}</p>
+                  <div class="flex gap-2 text-[11px] text-banana-ink-soft">
                     <span>{windowName}</span>
                     {travel && <span>{t(lang, travel.mode === "walk" ? "common.minWalk" : "common.minTransit", { n: travel.minutes })}</span>}
                     {experience.duration_min && <span>{t(lang, "common.minutes", { n: experience.duration_min })}</span>}

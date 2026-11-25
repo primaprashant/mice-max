@@ -42,14 +42,14 @@ const hourLabels = Array.from({ length: HOUR_LINE_COUNT + 1 }, (_, i) => `${Stri
 // Colors per session type: tinted backgrounds with dark text of the same hue,
 // same tint depth as banana-soft so everything reads at the same level.
 const TYPE_STYLES: Record<string, string> = {
-  oral: "bg-[#dbeafe] text-[#1e3a5f]",
-  symposium: "bg-[#e0e7ff] text-[#312e81]",
-  poster: "bg-[#dcfce7] text-[#14532d]",
-  sponsor: "bg-[#fef3c7] text-[#78350f]",
-  social: "bg-[#ffe4e6] text-[#881337]",
-  plenary: "bg-[#dbeafe] text-[#1e3a5f]",
-  excursion: "bg-[#dcfce7] text-[#14532d]",
-  other: "bg-slate-100 text-slate-700",
+  oral: "bg-session-oral text-session-oral-ink",
+  symposium: "bg-session-symposium text-session-symposium-ink",
+  poster: "bg-session-poster text-session-poster-ink",
+  sponsor: "bg-session-sponsor text-session-sponsor-ink",
+  social: "bg-session-social text-session-social-ink",
+  plenary: "bg-session-oral text-session-oral-ink",
+  excursion: "bg-session-poster text-session-poster-ink",
+  other: "bg-session-other text-session-other-ink",
 };
 
 // Positioning blocks for one day: sessions, windows, and client plans.
