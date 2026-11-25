@@ -4,7 +4,9 @@ Reads the committed SQLite master copy for catalog data (read-only).
 Writes the event log to Neon when DATABASE_URL is set; without it, writes
 fail closed with 503 and the UI treats booking as best-effort.
 
-Env vars: DATABASE_URL (optional), CORS_ORIGINS (comma-separated, default *).
+Env vars: DATABASE_URL (optional), CORS_ORIGINS (comma-separated allowed
+origins; unset means same-origin only, set "*" for local development),
+MICEMAX_DB (optional SQLite path override).
 """
 import json
 import os
@@ -13,28 +15,26 @@ import uuid
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Literal, Optional
+from typing import Any, Literal, Optional, get_args
 
-from fastapi import FastAPI, HTTPException, Response
+from fastapi import FastAPI, HTTPException, Query, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
+from psycopg import Error as PsycopgError
+from psycopg import connect as psycopg_connect
 
-DB_PATH = Path(__file__).resolve().parents[2] / "data" / "micemax.db"
-if not DB_PATH.exists():
-    DB_PATH = Path(os.environ.get("MICEMAX_DB", "/data/micemax.db"))
-
-DEMO_IDS = ("jadm32", "icep2027")
-EVENT_TYPES = frozenset({
-    "email_opened", "page_visited", "plan_shown", "plan_opened",
-    "plan_saved", "plan_joined", "plan_booked", "plan_cancelled",
-    "plan_removed_by_organizer",
-})
+DB_PATH = Path(
+    os.environ.get("MICEMAX_DB")
+    or Path(__file__).resolve().parents[2] / "data" / "micemax.db"
+)
 
 app = FastAPI(title="MiceMax API", docs_url=None, redoc_url=None)
 app.add_middleware(
     CORSMiddleware,
+    # Unset means same-origin only (the deployment design requires the deployed
+    # backend to restrict origins). Set CORS_ORIGINS="*" for local development.
     allow_origins=[
-        o.strip() for o in os.environ.get("CORS_ORIGINS", "*").split(",") if o.strip()
+        o.strip() for o in os.environ.get("CORS_ORIGINS", "").split(",") if o.strip()
     ],
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
@@ -100,9 +100,7 @@ def neon_write(sql: str, params: tuple) -> None:
     url = os.environ.get("DATABASE_URL")
     if not url:
         raise RuntimeError("DATABASE_URL not set; event log writes disabled")
-    import psycopg
-
-    with psycopg.connect(url) as conn, conn.cursor() as cur:
+    with psycopg_connect(url) as conn, conn.cursor() as cur:
         cur.execute(sql, params)
 
 
@@ -123,6 +121,9 @@ class EventIn(BaseModel):
     price_jpy: Optional[int] = Field(default=None, ge=0)
 
 
+EVENT_TYPES = frozenset(get_args(EventIn.model_fields["event_type"].annotation))
+
+
 # --- health ------------------------------------------------------------------
 
 @app.get("/health")
@@ -134,12 +135,13 @@ def health() -> dict[str, str]:
 
 @app.get("/api/conferences")
 def conferences() -> list[dict[str, Any]]:
+    # Same set as the UI: conferences flagged is_demo in the data.
     rows = q(
         """SELECT c.*, v.place_id AS main_venue_place_id
            FROM conferences c
            LEFT JOIN conference_venues v ON v.conference_id = c.id AND v.is_main = 1
-           WHERE c.id IN (?, ?)""",
-        DEMO_IDS,
+           WHERE c.is_demo = 1
+           ORDER BY c.id""",
     )
     return rows_json(rows)
 
@@ -202,7 +204,9 @@ def copy_of(eid: str, lang: str) -> Optional[dict[str, Any]]:
 
 
 @app.get("/api/experiences/{eid}/attendees")
-def experience_attendees(eid: str, limit: int = 12) -> list[dict[str, Any]]:
+def experience_attendees(
+    eid: str, limit: int = Query(default=12, ge=1, le=100)
+) -> list[dict[str, Any]]:
     return rows_json(q(
         """SELECT a.* FROM events ev
            JOIN attendees a ON a.id = ev.attendee_id
@@ -311,15 +315,21 @@ def organize(cid: str) -> dict[str, Any]:
 # --- event log writes (Neon) ---------------------------------------------------
 
 @app.post("/api/events", status_code=204)
-def append_event(body: EventIn, response: Response) -> Response:
-    if body.event_type not in EVENT_TYPES:
-        raise HTTPException(400, "unknown event_type")
+def append_event(body: EventIn) -> Response:
     if q1("SELECT 1 FROM conferences WHERE id = ?", (body.conference_id,)) is None:
         raise HTTPException(400, "unknown conference_id")
     if body.experience_id and q1(
         "SELECT 1 FROM experiences WHERE id = ?", (body.experience_id,)
     ) is None:
         raise HTTPException(400, "unknown experience_id")
+    if body.window_id and q1(
+        "SELECT 1 FROM windows WHERE id = ?", (body.window_id,)
+    ) is None:
+        raise HTTPException(400, "unknown window_id")
+    if body.attendee_id and q1(
+        "SELECT 1 FROM attendees WHERE id = ?", (body.attendee_id,)
+    ) is None:
+        raise HTTPException(400, "unknown attendee_id")
     try:
         neon_write(
             """INSERT INTO events (event_id, ts, conference_id, attendee_id,
@@ -341,6 +351,9 @@ def append_event(body: EventIn, response: Response) -> Response:
             ),
         )
     except RuntimeError:
-        response.status_code = 503
-        return response
+        raise HTTPException(503, "event log unavailable")
+    except psycopg.Error:
+        # Any database failure (connection, timeout, constraint) fails closed:
+        # the UI treats event logging as best-effort and ignores the status.
+        raise HTTPException(503, "event log unavailable")
     return Response(status_code=204)

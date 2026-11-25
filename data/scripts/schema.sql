@@ -442,6 +442,33 @@ CREATE TABLE events (
 );
 CREATE INDEX events_conf_type ON events(conference_id, event_type);
 
+-- ---------- AI operations log (docs/10-ai-operations-plan.md), built by record_ops.py ----------
+-- One row per agent step. Replay rows leave ms, tokens and confidence NULL unless really measured.
+CREATE TABLE agent_steps (
+  id               TEXT PRIMARY KEY,            -- e.g. 'jadm32-setup-06'
+  conference_id    TEXT NOT NULL REFERENCES conferences(id),
+  phase            TEXT NOT NULL CHECK (phase IN ('setup','before','during','after')),
+  ts               TEXT NOT NULL,               -- ISO 8601
+  step             INTEGER,                     -- 1-12 from the plan; NULL for operations
+  agent            TEXT NOT NULL,               -- e.g. 'reader', 'filter', 'mailer'
+  title_ja         TEXT NOT NULL,
+  title_en         TEXT NOT NULL,
+  tool             TEXT CHECK (tool IN ('llm','jev','graph','voice','video','search','rules')),
+  model            TEXT,
+  mode             TEXT NOT NULL CHECK (mode IN ('live','replay')),
+  ms               INTEGER,
+  tokens_in        INTEGER,
+  tokens_out       INTEGER,
+  confidence       REAL,
+  handed_to_human  INTEGER NOT NULL DEFAULT 0,
+  summary_ja       TEXT NOT NULL,
+  summary_en       TEXT NOT NULL,
+  output           TEXT,                        -- JSON details
+  artifact         TEXT,                        -- file path, e.g. call audio
+  simulated        INTEGER NOT NULL CHECK (simulated IN (0, 1))
+);
+CREATE INDEX agent_steps_conf_ts ON agent_steps(conference_id, ts);
+
 -- ---------- Outreach (docs/08-outreach-plan.md, T10–T12). Organizations only, no personal names. ----------
 
 CREATE TABLE contacts (

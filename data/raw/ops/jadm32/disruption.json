@@ -1,0 +1,105 @@
+{
+ "label_ja": "模擬警報、AIが作成した案内",
+ "label_en": "simulated alert, AI-written messages",
+ "alert": {
+  "simulated": true,
+  "ts": "2027-03-20T07:00:00+09:00",
+  "ja": "【模擬警報】大雪のため、3月20日は定山渓温泉方面のバスが運休",
+  "en": "[Simulated alert] Heavy snow: buses to Jozankei Onsen suspended on 2027-03-20"
+ },
+ "area": "jozankei",
+ "window_id": "jadm32-w15",
+ "query": "MATCH (a:Attendee)-[j:JOINED]->(e:Experience)-[:HAS_STOP]->(:Plan)-[:AT]->(:Place)-[:IN_AREA]->(:Place {id: $area})\nWHERE j.window_id = $window AND NOT j.cancelled\nRETURN DISTINCT a.id AS attendee_id, a.name_ja AS name_ja, a.name_en AS name_en, a.language AS language,\n       j.party_size AS party_size, j.booked AS booked, e.id AS experience_id ORDER BY attendee_id",
+ "affected": [
+  {
+   "attendee_id": "jadm32-a0319",
+   "name_ja": "森 里美",
+   "name_en": "Satomi Mori",
+   "language": "ja",
+   "party_size": 2,
+   "booked": true,
+   "experience_id": "xn-jozankei-forest-onsen-resort"
+  },
+  {
+   "attendee_id": "jadm32-a0427",
+   "name_ja": "山田 良子",
+   "name_en": "Yoshiko Yamada",
+   "language": "ja",
+   "party_size": 2,
+   "booked": true,
+   "experience_id": "xn-jozankei-forest-onsen-resort"
+  },
+  {
+   "attendee_id": "jadm32-a0505",
+   "name_ja": "真鍋 遥",
+   "name_en": "Haruka Manabe",
+   "language": "ja",
+   "party_size": 2,
+   "booked": true,
+   "experience_id": "combo-jozankei-and-market-brunch"
+  },
+  {
+   "attendee_id": "jadm32-a0568",
+   "name_ja": "松本 由美",
+   "name_en": "Yumi Matsumoto",
+   "language": "ja",
+   "party_size": 2,
+   "booked": true,
+   "experience_id": "combo-jozankei-and-market-brunch"
+  },
+  {
+   "attendee_id": "jadm32-a0899",
+   "name_ja": "渡辺 久子",
+   "name_en": "Hisako Watanabe",
+   "language": "ja",
+   "party_size": 1,
+   "booked": true,
+   "experience_id": "xn-jozankei-forest-onsen-resort"
+  }
+ ],
+ "alternatives": [
+  "combo-noboribetsu-and-upopoy",
+  "combo-yoichi-whisky-and-otaru-sushi",
+  "xn-furano-ski-day-march",
+  "xn-ginrinso-historic-herring-mansion",
+  "xn-noboribetsu-dai-ichi-takimotokan",
+  "xn-otaru-canal-front-onsen",
+  "xn-otaru-canal-side-onsen",
+  "xn-the-windsor-hotel-toya",
+  "xn-yoichi-nikka-whisky-distillery"
+ ],
+ "picks": [
+  {
+   "from_experience_id": "combo-jozankei-and-market-brunch",
+   "to_experience_id": "xn-otaru-canal-front-onsen",
+   "why_ja": "大雪でもJRで行けます（札幌〜小樽往復込み、札幌出発は16:00まで）。運河沿いの温泉宿で朝食付きのため、温泉の夜の雰囲気に近いです。夕食と海鮮丼は含まれません。料金は2名1室で1人あたり25,650円です。ネット予約は停止中のため、電話（0134-29-2345）で4名分（ツイン2室）の空室を確認する必要があります。余市の蒸溜所プランは前日11:59までの予約が必要なため、選びませんでした。",
+   "why_en": "Reachable by JR even in heavy snow (Sapporo–Otaru return included; leave Sapporo by 16:00). It is a canal-side onsen ryokan with breakfast, so it feels close to the original onsen night. Dinner and the seafood bowl are not included. The price is ¥25,650 per person, 2 sharing. Web booking is paused, so availability for 4 people (2 twins) must be checked by phone (0134-29-2345). The Yoichi distillery options were not chosen because the tour must be booked by 11:59 the day before."
+  },
+  {
+   "from_experience_id": "xn-jozankei-forest-onsen-resort",
+   "to_experience_id": "xn-ginrinso-historic-herring-mansion",
+   "why_ja": "大雪でもJRで行けます（札幌〜小樽築港往復込み、札幌出発は17:00まで）。小樽を見下ろす歴史ある温泉旅館で、温泉宿の滞在に近い雰囲気です。駅からの送迎もあります（最終18:00）。登別の第一滝本館は内容が近いものの高速バス利用のため、雪の日には選びませんでした。料金は最安プランで2名1室の1人あたり45,600円ですが、日によって大きく変わります。食事はプランによります。5名分の部屋割りと空室の確認が必要です。",
+   "why_en": "Reachable by JR even in heavy snow (Sapporo–Otaru-Chikko return included; leave Sapporo by 17:00). It is a historic onsen ryokan above Otaru, close in feel to an onsen stay, with a station pickup (last pickup 18:00). Dai-ichi Takimotokan in Noboribetsu is similar in content but uses a highway bus, so it was not chosen for a snow day. The lowest-price plan is ¥45,600 per person, 2 sharing, but the price varies a lot by date. Meals depend on the plan. Rooms for 5 people still need to be checked."
+  }
+ ],
+ "messages": [
+  {
+   "experience_id": "combo-jozankei-and-market-brunch",
+   "ja": "「定山渓の温泉と市場ブランチ」にご参加予定の皆さまへ\n【模擬警報】大雪のため、3月20日は定山渓温泉方面のバスが運休となりました。そのため、札幌駅北口14:30発の送迎バスはご利用いただけません。\n代わりに、JRで行ける小樽の温泉宿「運河の宿 おたる ふる川」をご提案いたします。朝食付きのショートステイ（17時〜10時、ツイン2名利用）、JR札幌〜小樽の往復、運河クルーズ（約40分）が含まれます。なお、夕食と海鮮丼は含まれませんので、ご了承ください。\nお部屋の空きは現在確認中です。確定しましたらご連絡いたしますので、それまでお待ちください。確定後は、16:00までにJRで札幌をご出発ください。\nご不便をおかけしますが、どうぞよろしくお願いいたします。",
+   "en": "To everyone booked on \"Jozankei onsen night and market brunch\":\n[Simulated alert] Because of heavy snow, buses to Jozankei Onsen are suspended on March 20. The 14:30 shuttle from Sapporo Station north exit will therefore not run for us.\nInstead, we suggest Furu-kawa, an onsen ryokan in Otaru that you can reach by JR. It includes a short stay from 17:00 to 10:00 with breakfast (twin, 2 sharing), JR return between Sapporo and Otaru, and a canal cruise (about 40 min). Please note that dinner and the seafood bowl are not included.\nWe are still checking room availability. Please wait until we confirm. Once it is confirmed, please leave Sapporo by JR by 16:00.\nWe are sorry for the inconvenience, and thank you for your understanding."
+  },
+  {
+   "experience_id": "xn-jozankei-forest-onsen-resort",
+   "ja": "「定山渓鶴雅リゾートスパ 森の謌」にご参加予定の皆さまへ\n【模擬警報】大雪のため、3月20日は定山渓温泉方面のバスが運休となりました。そのため、かっぱライナーと送迎バスでの移動ができません。\n代わりに、JRで行ける小樽の歴史ある温泉旅館「料亭湯宿 銀鱗荘」をご提案いたします。最安プランの宿泊（2名1室）、JR札幌〜小樽築港の往復が含まれます。お食事は選ぶプランによって異なります。\n駅からの送迎は、到着時間を宿へメールかお電話で伝える必要があり、最終は18:00です。チェックインは18:00までです。\nお部屋の空きとプランは現在確認中です。確定しましたらご連絡いたしますので、それまでお待ちください。確定後は、17:00までにJRで札幌をご出発ください。\nご不便をおかけしますが、どうぞよろしくお願いいたします。",
+   "en": "To everyone booked at \"Jozankei Tsuruga Mori no Uta\":\n[Simulated alert] Because of heavy snow, buses to Jozankei Onsen are suspended on March 20. This means the Kappa Liner bus and the shuttle cannot be used.\nInstead, we suggest Ginrinso, a historic onsen ryokan above Otaru that you can reach by JR. It includes the lowest-price stay (2 sharing) and JR return between Sapporo and Otaru-Chikko. Meals depend on the plan chosen.\nFor the station pickup, the arrival time has to be sent to the ryokan by email or phone, and the last pickup is at 18:00. Check-in is by 18:00.\nWe are still checking rooms and plans. Please wait until we confirm. Once it is confirmed, please leave Sapporo by JR by 17:00.\nWe are sorry for the inconvenience, and thank you for your understanding."
+  }
+ ],
+ "ryokan_call_ja": "当社の予約担当が定山渓の各宿に連絡し、3月20日の予約（4名様分と5名様分）について、各宿の規定に沿って取り消しまたは日程変更が可能かを伺います。あわせて、予約済みの送迎があれば、その取り消しについても伺います。",
+ "ryokan_call_en": "Our booking agent will contact each Jozankei hotel and ask whether the March 20 bookings (for 4 guests and for 5 guests) can be cancelled or moved under that hotel's policy. The agent will also ask about cancelling any shuttle reservations that were made.",
+ "written_by": {
+  "model": "anthropic/claude-opus-5.5",
+  "ms": 46061,
+  "tokens_in": 5266,
+  "tokens_out": 7161
+ }
+}

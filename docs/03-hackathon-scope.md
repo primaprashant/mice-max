@@ -8,6 +8,8 @@ This brief sets the scope for what we build at the hackathon. The vision ([02-vi
 
 Everything else supports that loop.
 
+**Update 2026-11-25 (D30):** the final demo adds an AI operations layer on top of this loop (live pipeline, booking call, Q&A, disruption replanning, Ops view). See [10-ai-operations-plan.md](10-ai-operations-plan.md).
+
 ## Demo story (end to end)
 
 1. **Organizer view.** Paste a conference URL (or upload the program PDF). The AI reads it and shows:

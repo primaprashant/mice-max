@@ -16,6 +16,7 @@ import import_photos
 import import_places
 import import_plans
 import import_programs
+import record_ops
 import simulate
 
 DATA = Path(__file__).resolve().parent.parent
@@ -38,6 +39,7 @@ def main():
     import_experiences.load(db, raw / "experiences", raw / "copy")
     import_programs.load_headlines(db, raw / "programs")
     simulate.load(db)
+    record_ops.load(db)
     city_estimate.load(db)
     db.commit()
     for (table,) in db.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"):

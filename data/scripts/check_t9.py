@@ -1,4 +1,4 @@
-"""T9 checks: money, city estimate, facts behind every experience, variety, labels, headlines, online copies.
+"""T9 checks: money, city estimate, facts behind every experience, variety, labels, headlines, ops log, online copies.
 
 Usage: .venv/bin/python data/scripts/check_t9.py    (reads data/micemax.db, data/micemax.rl, Neon and Aura).
 Prints each check with pass or FAIL, and exits 1 if any fails.
@@ -191,6 +191,29 @@ def labels(db, pg):
     check("everything simulated carries simulated = 1 (SQLite and Neon)", problems, lines)
 
 
+def ops_log(db, pg):
+    """agent_steps: mode, simulated flag, JA and EN text on every row; replay rows have no made-up measurements."""
+    problems = []
+    rows = db.execute("SELECT id, mode, simulated, title_ja, title_en, summary_ja, summary_en, ms, tokens_in, "
+                      "tokens_out, confidence, artifact FROM agent_steps").fetchall()
+    for r in rows:
+        i, mode, simulated, *text = r[:7]
+        if mode not in ("live", "replay") or simulated not in (0, 1):
+            problems.append(f"{i}: mode {mode}, simulated {simulated}")
+        if not all((t or "").strip() for t in text):
+            problems.append(f"{i}: missing JA or EN title or summary")
+        if mode == "replay" and any(v is not None for v in r[7:11]):
+            problems.append(f"{i}: replay row has ms, tokens or confidence")
+        if r[11] and not (DATA.parent / r[11]).exists():
+            problems.append(f"{i}: artifact {r[11]} missing")
+    by = db.execute("SELECT conference_id, phase, count(*), sum(simulated) FROM agent_steps GROUP BY 1, 2").fetchall()
+    neon = pg.execute("SELECT count(*), count(mode), count(simulated) FROM agent_steps").fetchone()
+    if neon != (len(rows), len(rows), len(rows)):
+        problems.append(f"neon agent_steps {neon}, sqlite {len(rows)}")
+    check("ops log: every agent_steps row has mode, simulated flag and JA/EN text (SQLite and Neon)", problems,
+          [f"  {c} {p}: {n} rows, {s} simulated" for c, p, n, s in by])
+
+
 def headlines(db, joins):
     lines, problems = [], []
     for cid, eid, wid, lo, hi in db.execute("""SELECT conference_id, experience_id, window_id, people_min, people_max
@@ -238,6 +261,7 @@ def main():
     headlines(db, joins)
     with psycopg.connect(os.environ["DATABASE_URL"]) as pg:
         labels(db, pg)
+        ops_log(db, pg)
         online(db, pg)
     print(f"\nT9: {sum(results)} of {len(results)} checks pass")
     sys.exit(0 if all(results) else 1)
