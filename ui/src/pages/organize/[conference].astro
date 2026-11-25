@@ -3,21 +3,36 @@ export const prerender = false;
 
 import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
-import PlanCard from "../../components/PlanCard.astro";
+import DayGrid from "../../components/DayGrid.astro";
+import DayTabs from "../../components/DayTabs.astro";
 import {
   conferenceById,
+  mainVenue,
   sessionsForConference,
   windowsForConference,
   experiencesForConference,
   experienceById,
   experienceCopy,
+  experiencePhotos,
+  experienceTags,
   experienceTravel,
   windowStats,
   headlines,
+  allTags,
 } from "../../data";
 import { fitsWindow } from "../../data/fit";
 import { getLang } from "../../data/attendee";
+import { yen } from "../../data/city";
 import { t } from "../../i18n";
+import type { Tag } from "../../data/types";
+
+/** Tag pills shown on each card; the rest stay behind the filter chips. */
+const TAGS_PER_CARD = 3;
+
+const tagCatalog: Tag[] = allTags();
+function tagById(id: string): Tag | undefined {
+  return tagCatalog.find((tg) => tg.id === id);
+}
 
 const { conference } = Astro.params;
 const conf = conferenceById(conference ?? "");
@@ -44,6 +59,9 @@ for (const s of sessions) {
   sessionsByDay.get(s.day)!.push(s);
 }
 
+// Suggestions per window: headlines first, then by shown count, all filtered
+// by the shared fits rule. Cap at 6 per window: the organizer sees more than
+// the attendee's 4 before approving or removing.
 type Suggestion = {
   experience: NonNullable<ReturnType<typeof experienceById>>;
   copy: NonNullable<ReturnType<typeof experienceCopy>>;
@@ -71,6 +89,32 @@ for (const w of windows) {
   suggestionsByWindow.set(w.id, list);
 }
 
+// Session details for the client-side modal, keyed by session id.
+const sessionDetails = Object.fromEntries(
+  sessions.map((s) => [
+    s.id,
+    {
+      title: (lang === "ja" ? s.title_ja : s.title_en) ?? s.id,
+      time: `${s.day.slice(5).replace("-", "/")} ${s.start_time}–${s.end_time}`,
+      type: t(lang, `sessionType.${s.type}`),
+      track: s.track,
+      room: s.room,
+      fee: s.fee_jpy != null && s.fee_jpy > 0 ? t(lang, "common.priceFrom", { price: `¥${s.fee_jpy.toLocaleString("ja-JP")}` }) : null,
+    },
+  ]),
+);
+
+// Default tab: today when the visit falls inside the conference dates, else
+// Day 1. Same rule as the attendee calendar.
+const today = new Intl.DateTimeFormat("en-CA", { dateStyle: "short" }).format(new Date());
+const activeDay = days.includes(today) ? today : days[0];
+
+// The venue name and address for the day header.
+const venue = mainVenue(conf.main_venue_place_id);
+
+// Experience id to card title, for the DayGrid titles prop.
+const expTitles = Object.fromEntries(exps.map((e) => [e.id, experienceCopy(e.id, lang)?.card_title ?? e.id]));
+
 const shareUrl = `${Astro.url.origin}/c/${conf.id}`;
 ---
 
@@ -94,61 +138,155 @@ const shareUrl = `${Astro.url.origin}/c/${conf.id}`;
       </p>
     )}
 
-    <section class="mt-8">
-      <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "organizer.program")}</h2>
-
-      {days.map((day) => (
-        <div class="mt-6">
-          <h3 class="font-mono text-sm font-semibold tabular-nums text-ink-soft">{day}</h3>
-          <div class="mt-2 flex flex-col gap-2">
-            {(sessionsByDay.get(day) ?? []).map((s) => (
-              <PlanCard
+    <section class="mt-10">
+      <DayTabs lang={lang} days={days} activeDay={activeDay}>
+        {days.map((day) => {
+          const daySessions = sessionsByDay.get(day) ?? [];
+          const dayWindows = windows.filter((w) => w.day === day);
+          const allDay = [...daySessions, ...dayWindows];
+          const dayStart = allDay.length ? allDay.reduce((min, e) => (e.start_time < min ? e.start_time : min), allDay[0].start_time) : "";
+          const dayEnd = allDay.length ? allDay.reduce((max, e) => (e.end_time > max ? e.end_time : max), allDay[0].end_time) : "";
+          return (
+          <div data-day-panel={day} class:list={["mt-6", day === activeDay ? "" : "hidden"]}>
+            <div class="mb-2 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              {venue && (
+                <p class="text-xs text-ink-soft">
+                  {(lang === "ja" ? venue.name_ja : venue.name_en)}{venue.address ? ` · ${venue.address}` : ""}
+                </p>
+              )}
+              {dayStart && (
+                <p class="font-mono text-xs tabular-nums text-ink-soft">
+                  {dayStart}–{dayEnd}
+                </p>
+              )}
+            </div>
+            <div class="overflow-x-auto">
+              <DayGrid
                 lang={lang}
-                variant="row"
-                time={{ start: s.start_time, end: s.end_time }}
-                title={(lang === "ja" ? s.title_ja : s.title_en) ?? s.id}
+                day={day}
+                sessions={daySessions}
+                windows={dayWindows}
+                titles={expTitles}
+                today={today}
+                showPlans={false}
               />
-            ))}
-            {windows
-              .filter((w) => w.day === day)
-              .map((w) => (
-                <organizer-window class="block" data-window={w.id}>
-                  <div class="rounded-lg border border-dashed border-ink/25 px-3 py-2">
-                    <div class="flex items-baseline justify-between gap-3">
-                      <span class="font-mono text-xs tabular-nums text-ink-soft">{w.start_time}–{w.end_time}</span>
-                      <span class="text-xs font-medium uppercase tracking-wide text-ink-soft">{t(lang, `windowKind.${w.kind}`)}</span>
-                    </div>
-                    <p class="mt-1 text-sm font-medium">{lang === "ja" ? w.name_ja : w.name_en}</p>
-                    {w.overlaps_program && w.overlap_note && (
-                      <p class="mt-1 max-w-[65ch] text-xs text-ink-soft">{w.overlap_note}</p>
-                    )}
-                    <ul class="mt-3 flex flex-col gap-2">
-                      {(suggestionsByWindow.get(w.id) ?? []).map(({ experience, copy, shown, joined }) => (
-                        <li
-                          class="suggestion flex items-center justify-between gap-3 rounded-md bg-banana-soft border border-banana px-3 py-2"
-                          data-exp={experience.id}
+            </div>
+            <p class="mt-2 text-[11px] text-ink-soft md:hidden" data-scroll-hint>
+              {t(lang, "calendar.scrollHint")}
+            </p>
+          <plan-filters class="mt-10 grid grid-cols-1 gap-3 md:grid-cols-3 lg:grid-cols-4" data-plan-filters-top>
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-ink-soft md:col-span-full">
+              {t(lang, "organizer.suggestionsTitle")}
+            </h3>
+            {(() => {
+              const seen = new Set<string>();
+              const cards: { experience: (typeof exps)[number]; copy: NonNullable<ReturnType<typeof experienceCopy>>; windowName: string; windowId: string; shown: number; joined: number; tags: Tag[] }[] = [];
+              for (const w of dayWindows) {
+                const name = lang === "ja" ? w.name_ja : w.name_en;
+                for (const s of suggestionsByWindow.get(w.id) ?? []) {
+                  if (seen.has(s.experience.id)) continue;
+                  seen.add(s.experience.id);
+                  cards.push({ ...s, windowName: name, windowId: w.id, tags: experienceTags(s.experience.id) });
+                }
+              }
+              // Filter chips: the union of tags across this day's cards, most
+              // used first, capped to keep the row short.
+              const tagCount = new Map<string, number>();
+              for (const c of cards) for (const tg of c.tags) tagCount.set(tg.id, (tagCount.get(tg.id) ?? 0) + 1);
+              const filterTags = [...tagCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([id]) => tagById(id)).filter((tg): tg is Tag => Boolean(tg));
+              return (
+                <>
+                  {filterTags.length > 0 && (
+                    <div class="mb-1 flex flex-wrap gap-1.5 md:col-span-full" data-plan-filters>
+                      {filterTags.map((tg) => (
+                        <button
+                          type="button"
+                          data-plan-filter={tg.id}
+                          aria-pressed="false"
+                          class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
                         >
-                          <div class="min-w-0">
-                            <p class="truncate text-sm font-medium">{copy.card_title}</p>
-                            <p class="text-[11px] text-ink-soft">
-                              <span class="font-mono tabular-nums">{shown}</span> {t(lang, "organizer.shown")}
-                              <span class="font-mono tabular-nums">{joined}</span> {t(lang, "organizer.joined")}
-                            </p>
-                          </div>
-                          <div class="flex flex-shrink-0 gap-2">
-                            <button data-action="remove" class="rounded-md border border-ink/15 px-2.5 py-1 text-xs font-medium transition-transform active:scale-[0.97]">
-                              {t(lang, "organizer.remove")}
-                            </button>
-                          </div>
-                        </li>
+                          <i class={`ph ph-${tg.icon} text-[12px]`} aria-hidden="true"></i>
+                          {lang === "ja" ? tg.label_ja : tg.label_en}
+                        </button>
                       ))}
-                    </ul>
-                  </div>
-                </organizer-window>
-              ))}
+                    </div>
+                  )}
+                  <p class="hidden text-xs text-ink-soft md:col-span-full" data-filter-empty role="status">
+                    {t(lang, "calendar.noPlansMatch")}
+                  </p>
+                  {cards.map(({ experience, copy, windowName, shown, joined, tags }) => (
+                    <div
+                      class="suggestion flex flex-col overflow-hidden rounded-md bg-banana-soft border border-banana"
+                      data-exp={experience.id}
+                    >
+                      <a href={`/c/${conf.id}/e/${experience.id}`} class="group block flex-1">
+                        {(() => {
+                          const hero = experiencePhotos(experience.id).find((p) => p.is_hero) ?? experiencePhotos(experience.id)[0];
+                          return hero ? (
+                            <img
+                              src={hero.path}
+                              alt={(lang === "ja" ? hero.alt_ja : hero.alt_en) ?? ""}
+                              width={hero.width}
+                              height={hero.height}
+                              class="mx-auto mt-3 aspect-square w-[calc(100%-1.5rem)] rounded-md object-cover"
+                              style={`background-color: ${hero.dominant_color ?? "var(--color-placeholder)"}`}
+                            />
+                          ) : (
+                            <div class="mx-auto mt-3 aspect-square w-[calc(100%-1.5rem)] rounded-md bg-banana-soft/60 border border-banana/40" aria-hidden="true"></div>
+                          );
+                        })()}
+                        <div class="flex flex-1 flex-col p-3 pt-2">
+                          <div class="flex items-baseline justify-between gap-3">
+                            <span class="text-sm font-semibold leading-snug">{copy.card_title}</span>
+                            <span class="font-mono text-xs font-medium tabular-nums">
+                              {experience.price_jpy === 0 ? t(lang, "common.free") : experience.price_jpy != null ? yen(experience.price_jpy) : t(lang, "common.free")}
+                            </span>
+                          </div>
+                          <p class="mt-1 line-clamp-2 text-xs text-ink-soft">{copy.hook}</p>
+                          <div class="mt-2 flex flex-wrap gap-1">
+                            {tags.slice(0, TAGS_PER_CARD).map((tg) => (
+                              <span class="rounded-full bg-banana/25 px-1.5 py-0.5 text-[10px] text-ink">
+                                <i class={`ph ph-${tg.icon} mr-0.5 text-[10px]`} aria-hidden="true"></i>
+                                {lang === "ja" ? tg.label_ja : tg.label_en}
+                              </span>
+                            ))}
+                          </div>
+                          <div class="mt-auto flex items-center gap-2.5 pt-2 text-[10px] font-medium uppercase tracking-wide text-ink-soft/80">
+                            <span class="flex items-center gap-0.5">
+                              <i class="ph ph-calendar-blank text-[12px]" aria-hidden="true"></i>
+                              {windowName}
+                            </span>
+                            {experience.duration_min && (
+                              <span class="flex items-center gap-0.5">
+                                <i class="ph ph-clock text-[12px]" aria-hidden="true"></i>
+                                {t(lang, "common.minutes", { n: experience.duration_min })}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </a>
+                      <div class="flex items-center justify-between gap-2 px-3 pb-3 pt-2">
+                        <p class="text-[11px] text-ink-soft">
+                          <span class="font-mono tabular-nums">{shown}</span> {t(lang, "organizer.shown")}
+                          <span class="ml-2 font-mono tabular-nums">{joined}</span> {t(lang, "organizer.joined")}
+                        </p>
+                        <button
+                          data-action="remove"
+                          class="min-h-11 rounded-md border border-ink/15 bg-paper px-3 text-xs font-medium transition-transform active:scale-[0.97] hover:bg-ink/5"
+                        >
+                          {t(lang, "organizer.remove")}
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </>
+              );
+            })()}
+          </plan-filters>
           </div>
-        </div>
-      ))}
+        );
+        })}
+      </DayTabs>
     </section>
 
     <section class="mt-12">
@@ -178,8 +316,17 @@ const shareUrl = `${Astro.url.origin}/c/${conf.id}`;
       </div>
     </section>
   </main>
+  <session-modal
+    data-sessions-json={JSON.stringify(sessionDetails)}
+    data-close-label={t(lang, "common.dismiss")}
+    data-hint-label={t(lang, "common.clickAnywhereToDismiss")}
+  />
 </Base>
 
 <script>
+  import "../../scripts/day-tabs";
   import "../../scripts/organizer-approve";
+  import "../../scripts/session-modal";
+  import "../../scripts/block-z";
+  import "../../scripts/plan-filters";
 </script>
