@@ -23,6 +23,7 @@ export async function logEvent(
   opts: {
     experienceId?: string;
     windowId?: string;
+    conferenceId?: string;
     partySize?: number;
     priceJpy?: number | null;
     channel?: string;
@@ -33,7 +34,7 @@ export async function logEvent(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        conference_id: guessConference(opts.experienceId ?? ""),
+        conference_id: opts.conferenceId ?? guessConference(opts.experienceId ?? ""),
         event_type: eventType,
         experience_id: opts.experienceId,
         window_id: opts.windowId,
