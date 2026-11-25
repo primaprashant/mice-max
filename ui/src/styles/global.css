@@ -32,6 +32,21 @@
   --color-banana: #b45309;
   --color-banana-soft: #fef3c7;
 
+  /* Session-type tints for the day grid: light background of a hue with dark
+     text of the same hue, same tint depth as banana-soft. */
+  --color-session-oral: #dbeafe;
+  --color-session-oral-ink: #1e3a5f;
+  --color-session-symposium: #e0e7ff;
+  --color-session-symposium-ink: #312e81;
+  --color-session-poster: #dcfce7;
+  --color-session-poster-ink: #14532d;
+  --color-session-sponsor: #fef3c7;
+  --color-session-sponsor-ink: #78350f;
+  --color-session-social: #ffe4e6;
+  --color-session-social-ink: #881337;
+  --color-session-other: #f1f5f9;
+  --color-session-other-ink: #334155;
+
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
 }
