@@ -36,7 +36,7 @@ class NowLine extends HTMLElement {
     }
 
     const pos = ((nowMin - startMin) / (endMin - startMin)) * 100;
-    this.style.cssText = `position:absolute;left:0;right:0;top:${pos}%;pointer-events:none;z-index:30`;
+    this.style.cssText = `position:absolute;left:0;right:0;top:${pos}%;pointer-events:none;z-index:500`;
     this.innerHTML = `
       <div style="position:relative;height:0;border-top:1px solid var(--color-theme);opacity:0.7">
         <span style="position:absolute;right:0;top:-9px;font-family:var(--font-mono);font-size:10px;line-height:1;color:var(--color-theme);background:var(--color-paper);padding:0 2px;font-variant-numeric:tabular-nums"></span>

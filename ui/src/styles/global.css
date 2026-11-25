@@ -40,12 +40,22 @@
   --color-session-symposium-ink: #312e81;
   --color-session-poster: #dcfce7;
   --color-session-poster-ink: #14532d;
-  --color-session-sponsor: #fef3c7;
-  --color-session-sponsor-ink: #78350f;
+  /* Sponsor seminars: light teal. Was #fef3c7, identical to banana-soft,
+     which made conference content look like MiceMax events. Teal ink passes
+     4.5:1 (8.41), the session border clears 3:1 on it (4.22). */
+  --color-session-sponsor: #ccfbf1;
+  --color-session-sponsor-ink: #134e4a;
   --color-session-social: #ffe4e6;
   --color-session-social-ink: #881337;
-  --color-session-other: #f1f5f9;
-  --color-session-other-ink: #334155;
+  /* plenary reuses session-oral; excursion reuses session-poster.
+     'other' is slate-200, same tint depth as the rest, so it reads as a
+     session type instead of unstyled chrome on the paper background. */
+  --color-session-other: #e2e8f0;
+  --color-session-other-ink: #1e293b;
+  /* Block border: slate-500 clears 3:1 (WCAG 1.4.11 non-text contrast)
+     against every session tint and the paper background (worst case 3.86:1
+     on the sponsor tint); slate-400 fails at 2.08:1. */
+  --color-session-border: #64748b;
 
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
@@ -58,4 +68,50 @@
 
 body {
   text-underline-offset: 2px;
+}
+
+/* Themed scrollbars: slate thumb on transparent track, matching the ink
+   palette. Applies to the page, the horizontal grid scroll areas, and the
+   extra-night card row. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink-soft) var(--color-session-other);
+}
+
+*::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-session-other);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-ink-soft);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink);
+}
+
+/* Session detail modal: paper card over a dimmed backdrop. Tailwind's
+   preflight zeroes margins, which kills the dialog's auto-margin centering,
+   so restore it explicitly. Do not set position here: the UA stylesheet's
+   fixed position is what keeps a modal dialog centered in the viewport. */
+dialog.session-modal {
+  margin: auto;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0;
+  max-width: 24rem;
+  width: calc(100vw - 3rem);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: 0 10px 40px rgb(15 23 42 / 0.25);
+}
+
+dialog.session-modal::backdrop {
+  background: rgb(15 23 42 / 0.4);
 }

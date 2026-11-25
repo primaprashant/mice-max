@@ -50,7 +50,7 @@
   "calendar": {
     "banner": "{windowName}は空いています。合うプランが{n}件あります。",
     "scrollHint": "右にスクロールすると全ての会場が見られます",
-    "plansTitle": "空き時間に合うプラン",
+    "plansTitle": "この日の空き時間に合うプラン",
     "noPlansMatch": "この条件に合うプランはありません。フィルターを外すと表示されます。",
     "yourPlans": "あなたのプラン",
     "moment": "最高{high}°C、最低{low}°C。日の入りは{sunset}。{wear}",
@@ -71,6 +71,7 @@
     "joinOthers": "参加する人",
     "noJoiners": "まだ参加者がいません。最初の参加者になりましょう。",
     "book": "予約して支払う",
+    "blockedBooking": "この時間帯の予約がすでにあります",
     "join": "参加する"
   },
   "checkout": {
@@ -153,6 +154,9 @@
     "from": "から",
     "until": "まで",
     "dismiss": "閉じる",
+    "all": "すべて",
+    "scrollLeft": "左へスクロール",
+    "scrollRight": "右へスクロール",
     "clickAnywhereToDismiss": "どこでもクリックで閉じます",
     "cancelBooking": "予約をキャンセル"
   },
