@@ -4,6 +4,7 @@ export const prerender = false;
 import Base from "../layouts/Base.astro";
 import Header from "../components/Header.astro";
 import SimulatedLabel from "../components/SimulatedLabel.astro";
+import OpsBadge from "../components/OpsBadge.astro";
 import {
   cityEstimates,
   demoConferenceIds,
@@ -61,6 +62,10 @@ const formula = t(lang, "city.formula");
       <SimulatedLabel lang={lang} />
     </div>
     <p class="mt-2 max-w-[75ch] text-sm text-ink-soft">{t(lang, "city.intro")}</p>
+
+    <div class="mt-3">
+      <OpsBadge lang={lang} text={t(lang, "ops.badges.city")} />
+    </div>
 
     <section class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
       <div class="rounded-xl border border-ink/10 p-5">

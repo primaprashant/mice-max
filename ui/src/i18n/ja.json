@@ -8,7 +8,8 @@
     "loginNote": "氏名のみ。パスワードの確認はありません",
     "calendarNote": "空き時間と予定が入った参加者カレンダー",
     "organizerNote": "提案の承認・削除、共有リンクの発行",
-    "cityNote": "模擬のリーチ数・支出とマネー式"
+    "cityNote": "模擬のリーチ数・支出とマネー式",
+    "opsNote": "AIエージェントの全ステップ、ライブまたはリプレイ"
   },
   "home": {
     "componentsTitle": "画面を構成する共有コンポーネント",
@@ -152,5 +153,65 @@
     "social": "懇親会",
     "excursion": "エクスカーション",
     "other": "その他"
+  },
+  "ops": {
+    "title": "オペレーション",
+    "intro": "AIエージェントがこの大会をどう運営したか：各ステップの記録、使ったツール、出力。ライブはサイト上で実行、リプレイは事前に記録したもの。",
+    "pickerNote": "大会",
+    "replay": "リプレイ",
+    "live": "ライブ",
+    "phase": {
+      "setup": "準備",
+      "before": "会期前",
+      "during": "会期中",
+      "after": "会期後"
+    },
+    "phaseNote": {
+      "setup": "主催者がURLを貼ると、エージェントがサイトを読んで大会を組み立てる。",
+      "before": "登録から到着まで。案内メール、グループ形成、予約電話、リマインダー。",
+      "during": "会期中。質問回答、交通乱れへの再計画、幹事の決定。",
+      "after": "結果が都市ビューに流れる。"
+    },
+    "stepCount": "{n}ステップ",
+    "tool": {
+      "llm": "LLM",
+      "jev": "Jev",
+      "graph": "グラフ",
+      "voice": "音声",
+      "video": "動画",
+      "search": "検索",
+      "rules": "ルール"
+    },
+    "handedToHuman": "人に引き継ぎ",
+    "detail": "詳細",
+    "output": "出力JSON",
+    "model": "モデル",
+    "tokens": "入力{tin} / 出力{tout}トークン",
+    "ms": "{ms}ミリ秒",
+    "call": "予約の電話",
+    "playCall": "通話を再生",
+    "transcript": "書き起こし",
+    "speakerAgent": "MiceMaxエージェント",
+    "speakerStaff": "ホテルの担当者",
+    "qaTitle": "質問と回答",
+    "qaNote": "この大会のデータから作った質問例。",
+    "question": "質問",
+    "answer": "回答",
+    "disruption": "交通乱れへの再計画",
+    "alert": "警報",
+    "messages": "参加者への案内",
+    "alternatives": "移動先",
+    "affected": "影響{n}件",
+    "badges": {
+      "organizer": "AIエージェントが準備",
+      "calendar": "AIが空き時間を発見",
+      "experience": "AIが文章を作成",
+      "city": "AIが推計を計算",
+      "viewAll": "記録を見る"
+    },
+    "who": {
+      "organizer": "主催者",
+      "attendee": "参加者"
+    }
   }
 }
