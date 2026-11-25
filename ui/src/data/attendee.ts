@@ -3,6 +3,7 @@
 import type { AstroCookies } from "astro";
 
 export const ATTENDEE_COOKIE = "micemax_attendee";
+export const CONSENT_COOKIE = "micemax_consent";
 
 /** The demo's logged-in attendee. The login form only takes a name; we map it
  * to one simulated attendee so the calendar shows that person's plans. */
