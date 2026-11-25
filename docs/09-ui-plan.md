@@ -31,9 +31,9 @@ Then a calendar view with the conference sessions (in default theme color) and o
 
 Free-time windows are visible on the calendar, because plans are offered per window.
 
-No onboarding screen. The attendee lands straight on the calendar. Name is on the login page, language is the header toggle, and interests stay out of scope for the demo. Instead of a wizard, surface personalization in place: a dismissible banner on first visit, for example "Thursday evening is free. 3 plans fit." Reason: the attendee arrives from a link or QR with one goal, to see the schedule; a wizard between login and calendar adds a screen the docs do not require.
+No onboarding screen. The attendee lands straight on the calendar. Name and consent are on the login page, language is the header toggle, and interests stay out of scope for the demo. Instead of a wizard, surface personalization in place: a dismissible banner on first visit, for example "Thursday evening is free. 3 plans fit." Reason: the attendee arrives from a link or QR with one goal, to see the schedule; a wizard between login and calendar adds a screen the docs do not require.
 
-No consent checkbox. [04-long-term-plan.md](04-long-term-plan.md) originally asked for a first-use consent line for the event log. Dropped: a forced checkbox at login is the pattern users blind-click, so it adds friction without buying trust. The log holds no names or emails (only a random attendee ID and coarse profile), which keeps it outside APPI's personal-information scope for the demo. Revisit consent before any real deployment.
+Consent checkbox, required. [04-long-term-plan.md](04-long-term-plan.md) asks for a first-use consent line for the event log, and the login form carries it as a required checkbox before enter. The log holds no names or emails (only a random attendee ID and coarse profile), which keeps it outside APPI's personal-information scope for the demo. Revisit consent before any real deployment.
 
 ### City view
 
@@ -51,7 +51,7 @@ Things every view needs. Build once, share everywhere.
 1. Language toggle. English is the default. Displayed strings come from a language module with two files, `en.json` and `ja.json`; for now the files are identical. The docs require Japanese as the primary language and English complete, not partial, so no screen hardcodes strings.
 2. Shared plan components. One calendar block and one card render any plan (session or event), colored by kind: sessions in theme color, our events in banana yellow.
 3. Simulated label. One component that marks data as simulated, used in the city view and wherever simulated data shows.
-4. Consent line. Dropped, see the attendee-view section.
+4. Consent line. One required sentence on the login page; see the attendee-view section.
 5. Theme tokens: the default theme color, banana yellow for our events.
 
 ### Design tokens

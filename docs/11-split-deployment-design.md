@@ -84,8 +84,8 @@ in is a follow-up, not a demo blocker.
    small client island loads it. Static + fetch keeps the screens unchanged.
 3. Attendee state stays in the browser: `plan-store.ts` (localStorage) and the
    language cookie already work without a server.
-4. The login POST becomes a client call that sets the attendee cookie client-side
-   and appends a `reached` event through the backend.
+4. The login POST becomes a client call that sets the attendee and consent cookies
+   client-side and appends a `reached` event through the backend.
 
 ## Deployment
 

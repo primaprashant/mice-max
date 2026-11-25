@@ -114,7 +114,7 @@ Log every interaction from the first conference onwards, as an **append-only eve
 
 - **Event log:** a Postgres table (e.g. Neon). It's simple, cheap and easy to query for the city reports.
 - **What it means:** the Neo4j graph gets summary links built from the log, e.g. *Conference → similar to → Conference* (same field, size, season, overseas share, weekday it ends) and *Attendee type → tends to book → Experience*.
-- **Privacy:** no names or emails in the event log; follow Japan's personal information law (APPI). Organizers and cities see totals, never individuals. A first-use consent line is deferred; see [09-ui-plan.md](09-ui-plan.md).
+- **Privacy:** attendees agree to it on first use; no names or emails in the event log; follow Japan's personal information law (APPI). Organizers and cities see totals, never individuals.
 
 ### How the data improves the product
 
