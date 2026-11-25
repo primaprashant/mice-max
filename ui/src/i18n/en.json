@@ -208,6 +208,7 @@
     "handedToHuman": "Passed to a person",
     "detail": "Details",
     "output": "Output JSON",
+    "truncated": "{n} more items",
     "model": "Model",
     "tokens": "{tin} in / {tout} out tokens",
     "ms": "{ms} ms",

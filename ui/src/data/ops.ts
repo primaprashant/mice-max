@@ -78,6 +78,45 @@ export function disruptionDetail(steps: AgentStep[], conferenceId: string): Disr
   };
 }
 
+const TRUNCATE_ARRAY_LIMIT = 20;
+const TRUNCATE_STRING_LIMIT = 500;
+const TRUNCATE_OUTPUT_LIMIT = 8000;
+
+function truncateValue(value: unknown, moreLabel: (n: number) => string): unknown {
+  if (typeof value === "string") {
+    return value.length > TRUNCATE_STRING_LIMIT ? `${value.slice(0, TRUNCATE_STRING_LIMIT)}…` : value;
+  }
+  if (Array.isArray(value)) {
+    if (value.length <= TRUNCATE_ARRAY_LIMIT) return value.map((v) => truncateValue(v, moreLabel));
+    const items = value.slice(0, TRUNCATE_ARRAY_LIMIT).map((v) => truncateValue(v, moreLabel));
+    items.push({ "...truncated": moreLabel(value.length - TRUNCATE_ARRAY_LIMIT) });
+    return items;
+  }
+  if (value && typeof value === "object") {
+    const out: Record<string, unknown> = {};
+    for (const [key, v] of Object.entries(value)) {
+      if (Array.isArray(v) && v.length > TRUNCATE_ARRAY_LIMIT) {
+        out[key] = v.slice(0, TRUNCATE_ARRAY_LIMIT).map((item) => truncateValue(item, moreLabel));
+        out["...truncated"] = moreLabel(v.length - TRUNCATE_ARRAY_LIMIT);
+      } else {
+        out[key] = truncateValue(v, moreLabel);
+      }
+    }
+    return out;
+  }
+  return value;
+}
+
+/** Cap a step's output JSON for the embedded block: arrays over
+ * TRUNCATE_ARRAY_LIMIT keep the first items plus a "...truncated" marker,
+ * strings over TRUNCATE_STRING_LIMIT are cut with an ellipsis. The JSON is
+ * illustrative demo data; full fidelity does not matter. */
+export function truncateOutput(value: unknown, moreLabel: (n: number) => string = (n) => `${n} more items`): unknown {
+  if (value == null || typeof value !== "object") return value;
+  if (JSON.stringify(value).length <= TRUNCATE_OUTPUT_LIMIT) return value;
+  return truncateValue(value, moreLabel);
+}
+
 /** Experience ids mentioned in disruption picks, for title lookup. */
 export function disruptionExperienceIds(d: DisruptionDetail | undefined): string[] {
   if (!d) return [];

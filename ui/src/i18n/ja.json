@@ -208,6 +208,7 @@
     "handedToHuman": "人に引き継ぎ",
     "detail": "詳細",
     "output": "出力JSON",
+    "truncated": "他{n}件",
     "model": "モデル",
     "tokens": "入力{tin} / 出力{tout}トークン",
     "ms": "{ms}ミリ秒",
