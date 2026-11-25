@@ -24,6 +24,26 @@ def insert(db, rows):
                    [r.get(c) for c in COLS])
 
 
+def after_row(db, cid, start):
+    """After phase: the day after close, the money flows into the city view. One row, from city_estimates."""
+    est = db.execute("""SELECT end_weekday, season, early_jpy, middle_jpy, strong_jpy FROM city_estimates
+                       WHERE conference_id = ?""", (cid,)).fetchone()
+    if not est:
+        return []
+    end = db.execute("SELECT end_date FROM conferences WHERE id = ?", (cid,)).fetchone()[0]
+    ts = f"{end}T09:00:00+09:00"  # morning after the close
+    wd = dt.date.fromisoformat(end).strftime("%A")
+    jpy = lambda v: f"¥{v:,}"
+    return {"id": f"{cid}-after-01", "conference_id": cid, "phase": "after", "ts": ts, "agent": "reporter",
+            "tool": "rules", "title_ja": "結果を都市ビューへ", "title_en": "Results flow into the city view",
+            "summary_ja": f"大会終了（{wd}）の翌朝。新規支出の推計を都市ビューへ渡す：慎重{est[2]//10000}万円、"
+                          f"標準{est[3]//10000}万円、強気{est[4]//10000}万円（推計値）。",
+            "summary_en": f"Morning after the close ({wd}). Estimated new spending flows into the city view: "
+                          f"cautious {jpy(est[2])}, middle {jpy(est[3])}, strong {jpy(est[4])} (estimates).",
+            "output": {"early_jpy": est[2], "middle_jpy": est[3], "strong_jpy": est[4], "season": est[1],
+                       "is_estimate": True}, "simulated": 0}
+
+
 def load(db):
     ids = [r[0] for r in db.execute("SELECT id FROM conferences WHERE is_demo = 1 ORDER BY id")]
     for cid in ids:
@@ -34,3 +54,4 @@ def load(db):
         insert(db, ops_events.rows(db, cid))
         start = db.execute("SELECT start_date FROM conferences WHERE id = ?", (cid,)).fetchone()[0]
         insert(db, ops_files.rows(db, cid, start))
+        insert(db, [after_row(db, cid, start)])
