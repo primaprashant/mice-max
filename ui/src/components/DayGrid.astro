@@ -11,7 +11,6 @@ interface Props {
   lang?: Lang;
   day: string;
   sessions: Session[];
-  windows: FreeWindow[];
   /** Experience id to card title, for client-side plan blocks. */
   titles: Record<string, string>;
   today: string;
@@ -19,27 +18,23 @@ interface Props {
   showPlans?: boolean;
 }
 
-const { lang = "en", day, sessions, windows, titles, today, showPlans = true } = Astro.props;
+const { lang = "en", day, sessions, titles, today, showPlans = true } = Astro.props;
 
-// Grid range: first event start to last event end, padded to whole hours so
-// hour lines land on clean offsets.
-const allEvents = [
-  ...sessions.map((s) => ({ start: s.start_time, end: s.end_time })),
-  ...windows.map((w) => ({ start: w.start_time, end: w.end_time })),
-];
-if (allEvents.length === 0) return; // no grid without content
+// Fixed grid range for every day and every conference: 06:00 to 24:00.
+// A constant keeps the hour ruler identical across day tabs, which is what
+// makes the calendar read as one consistent UI. The demo data spans 06:00
+// to 23:59; move GRID_START/GRID_END_HOURS if new data goes past them.
+const GRID_START = "06:00";
+const GRID_END_HOURS = 18; // 06:00 + 18h = 24:00
 
-const firstStart = allEvents.reduce((min, e) => (e.start < min ? e.start : min), allEvents[0].start);
-const lastEnd = allEvents.reduce((max, e) => (e.end > max ? e.end : max), allEvents[0].end);
-const gridStart = `${firstStart.slice(0, 2)}:00`;
-const gridEndHour = Number(lastEnd.slice(0, 2)) + (lastEnd.slice(3) !== "00" ? 1 : 0);
-const gridEnd = `${String(gridEndHour).padStart(2, "0")}:00`;
+const gridStart = GRID_START;
+const gridEnd = `${String(Number(gridStart.slice(0, 2)) + GRID_END_HOURS).padStart(2, "0")}:00`;
 
 const gridStartMin = toMinutes(gridStart);
 const gridEndMin = toMinutes(gridEnd);
 const pos = (time: string) => ((toMinutes(time) - gridStartMin) / (gridEndMin - gridStartMin)) * 100;
 
-const HOUR_LINE_COUNT = gridEndHour - Number(gridStart.slice(0, 2));
+const HOUR_LINE_COUNT = GRID_END_HOURS;
 // Half-hour lines: label whole hours only, tick at every half hour.
 const HALF_STEPS = HOUR_LINE_COUNT * 2 + 1;
 const hourLabelAt = (i: number) => (i % 2 === 0 ? `${String(Number(gridStart.slice(0, 2)) + i / 2).padStart(2, "0")}:00` : null);
@@ -291,6 +286,9 @@ const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => {
           data-grid-start={gridStart}
           data-grid-end={gridEnd}
           data-titles={JSON.stringify(titles)}
+          data-label-saved={t(lang, "common.saved")}
+          data-label-joined={t(lang, "common.joined")}
+          data-label-booked={t(lang, "common.booked")}
         />
       )}
       {showPlans && day === today && <now-line data-grid-start={gridStart} data-grid-end={gridEnd} class="absolute inset-0" />}
