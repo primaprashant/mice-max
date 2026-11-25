@@ -27,7 +27,7 @@ import { fitsWindow } from "../../data/fit";
 import { getLang, ATTENDEE_COOKIE, DEMO_ATTENDEE_ID } from "../../data/attendee";
 import { sunsetSapporo, yen } from "../../data/city";
 import { t } from "../../i18n";
-import type { Tag } from "../../data/types";
+import type { Tag, Window as FreeWindow } from "../../data/types";
 
 /** The tag row by id, for the filter chips. */
 function tagById(id: string): Tag | undefined {
@@ -280,13 +280,12 @@ const activeDay = days.includes(today) ? today : days[0];
             {(() => {
               const dayWindows = windows.filter((w) => w.day === day);
               const seen = new Set<string>();
-              const cards: { experience: (typeof exps)[number]; copy: NonNullable<ReturnType<typeof experienceCopy>>; windowName: string; windowId: string; tags: Tag[] }[] = [];
+              const cards: { experience: (typeof exps)[number]; copy: NonNullable<ReturnType<typeof experienceCopy>>; win: FreeWindow; tags: Tag[] }[] = [];
               for (const w of dayWindows) {
-                const name = lang === "ja" ? w.name_ja : w.name_en;
                 for (const s of suggestionsByWindow.get(w.id) ?? []) {
                   if (seen.has(s.experience.id)) continue;
                   seen.add(s.experience.id);
-                  cards.push({ ...s, windowName: name, windowId: w.id, tags: experienceTags(s.experience.id) });
+                  cards.push({ ...s, win: w, tags: experienceTags(s.experience.id) });
                 }
               }
               // Filter chips: the union of tags across this day's cards, most
@@ -298,6 +297,15 @@ const activeDay = days.includes(today) ? today : days[0];
                 <>
                   {filterTags.length > 0 && (
                     <div class="mb-1 flex flex-wrap gap-1.5 md:col-span-full" data-plan-filters>
+                      <button
+                        type="button"
+                        data-plan-filter-all
+                        aria-pressed="true"
+                        class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
+                      >
+                        <i class="ph ph-x text-[12px]" aria-hidden="true"></i>
+                        {t(lang, "common.all")}
+                      </button>
                       {filterTags.map((tg) => (
                         <button
                           type="button"
@@ -314,13 +322,13 @@ const activeDay = days.includes(today) ? today : days[0];
                   <p class="hidden text-xs text-ink-soft md:col-span-full" data-filter-empty role="status">
                     {t(lang, "calendar.noPlansMatch")}
                   </p>
-                  {cards.map(({ experience, copy, windowId, tags }) => {
+                  {cards.map(({ experience, copy, win, tags }) => {
                     const hero = experiencePhotos(experience.id).find((p) => p.is_hero) ?? experiencePhotos(experience.id)[0];
                     return (
                       <a
                         href={`/c/${conf.id}/e/${experience.id}`}
                         data-suggest={experience.id}
-                        data-suggest-window={windowId}
+                        data-suggest-window={win.id}
                         data-tags={tags.map((tg) => tg.id).join(" ")}
                         class="group flex flex-col overflow-hidden rounded-md bg-banana-soft border border-banana transition-transform active:scale-[0.98]"
                       >
@@ -352,7 +360,11 @@ const activeDay = days.includes(today) ? today : days[0];
                               </span>
                             ))}
                           </div>
-                          <div class="mt-auto flex items-center justify-end gap-2.5 pt-2 text-[10px] font-medium uppercase tracking-wide text-ink-soft/80">
+                          <div class="mt-auto flex items-center justify-between gap-2.5 pt-2 text-[10px] font-medium uppercase tracking-wide text-ink-soft/80">
+                            <span class="flex items-center gap-0.5">
+                              <i class="ph ph-calendar-blank text-[12px]" aria-hidden="true"></i>
+                              {win.day.slice(5).replace("-", "/")} {win.start_time}–{win.end_time}
+                            </span>
                             {experience.duration_min && (
                               <span class="flex items-center gap-0.5">
                                 <i class="ph ph-clock text-[12px]" aria-hidden="true"></i>

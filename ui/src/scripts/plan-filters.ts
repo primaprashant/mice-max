@@ -1,31 +1,37 @@
 /** Tag filters above the plan suggestion cards. Single-select: one active
- * tag at a time, clicking the active chip clears it. UI-side only, no API
- * calls; the cards carry their tags in data-tags. After filtering, the
- * scroll position is re-anchored to the section so hiding cards does not
- * yank the page. */
+ * tag at a time; the "All" chip on the far left resets to every card, and
+ * clicking the active tag chip clears it too. UI-side only, no API calls;
+ * the cards carry their tags in data-tags. After filtering, the scroll
+ * position is re-anchored to the section so hiding cards does not yank the
+ * page. */
 const ACTIVE_CLASSES = ["border-theme", "bg-theme-soft", "text-theme-strong"];
 
 class PlanFilters extends HTMLElement {
   connectedCallback() {
     const chips = this.querySelectorAll<HTMLButtonElement>("[data-plan-filter]");
-    if (chips.length === 0) return;
+    const allChip = this.querySelector<HTMLButtonElement>("[data-plan-filter-all]");
+    if (chips.length === 0 || !allChip) return;
 
     const cards = Array.from(this.querySelectorAll<HTMLElement>("[data-tags]"));
     const empty = this.querySelector<HTMLElement>("[data-filter-empty]");
 
+    const setActive = (chip: HTMLButtonElement | null) => {
+      for (const c of [allChip, ...chips]) {
+        const on = c === chip;
+        c.setAttribute("aria-pressed", on ? "true" : "false");
+        for (const cls of ACTIVE_CLASSES) c.classList.toggle(cls, on);
+      }
+    };
+
+    allChip.addEventListener("click", () => {
+      setActive(null);
+      applyFilter();
+    });
+
     for (const chip of chips) {
       chip.addEventListener("click", () => {
         const wasActive = chip.getAttribute("aria-pressed") === "true";
-        // Single-select: clear every chip, then activate this one (or none
-        // when it was the active one).
-        for (const c of chips) {
-          c.setAttribute("aria-pressed", "false");
-          for (const cls of ACTIVE_CLASSES) c.classList.remove(cls);
-        }
-        if (!wasActive) {
-          chip.setAttribute("aria-pressed", "true");
-          for (const cls of ACTIVE_CLASSES) chip.classList.add(cls);
-        }
+        setActive(wasActive ? null : chip);
         applyFilter();
       });
     }

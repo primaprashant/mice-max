@@ -24,7 +24,7 @@ import { fitsWindow } from "../../data/fit";
 import { getLang } from "../../data/attendee";
 import { yen } from "../../data/city";
 import { t } from "../../i18n";
-import type { Tag } from "../../data/types";
+import type { Tag, Window as FreeWindow } from "../../data/types";
 
 /** Tag pills shown on each card; the rest stay behind the filter chips. */
 const TAGS_PER_CARD = 3;
@@ -180,13 +180,12 @@ const shareUrl = `${Astro.url.origin}/c/${conf.id}`;
             </h3>
             {(() => {
               const seen = new Set<string>();
-              const cards: { experience: (typeof exps)[number]; copy: NonNullable<ReturnType<typeof experienceCopy>>; windowName: string; windowId: string; shown: number; joined: number; tags: Tag[] }[] = [];
+              const cards: { experience: (typeof exps)[number]; copy: NonNullable<ReturnType<typeof experienceCopy>>; win: FreeWindow; shown: number; joined: number; tags: Tag[] }[] = [];
               for (const w of dayWindows) {
-                const name = lang === "ja" ? w.name_ja : w.name_en;
                 for (const s of suggestionsByWindow.get(w.id) ?? []) {
                   if (seen.has(s.experience.id)) continue;
                   seen.add(s.experience.id);
-                  cards.push({ ...s, windowName: name, windowId: w.id, tags: experienceTags(s.experience.id) });
+                  cards.push({ ...s, win: w, tags: experienceTags(s.experience.id) });
                 }
               }
               // Filter chips: the union of tags across this day's cards, most
@@ -214,7 +213,7 @@ const shareUrl = `${Astro.url.origin}/c/${conf.id}`;
                   <p class="hidden text-xs text-ink-soft md:col-span-full" data-filter-empty role="status">
                     {t(lang, "calendar.noPlansMatch")}
                   </p>
-                  {cards.map(({ experience, copy, windowName, shown, joined, tags }) => (
+                  {cards.map(({ experience, copy, win, shown, joined, tags }) => (
                     <div
                       class="suggestion flex flex-col overflow-hidden rounded-md bg-banana-soft border border-banana"
                       data-exp={experience.id}
@@ -254,7 +253,7 @@ const shareUrl = `${Astro.url.origin}/c/${conf.id}`;
                           <div class="mt-auto flex items-center gap-2.5 pt-2 text-[10px] font-medium uppercase tracking-wide text-ink-soft/80">
                             <span class="flex items-center gap-0.5">
                               <i class="ph ph-calendar-blank text-[12px]" aria-hidden="true"></i>
-                              {windowName}
+                              {win.day.slice(5).replace("-", "/")} {win.start_time}–{win.end_time}
                             </span>
                             {experience.duration_min && (
                               <span class="flex items-center gap-0.5">

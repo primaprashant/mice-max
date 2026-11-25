@@ -313,6 +313,11 @@ export function experienceTags(id: string): Tag[] {
   return rows as unknown as Tag[];
 }
 
+/** The full tag catalog, for filter chips. */
+export function allTags(): Tag[] {
+  return getDb().prepare(`SELECT * FROM tags ORDER BY label_en`).all() as unknown as Tag[];
+}
+
 export function headlines(conferenceId: string): Headline[] {
   const rows = getDb()
     .prepare(`SELECT * FROM headlines WHERE conference_id = ?`)
