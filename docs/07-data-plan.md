@@ -76,6 +76,7 @@ Sapporo business events from **Dec 2025 to Nov 2027**. No cap: list every event 
 - **Sources:** city MICE page [S1], Sapporo Convention Bureau upcoming and past events, Sapporo Convention Center calendar, big hotels, Hokkaido University. Example searches: "札幌 学術集会 2027", "第◯回 日本◯◯学会 総会 札幌", "札幌コンベンションセンター 開催予定", "international conference Sapporo 2027".
 - **Fields:** `id, name_ja, name_en, start_date, end_date, end_weekday, venue, field, field_detail, scope (international/national/regional), attendees (actual if past, expected if upcoming), overseas_attendees, organizer_or_pco, website_url, program_status (full_online/partial/pdf_only/login_required/not_yet), source_url, confidence, notes`.
 - **Done when:** every row has a source, and a short note lists the top 3 domestic and top 3 international demo candidates.
+- **Done 2026-11-25:** 269 events in `data/micemax.db`; shortlist and gaps in [data/raw/conferences/NOTES.md](../data/raw/conferences/NOTES.md). Rebuild with `python3 data/scripts/build_db.py`.
 
 ### T2. Pick the two demo conferences (human, 15 min)
 
