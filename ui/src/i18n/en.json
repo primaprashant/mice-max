@@ -5,17 +5,23 @@
   "nav": {
     "intro": "Two demo conferences with real programs and simulated attendee data. Start with the attendee view.",
     "login": "Attendee login",
-    "loginNote": "Name and consent, no password check",
-    "calendarNote": "Attendee calendar with free-time windows and plans"
+    "loginNote": "Name only, no password check",
+    "calendarNote": "Attendee calendar with free-time windows and plans",
+    "organizerNote": "Approve or remove suggestions, get the share links",
+    "cityNote": "Simulated reach, spend and the money formula"
+  },
+  "home": {
+    "componentsTitle": "What the screens are made of",
+    "componentsNote": "The shared components behind the organizer, attendee and city views, filled with demo data. Sessions in theme blue, MiceMax plans in amber."
   },
   "login": {
     "title": "Welcome",
-    "conference": "JADM 2027, Sapporo, March 18 to 20",
+    "conferenceName": "JADM 2027",
+    "conferenceWhere": "Sapporo, March 18 to 20",
     "name": "Your name",
     "namePlaceholder": "Yamada Hanako",
     "password": "Password",
-    "passwordHint": "Not checked in this demo. Any value works.",
-    "consent": "I agree that my clicks and bookings in this demo are logged without my name or email, to improve the service.",
+    "passwordHint": "",
     "enter": "Enter"
   },
   "calendar": {
