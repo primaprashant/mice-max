@@ -22,6 +22,8 @@ import {
   seasonFor,
   cityEventsBetween,
   allTags,
+  experienceOfferedDays,
+  offeredExperienceIds,
 } from "../../data";
 import { fitsWindow } from "../../data/fit";
 import { getLang, ATTENDEE_COOKIE, DEMO_ATTENDEE_ID } from "../../data/attendee";
@@ -100,11 +102,15 @@ for (const w of windows) {
   suggestionsByWindow.set(w.id, list);
 }
 
-// Extra-night windows: their headline experiences become the banner.
-const extraNightWindows = windows.filter((w) => w.kind === "extra_night");
-const extraNightExperiences = extraNightWindows
+// Extra-night banner: every extra-night experience offered to this
+// conference, headline first (the sim's pick), then the rest sorted by id.
+const headlineExtraNightId = windows
+  .filter((w) => w.kind === "extra_night")
   .map((w) => headlineByWindow.get(w.id))
-  .filter((id): id is string => Boolean(id))
+  .find((id): id is string => Boolean(id)) ?? "";
+const extraNightIds = [...new Set(offeredExperienceIds(conf.id, "extra_night"))].filter((id) => id !== headlineExtraNightId).sort((a, b) => a.localeCompare(b));
+const extraNightExperiences = [headlineExtraNightId, ...extraNightIds]
+  .filter(Boolean)
   .map((id) => experienceById(id)!)
   .filter(Boolean)
   .map((e) => ({ experience: e, copy: experienceCopy(e.id, lang)! }));
@@ -178,30 +184,41 @@ const activeDay = days.includes(today) ? today : days[0];
 
     {extraNightExperiences.length > 0 && (
       <section class="mt-8">
-        <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "calendar.extraNightBannerTitle")}</h2>
-        <div class="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "calendar.extraNightBannerTitle")}</h2>
+          <extra-night-nav class="flex gap-1" data-extra-night-nav>
+            <button
+              type="button"
+              data-extra-night-prev
+              aria-label={t(lang, "common.scrollLeft")}
+              class="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-slate-200 text-ink-soft transition-colors hover:bg-slate-300 disabled:opacity-40"
+              disabled
+            >
+              <i class="ph ph-caret-left text-base" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              data-extra-night-next
+              aria-label={t(lang, "common.scrollRight")}
+              class="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-slate-200 text-ink-soft transition-colors hover:bg-slate-300 disabled:opacity-40"
+            >
+              <i class="ph ph-caret-right text-base" aria-hidden="true"></i>
+            </button>
+          </extra-night-nav>
+        </div>
+        <div class="mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1" data-extra-night-track>
           {extraNightExperiences.map(({ experience, copy }) => (
             <extra-night-card
                 data-exp={experience.id}
                 data-label-saved={t(lang, "common.saved")}
                 data-label-joined={t(lang, "common.joined")}
                 data-label-booked={t(lang, "common.booked")}
-                class="block"
+                class="w-72 flex-shrink-0 snap-start"
               >
               <a
                 href={`/c/${conf.id}/e/${experience.id}`}
-                class="group flex items-center gap-4 rounded-xl border border-banana bg-banana-soft p-4 transition-transform active:scale-[0.99]"
+                class="group flex h-full flex-col gap-3 rounded-xl border border-banana bg-banana-soft p-4 transition-transform active:scale-[0.99]"
               >
-                <div class="flex-1">
-                  <h3 class="text-base font-semibold leading-snug">{copy.card_title}</h3>
-                  <p class="mt-1 text-sm text-ink-soft">{copy.hook}</p>
-                  {experience.price_jpy != null && (
-                    <p class="mt-2 font-mono text-sm font-medium tabular-nums">
-                      {experience.price_jpy === 0 ? t(lang, "common.free") : t(lang, "common.priceFrom", { price: `¥${experience.price_jpy.toLocaleString("ja-JP")}` })}
-                      <span class="ml-1 font-sans text-xs font-normal text-ink-soft">{t(lang, "common.allIncluded")}</span>
-                    </p>
-                  )}
-                </div>
                 {(() => {
                   const hero = experiencePhotos(experience.id).find((p) => p.is_hero) ?? experiencePhotos(experience.id)[0];
                   return hero ? (
@@ -210,11 +227,21 @@ const activeDay = days.includes(today) ? today : days[0];
                       alt={(lang === "ja" ? hero.alt_ja : hero.alt_en) ?? ""}
                       width={hero.width}
                       height={hero.height}
-                      class="h-20 w-32 flex-shrink-0 rounded-lg object-cover"
+                      class="aspect-[16/9] w-full rounded-lg object-cover"
                       style={`background-color: ${hero.dominant_color ?? "var(--color-placeholder)"}`}
                     />
                   ) : null;
                 })()}
+                <div class="flex-1">
+                  <h3 class="text-sm font-semibold leading-snug">{copy.card_title}</h3>
+                  <p class="mt-1 line-clamp-2 text-xs text-ink-soft">{copy.hook}</p>
+                  {experience.price_jpy != null && (
+                    <p class="mt-2 font-mono text-sm font-medium tabular-nums">
+                      {experience.price_jpy === 0 ? t(lang, "common.free") : t(lang, "common.priceFrom", { price: `¥${experience.price_jpy.toLocaleString("ja-JP")}` })}
+                      <span class="ml-1 font-sans text-xs font-normal text-ink-soft">{t(lang, "common.allIncluded")}</span>
+                    </p>
+                  )}
+                </div>
                 </a>
             </extra-night-card>
           ))}
@@ -265,7 +292,6 @@ const activeDay = days.includes(today) ? today : days[0];
                 lang={lang}
                 day={day}
                 sessions={daySessions}
-                windows={dayWindows}
                 titles={expTitles}
                 today={today}
               />
@@ -273,8 +299,8 @@ const activeDay = days.includes(today) ? today : days[0];
             <p class="mt-2 text-[11px] text-ink-soft md:hidden" data-scroll-hint>
               {t(lang, "calendar.scrollHint")}
             </p>
-          <plan-filters class="mt-10 grid grid-cols-1 gap-3 md:grid-cols-3 lg:grid-cols-4" data-plan-filters-top>
-            <h3 class="text-sm font-semibold uppercase tracking-wide text-ink-soft md:col-span-full">
+          <plan-filters class="mt-6 grid grid-cols-1 gap-3 border-t border-ink/10 pt-4 md:grid-cols-3 lg:grid-cols-4" data-plan-filters-top>
+            <h3 class="text-sm font-semibold text-ink-soft md:col-span-full">
               {t(lang, "calendar.plansTitle")}
             </h3>
             {(() => {
@@ -324,12 +350,16 @@ const activeDay = days.includes(today) ? today : days[0];
                   </p>
                   {cards.map(({ experience, copy, win, tags }) => {
                     const hero = experiencePhotos(experience.id).find((p) => p.is_hero) ?? experiencePhotos(experience.id)[0];
+                    // Availability as real dates, the attendee's format:
+                    // 03/18, 03/19, 03/20 — not the window's display name.
+                    const offered = experienceOfferedDays(experience.id).map((d) => d.slice(5).replace("-", "/"));
                     return (
                       <a
                         href={`/c/${conf.id}/e/${experience.id}`}
                         data-suggest={experience.id}
                         data-suggest-window={win.id}
                         data-tags={tags.map((tg) => tg.id).join(" ")}
+                        data-booked-label={t(lang, "common.booked")}
                         class="group flex flex-col overflow-hidden rounded-md bg-banana-soft border border-banana transition-transform active:scale-[0.98]"
                       >
                         {hero ? (
@@ -363,7 +393,7 @@ const activeDay = days.includes(today) ? today : days[0];
                           <div class="mt-auto flex items-center justify-between gap-2.5 pt-2 text-[10px] font-medium uppercase tracking-wide text-ink-soft/80">
                             <span class="flex items-center gap-0.5">
                               <i class="ph ph-calendar-blank text-[12px]" aria-hidden="true"></i>
-                              {win.day.slice(5).replace("-", "/")} {win.start_time}–{win.end_time}
+                              {offered.join(", ")}
                             </span>
                             {experience.duration_min && (
                               <span class="flex items-center gap-0.5">
@@ -397,6 +427,8 @@ const activeDay = days.includes(today) ? today : days[0];
   import "../../scripts/my-plans";
   import "../../scripts/first-visit-banner";
   import "../../scripts/extra-night-card";
+  import "../../scripts/extra-night-nav";
+  import "../../scripts/plan-state";
   import "../../scripts/day-tabs";
   import "../../scripts/suggest-log";
   import "../../scripts/now-line";
