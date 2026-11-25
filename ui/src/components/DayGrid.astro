@@ -5,6 +5,7 @@
  * plans (my-plans) spanning the full grid width. Sessions tinted by type. */
 import { type Lang, t } from "../i18n";
 import type { Session, Window as FreeWindow } from "../data/types";
+import { layoutBlocks, toMinutes } from "../scripts/layout";
 
 interface Props {
   lang?: Lang;
@@ -32,7 +33,6 @@ const gridStart = `${firstStart.slice(0, 2)}:00`;
 const gridEndHour = Number(lastEnd.slice(0, 2)) + (lastEnd.slice(3) !== "00" ? 1 : 0);
 const gridEnd = `${String(gridEndHour).padStart(2, "0")}:00`;
 
-const toMinutes = (time: string) => Number(time.slice(0, 2)) * 60 + Number(time.slice(3, 5));
 const gridStartMin = toMinutes(gridStart);
 const gridEndMin = toMinutes(gridEnd);
 const pos = (time: string) => ((toMinutes(time) - gridStartMin) / (gridEndMin - gridStartMin)) * 100;
@@ -87,48 +87,13 @@ const fullWidthBlocks: GridBlock[] = [
 ];
 const roomSessions = sessions.filter((s) => s.room && !FULL_WIDTH_TYPES.has(s.type));
 
-// Within one room column, the same overlap layout as before: sort by start;
-// cut into clusters of overlapping blocks; each block takes the first column
-// free at its start; the cluster's column count is the max simultaneous count.
-type Placed = GridBlock & { col: number; cols: number };
-
-function placeBlocks(blocks: GridBlock[]): Placed[] {
-  const sorted = [...blocks].sort((a, b) => a.start.localeCompare(b.start) || b.end.localeCompare(a.end));
-  const placed: Placed[] = [];
-  let cluster: { block: GridBlock; col: number }[] = [];
-  let colEnds: number[] = [];
-  let clusterEnd = -1;
-
-  function flushCluster() {
-    if (cluster.length === 0) return;
-    for (const c of cluster) placed.push({ ...c.block, col: c.col, cols: colEnds.length });
-    cluster = [];
-    colEnds = [];
-    clusterEnd = -1;
-  }
-
-  for (const block of sorted) {
-    const startMin = toMinutes(block.start);
-    if (cluster.length > 0 && startMin >= clusterEnd) flushCluster();
-    let col = colEnds.findIndex((end) => end <= startMin);
-    if (col === -1) {
-      col = colEnds.length;
-      colEnds.push(toMinutes(block.end));
-    } else {
-      colEnds[col] = Math.max(colEnds[col], toMinutes(block.end));
-    }
-    cluster.push({ block, col });
-    clusterEnd = Math.max(clusterEnd, toMinutes(block.end));
-  }
-  flushCluster();
-  return placed;
-}
-
-const fullWidthPlaced = placeBlocks(fullWidthBlocks);
-const roomPlacedByRoom = new Map<string, Placed[]>();
+// Within one room column, the same overlap layout as main's grid: the shared
+// layout module cuts into clusters of overlapping blocks per column.
+const fullWidthPlaced = layoutBlocks(fullWidthBlocks);
+const roomPlacedByRoom = new Map<string, GridBlock[]>();
 for (const room of columns) roomPlacedByRoom.set(room, []);
-for (const s of roomSessions) roomPlacedByRoom.get(s.room!)!.push({ start: s.start_time, end: s.end_time, kind: "session", session: s, col: 0, cols: 1 });
-const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => ({ index: i, placed: placeBlocks(blocks) }));
+for (const s of roomSessions) roomPlacedByRoom.get(s.room!)!.push({ start: s.start_time, end: s.end_time, kind: "session", session: s });
+const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => ({ index: i, placed: layoutBlocks(blocks) }));
 ---
 
 <div

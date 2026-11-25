@@ -5,38 +5,46 @@ import Base from "../layouts/Base.astro";
 import { getLang } from "../data/attendee";
 import { t } from "../i18n";
 
-/* Sapporo photos (from Unsplash, free license), served from /images/login. */
-const SAPPROO_PHOTOS = [
-  { src: "/images/login/odori-park-tv-tower-summer.jpg", alt: "Sapporo TV Tower behind the flower beds of Odori Park" },
-  { src: "/images/login/tv-tower-blue-sky.jpg", alt: "Sapporo TV Tower on a clear summer day" },
-  { src: "/images/login/tv-tower-skyline-dusk.jpg", alt: "Sapporo skyline with the TV Tower at dusk" },
-  { src: "/images/login/tv-tower-winter.jpg", alt: "Sapporo TV Tower above the city in winter" },
-  { src: "/images/login/snowy-street-downtown.jpg", alt: "Snowy street in central Sapporo" },
-  { src: "/images/login/odori-park-snow-night.jpg", alt: "Odori Park stretching through snowy Sapporo at night" },
-  { src: "/images/login/nikka-whisky-billboard-susukino.jpg", alt: "Illuminated Nikka whisky mosaic billboard in Susukino at night" },
-  { src: "/images/login/moerenuma-park-glass-pyramid.jpg", alt: "Grassy hillside view over Sapporo from Moerenuma Park" },
-  { src: "/images/login/moine-mountains-ski-jump-city.jpg", alt: "Moiwa mountains and ski jump above Sapporo at golden hour" },
-  { src: "/images/login/hokkaido-seafood-market.jpg", alt: "Seafood stall with dried fish at a Hokkaido morning market" },
-  { src: "/images/login/hokkaido-shrine-snow.jpg", alt: "Hokkaido Shrine main hall in winter with crowds" },
-  { src: "/images/login/sapporo-night-view-elevated.jpg", alt: "Sapporo cityscape at dusk seen from a high-rise window" },
-  { src: "/images/login/sapporo-street-sunset-mountains.jpg", alt: "Sapporo street at sunset with TV tower antenna and mountains" },
-  { src: "/images/login/sapporo-tram-street-day.jpg", alt: "Pink decorated Sapporo tram on snowy street in winter" },
-  { src: "/images/login/snowy-street-night-crowd.jpg", alt: "People walking through falling snow on a downtown Sapporo street at night" },
-  { src: "/images/login/susukino-snowy-storefront-night.jpg", alt: "Snow-covered izakaya storefront with lantern at night in Sapporo" },
-  { src: "/images/login/susukino-winter-illuminations.jpg", alt: "Sapporo street with snow and lit trees in winter illuminations" },
-  { src: "/images/login/tanukikoji-shopping-arcade-night.jpg", alt: "Covered Tanukikoji shopping arcade entrance at night" },
-  { src: "/images/login/tv-tower-panasonic-night-snow.jpg", alt: "Sapporo TV Tower lit at night over snowy street with Panasonic clock" },
-  { src: "/images/login/toyako-lake-winter-shore.jpg", alt: "Lake Toya with volcanic islands and snow-dusted hills in winter" },
-  { src: "/images/login/yokoshi-tomamu-flower-field.jpg", alt: "Marigold flower fields in the hills of Biei, Hokkaido" },
+/* Sapporo photos (from Unsplash, free license; sources in
+   public/images/login/MANIFEST.md), served from /images/login as WebP.
+   Each filename maps to a `login.photo<CamelName>` i18n key, so the credit
+   string translates like every other string. */
+const LOGIN_PHOTOS = [
+  "odori-park-tv-tower-summer",
+  "tv-tower-blue-sky",
+  "tv-tower-skyline-dusk",
+  "tv-tower-winter",
+  "snowy-street-downtown",
+  "odori-park-snow-night",
+  "nikka-whisky-billboard-susukino",
+  "moerenuma-park-glass-pyramid",
+  "moine-mountains-ski-jump-city",
+  "hokkaido-seafood-market",
+  "hokkaido-shrine-snow",
+  "sapporo-night-view-elevated",
+  "sapporo-street-sunset-mountains",
+  "sapporo-tram-street-day",
+  "snowy-street-night-crowd",
+  "susukino-snowy-storefront-night",
+  "susukino-winter-illuminations",
+  "tanukikoji-shopping-arcade-night",
+  "tv-tower-panasonic-night-snow",
+  "toyako-lake-winter-shore",
+  "yokoshi-tomamu-flower-field",
 ];
 
+function creditKey(slug: string): string {
+  const camel = slug.replace(/-([a-z])/g, (_, c: string) => c.toUpperCase());
+  return `login.photo${camel.charAt(0).toUpperCase()}${camel.slice(1)}`;
+}
+
 const lang = getLang(Astro.cookies);
-const photo = SAPPROO_PHOTOS[Math.floor(Math.random() * SAPPROO_PHOTOS.length)]!;
+const photoSlug = LOGIN_PHOTOS[Math.floor(Math.random() * LOGIN_PHOTOS.length)]!;
 ---
 
 <Base title={t(lang, "app.name")}>
   <img
-    src={photo.src}
+    src={`/images/login/${photoSlug}.webp`}
     alt=""
     aria-hidden="true"
     class="fixed inset-0 h-full w-full object-cover"
@@ -48,6 +56,12 @@ const photo = SAPPROO_PHOTOS[Math.floor(Math.random() * SAPPROO_PHOTOS.length)]!
   </div>
 
   <div class="relative z-10 flex flex-1 flex-col">
+    <div class="flex justify-end px-6 pt-4">
+      <lang-toggle class="inline-flex rounded-md border border-white/20 bg-paper/20 p-0.5 text-xs backdrop-blur">
+        <button data-lang="en" class="rounded px-2 py-1 font-medium text-paper">EN</button>
+        <button data-lang="ja" class="rounded px-2 py-1 font-medium text-paper">JA</button>
+      </lang-toggle>
+    </div>
     <main class="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 py-12">
       <div class="w-full max-w-md rounded-xl border border-white/10 bg-paper/85 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl md:p-8">
         <p class="text-xs font-semibold uppercase tracking-widest text-theme">
@@ -80,6 +94,11 @@ const photo = SAPPROO_PHOTOS[Math.floor(Math.random() * SAPPROO_PHOTOS.length)]!
             <p class="text-xs text-ink-soft">{t(lang, "login.passwordHint")}</p>
           </div>
 
+          <label class="flex items-start gap-2 text-xs leading-relaxed text-ink-soft">
+            <input type="checkbox" name="consent" required class="mt-0.5 accent-theme" />
+            <span>{t(lang, "login.consent")}</span>
+          </label>
+
           <button
             type="submit"
             class="rounded-md bg-theme px-4 py-2.5 text-sm font-medium text-paper transition-transform active:scale-[0.98]"
@@ -90,14 +109,16 @@ const photo = SAPPROO_PHOTOS[Math.floor(Math.random() * SAPPROO_PHOTOS.length)]!
       </div>
     </main>
     <footer class="pb-4">
-      <p class="mx-auto max-w-7xl px-6 text-right text-[11px] text-paper/70">
-        Photo: {photo.alt} — Unsplash
+      <p class="mx-auto max-w-7xl px-6 text-right text-[11px] text-paper/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.6)]">
+        <span>{t(lang, creditKey(photoSlug))}</span>
+        <span class="block">{t(lang, "login.photoCreditSuffix")}</span>
       </p>
     </footer>
   </div>
 </Base>
 
 <script>
+  import "../scripts/lang-toggle";
   import { logEvent } from "../scripts/event-log";
 
   document.getElementById("login-form")?.addEventListener("submit", () => {

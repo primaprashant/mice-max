@@ -2,19 +2,19 @@
  * plan-store (localStorage), so the grid updates after booking. Blocks span
  * the full grid width, like the free-time windows they sit in. */
 import { loadPlans } from "./plan-store";
-
-const MINUTES_PER_HOUR = 60;
-
-function toMinutes(time: string): number {
-  return Number(time.slice(0, 2)) * MINUTES_PER_HOUR + Number(time.slice(3, 5));
-}
+import { toMinutes } from "./layout";
 
 class MyPlans extends HTMLElement {
   connectedCallback() {
     const day = this.getAttribute("data-day") ?? "";
     const gridStart = this.getAttribute("data-grid-start") ?? "00:00";
     const gridEnd = this.getAttribute("data-grid-end") ?? "23:00";
-    const titles = JSON.parse(this.getAttribute("data-titles") ?? "{}") as Record<string, string>;
+    let titles: Record<string, string> = {};
+    try {
+      titles = JSON.parse(this.getAttribute("data-titles") ?? "{}") as Record<string, string>;
+    } catch {
+      titles = {};
+    }
 
     const plans = loadPlans()
       .filter((p) => p.day === day)
@@ -24,9 +24,12 @@ class MyPlans extends HTMLElement {
     const pos = (t: string) => ((toMinutes(t) - gridStartMin) / (gridEndMin - gridStartMin)) * 100;
 
     const blocks = plans.map((p) => {
+      const top = Math.max(0, pos(p.start));
+      const bottom = Math.min(100, pos(p.end));
+      if (bottom <= top) return null; // plan sits outside the grid range
       const div = document.createElement("div");
-      div.className = "absolute rounded-md bg-banana px-1.5 py-0.5";
-      div.style.cssText = `top: ${pos(p.start)}%; height: ${pos(p.end) - pos(p.start)}%; left: 0.5%; width: 99%;`;
+      div.className = "absolute rounded-md bg-banana-soft border border-banana px-1.5 py-0.5";
+      div.style.cssText = `top: ${top}%; height: ${bottom - top}%; left: 0.5%; width: 99%;`;
       const time = document.createElement("span");
       time.className = "block truncate font-mono text-[10px] tabular-nums opacity-80";
       time.textContent = p.start && p.end ? `${p.start}–${p.end}` : "";
@@ -36,7 +39,7 @@ class MyPlans extends HTMLElement {
       div.append(time, title);
       return div;
     });
-    this.replaceChildren(...blocks);
+    this.replaceChildren(...blocks.filter((b) => b !== null));
   }
 }
 

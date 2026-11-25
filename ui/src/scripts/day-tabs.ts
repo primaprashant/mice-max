@@ -1,6 +1,7 @@
 /** Day tabs on the attendee calendar: one panel visible at a time.
  * Server picks the default (today inside the dates, else Day 1); this only
- * toggles visibility and tab styling. */
+ * toggles visibility and the pressed styling. Plain toggle buttons with
+ * aria-pressed, not a tab pattern: three panels do not need arrow keys. */
 class DayTabs extends HTMLElement {
   connectedCallback() {
     const tabs = this.querySelectorAll<HTMLButtonElement>("[data-day-tab]");
