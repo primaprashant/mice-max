@@ -20,7 +20,7 @@ const lang: Lang = Astro.cookies.get("lang")?.value === "ja" ? "ja" : "en";
 const demoConfs = conferences();
 
 const routes = [
-  { path: "/login", label: t(lang, "nav.login"), note: t(lang, "nav.loginNote") },
+  { path: "/", label: t(lang, "nav.login"), note: t(lang, "nav.loginNote") },
   ...demoConfs.map((c) => ({
     path: `/c/${c.id}`,
     label: (lang === "ja" && c.name_ja) || c.name_en,
@@ -30,8 +30,6 @@ const routes = [
       label: experienceCopy(e.id, lang)?.card_title ?? e.id,
     })),
   })),
-  { path: "/organize", label: t(lang, "organizer.title"), note: t(lang, "nav.organizerNote") },
-  { path: "/city", label: t(lang, "city.title"), note: t(lang, "nav.cityNote") },
   { path: "/ops", label: t(lang, "ops.title"), note: t(lang, "nav.opsNote") },
 ];
 

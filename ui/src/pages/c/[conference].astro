@@ -27,7 +27,7 @@ import { t } from "../../i18n";
 
 const { conference } = Astro.params;
 const conf = conferenceById(conference ?? "");
-if (!conf) return Astro.redirect("/");
+if (!conf) return Astro.redirect("/nav");
 
 const lang = getLang(Astro.cookies);
 const attendeeId = Astro.cookies.get(ATTENDEE_COOKIE)?.value ?? DEMO_ATTENDEE_ID;
