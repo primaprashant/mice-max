@@ -17,11 +17,11 @@ One code change is needed: swap the Node adapter for the Netlify adapter in [ui/
 
 ## Before the first deploy
 
-1. `npm run build` in `ui/` must pass. It fails today on `src/components/PlanCard.astro` while that file is being rewritten. Do not deploy until it passes.
+1. `npm run build` in `ui/` must pass. Checked 2026-11-25 with the Netlify adapter: the build passes, and the bundle contains `data/micemax.db` and the photos.
 2. Decide the data source. Two options:
    - SQLite fallback: no configuration, but the module opens the file read-only, so bookings and the event log do not persist.
    - Neon: set `DATABASE_URL`. The data module throws when this variable is set, because the Postgres swap in `src/data/index.ts` is not wired yet. Deploy with Neon only after that swap lands.
-3. Make sure that you know how photos reach `public/`. The UI plan says a build step or symlink copies `data/images/` there. Whatever it is, it must run in the Netlify build, so put it in the build command.
+3. Photos: `ui/public/images/` holds copies of `data/images/`, and the build copies them into the output. Make sure that the folder is committed, because Netlify builds from the repo, not from this machine.
 4. No secrets in code: the repo is open source, and `DATABASE_URL` lives only in the Netlify dashboard.
 
 ## Step 0: swap the adapter
@@ -38,12 +38,12 @@ In `ui/astro.config.mjs`, replace the node import and adapter:
 import netlify from '@astrojs/netlify';
 
 export default defineConfig({
-  adapter: netlify(),
+  adapter: netlify({ includeFiles: ['../data/micemax.db'] }),
   vite: { plugins: [tailwindcss()] },
 });
 ```
 
-Commit this before connecting the site. `npm run build` must pass after the swap.
+Commit this before connecting the site. `npm run build` must pass after the swap. The `includeFiles` option puts the SQLite fallback file inside the serverless bundle; without it, the built code cannot find the file.
 
 ## Step 1: create the Netlify site
 
@@ -69,11 +69,10 @@ Environment variables:
 
 ## Step 2: test the SQLite fallback
 
-If you deploy before the Neon swap is wired, the app reads `data/micemax.db` through a path relative to the built code ([ui/src/data/index.ts](../ui/src/data/index.ts), `DEFAULT_DB_PATH`). That path does not always resolve after the build bundles the module.
+If you deploy before the Neon swap is wired, the app reads `data/micemax.db`. The adapter config carries `includeFiles: ['../data/micemax.db']`, so the build puts the file inside the function bundle. Checked 2026-11-25: the file is in the bundle, and the app serves the calendar, an experience page, login, and a login POST from the local build.
 
-1. Open the site URL. If the screens render, the path resolves.
-2. If they do not, open the deploy log or the function log in Netlify. A file-not-found error confirms the problem.
-3. Fix it in code: read the path from an environment variable with the current value as default, or copy `data/` into the bundle in the build command. Commit, and Netlify redeploys.
+1. Open the site URL. The calendar must render.
+2. If it does not, open the function log in Netlify. A file-not-found error means the include did not run; check `includeFiles` in [ui/astro.config.mjs](../ui/astro.config.mjs).
 
 ## Step 3: set DATABASE_URL
 
@@ -107,7 +106,7 @@ Auto-deploy: Netlify builds on every push to the production branch, `main` by de
 
 | Problem | What to do |
 | --- | --- |
-| Build fails with a compile error in `PlanCard.astro` | The file is mid-rewrite. Pull the latest and build locally before debugging on Netlify. |
+| Build fails with a compile error in `PlanCard.astro` | Pull the latest and build locally before debugging on Netlify. |
 | Pages return 500 | Open the function log in Netlify. The usual causes are a missing database file (step 2) or a database variable that points nowhere. |
 | Error about `node:sqlite` or an unsupported Node version | `NODE_VERSION` is not `22`, or the engines requirement is newer than the build image's Node. Set the variable and redeploy. |
 | Photos are missing | The copy of `data/images/` into `public/` did not run. Put it in the build command before `npm run build`. |
