@@ -88,7 +88,7 @@ For each demo event:
 
 - **Last edition** (a row in `conferences`): dates, city, attendance, overseas share, who attended (members, residents, industry, co-medical staff) if published. Many national societies move city every year, so last year's edition was probably not in Sapporo. Record its city.
 - **Program** (`sessions`): last edition's full program, moved onto the upcoming Sapporo dates and venue, labelled as such. If the upcoming program is already out, use it instead. Fields: `day, start, end, title_ja, title_en, track, room, type (plenary/symposium/oral/poster/sponsor/social)`, plus receptions and banquets.
-- **Free windows** (`windows`), checked by a person: `day, start, end, kind (early_morning/lunch/evening/free_afternoon/after_close/extra_night), name_ja, name_en`.
+- **Free windows** (`windows`), checked by a person: `day, start, end, kind (early_morning/lunch/evening/free_afternoon/during_program/after_close/extra_night), name_ja, name_en, overlaps_program, overlap_note, plan_kinds`. Windows may overlap sessions people commonly skip (D26).
 - Use the **same shape the app's conference reader outputs**, so these rows double as the reader's test answers.
 
 ### T4. Plan list (research agent, ~3 h)

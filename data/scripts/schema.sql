@@ -25,7 +25,7 @@ CREATE TABLE places (
 CREATE TABLE routes (
   from_place_id      TEXT NOT NULL REFERENCES places(id),
   to_place_id        TEXT NOT NULL REFERENCES places(id),
-  mode               TEXT NOT NULL CHECK (mode IN ('subway','jr','bus','shuttle','taxi')),
+  mode               TEXT NOT NULL CHECK (mode IN ('subway','tram','jr','bus','shuttle','taxi')),
   minutes            INTEGER NOT NULL,
   fare_jpy           INTEGER,             -- one way, per person
   last_departure     TEXT,                -- last return from to_place, 'HH:MM'
@@ -146,9 +146,12 @@ CREATE TABLE windows (
   day            TEXT NOT NULL,
   start_time     TEXT NOT NULL,
   end_time       TEXT NOT NULL,
-  kind           TEXT NOT NULL CHECK (kind IN ('early_morning','lunch','evening','free_afternoon','after_close','extra_night')),
+  kind           TEXT NOT NULL CHECK (kind IN ('early_morning','lunch','evening','free_afternoon','during_program','after_close','extra_night')),
   name_ja        TEXT NOT NULL,
   name_en        TEXT NOT NULL,
+  overlaps_program INTEGER NOT NULL DEFAULT 0,  -- 1 = runs alongside sessions attendees may skip (D26)
+  overlap_note   TEXT,                          -- what runs at the same time, e.g. 'parallel orals, posters'
+  plan_kinds     TEXT,                          -- JSON plan kinds that fit, e.g. ['short','specialist']
   checked_by_human INTEGER NOT NULL DEFAULT 0
 );
 

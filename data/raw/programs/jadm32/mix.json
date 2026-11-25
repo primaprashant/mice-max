@@ -1,0 +1,49 @@
+{
+  "conference": "jadm32",
+  "expected_attendees": 3000,
+  "expected_source": "https://site2.convention.co.jp/32jadm/sponsorship/files/syuisyo1001.pdf",
+  "last_edition_attendees": "3000+ (JADM31, Niigata 2026)",
+  "is_estimate": true,
+  "method": "No meeting publishes attendance by job. Shares blend (a) society members: 6,916, of whom 1,603 are physicians (23%), (b) DMAT members trained up to March 2025: 18,909 = 5,443 physicians (29%), 7,934 nurses (42%), 5,532 logistics staff (29%; pharmacists, radiographers, paramedics, clerks), (c) a keyword count over 868 presenter affiliations in the JADM31 program PDFs (rough lower bounds), (d) the IRIDES report naming disaster medical staff, emergency and fire staff, and public health officials as the attendees.",
+  "roles": [
+    {"role": "physician", "name_ja": "医師", "name_en": "Physicians", "share": 0.25,
+     "derivation": "Between 23% of members and 29% of DMAT members who are physicians."},
+    {"role": "nurse", "name_ja": "看護師", "name_en": "Nurses", "share": 0.30,
+     "derivation": "Nurses are 42% of DMAT members; lowered because students, government and fire staff also attend."},
+    {"role": "pharmacist", "name_ja": "薬剤師", "name_en": "Pharmacists", "share": 0.06,
+     "derivation": "Part of DMAT logistics staff (29%); the program has disaster pharmacy orals, posters and a panel; 40 of 868 presenter affiliations mention pharmacy."},
+    {"role": "co_medical", "name_ja": "その他医療職（放射線・臨床工学・検査・リハ・歯科）", "name_en": "Other health professionals", "share": 0.05,
+     "derivation": "Part of DMAT logistics staff; 48 of 868 presenter affiliations mention radiology, clinical engineering, lab, rehab or dentistry."},
+    {"role": "logistics_admin", "name_ja": "業務調整員・病院事務", "name_en": "Logistics and hospital admin", "share": 0.08,
+     "derivation": "Rest of DMAT logistics staff (clerks); the society certifies disaster logistics specialists (symposium 1-SY3)."},
+    {"role": "paramedic_fire", "name_ja": "救急救命士・消防", "name_en": "Paramedics and fire service", "share": 0.07,
+     "derivation": "Named among attendees in the IRIDES report; 15 of 868 presenter affiliations mention fire or paramedics (lower bound)."},
+    {"role": "government", "name_ja": "行政・保健所", "name_en": "Government and public health", "share": 0.05,
+     "derivation": "Named among attendees in the IRIDES report; about 56 of 868 presenter affiliations are prefectures, cities, ministries or public health centres."},
+    {"role": "sdf_police", "name_ja": "自衛隊・警察・海保", "name_en": "Self-Defense Forces, police, coast guard", "share": 0.02,
+     "derivation": "9 of 868 presenter affiliations mention the Self-Defense Forces or defence."},
+    {"role": "student", "name_ja": "学生", "name_en": "Students", "share": 0.08,
+     "derivation": "Student members are 950 of 6,437 members (15%) and attend free, but fewer travel; 81 of 868 presenter affiliations mention students or departments."},
+    {"role": "industry", "name_ja": "企業", "name_en": "Industry", "share": 0.04,
+     "derivation": "Eleven sponsored luncheon seminars and a company exhibition every day; 12 of 868 presenter affiliations are companies."}
+  ],
+  "overseas_share": null,
+  "overseas_note": "No overseas count published. JADM31 had English international sessions (Japan–Korea, EMT), so overseas guests exist but are few.",
+  "fee_categories_jadm31": [
+    {"name_ja": "医師・一般企業（会員）", "jpy_early": 20000, "jpy_late": 23000},
+    {"name_ja": "医師以外・一般企業以外（会員）", "jpy_early": 16000, "jpy_late": 18000},
+    {"name_ja": "初期臨床研修医", "jpy_early": 5000, "jpy_late": 5000},
+    {"name_ja": "医師・一般企業（非会員）", "jpy_early": 22000, "jpy_late": 25000},
+    {"name_ja": "医師以外・一般企業以外（非会員）", "jpy_early": 18000, "jpy_late": 20000},
+    {"name_ja": "医療系学生等", "jpy_early": 0, "jpy_late": 0}
+  ],
+  "sources": [
+    "https://jams.med.or.jp/members-s/125.html",
+    "https://jadm.or.jp/contents/about/",
+    "https://dmat.jihs.go.jp/dmat/system.html",
+    "https://irides.tohoku.ac.jp/media/files/_u/topic/file/20260319_report.pdf",
+    "https://shinsen-mc.co.jp/jadm31/registration.html",
+    "https://shinsen-mc.co.jp/jadm31/program.html"
+  ],
+  "checked_on": "2026-11-25"
+}

@@ -143,10 +143,17 @@ def load(db, folder):
         for i, name in enumerate(v.strip() for v in r.get("venues", "").split(";")):
             if not name:
                 continue
-            pid = venue_id(name)
+            known = db.execute("SELECT id FROM places WHERE name_ja = ? OR name_en = ?", (name, name)).fetchone()
+            pid = known[0] if known else venue_id(name)
             db.execute(
                 """INSERT OR IGNORE INTO places (id, name_ja, name_en, kind, source_url, confidence, checked_on)
                    VALUES (?,?,?,?,?,?,?)""",
                 (pid, name, name, "venue", r["source_url"], "unsure", r["checked_on"]),
             )
             db.execute("INSERT OR IGNORE INTO conference_venues VALUES (?,?,?)", (cid, pid, int(i == 0)))
+    # Link each event to the latest earlier edition of the same series, when we have it.
+    db.execute("""UPDATE conferences SET previous_id = (
+                    SELECT p.id FROM conferences p
+                    WHERE p.series = conferences.series AND p.start_date < conferences.start_date
+                    ORDER BY p.start_date DESC LIMIT 1)
+                  WHERE series IS NOT NULL""")

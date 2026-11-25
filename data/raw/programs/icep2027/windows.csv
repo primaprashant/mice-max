@@ -1,0 +1,18 @@
+day,start_time,end_time,kind,name_ja,name_en,overlaps_program,overlap_note,plan_kinds,reason
+2027-05-12,06:00,08:30,early_morning,初日の朝、開会前,Early morning before day 1,0,,"[""short""]",Sessions start 09:00; time for a walk or breakfast near Odori Park.
+2027-05-12,09:00,12:35,during_program,初日午前の並行セッション,Day 1 morning parallel sessions,1,Sessions 1-2 in 5-6 parallel rooms,"[""short"",""specialist""]","Six rooms run at once, so most people skip some slots; many still arriving."
+2027-05-12,12:35,14:50,lunch,昼休みとポスター,Lunch and poster break,1,"Luncheon talk 12:55-13:25, poster session 13:35-14:50","[""short""]",Over two hours before the opening ceremony; lunch near the venue plus a short outing.
+2027-05-12,20:00,23:00,evening,歓迎会のあと,After the welcome reception,0,,"[""evening""]",Welcome reception runs 18:00-20:00; the night after is free for Susukino.
+2027-05-13,06:00,08:15,early_morning,2日目の朝,"Early morning, day 2",0,,"[""short""]",Keynote III starts 08:30.
+2027-05-13,09:30,13:05,during_program,2日目午前の並行セッション,Day 2 morning parallel sessions,1,Sessions 3-4 in 6 parallel rooms,"[""short"",""specialist""]",Six parallel tracks; skipping one slot frees 1.5-3.5 hours.
+2027-05-13,13:05,13:55,lunch,2日目の昼休み,Day 2 lunch,0,,"[""short""]",50-minute lunch break; a quick local lunch near the venue.
+2027-05-13,13:55,17:30,during_program,2日目午後の並行セッション,Day 2 afternoon parallel sessions,1,Sessions 5-6 in 6 parallel rooms,"[""specialist"",""short""]",Long afternoon block that suits a lab or factory visit for people outside these tracks.
+2027-05-13,18:45,23:00,evening,展示交流会の夜,Exhibition party night,1,Sponsors' exhibition party from 19:00 (end not published),"[""evening""]",Many attend the party; others or late leavers go out for dinner.
+2027-05-14,06:00,08:45,early_morning,3日目の朝,"Early morning, day 3",0,,"[""short""]",Keynote IV starts 09:00.
+2027-05-14,11:40,12:30,lunch,3日目の昼休み,Day 3 lunch,0,,"[""short""]",50-minute lunch break.
+2027-05-14,12:30,16:05,during_program,3日目午後の並行セッション,Day 3 afternoon parallel sessions,1,Sessions 8-9 in 6 parallel rooms,"[""specialist"",""short""]",Last full block of parallel tracks; a good slot for a specialist visit.
+2027-05-14,16:05,18:00,during_program,最終セッションの時間,Last session slot,1,"Session 10 in only 3 rooms (Optoelectronics, TSV, Reliability-3)","[""short""]","Only three rooms run, so most attendees are free."
+2027-05-14,18:00,23:00,evening,最終日の夜,Final conference night,0,,"[""evening""]",No official event; the main night for group dinners.
+2027-05-15,09:00,15:00,free_afternoon,土曜日（セッションなし）,"Saturday, no sessions",1,Optional paid excursion 09:00-15:00,"[""short"",""specialist""]",No sessions; only excursion buyers are busy.
+2027-05-15,15:00,18:00,after_close,閉会後の午後,Afternoon after the close,0,,"[""short""]",Excursion ends 15:00; time for one more outing before dinner or the airport.
+2027-05-15,18:00,23:59,extra_night,もう一泊して日曜まで,"Stay Saturday night, back Sunday",0,,"[""extra_night""]","Conference ends on a Saturday; one more night (Sat 5/15 to Sun 5/16) for Otaru, Jozankei or Lake Toya."

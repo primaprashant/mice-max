@@ -2,10 +2,15 @@
 
 Usage: python3 data/scripts/build_db.py
 """
+import datetime as dt
 import sqlite3
 from pathlib import Path
 
+import compute_travel
 import import_conferences
+import import_places
+import import_plans
+import import_programs
 
 DATA = Path(__file__).resolve().parent.parent
 DB = DATA / "micemax.db"
@@ -16,7 +21,12 @@ def main():
     db = sqlite3.connect(DB)
     db.execute("PRAGMA foreign_keys = ON")
     db.executescript((DATA / "scripts" / "schema.sql").read_text())
-    import_conferences.load(db, DATA / "raw" / "conferences")
+    raw = DATA / "raw"
+    import_places.load(db, raw / "places")
+    import_conferences.load(db, raw / "conferences")
+    import_programs.load(db, raw / "programs", dt.date.today().isoformat())
+    import_plans.load(db, raw / "plans", raw / "places")
+    compute_travel.load(db)
     db.commit()
     for (table,) in db.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"):
         n = db.execute(f"SELECT count(*) FROM {table}").fetchone()[0]

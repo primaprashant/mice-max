@@ -31,6 +31,7 @@ Made on 2026-11-24 unless noted. To change one, update this table and the brief 
 | D23 | **Mock attendees show a fake name, role and home prefecture or country. No real institutions.** | Feels alive in "join others" without implying real people or hospitals attend. |
 | D24 | **A local SQLite file (`data/micemax.db`) is the master copy of all data.** Scripts wipe and reload Neon and Neo4j from it. | One place to fix data; the online databases can be rebuilt any time. |
 | D25 | **Do real outreach during the hackathon: attendee interviews, local businesses, organizers and PCOs, the city and Convention Bureau, plus one live test with hackathon participants.** See [08-outreach-plan.md](08-outreach-plan.md). | Shows judges this is already happening, not theory, and gives first real answers to Q1–Q8. |
+| D26 | **Free-time windows may overlap the program.** Pick each window by the kind of plan it suits (e.g. a 2-hour visit during parallel sessions or posters), not only gaps where nothing runs. Mark the overlap on the window. | Nobody attends every session, especially at long conferences (team experience). Strict gaps leave Japanese meetings, which run ~7:50–19:20, almost only evenings. |
 | D20 | **The "attendees like you picked…" stretch goal starts with plain counts** ("Attendees at your conference signed up for…", "Attendees in Sapporo this week signed up for…") before any similarity matching. | Seeing who is joining sparks more joins, and counts need no ML. |
 
 ## Open questions
