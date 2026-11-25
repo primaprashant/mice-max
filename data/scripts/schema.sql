@@ -366,6 +366,26 @@ CREATE TABLE experience_travel (
   PRIMARY KEY (venue_place_id, experience_id)
 );
 
+-- ---------- City estimate (T9). Estimates only (D14), built by city_estimate.py ----------
+-- Money formula (docs/04) per listed conference in the next 12 months, plus one row for the rest of the year.
+CREATE TABLE city_estimates (
+  id              TEXT PRIMARY KEY,                      -- conference id, or 'other'
+  conference_id   TEXT REFERENCES conferences(id),       -- NULL for 'other'
+  name_en         TEXT NOT NULL,
+  start_date      TEXT,
+  end_weekday     TEXT,
+  season          TEXT,                                  -- label only, does not change money
+  events          INTEGER NOT NULL,                      -- 1, or the count of other smaller meetings
+  attendees       INTEGER NOT NULL,
+  overseas_share  REAL,                                  -- published, or simulate.py's default for the scope
+  xn_factor       REAL,                                  -- end weekday × overseas × long weekend (simulate.py)
+  early_jpy       INTEGER NOT NULL,
+  middle_jpy      INTEGER NOT NULL,
+  strong_jpy      INTEGER NOT NULL,
+  basis           TEXT NOT NULL CHECK (basis IN ('formula_with_drivers','formula_plain')),
+  is_estimate     INTEGER NOT NULL DEFAULT 1 CHECK (is_estimate = 1)
+);
+
 -- ---------- Simulated (demo events only) ----------
 
 CREATE TABLE attendees (

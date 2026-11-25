@@ -6,6 +6,7 @@ import datetime as dt
 import sqlite3
 from pathlib import Path
 
+import city_estimate
 import compute_travel
 import import_copy
 import import_experiences
@@ -36,6 +37,7 @@ def main():
     import_experiences.load(db, raw / "experiences", raw / "copy")
     import_programs.load_headlines(db, raw / "programs")
     simulate.load(db)
+    city_estimate.load(db)
     db.commit()
     for (table,) in db.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"):
         n = db.execute(f"SELECT count(*) FROM {table}").fetchone()[0]
