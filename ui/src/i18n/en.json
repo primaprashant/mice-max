@@ -71,7 +71,13 @@
     "joinOthers": "Who is going",
     "noJoiners": "No one has joined yet. Be the first.",
     "book": "Book and pay",
-    "join": "Join"
+    "join": "Join",
+    "attendingOf": "{n} going, {spots} spots left",
+    "attending": "{n} going",
+    "spotsLeft": "{n} spots left",
+    "location": "Location",
+    "chooseDate": "Date",
+    "scrollDown": "Scroll down"
   },
   "checkout": {
     "title": "Checkout",

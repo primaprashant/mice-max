@@ -120,6 +120,8 @@ function mapExperience(r: any): Experience {
     english_ok: r.english_ok === 1,
     needs_agreement: r.needs_agreement === 1,
     fields: r.fields ? JSON.parse(r.fields) : [],
+    months: r.months ? JSON.parse(r.months) : null,
+    days_closed: r.days_closed,
   };
 }
 
@@ -317,6 +319,19 @@ export function headlineFor(conferenceId: string, kind: ExperienceKind): Headlin
     .prepare(`SELECT * FROM headlines WHERE conference_id = ? AND kind = ?`)
     .get(conferenceId, kind);
   return row as unknown as Headline | undefined;
+}
+
+/** The place an experience happens at, from its first stop's plan row. */
+export function experiencePlace(id: string): { name_en: string; name_ja: string; address: string | null } | undefined {
+  const row = getDb()
+    .prepare(
+      `SELECT p.name_en, p.name_ja, p.address FROM experience_stops es
+       JOIN plans pl ON pl.id = es.plan_id
+       JOIN places p ON p.id = pl.place_id
+       WHERE es.experience_id = ? ORDER BY es.n LIMIT 1`
+    )
+    .get(id);
+  return row ? (row as unknown as { name_en: string; name_ja: string; address: string | null }) : undefined;
 }
 
 /** Simulated attendees who joined an experience (for "join others"). */
