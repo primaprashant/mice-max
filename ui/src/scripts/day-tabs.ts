@@ -11,7 +11,7 @@ class DayTabs extends HTMLElement {
         const day = tab.dataset.dayTab ?? "";
         for (const t of tabs) {
           const on = t === tab;
-          t.setAttribute("aria-selected", on ? "true" : "false");
+          t.setAttribute("aria-pressed", on ? "true" : "false");
           t.classList.toggle("bg-ink", on);
           t.classList.toggle("text-paper", on);
           t.classList.toggle("text-ink-soft", !on);
