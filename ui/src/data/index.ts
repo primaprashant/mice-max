@@ -397,6 +397,43 @@ export function committedSpend(conferenceId: string): { kind: string; area: stri
   }));
 }
 
+/** One committed-spend row per conference-month-kind-area, with everything the
+ * city view's export and chart need: month, kind, area, conference. Amounts
+ * are the raw simulated-log values, not scaled to conference size. */
+export function committedSpendDetailed(): {
+  month: string;
+  kind: string;
+  area: string;
+  area_ja: string;
+  conference: string;
+  count: number;
+  jpy: number;
+}[] {
+  const rows = getDb()
+    .prepare(
+      `SELECT strftime('%Y-%m', ev.ts) AS month, e.kind AS kind,
+              p.name_en AS area, p.name_ja AS area_ja, c.name_en AS conference,
+              COUNT(*) AS count, SUM(ev.price_jpy) AS jpy
+       FROM events ev
+       JOIN experiences e ON e.id = ev.experience_id
+       LEFT JOIN places p ON p.id = e.area_id
+       JOIN conferences c ON c.id = ev.conference_id
+       WHERE ev.event_type IN ('plan_joined','plan_booked')
+       GROUP BY ev.conference_id, month, e.kind, p.id
+       ORDER BY month`
+    )
+    .all() as any[];
+  return rows.map((r) => ({
+    month: r.month,
+    kind: r.kind,
+    area: r.area ?? "Other",
+    area_ja: r.area_ja ?? "その他",
+    conference: r.conference,
+    count: Number(r.count),
+    jpy: Number(r.jpy ?? 0),
+  }));
+}
+
 /** Reach per conference: attendees the organizer's link reached, and the total. */
 export function reachByConference(): Map<string, { reached: number; total: number }> {
   const rows = getDb()
