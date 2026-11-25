@@ -8,13 +8,17 @@ You are building a list of real, bookable things that business-event visitors to
 
 **Find 80–100 items in four groups:**
 
-1. **Short activities (1–3 hours):** early-morning runs or running clubs, specialty coffee tours or standout cafés, guided walking tours, market visits, onsen or sento near the centre, short cultural experiences.
-2. **Evenings:** restaurants and izakaya that can take groups of 4–10 people, within about 20 minutes' walk of Sapporo Convention Center, Odori or Susukino. Mix price bands and cuisines (seafood, Genghis Khan, soup curry, ramen, sushi).
+1. **Short activities (1–3 hours):** early-morning runs (no guided run exists in Sapporo, so record good self-guided routes with start point and distance), specialty coffee tours or standout cafés, guided walking tours, market visits, onsen or sento near the centre, short cultural experiences.
+2. **Evenings:** restaurants and izakaya that can take groups of 4–10 people, within about 10 minutes of an Odori, Susukino or Higashi-Sapporo subway station (the Convention Center is about 4 km from Susukino). Mix price bands and cuisines (seafood, Genghis Khan, soup curry, ramen, sushi).
 3. **Extra-night plans (one night, from Sapporo):** Otaru, Jozankei onsen, Yoichi wineries and distillery, Noboribetsu, Lake Toya, and in winter, ski or snow activities. Give transport time and a total price estimate per person (transport + stay + main activity).
 4. **Specialist visits:** research facilities, labs, farms, factories or institutions that accept visitors and would interest a specialist audience (medicine, chemistry, engineering, agriculture, energy). Mark each one "proposal: needs agreement" unless public tours exist.
 
-**For each item, record:**
-`name_ja`, `name_en`, `group` (short / evening / extra_night / specialist), `area`, `address`, `lat`, `lng`, `walk_minutes_from_convention_center` (or transport time for extra nights), `duration_minutes`, `price_jpy_min`, `price_jpy_max`, `price_basis` (per person / per group), `group_size_max`, `opening_hours`, `days_closed`, `seasons` (which months it runs), `languages`, `booking_method` (online / phone / walk-in / none), `booking_url`, `payment` (cash only / card / QR), `tags` (e.g. seafood, non-smoking, vegetarian-friendly, solo-friendly), `highlight_en` (one factual line on what makes it special, from the source), `image_urls` (1–3 direct links to good photos, official site first), `image_source_page`, `source_url`, `checked_on` (date), `confidence` (checked / reported / unsure), `notes`.
+**For each item, record** (fields match `data/scripts/schema.sql`; leave unknown fields empty):
+`name_ja`, `name_en`, `kind` (short / evening / extra_night / specialist), `area`, `address`, `nearest_station`, `station_walk_min`, `duration_min`, `price_jpy` (per person, "from"), `price_max_jpy`, `price_basis` (per_person / per_group), `price_variants` (e.g. course levels), `drinks_included`, `party_min`, `party_max`, `private_room_max`, `opening_hours`, `days_closed`, `closed_periods` (e.g. 12/23–1/7), `months` (only if seasonal), `booking_method` (online / phone / walk_in / none), `booking_url`, `booking_deadline`, `booking_opens`, `cancellation_policy`, `payment` (cash / card / qr), `smoking` (none / separate / allowed), `tour_language` (tours only), `english_ok`, `age_min`, `free_shuttle`, `fields` (specialist: medicine, chemistry, engineering, agriculture, energy…), `tags`, `highlight_en` (one factual line from the source), `image_urls` (1–3, largest available, official site first), `image_source_page`, `source_url`, `checked_on`, `confidence` (checked / reported / unsure), `notes`.
+
+Don't record lat/lng or walk time from the venue: we compute them from the address.
+
+**Extra nights:** give `price_jpy` all-in per person = room price for 2 ÷ 2 + return fares from Sapporo Station + main activity + local taxes (onsen tax, lodging tax). Record each part and the plan name and date the room price was seen in `notes`, since hotel prices change daily.
 
 **Rules:**
 
@@ -22,6 +26,6 @@ You are building a list of real, bookable things that business-event visitors to
 
 - Every item must exist and have a source URL. Never invent a place, price or opening hour. If a field is unknown, leave it empty.
 - Prefer official sites. Use review or listing sites only when there is no official site, and set `confidence` to "reported".
-- Drop anything that is closed or has no way to book or visit. Keep seasonal items and record their months in `seasons` (we cover December 2026–November 2027).
+- Drop anything that is closed or has no way to book or visit. Keep seasonal items and record their months in `months` (we cover December 2026–November 2027).
 - Drop bars or venues with any public reports of overcharging or touting.
 - Output one CSV file plus a short note listing gaps (e.g. "few group-friendly places near the Convention Center").

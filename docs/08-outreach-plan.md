@@ -4,9 +4,9 @@ The demo should show we are already doing this, not just building it: real peopl
 
 ## What the demo shows
 
-- **Field notes** in the city view: number contacted, replied and interviewed; 3–5 real quotes (only with permission); the results of each question next to the assumption it tests, e.g. "Would stay an extra night for a plan like this: 7 of 12 asked (small sample)".
-- **Partner badge** on plans whose business said "yes, list us". Their own photos and an owner's tip ("Ask for the tatami room, seats 10") make the best plan pages.
-- **One live test:** a real plan offered to this hackathon's participants, with real sign-ups in the event log, labelled real.
+- **Field notes** in the city view: number contacted, replied and interviewed; 3–5 real quotes (only with permission); the results of each question next to the assumption it tests, e.g. "Would stay an extra night for an experience like this: 7 of 12 asked (small sample)".
+- **Partner badge** on experiences whose business said "yes, list us". Their own photos and an owner's tip ("Ask for the tatami room, seats 10") make the best experience pages.
+- **One live test:** a real experience offered to this hackathon's participants, with real sign-ups in the event log, labelled real.
 - **Replies** on one slide: screenshots with names hidden unless we have permission.
 
 ## Who to contact
@@ -14,7 +14,7 @@ The demo should show we are already doing this, not just building it: real peopl
 | # | Who | Ask | How | Tests | Goal |
 |---|---|---|---|---|---|
 | O1 | Hackathon participants from outside Hokkaido | 5-minute interview (guide below) | In person, today | Q1, Q2, Q8 | 10 interviews |
-| O2 | Hackathon participants | Live test: one real evening plan (e.g. ramen and bar walk in Susukino, or Genghis Khan dinner) posted in the event chat with a sign-up link | Event chat, with the organizers' OK | Q1, Q2 | Real sign-ups |
+| O2 | Hackathon participants | Live test: one real evening experience (e.g. ramen and bar walk in Susukino, or Genghis Khan dinner) posted in the event chat with a sign-up link | Event chat, with the organizers' OK | Q1, Q2 | Real sign-ups |
 | O3 | Hackathon organizers, sponsors, mentors | 10 minutes of feedback; "who should we talk to?"; intros to city, bureau, PCO people | In person | Q3, Q4 | 3 chats, 1 intro |
 | O4 | Japanese professionals in our network | 15-minute call or chat (guide below) | Message, call | Q1, Q8 | 3–5 interviews |
 | O5 | Restaurants and izakaya near the Convention Center, Odori, Susukino | Group bookings from conference attendees? Fee? Can we list you, with your photos? | Walk in, 14:00–17:00 (before dinner service) | Q6 | 6–10 visits, 2–3 yes |
@@ -39,7 +39,7 @@ Phone during office hours (about 9:00–17:00 on weekdays) and send emails early
 1. Your last conference away from home: where, how many nights, when did you arrive and leave?
 2. Did you have free time? What did you do with it, and with whom?
 3. Have you ever stayed an extra night after a conference? What stopped you or made you? (work, approval, family, cost)
-4. Look at these two plans. Would either make you stay one more night in Hokkaido?
+4. Look at these two experiences. Would either make you stay one more night in Hokkaido?
 5. How did you pick dinner last time? (colleagues, Tabelog, hotel, nothing)
 6. How long before the conference do you book flights?
 

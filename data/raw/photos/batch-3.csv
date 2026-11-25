@@ -1,0 +1,37 @@
+plan_id,n,image_url,source_url,width,height,has_text,notes,notes_ja
+xn-jozankei-onsen-resort-hotel,1,https://www.milione.jp/img/top/main_slide_00_1_s.jpg,https://www.milione.jp/,1800,760,0,bath with window onto green mountain,緑の山を望む窓のある客室風呂
+xn-jozankei-onsen-resort-hotel,2,https://www.milione.jp/img/top/main_slide_02.jpg,https://www.milione.jp/,1800,760,0,autumn leaves seen through room window,窓越しに見える紅葉の山
+xn-kiroro-ski-in-luxury,1,https://d2d3p98dfsetz4.cloudfront.net/rooms/Lazy-Coup/_1200x630_crop_center-center_82_none/2BR-DSCF3746.jpg,https://yukiroro.com/,1200,630,0,"woman reading in bed, snowy window, fruit on tray",雪の窓辺のベッドで本を読む女性とフルーツ
+xn-kiroro-ski-in-luxury,2,https://d2d3p98dfsetz4.cloudfront.net/exterior/_2560x1706_crop_center-center_61_line/exterior-AJP__AZ72735-Edit.jpg,https://yukiroro.com/,2560,1706,0,hotel exterior in snow,雪景色のホテル外観
+xn-kiroro-ski-in-luxury,3,https://d2d3p98dfsetz4.cloudfront.net/exterior/_2560x1706_crop_center-center_61_line/DJI_0005.jpg,https://yukiroro.com/,2560,1706,0,aerial view of hotel in snowy valley,雪の谷間に建つホテルの空撮
+xn-lake-toya-onsen-resort,1,https://www.toyasunpalace.co.jp/images/home/img_app1.jpg,https://www.toyasunpalace.co.jp/,1920,696,0,"woman in infinity open-air bath above Lake Toya, focal 0.75,0.6",洞爺湖を望むインフィニティ露天風呂につかる女性
+xn-lake-toya-onsen-resort,2,https://www.toyasunpalace.co.jp/images/home/bg_int.jpg,https://www.toyasunpalace.co.jp/,1920,791,0,lobby with lake and mountain view through glass wall,湖と山を望むガラス張りのロビー
+xn-lake-toya-onsen-resort,3,https://www.toyasunpalace.co.jp/images/home/img_app3.jpg,https://www.toyasunpalace.co.jp/,1216,560,0,twin beds with rolled towels,ふんわりタオルを置いたツインベッド
+xn-niseko-ski-day-at,1,https://www.niseko-village.com/ja/wp-content/uploads/2025/11/PKC01569-scaled-1.jpg,https://www.niseko-village.com/ja/,2560,1707,0,night lights in snowy village street,雪の村の通りに灯る夜の明かり
+xn-niseko-ski-day-at,2,https://www.niseko-village.com/ja/wp-content/uploads/2025/09/SW-43-1-scaled.jpg,https://www.niseko-village.com/ja/,2560,2099,0,"skiers in fresh powder, trees",木立の中のパウダースノーを滑るスキーヤー
+xn-niseko-ski-day-at,3,https://www.niseko-village.com/ja/wp-content/uploads/2024/11/49231512127_0d63fcfa61_5k-scaled-e1730790307378.jpg,https://www.niseko-village.com/ja/,1625,1361,0,"hotel exterior at dusk, snowy hills",夕暮れの雪山とホテル外観
+xn-noboribetsu-dai-ichi-takimotokan,1,https://takimotokan.co.jp/wp-content/uploads/2025/08/05-食塩泉展望男湯2560×1440.jpg,https://takimotokan.co.jp/ja/spa/,2560,1440,0,indoor bath with a big window onto Jigokudani,地獄谷を望む大きな窓の内湯
+xn-noboribetsu-dai-ichi-takimotokan,2,https://takimotokan.co.jp/wp-content/uploads/2025/08/04-硫黄泉男湯露天2560×1440.jpg,https://takimotokan.co.jp/ja/spa/,2560,1440,0,round outdoor sulphur bath,円形の硫黄泉露天風呂
+xn-noboribetsu-dai-ichi-takimotokan,3,https://takimotokan.co.jp/wp-content/uploads/2025/08/05-食塩泉露天女湯A2560×1440.jpg,https://takimotokan.co.jp/ja/spa/,2560,1440,0,outdoor bath by green forest,緑の森に面した露天風呂
+xn-otaru-canal-front-onsen,1,https://furu-otaru.com/_assets/images/fv_pc.jpg,https://furu-otaru.com/,2880,1404,0,"ryokan lounge with wood, lamps and sofas",木と灯りのある旅館のラウンジ
+xn-otaru-canal-front-onsen,2,https://furu-otaru.com/_assets/images/spa_slide01-1.jpg,https://furu-otaru.com/,1228,824,0,dark stone bath with snowy window,雪の窓辺の暗い石造りの浴場
+xn-otaru-canal-front-onsen,3,https://furu-otaru.com/_assets/images/dining_slide02-1.jpg,https://furu-otaru.com/,900,603,0,kaiseki dinner set with beef and sashimi,牛肉と刺身の会席膳
+xn-otaru-canal-side-onsen,1,https://sonia-otaru.com/img/firstview/01.webp,https://sonia-otaru.com/,1280,860,0,canal and white hotel buildings in daylight,日中の運河と白いホテル棟
+xn-otaru-canal-side-onsen,2,https://sonia-otaru.com/img/firstview/02.webp,https://sonia-otaru.com/,1280,860,0,indoor bath with harbour view,港が見える室内大浴場
+xn-otaru-canal-side-onsen,3,https://sonia-otaru.com/img/art/1.jpg,https://sonia-otaru.com/,740,440,0,hotel lounge with leather sofas,革張りソファのホテルラウンジ
+xn-rusutsu-ski-day-and,1,https://rusutsu.com/wp-content/uploads/winter-bg.jpg,https://rusutsu.com/,1440,500,0,"snowboarder in powder spray, focal 0.55,0.65",パウダースノーを滑るスノーボーダー
+xn-rusutsu-ski-day-and,2,https://rusutsu.com/assets/img/home/summer-bg.jpg,https://rusutsu.com/,1440,500,0,wooden deck with Mt Yotei view,羊蹄山を望むウッドデッキ
+xn-rusutsu-ski-day-and,3,https://rusutsu.com/wp-content/uploads/hotel-img01w.jpg,https://rusutsu.com/,698,468,0,aerial view of resort hotels below snowy slopes,雪のゲレンデ麓に並ぶリゾートホテルの空撮
+xn-suizantei-club-jozankei-adults,1,https://www.club-jyozankei.com/system/wp-content/uploads/2024/11/roomtop-1.jpg,https://www.club-jyozankei.com/,2048,1151,0,room with shoji screens and forest view,障子と森の景色の客室
+xn-suizantei-club-jozankei-adults,2,https://www.club-jyozankei.com/system/wp-content/uploads/2024/11/contens-bk-03.jpg,https://www.club-jyozankei.com/,2620,1400,0,abalone in black lacquer bowl,黒漆の器に盛られたあわび
+xn-suizantei-club-jozankei-adults,3,https://www.club-jyozankei.com/system/wp-content/uploads/2024/11/contens-bk-02.jpg,https://www.club-jyozankei.com/,2620,1400,0,"onsen water surface at dusk, close-up",夕暮れの温泉の水面のアップ
+xn-the-windsor-hotel-toya,1,https://www.windsor-hotels.co.jp/ja/img/common/sld/pc_2.jpg,https://www.windsor-hotels.co.jp/ja/,2560,1280,0,glass lounge pod at sunset,夕日に包まれたガラス張りのラウンジ
+xn-the-windsor-hotel-toya,2,https://www.windsor-hotels.co.jp/ja/img/common/sld/pc_3.jpg,https://www.windsor-hotels.co.jp/ja/,2561,1282,0,"lounge window over sea of clouds, chandelier",雲海を望む窓とシャンデリア
+xn-the-windsor-hotel-toya,3,https://www.windsor-hotels.co.jp/ja/img/common/sld/pc_1.jpg,https://www.windsor-hotels.co.jp/ja/,2560,1280,0,golf green above sea of clouds,雲海の上に広がるゴルフ場のグリーン
+xn-yoichi-nikka-whisky-distillery,1,https://www.nikka.com/distilleries/yoichi/img/about_img_intro.webp,https://www.nikka.com/distilleries/yoichi/,1050,790,0,distillery buildings under snow,雪をかぶった蒸溜所の建物
+xn-yoichi-nikka-whisky-distillery,2,https://nord-otaru.com/img/firstview/01.jpg,https://nord-otaru.com/,1280,860,0,hotel at night by Otaru canal,夜の小樽運河沿いのホテル
+short-authentic-sapporo-nijo-market,1,https://www.visit-hokkaido.jp/lsc/upfile/spot/0001/0002/10002_6_l.jpg,https://www.visit-hokkaido.jp/spot/detail_10002.html,1280,853,1,Nijo Market arcade with glass floats and seafood stalls,ガラス玉が下がる二条市場のアーケードと海産物の店
+short-authentic-sapporo-nijo-market,2,https://www.sapporo.travel/cms/wp-content/uploads/2020/10/market_main_4.jpg,https://www.sapporo.travel/spot/nijo-market/,1600,800,1,"crab on ice in foam boxes, price tags",発泡スチロールの箱に並ぶ氷詰めのカニ
+short-authentic-sapporo-nijo-market,3,https://oguma-shoten.com/wp-content/uploads/2018/05/005.jpg,https://oguma-shoten.com/,3600,2400,1,wooden counter of a small seafood bowl shop,海鮮丼の小さな店の木のカウンター
+short-chitosetsuru-sake-museum,1,https://nipponseishu.co.jp/wordpress/wp-content/uploads/2023/02/IMG_5666-scaled.jpg,https://nipponseishu.co.jp/chitosetsuru/museum/,2560,1707,0,sake bottles and small barrels on lit wooden shelves,明るい木の棚に並ぶ酒瓶と小樽
+short-chitosetsuru-sake-museum,2,https://nipponseishu.co.jp/wordpress/wp-content/uploads/2023/02/IMG_5675-scaled.jpg,https://nipponseishu.co.jp/chitosetsuru/museum/,2560,1707,0,figurines pressing sake in a wooden vat,木桶で酒を搾る人形の展示
