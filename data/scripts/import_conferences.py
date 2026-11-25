@@ -128,6 +128,7 @@ def conference_row(cid, r):
 
 def load(db, folder):
     used = set()
+    demo = (folder / "demo_ids.txt").read_text().split() if (folder / "demo_ids.txt").exists() else []
     for r in dedupe(read_rows(folder)):
         cid = make_id(r, used)
         try:
@@ -137,6 +138,8 @@ def load(db, folder):
         except (sqlite3.IntegrityError, ValueError) as e:
             print(f"skipped {cid}: {e}")
             continue
+        if cid in demo:
+            db.execute("UPDATE conferences SET is_demo = 1 WHERE id = ?", (cid,))
         for i, name in enumerate(v.strip() for v in r.get("venues", "").split(";")):
             if not name:
                 continue

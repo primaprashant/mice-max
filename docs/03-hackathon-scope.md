@@ -30,7 +30,7 @@ Everything else supports that loop.
 
 ## Demo conferences
 
-Use **one big upcoming domestic event and one big upcoming international event**. Using two shows that the system works on any conference, not one we hard-coded. **Not chosen yet.** Pick events whose program is already published online. Candidates:
+Use **one big upcoming domestic event and one big upcoming international event**. Using two shows that the system works on any conference, not one we hard-coded. **Chosen (D7): JADM32 (domestic) and ICEP2027 (international).** Pick events whose program is already published online. Candidates:
 
 | Event | Dates | Where | Type |
 |---|---|---|---|
