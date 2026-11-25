@@ -224,6 +224,9 @@ const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => {
             return (
               <div
                 data-session-id={s.id}
+                role="button"
+                tabindex="0"
+                aria-label={title}
                 class="group absolute cursor-default overflow-hidden rounded-md border border-session-border px-1.5 py-0.5 ring-theme/0 transition-shadow hover:ring-2 hover:ring-theme/40"
                 class:list={[TYPE_STYLES[s.type] ?? TYPE_STYLES.other]}
                 style={`top: ${top}%; height: ${bottom - top}%; left: ${(left + inset / 2) * pxPerPct}rem; width: ${widthRem}rem`}
@@ -259,6 +262,9 @@ const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => {
           return (
             <div
               data-session-id={s.id}
+              role="button"
+              tabindex="0"
+              aria-label={title}
               class="absolute overflow-hidden rounded-md border border-session-border px-1.5 py-0.5 ring-theme/0 transition-shadow hover:ring-2 hover:ring-theme/40"
               class:list={[TYPE_STYLES[s.type] ?? TYPE_STYLES.other]}
               style={`top: ${top}%; height: ${bottom - top}%; left: ${GRID_MIN_WIDTH_REM * 0.005}rem; width: ${GRID_MIN_WIDTH_REM * 0.99}rem`}

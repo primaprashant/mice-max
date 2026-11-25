@@ -33,7 +33,7 @@ function markBookedCards() {
       const isExtraNight = xn.has(plan.ref_id);
       const cardDay = card.closest("[data-day-panel]")?.getAttribute("data-day-panel") ?? "";
       if (!isExtraNight && cardDay !== plan.day) continue;
-      card.classList.add("opacity-75", "border-ink/20", "bg-slate-100");
+      card.classList.add("opacity-75", "border-ink/20", "bg-muted");
       card.classList.remove("border-banana", "bg-banana-soft");
       if (card.dataset.planState === "1") continue;
       card.dataset.planState = "1";

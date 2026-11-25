@@ -196,7 +196,7 @@ const activeDay = days.includes(today) ? today : days[0];
               type="button"
               data-extra-night-prev
               aria-label={t(lang, "common.scrollLeft")}
-              class="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-slate-200 text-ink-soft transition-colors hover:bg-slate-300 disabled:opacity-40"
+              class="flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 bg-muted text-ink-soft transition-colors hover:bg-muted-strong disabled:opacity-40"
               disabled
             >
               <i class="ph ph-caret-left text-base" aria-hidden="true"></i>
@@ -205,7 +205,7 @@ const activeDay = days.includes(today) ? today : days[0];
               type="button"
               data-extra-night-next
               aria-label={t(lang, "common.scrollRight")}
-              class="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-slate-200 text-ink-soft transition-colors hover:bg-slate-300 disabled:opacity-40"
+              class="flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 bg-muted text-ink-soft transition-colors hover:bg-muted-strong disabled:opacity-40"
             >
               <i class="ph ph-caret-right text-base" aria-hidden="true"></i>
             </button>
@@ -228,6 +228,8 @@ const activeDay = days.includes(today) ? today : days[0];
                   const hero = experiencePhotos(experience.id).find((p) => p.is_hero) ?? experiencePhotos(experience.id)[0];
                   return hero ? (
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={hero.path}
                       alt={(lang === "ja" ? hero.alt_ja : hero.alt_en) ?? ""}
                       width={hero.width}
@@ -332,7 +334,7 @@ const activeDay = days.includes(today) ? today : days[0];
                         type="button"
                         data-plan-filter-all
                         aria-pressed="true"
-                        class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
+                        class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper min-h-11 px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
                       >
                         <i class="ph ph-x text-[12px]" aria-hidden="true"></i>
                         {t(lang, "common.all")}
@@ -342,7 +344,7 @@ const activeDay = days.includes(today) ? today : days[0];
                           type="button"
                           data-plan-filter={tg.id}
                           aria-pressed="false"
-                          class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
+                          class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper min-h-11 px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
                         >
                           <i class={`ph ph-${tg.icon} text-[12px]`} aria-hidden="true"></i>
                           {lang === "ja" ? tg.label_ja : tg.label_en}
@@ -369,6 +371,8 @@ const activeDay = days.includes(today) ? today : days[0];
                       >
                         {hero ? (
                           <img
+                            loading="lazy"
+                            decoding="async"
                             src={hero.path}
                             alt={(lang === "ja" ? hero.alt_ja : hero.alt_en) ?? ""}
                             width={hero.width}

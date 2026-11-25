@@ -92,7 +92,7 @@ class BookButton extends HTMLElement {
 
   renderBlocked(btn: HTMLButtonElement, labels: Record<string, string>) {
     btn.textContent = labels.blocked ?? "You already have a booking at this time slot";
-    btn.classList.add("bg-slate-100", "text-ink-soft");
+    btn.classList.add("bg-muted", "text-ink-soft");
     btn.classList.remove("bg-theme", "text-paper");
     btn.setAttribute("disabled", "true");
   }

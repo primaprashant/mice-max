@@ -21,7 +21,7 @@ const { lang = "en", tags } = Astro.props;
         type="button"
         data-plan-filter-all
         aria-pressed="true"
-        class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
+        class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper min-h-11 px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
       >
         <i class="ph ph-x text-[12px]" aria-hidden="true"></i>
         {t(lang, "common.all")}
@@ -31,7 +31,7 @@ const { lang = "en", tags } = Astro.props;
           type="button"
           data-plan-filter={tg.id}
           aria-pressed="false"
-          class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
+          class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper min-h-11 px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
         >
           <i class={`ph ph-${tg.icon} text-[12px]`} aria-hidden="true"></i>
           {lang === "ja" ? tg.label_ja : tg.label_en}

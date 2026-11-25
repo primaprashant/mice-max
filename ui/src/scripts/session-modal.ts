@@ -39,8 +39,6 @@ class SessionModal extends HTMLElement {
     });
 
     document.querySelectorAll<HTMLElement>("[data-session-id]").forEach((block) => {
-      block.setAttribute("role", "button");
-      block.setAttribute("tabindex", "0");
       block.addEventListener("click", () => this.open(block.dataset.sessionId ?? ""));
       block.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {

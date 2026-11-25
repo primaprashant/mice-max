@@ -29,7 +29,7 @@ class ExtraNightCard extends HTMLElement {
     if (!anyPlan) return;
 
     // Gray out: slate background, muted border, dimmed.
-    link.classList.add("opacity-75", "border-ink/20", "bg-slate-100");
+    link.classList.add("opacity-75", "border-ink/20", "bg-muted");
     link.classList.remove("border-banana", "bg-banana-soft");
 
     if (anyPlan.ref_id === expId) {

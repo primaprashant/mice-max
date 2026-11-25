@@ -56,6 +56,10 @@
      against every session tint and the paper background (worst case 3.86:1
      on the sponsor tint); slate-400 fails at 2.08:1. */
   --color-session-border: #64748b;
+  /* Muted booked/grayed surface and its hover step: the "not active"
+     treatment shared by booked cards, blocked buttons and nav chevrons. */
+  --color-muted: #f1f5f9;
+  --color-muted-strong: #e2e8f0;
 
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, "SF Mono", monospace;

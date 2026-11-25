@@ -82,7 +82,7 @@ function pickHero(id: string) {
     ) : (
       <>
         {hero ? (
-          <img
+          <img loading="lazy" decoding="async"
             src={hero.path}
             alt={(lang === "ja" ? hero.alt_ja : hero.alt_en) ?? ""}
             width={hero.width}

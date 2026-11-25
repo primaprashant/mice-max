@@ -1,14 +1,14 @@
 ---
 /** Small "done by AI" badge for the other views, linking to the Ops log (D34). */
-import { t, type Lang } from "../i18n";
+
 
 interface Props {
-  lang?: Lang;
+  lang?: string;
   conference?: string;
   text: string;
 }
 
-const { lang = "en", conference, text } = Astro.props;
+const { conference, text } = Astro.props;
 const href = conference ? `/ops/${conference}` : "/ops";
 ---
 

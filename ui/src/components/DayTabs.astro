@@ -14,7 +14,7 @@ const { lang, days, activeDay } = Astro.props;
 ---
 
 <day-tabs class="block">
-  <div class="sticky top-0 z-[500] -mx-6 grid grid-flow-col auto-cols-fr bg-paper px-6 py-2" data-day-tab-row>
+  <div class="sticky top-0 z-[500] -mx-6 grid grid-flow-col auto-cols-fr overflow-x-auto bg-paper px-6 py-2" data-day-tab-row>
     {
       days.map((day, i) => {
         const weekday = new Date(day + "T00:00:00Z").toLocaleDateString("en-US", { weekday: "long", timeZone: "UTC" });
