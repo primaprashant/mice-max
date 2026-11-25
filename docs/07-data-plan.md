@@ -84,6 +84,8 @@ One big domestic, one big international, both **upcoming in Sapporo, with last y
 
 ### T3. Demo events: last edition and upcoming edition (agent + human check, ~2 h)
 
+**Done 2026-11-25:** JADM32 (210 sessions, 15 windows) and ICEP2027 (71 sessions, 17 windows) from last edition, in `data/raw/programs/`. Windows still need a person's check.
+
 For each demo event:
 
 - **Last edition** (a row in `conferences`): dates, city, attendance, overseas share, who attended (members, residents, industry, co-medical staff) if published. Many national societies move city every year, so last year's edition was probably not in Sapporo. Record its city.
@@ -92,6 +94,8 @@ For each demo event:
 - Use the **same shape the app's conference reader outputs**, so these rows double as the reader's test answers.
 
 ### T4. Plan list (research agent, ~3 h)
+
+**Done 2026-11-25:** 88 plans (30 short, 25 evening, 15 extra-night, 18 specialist) in `data/raw/plans/`, 24 tags in `tags.csv`. Run `data/scripts/geocode.py` after adding addresses.
 
 Run [prompts/inventory-research.md](prompts/inventory-research.md). 80–100 real items: ~30 short, ~25 evening, ~15 extra-night, ~15 specialist. Extra nights get the most care: all-in price (transport + stay + main activity) and how it was computed. Specialist visits must cover both demo events' fields (re-run that group after T2 if needed).
 
@@ -104,6 +108,8 @@ Run [prompts/inventory-research.md](prompts/inventory-research.md). 80–100 rea
 Per plan: title, a one-line hook, a 2–3 sentence description, what's included, and "good to know" (cash only, English OK, solo-friendly, last train). Written from `plans` fields only. A Japanese speaker reads the Japanese.
 
 ### T7. Places and seasons (agent, ~1.5 h)
+
+**Done 2026-11-25:** `data/raw/places/` (31 places, 19 routes, 12 months, 20 city events). Recheck JR times after the mid-March 2027 timetable change.
 
 - `places`: demo venues, New Chitose Airport, Sapporo Station, and each area (Odori, Susukino, Otaru, Jozankei, Yoichi, Noboribetsu, Toya…) with lat/lng, travel time and cost from central Sapporo.
 - `seasons`: per month: typical high/low temperature, snow, sunset time, what to wear, seasonal highlights (Snow Festival, lilacs, YOSAKOI Soran, beer gardens, autumn leaves).

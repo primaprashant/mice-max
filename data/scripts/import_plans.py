@@ -9,6 +9,8 @@ import hashlib
 import json
 import re
 
+from compute_travel import km
+
 PREFIX = {"short": "short", "evening": "eve", "extra_night": "xn", "specialist": "spec"}
 INT_COLS = ["station_walk_min", "duration_min", "price_jpy", "price_max_jpy", "drinks_included", "party_min",
             "party_max", "private_room_max", "english_ok", "age_min", "free_shuttle", "needs_agreement"]
@@ -48,13 +50,17 @@ def plan_id(r, used):
 
 
 def area_lookup(db):
-    return [(ja, en, pid) for pid, ja, en in db.execute("SELECT id, name_ja, name_en FROM places WHERE kind = 'area'")]
+    return db.execute("SELECT id, name_ja, name_en, lat, lng FROM places WHERE kind = 'area'").fetchall()
 
 
-def find_area(areas, text):
-    for ja, en, pid in areas:
+def find_area(areas, text, lat, lng):
+    """Match the research's area name; otherwise take the nearest area within 5 km."""
+    for pid, ja, en, _, _ in areas:
         if text and (ja in text or text in ja or en.lower() in text.lower()):
             return pid
+    if lat and lng:
+        d, pid = min((km((float(lat), float(lng)), (a_lat, a_lng)), pid) for pid, _, _, a_lat, a_lng in areas if a_lat)
+        return pid if d <= 5 else None
     return None
 
 
@@ -82,7 +88,7 @@ def load(db, folder, places_folder):
             db.execute(
                 """INSERT INTO places (id, name_ja, name_en, kind, area_id, address, lat, lng, source_url, confidence, checked_on)
                    VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
-                (pid, r["name_ja"], r.get("name_en") or r["name_ja"], "plan_site", find_area(areas, r.get("area")),
+                (pid, r["name_ja"], r.get("name_en") or r["name_ja"], "plan_site", find_area(areas, r.get("area"), g.get("lat"), g.get("lng")),
                  r.get("address") or None, g.get("lat") or None, g.get("lng") or None, r["source_url"],
                  r.get("confidence") or "unsure", r.get("checked_on")),
             )
