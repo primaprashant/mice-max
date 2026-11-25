@@ -1,0 +1,114 @@
+{
+  "conference_id": "icep2027",
+  "based_on": "ICEP-HBS 2026 (Hiroshima, 2026-04-14 to 04-18)",
+  "expected_2027": {
+    "attendees": 1200,
+    "source": "https://www.jiep.or.jp/icep/about/about-icep",
+    "note": "Organizer: approx. 1,200 participants"
+  },
+  "total_2026": {
+    "attendees": 1191,
+    "domestic": 933,
+    "overseas": 258,
+    "overseas_share": 0.217,
+    "countries_regions": 18,
+    "source": "https://www.jiep.or.jp/icep/docs/icep-hbs2026-report-en.pdf"
+  },
+  "overseas_by_country": {
+    "shares": {
+      "Taiwan": 0.445,
+      "South Korea": 0.232,
+      "China": 0.102,
+      "United States": 0.083,
+      "Germany": 0.047,
+      "Belgium": 0.012,
+      "France": 0.012,
+      "Hong Kong": 0.012,
+      "Singapore": 0.012,
+      "United Kingdom": 0.012,
+      "Austria": 0.004,
+      "Brazil": 0.004,
+      "Bulgaria": 0.004,
+      "Indonesia": 0.004,
+      "Malaysia": 0.004,
+      "Netherlands": 0.004,
+      "Sweden": 0.004,
+      "Switzerland": 0.004
+    },
+    "counts": {
+      "Taiwan": 113,
+      "South Korea": 59,
+      "China": 26,
+      "United States": 21,
+      "Germany": 12,
+      "Belgium": 3,
+      "France": 3,
+      "Hong Kong": 3,
+      "Singapore": 3,
+      "United Kingdom": 3,
+      "Austria": 1,
+      "Brazil": 1,
+      "Bulgaria": 1,
+      "Indonesia": 1,
+      "Malaysia": 1,
+      "Netherlands": 1,
+      "Sweden": 1,
+      "Switzerland": 1
+    },
+    "note": "Counts sum to 254, not 258; shares are of the 254 listed. 2024 (Toyama) had a similar order: Taiwan 91, Korea 39, US 15, China 14, Germany 12.",
+    "source": "https://busicompost.com/report/%E3%82%A2%E3%82%B8%E3%82%A2%E6%9C%80%E5%A4%A7%E3%81%AE%E3%82%A8%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AD%E3%83%8B%E3%82%AF%E3%82%B9%E5%AE%9F%E8%A3%85%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0/"
+  },
+  "roles": {
+    "estimate": true,
+    "shares": {
+      "industry_engineer": 0.55,
+      "academic_researcher": 0.2,
+      "student": 0.15,
+      "exhibitor_staff": 0.1
+    },
+    "derivation": "Not published. Anchors: 49 exhibitors and 54 sponsors (report) suggest about 100-150 booth staff (2-3 per booth, estimate), about 10%. Of about 150 oral talks whose affiliation we could parse from the 2026 daily PDFs, about 41% were academic only, 30% industry only, 29% joint, but presenters are only 276 of 1,191, and non-presenting attendees are mostly company engineers (sponsor-heavy, industry-led committee). A student fee category exists (20,000 JPY); student share is a guess.",
+    "sources": [
+      "https://www.jiep.or.jp/icep/docs/icep-hbs2026-report-en.pdf",
+      "https://www.jiep.or.jp/archive/ICEP2026/assets/docs/pdf/program/program_20260415.pdf",
+      "https://www.jiep.or.jp/archive/ICEP2026/assets/docs/pdf/program/program_20260416.pdf",
+      "https://www.jiep.or.jp/archive/ICEP2026/assets/docs/pdf/program/program_20260417.pdf",
+      "https://www.jiep.or.jp/icep/registration/information-for-attendees"
+    ]
+  },
+  "presentations_2026": {
+    "total": 276,
+    "oral": 205,
+    "poster": 56,
+    "keynote": 4,
+    "overseas": 196,
+    "domestic": 80,
+    "note": "Overseas give 71% of talks but are 22% of attendees, so overseas attendees are more often presenters.",
+    "source": "https://busicompost.com/report/%E3%82%A2%E3%82%B8%E3%82%A2%E6%9C%80%E5%A4%A7%E3%81%AE%E3%82%A8%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AD%E3%83%8B%E3%82%AF%E3%82%B9%E5%AE%9F%E8%A3%85%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0/"
+  },
+  "event_turnout_2026": {
+    "welcome_reception": {
+      "value": "nearly 1,000",
+      "source": "https://www.jiep.or.jp/icep/docs/icep-hbs2026-report-en.pdf"
+    },
+    "tue_special_sessions": {
+      "value": "about 500",
+      "source": "https://busicompost.com/report/%E3%82%A2%E3%82%B8%E3%82%A2%E6%9C%80%E5%A4%A7%E3%81%AE%E3%82%A8%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AD%E3%83%8B%E3%82%AF%E3%82%B9%E5%AE%9F%E8%A3%85%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0/",
+      "note": "HBS + ICEP special sessions; no Tuesday in 2027"
+    },
+    "excursion": {
+      "value": "3 chartered buses",
+      "source": "https://www.jiep.or.jp/archive/ICEP2026/assets/docs/pdf/excursion_plan.pdf",
+      "note": "Head count not published"
+    }
+  },
+  "history": {
+    "attendees_by_year": {
+      "2022": 363,
+      "2023": 565,
+      "2024": 705,
+      "2025": 964,
+      "2026": 1191
+    },
+    "source": "https://busicompost.com/report/%E3%82%A2%E3%82%B8%E3%82%A2%E6%9C%80%E5%A4%A7%E3%81%AE%E3%82%A8%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AD%E3%83%8B%E3%82%AF%E3%82%B9%E5%AE%9F%E8%A3%85%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0/"
+  }
+}

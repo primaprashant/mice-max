@@ -1,0 +1,28 @@
+experience_id,n,plan_id,day,minutes,travel_mode,travel_min,price_jpy,what_ja,what_en
+combo-hot-spring-and-beer-museum,1,short-kuranoyu-hot-spring-naebo,1,90,,,,天然温泉と洞窟風の露天風呂,Natural hot spring with a cave-style outdoor bath
+combo-hot-spring-and-beer-museum,2,short-sapporo-beer-museum-guided,1,55,,,2000,ガイドツアーと2杯の試飲,Guided tour and two tastings
+combo-sake-brewery-and-izakaya,1,short-chitosetsuru-sake-museum,1,45,,,,仕込み水と日本酒の試飲、酒粕ソフト,Brewing water and sake tastings
+combo-sake-brewery-and-izakaya,2,eve-3373d943,1,120,,,,蔵元直営の居酒屋で7品と飲み放題,Seven dishes with unlimited drinks at the brewery's izakaya
+combo-disaster-medicine-half-day,1,spec-sapporo-citizens-disaster-prevention,1,90,,,,地震、煙避難、消火、AEDの体験,Hands-on earthquake, smoke, extinguisher and AED corners
+combo-disaster-medicine-half-day,2,spec-sapporo-medical-university-advanced,1,60,transit,,,道内唯一の高度救命救急センター（要調整）,Hokkaido's only advanced critical care centre (by arrangement)
+combo-dairy-and-beer-factories,1,spec-snow-brand-megmilk-dairy,1,60,,,,北海道の酪農と乳の歴史を学ぶ工場見学,Factory tour on Hokkaido dairy history
+combo-dairy-and-beer-factories,2,short-sapporo-beer-museum-guided,1,55,walk,25,2000,ガイドツアーと2杯の試飲,Guided tour and two tastings
+combo-run-and-seafood-breakfast,1,short-morning-run-odori-park,1,30,,,,大通公園を往復して約3km,Odori Park out and back, about 3 km
+combo-run-and-seafood-breakfast,2,short-donbe-nijo-market,1,40,,,,二条市場で海鮮丼の朝食,Seafood bowl breakfast in Nijo Market
+combo-soup-curry-and-clock-tower,1,short-soup-curry-king-central,1,45,,,,チキンのスープカレー,Chicken soup curry
+combo-soup-curry-and-clock-tower,2,short-sapporo-clock-tower,1,30,,,,1878年の演武場を見学,The 1878 drill hall
+combo-specialty-coffee-walk,1,short-marumi-coffee-odori-main,1,30,,,,丸美珈琲のドリップコーヒー,Drip coffee at Marumi
+combo-specialty-coffee-walk,2,short-tokumitsu-coffee-odori,1,30,,,650,徳光珈琲のドリップコーヒー,Drip coffee at Tokumitsu
+combo-specialty-coffee-walk,3,short-morihico-main-store,1,45,,,,森彦で深煎りブレンド「森の雫」,Deep-roast Mori no Shizuku at Morihico
+combo-lamb-and-closing-parfait,1,eve-939a0d4f,1,120,,,,味付けジンギスカンの食べ飲み放題,Marinated lamb with unlimited food and drinks
+combo-lamb-and-closing-parfait,2,eve-yoru-parfait-mua,1,45,walk,3,,シメのパフェ,Closing parfait
+combo-moiwa-night-view-and-miso-ramen,1,short-sapporo-mt-moiwa-ropeway,1,90,,,,ロープウェイで山頂へ、夜景,Ropeway to the summit for the night view
+combo-moiwa-night-view-and-miso-ramen,2,eve-sumire-susukino,1,30,transit,35,,すみれの味噌ラーメン,Miso ramen at Sumire
+combo-yoichi-whisky-and-otaru-sushi,1,xn-yoichi-nikka-whisky-distillery,1,70,,,,ニッカ余市蒸溜所の見学と試飲,Nikka distillery tour and tasting
+combo-yoichi-whisky-and-otaru-sushi,2,eve-otaru-masazushi-honten-sushi,1,90,transit,40,,寿司屋通りで握りの夕食,Nigiri dinner on Sushiya-dori
+combo-jozankei-and-market-brunch,1,xn-jozankei-onsen-resort-hotel,1,,,,,温泉と夕食ビュッフェ、1泊,Onsen and dinner buffet overnight
+combo-jozankei-and-market-brunch,2,short-kita-no-gurume-tei,2,45,transit,90,,場外市場で海鮮丼のブランチ,Seafood bowl brunch at the Curb Market
+combo-noboribetsu-and-upopoy,1,xn-noboribetsu-dai-ichi-takimotokan,1,,,,26920,地獄谷の散策と温泉、1泊,Hell Valley walk and onsen overnight
+combo-noboribetsu-and-upopoy,2,short-upopoy-national-ainu-museum,2,180,transit,60,,国立アイヌ民族博物館と公園,National Ainu Museum and Park
+combo-chitose-semiconductor-day,1,spec-chitose-institute-of-science,1,90,,,,共用研究機器とクリーンルームを見学（要調整）,Shared research equipment and clean room (by arrangement)
+combo-chitose-semiconductor-day,2,short-new-chitose-airport-observation,1,30,transit,7,,展望デッキからRapidus IIM-1の方向を見る,Look toward the Rapidus IIM-1 fab from the deck

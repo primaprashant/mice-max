@@ -1,0 +1,25 @@
+id,label_ja,label_en,icon,raw_tags
+seafood,海鮮,Seafood,fish,"seafood,crab,sushi,ikura,kaisen"
+genghis_khan,ジンギスカン,Genghis Khan,beef,"genghis_khan,yakiniku"
+local_food,北海道グルメ,Hokkaido food,utensils,"soup_curry,ramen,hokkaido_cuisine,robatayaki,hokkaido_izakaya,sweets,chinese"
+izakaya,居酒屋,Izakaya,lamp,"izakaya,hokkaido_izakaya"
+drinks,お酒,Drinks,wine,"sake_bar,craft_beer,sake,beer,tasting,drink_all,whisky,wine,distillery,winery"
+fine_dining,特別な食事,Fine dining,sparkles,"fine_dining,business_dinner,kaiseki"
+budget,手頃,Good value,piggy-bank,budget
+private_room,個室あり,Private room,door-closed,private_room
+non_smoking,禁煙,Non-smoking,cigarette-off,non_smoking
+english_ok,英語OK,English OK,languages,"english_menu,english_ok,english"
+coffee,カフェ,Coffee,coffee,"coffee,cafe,specialty_coffee,breakfast"
+onsen,温泉,Onsen,bath,"onsen,sento,sauna,open_air_bath,ryokan"
+running,ラン,Running,footprints,"run,sports"
+walking,まち歩き,Walking tour,map,"walking_tour,self_guided,guided"
+nature,自然,Nature,trees,"outdoor,river,zoo,lake,garden,nature,hiking"
+view,絶景,Views,mountain,"view,night_view,ropeway,viewpoint"
+culture,歴史・文化,Culture,landmark,"culture,history,historic,historic_building,ainu,ainu_culture,tea_ceremony,kimono,museum,open_air_museum,clark_statue,olympics,glass"
+snow,雪・スキー,Snow,snowflake,"snow,winter,ski,tube_sled,snowshoe,xc_ski,winter_ok"
+market,市場,Market,store,market
+hands_on,体験,Hands-on,hand,"hands_on,workshop,glass_viewing"
+lab_tour,施設見学,Facility visit,flask-conical,"lab_tour,clean_room,factory,plant_tour,science,campus"
+free,無料,Free,ticket,free
+late_night,夜遅くまで,Open late,moon,"late_night,night"
+solo_ok,一人でもOK,Solo friendly,user,"counter,walk_in,solo_friendly,solo_ok"

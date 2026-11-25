@@ -17,7 +17,7 @@ See [01-evidence.md](01-evidence.md) for the numbers.
 Three people, three views, one conference link:
 
 1. **Organizer.** Pastes the conference website link. MiceMax reads the program, finds the attendees' free time and builds a ready-to-share attendee page, QR code and email text in minutes. No extra work for the organizer.
-2. **Attendee.** Opens the page (from the registration email, the conference site or a QR code on the badge). They see plans that fit their actual free time, can join other attendees, and can book.
+2. **Attendee.** Opens the page (from the registration email, the conference site or a QR code on the badge). They see experiences that fit their actual free time, can join other attendees, and can book.
 3. **City.** Sees how many attendees were reached, what they booked, how many extra nights they stayed and how much new money reached local businesses.
 
 ## Three ways attendees spend more

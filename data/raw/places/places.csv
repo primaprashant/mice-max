@@ -1,0 +1,32 @@
+id,name_ja,name_en,kind,area_id,address,lat,lng,source_url,confidence,checked_on,extra
+odori,大通,Odori,area,,札幌市中央区大通西7丁目,43.059742,141.346634,https://msearch.gsi.go.jp/address-search/AddressSearch?q=札幌市中央区大通西7丁目,checked,2026-11-25,Point is mid Odori Park
+susukino,すすきの,Susukino,area,,札幌市中央区南4条西3丁目,43.055611,141.354126,https://msearch.gsi.go.jp/address-search/AddressSearch?q=札幌市中央区南4条西3丁目,checked,2026-11-25,
+sapporo-st-area,札幌駅周辺,Sapporo Station area,area,,札幌市中央区北5条西4丁目,43.067341,141.349518,https://msearch.gsi.go.jp/address-search/AddressSearch?q=札幌市中央区北5条西4丁目,checked,2026-11-25,
+higashi-sapporo,東札幌,Higashi-Sapporo,area,,札幌市白石区東札幌3条2丁目,43.052505,141.385498,https://msearch.gsi.go.jp/address-search/AddressSearch?q=札幌市白石区東札幌3条2丁目,checked,2026-11-25,Area around the Convention Center
+nakajima-park,中島公園,Nakajima Park,area,,札幌市中央区中島公園,43.044502,141.354141,https://msearch.gsi.go.jp/address-search/AddressSearch?q=札幌市中央区中島公園,checked,2026-11-25,
+maruyama,円山,Maruyama,area,,札幌市中央区宮ケ丘,43.051479,141.306641,https://msearch.gsi.go.jp/address-search/AddressSearch?q=札幌市中央区宮ケ丘,checked,2026-11-25,Maruyama Park and Hokkaido Jingu
+moiwa,藻岩山,Mt. Moiwa,area,,札幌市中央区伏見5丁目3-7,43.031784,141.333267,https://mt-moiwa.jp/access/,checked,2026-11-25,Point is the ropeway base station; geocoded with GSI
+otaru,小樽,Otaru,area,,小樽市稲穂2丁目,43.197002,140.996368,https://msearch.gsi.go.jp/address-search/AddressSearch?q=小樽市稲穂2丁目,checked,2026-11-25,Point is near Otaru Station
+jozankei,定山渓温泉,Jozankei Onsen,area,,札幌市南区定山渓温泉東3丁目,42.965847,141.167007,https://msearch.gsi.go.jp/address-search/AddressSearch?q=札幌市南区定山渓温泉東3丁目,checked,2026-11-25,
+yoichi,余市,Yoichi,area,,余市郡余市町黒川町,43.17564,140.796066,https://msearch.gsi.go.jp/address-search/AddressSearch?q=余市郡余市町黒川町,checked,2026-11-25,Point is near Yoichi Station
+noboribetsu,登別温泉,Noboribetsu Onsen,area,,登別市登別温泉町,42.499363,141.142746,https://msearch.gsi.go.jp/address-search/AddressSearch?q=登別市登別温泉町,checked,2026-11-25,
+toya,洞爺湖温泉,Lake Toya Onsen,area,,虻田郡洞爺湖町洞爺湖温泉,42.563587,140.817795,https://msearch.gsi.go.jp/address-search/AddressSearch?q=虻田郡洞爺湖町洞爺湖温泉,checked,2026-11-25,
+niseko,ニセコ,Niseko,area,,虻田郡ニセコ町字富士見,42.804802,140.695587,https://msearch.gsi.go.jp/address-search/AddressSearch?q=虻田郡ニセコ町字富士見,checked,2026-11-25,"Point is Niseko town. Hirafu ski area is in Kutchan (倶知安町山田, 42.865429, 140.700836)"
+asahikawa,旭川,Asahikawa,area,,旭川市宮下通8丁目,43.763382,142.35881,https://msearch.gsi.go.jp/address-search/AddressSearch?q=旭川市宮下通8丁目,checked,2026-11-25,Point is near Asahikawa Station
+furano,富良野,Furano,area,,富良野市日の出町,43.345528,142.390137,https://msearch.gsi.go.jp/address-search/AddressSearch?q=富良野市日の出町,checked,2026-11-25,Point is near Furano Station
+scc,札幌コンベンションセンター,Sapporo Convention Center,venue,higashi-sapporo,札幌市白石区東札幌6条1丁目1-1,43.057381,141.392059,https://www.sora-scc.jp/access/,checked,2026-11-25,JADM32 venue (2027-03-18..20). About 10 min walk from Higashi-Sapporo station (official). lat/lng from GSI
+grand-mercure-odori,グランドメルキュール札幌大通公園,Grand Mercure Sapporo Odori Park,venue,odori,札幌市中央区北1条西11丁目1-1,43.061028,141.339874,https://www.sapporo.travel/hotel/detail/hotel_262/,checked,2026-11-25,"ICEP2027 venue (2027-05-12..15). Formerly Royton Sapporo, renamed 2024-04-01 (ja.wikipedia), so Royton has no separate row. 3 min walk from Nishi-11-chome (Tozai). lat/lng from GSI"
+keio-plaza-sapporo,京王プラザホテル札幌,Keio Plaza Hotel Sapporo,venue,sapporo-st-area,札幌市中央区北5条西7丁目2-1,43.066528,141.345001,https://www.keioplaza-sapporo.co.jp/location/,checked,2026-11-25,5 min walk from JR Sapporo west exit (official). lat/lng from GSI
+sapporo-park-hotel,札幌パークホテル,Sapporo Park Hotel,venue,nakajima-park,札幌市中央区南10条西3丁目1-1,43.048859,141.356537,https://www.sapporo.travel/hotel/detail/hotel_273/,reported,2026-11-25,"Next to Nakajima-koen station exit 3. Address from city tourism site via search, not fetched. lat/lng from GSI"
+hokudai-conf-hall,北海道大学学術交流会館,Hokkaido University Conference Hall,venue,sapporo-st-area,札幌市北区北8条西5丁目,43.070446,141.347153,https://www.hokudai.ac.jp/introduction/facility/kouryu/,checked,2026-11-25,lat/lng from GSI
+sapporo-st,札幌駅,Sapporo Station,station,sapporo-st-area,札幌市北区北6条西4丁目,43.068655,141.350787,https://nominatim.openstreetmap.org/search?q=札幌駅,checked,2026-11-25,"JR and subway (Namboku, Toho). lat/lng from OpenStreetMap"
+odori-st,大通駅,Odori Station,station,odori,札幌市中央区大通西4丁目,43.060167,141.352,https://nominatim.openstreetmap.org/search?q=大通駅,checked,2026-11-25,"Subway Namboku, Tozai, Toho. lat/lng from OpenStreetMap"
+susukino-st,すすきの駅,Susukino Station,station,susukino,札幌市中央区南4条西4丁目,43.055361,141.353376,https://nominatim.openstreetmap.org/search?q=すすきの駅,checked,2026-11-25,Subway Namboku. lat/lng from OpenStreetMap
+higashi-sapporo-st,東札幌駅,Higashi-Sapporo Station,station,higashi-sapporo,札幌市白石区東札幌3条2丁目,43.05186,141.38475,https://nominatim.openstreetmap.org/search?q=東札幌駅,checked,2026-11-25,Subway Tozai (T12). Nearest to the Convention Center. lat/lng from OpenStreetMap
+nca,新千歳空港,New Chitose Airport,airport,,千歳市美々,42.787808,141.680869,https://nominatim.openstreetmap.org/search?q=新千歳空港駅,checked,2026-11-25,Point is the JR airport station. lat/lng from OpenStreetMap
+hokkaido-jingu,北海道神宮,Hokkaido Jingu (shrine),event_site,maruyama,札幌市中央区宮ケ丘474,43.05611,141.308182,https://msearch.gsi.go.jp/address-search/AddressSearch?q=札幌市中央区宮ケ丘474,reported,2026-11-25,Address not checked on the shrine site; GSI finds it
+okurayama,大倉山ジャンプ競技場,Okurayama Ski Jump Stadium,event_site,maruyama,札幌市中央区宮の森,43.051508,141.289872,https://nominatim.openstreetmap.org/search?q=大倉山ジャンプ競技場,checked,2026-11-25,lat/lng from OpenStreetMap
+sapporo-dome,大和ハウス プレミストドーム,Daiwa House PREMIST DOME (Sapporo Dome),event_site,,札幌市豊平区羊ケ丘1,43.015163,141.409693,https://nominatim.openstreetmap.org/search?q=大和ハウス プレミストドーム,checked,2026-11-25,Consadole home games. lat/lng from OpenStreetMap
+es-con-field,エスコンフィールドHOKKAIDO,ES CON FIELD HOKKAIDO,event_site,,北広島市Fビレッジ,42.990148,141.549799,https://nominatim.openstreetmap.org/search?q=エスコンフィールドHOKKAIDO,checked,2026-11-25,"Fighters ballpark, in Kitahiroshima (outside Sapporo). lat/lng from OpenStreetMap"
+sapporo-kokusai,札幌国際スキー場,Sapporo Kokusai Ski Resort,event_site,jozankei,札幌市南区定山渓,43.073015,141.070239,https://nominatim.openstreetmap.org/search?q=札幌国際スキー場,checked,2026-11-25,lat/lng from OpenStreetMap
+sansin-center,札幌市産業振興センター,Sapporo Industrial Promotion Center,venue,higashi-sapporo,札幌市白石区東札幌5条1丁目1-1,43.055984,141.387085,https://site2.convention.co.jp/32jadm/outline/index.html,reported,2026-11-25,JADM32 second venue next to SCC; lat/lng from GSI geocoder

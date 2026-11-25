@@ -1,6 +1,6 @@
 # MiceMax: data plan (hackathon)
 
-What data the demo needs, where it comes from, where it is stored and who builds it. Each task below can be handed to one person or agent. Decisions behind it: D7, D11, D14, D17, D21–D25 in [05-decisions-and-open-questions.md](05-decisions-and-open-questions.md).
+What data the demo needs, where it comes from, where it is stored and who builds it. Each task below can be handed to one person or agent. Decisions behind it: D7, D11, D14, D17, D21–D25, D28 in [05-decisions-and-open-questions.md](05-decisions-and-open-questions.md).
 
 ## Goal
 
@@ -24,19 +24,25 @@ All other conferences get **stats only** (dates, size, field, scope), no individ
 - **Scripts in `data/scripts/`:**
   - `schema.sql`: all tables. Written after the recon in T0, and changed whenever the research shows something new.
   - `import_*.py`: research agents save their output as CSV or JSON in `data/raw/`. A small import script loads it into SQLite. Raw files are kept, so a schema change means re-running the import, not redoing the research.
-  - `simulate.py`: reads conferences, programs and plans from SQLite, writes attendees and events back. Fixed random seed, so re-running gives the same data.
-  - `push_neon.py`, `push_neo4j.py`: wipe and reload the online databases from SQLite. Safe to run any time. Neon gets the event log and bookings; Neo4j gets the graph (conferences, windows, plans, places, attendees, joins).
+  - `simulate.py`: reads conferences, programs and experiences from SQLite, writes attendees and events back. Fixed random seed, so re-running gives the same data.
+  - `push_neon.py`, `push_neo4j.py`: wipe and reload the online databases from SQLite. Safe to run any time. Neon gets a copy of every table, so the UI reads everything from one place (decided 2026-11-25); Neo4j gets the graph (conferences, windows, experiences and their plans, places, attendees, joins).
+  - `build_graph.py`: runs last in `build_db.py` and builds the graph as a local RelateDB file, `data/micemax.rl`, committed next to `micemax.db`. `push_neo4j.py` copies that file to Neo4j Aura. Nodes, relationships and their rules are listed at the top of [build_graph.py](../data/scripts/build_graph.py); example queries are in [graph-examples.cypher](../data/graph-examples.cypher).
+  - `city_estimate.py`: the city view's next-12-months estimate (see T9). `check_t9.py`: the T9 checks.
 - Connection strings come from a local `.env`, never committed.
 
 ### Tables
 
 | Table | Rows | Filled by |
 |---|---|---|
-| `conferences` | Every Sapporo event we can find, Dec 2025–Nov 2027, plus the previous edition of each demo event | T1, T3 |
-| `sessions`, `windows` | Program and free-time windows of the demo events | T3 |
-| `plans`, `plan_photos`, `plan_copy` | 80–100 real plans, their photos, JA/EN text | T4–T6 |
-| `places`, `seasons`, `city_events` | Venues, areas, travel times, monthly weather and highlights | T7 |
-| `attendees`, `session_attendance`, `events` | Simulated, demo events only | T8 |
+| `conferences`, `conference_venues` | Every Sapporo event we can find, Dec 2025–Nov 2027, plus the previous edition of each demo event | T1, T3 |
+| `sessions`, `windows`, `headlines` | Program, free-time windows and the one experience per kind the demo opens live (D29) | T3 |
+| `plans`, `plan_photos`, `plan_copy`, `tags`, `plan_tags` | 80–100 real plans, their photos, JA/EN text, ~20 tags | T4–T6 |
+| `experiences`, `experience_stops`, `experience_copy`, `experience_photos`, `experience_tags`, `experience_travel` | What the attendee sees: every plan as a one-stop experience, plus combos that chain several plans (D27) | T6 |
+| `plan_travel` | Minutes from each demo venue to each plan, computed from `places` | after T4, T7 |
+| `places`, `routes`, `seasons`, `city_events` | Venues, areas, transit routes, monthly weather and highlights (sunset computed in code) | T7 |
+| `attendees`, `session_attendance`, `events`, `simulation_runs` | Simulated, demo events only | T8 |
+| `city_estimates` | Estimate only: money formula per upcoming listed conference, plus other smaller meetings | T9 |
+| `contacts`, `outreach`, `interviews` | Real outreach, organizations only | T10–T12 |
 
 ## Rules for every research task
 
@@ -57,6 +63,8 @@ C  T7 places and seasons                                                    ┘
 
 ### T0. Recon, then schema (~1.5 h, first)
 
+**Done 2026-11-25:** [data/RECON.md](../data/RECON.md), [schema.sql](../data/scripts/schema.sql).
+
 Look at a few real samples before deciding what to store. Don't collect data yet.
 
 - **Conference lists:** the city MICE page [S1], the Convention Bureau's event list and the Convention Center calendar. What does each give (dates, size, field, link)? How far ahead?
@@ -72,6 +80,7 @@ Sapporo business events from **Dec 2025 to Nov 2027**. No cap: list every event 
 - **Sources:** city MICE page [S1], Sapporo Convention Bureau upcoming and past events, Sapporo Convention Center calendar, big hotels, Hokkaido University. Example searches: "札幌 学術集会 2027", "第◯回 日本◯◯学会 総会 札幌", "札幌コンベンションセンター 開催予定", "international conference Sapporo 2027".
 - **Fields:** `id, name_ja, name_en, start_date, end_date, end_weekday, venue, field, field_detail, scope (international/national/regional), attendees (actual if past, expected if upcoming), overseas_attendees, organizer_or_pco, website_url, program_status (full_online/partial/pdf_only/login_required/not_yet), source_url, confidence, notes`.
 - **Done when:** every row has a source, and a short note lists the top 3 domestic and top 3 international demo candidates.
+- **Done 2026-11-25:** 269 events in `data/micemax.db`; shortlist and gaps in [data/raw/conferences/NOTES.md](../data/raw/conferences/NOTES.md). Rebuild with `.venv/bin/python data/scripts/build_db.py` (see T9).
 
 ### T2. Pick the two demo conferences (human, 15 min)
 
@@ -79,26 +88,38 @@ One big domestic, one big international, both **upcoming in Sapporo, with last y
 
 ### T3. Demo events: last edition and upcoming edition (agent + human check, ~2 h)
 
+**Done 2026-11-25:** JADM32 (210 sessions, 15 windows) and ICEP2027 (71 sessions, 17 windows) from last edition, in `data/raw/programs/`. Windows still need a person's check.
+
 For each demo event:
 
 - **Last edition** (a row in `conferences`): dates, city, attendance, overseas share, who attended (members, residents, industry, co-medical staff) if published. Many national societies move city every year, so last year's edition was probably not in Sapporo. Record its city.
 - **Program** (`sessions`): last edition's full program, moved onto the upcoming Sapporo dates and venue, labelled as such. If the upcoming program is already out, use it instead. Fields: `day, start, end, title_ja, title_en, track, room, type (plenary/symposium/oral/poster/sponsor/social)`, plus receptions and banquets.
-- **Free windows** (`windows`), checked by a person: `day, start, end, kind (early_morning/lunch/evening/free_afternoon/after_close/extra_night), name_ja, name_en`.
+- **Free windows** (`windows`), checked by a person: `day, start, end, kind (early_morning/lunch/evening/free_afternoon/during_program/after_close/extra_night), name_ja, name_en, overlaps_program, overlap_note, plan_kinds`. Windows may overlap sessions people commonly skip (D26).
 - Use the **same shape the app's conference reader outputs**, so these rows double as the reader's test answers.
 
 ### T4. Plan list (research agent, ~3 h)
+
+**Done 2026-11-25:** 88 plans (30 short, 25 evening, 15 extra-night, 18 specialist) in `data/raw/plans/`, 24 tags in `tags.csv`. 8 more added as combo stops in `stops-*.csv` (96 in all). Opening hours as `opens`, `closes` and `leave_by` (extra nights) in `hours.csv`, conservative for March and May. Run `data/scripts/geocode.py` after adding addresses.
 
 Run [prompts/inventory-research.md](prompts/inventory-research.md). 80–100 real items: ~30 short, ~25 evening, ~15 extra-night, ~15 specialist. Extra nights get the most care: all-in price (transport + stay + main activity) and how it was computed. Specialist visits must cover both demo events' fields (re-run that group after T2 if needed).
 
 ### T5. Photos (agent, ~1 h, after T4)
 
+**Done 2026-11-25:** 198 photos for 83 of 88 plans in `data/images/` (plus 15 for the 8 combo stops in `batch-7.csv`), sources in `data/raw/photos/` ([NOTES.md](../data/raw/photos/NOTES.md): gaps and photos to ask owners for), loaded by `import_photos.py`.
+
 2–3 photos per plan, saved as `data/images/<plan_id>/1.jpg`, 1600 px wide, landscape, no text or logos on them, similar mood across plans. Source page of each photo goes in `plan_photos`. Copyrighted photos are fine for the demo (D21). Flag plans with no usable photo.
 
 ### T6. Plan copy in JA and EN (LLM + human check, ~1 h, after T4)
 
+**Done 2026-11-25:** [data/raw/copy/plan_copy.csv](../data/raw/copy/plan_copy.csv) (88 plans, JA and EN, `checked_by_human` = 0), [STYLE.md](../data/raw/copy/STYLE.md), [NOTES.md](../data/raw/copy/NOTES.md); window names polished. `import_copy.py` warns about numbers not in a plan's fields.
+
+**Combos added 2026-11-25:** 13 combos (4 short, 3 evening, 3 extra nights, 3 specialist) in [data/raw/experiences/](../data/raw/experiences/), 8 new stops in `data/raw/plans/stops-*.csv`, combo copy in `experience_copy.csv`. Built by `import_experiences.py`.
+
 Per plan: title, a one-line hook, a 2–3 sentence description, what's included, and "good to know" (cash only, English OK, solo-friendly, last train). Written from `plans` fields only. A Japanese speaker reads the Japanese.
 
 ### T7. Places and seasons (agent, ~1.5 h)
+
+**Done 2026-11-25:** `data/raw/places/` (31 places, 19 routes, 12 months, 20 city events). Recheck JR times after the mid-March 2027 timetable change.
 
 - `places`: demo venues, New Chitose Airport, Sapporo Station, and each area (Odori, Susukino, Otaru, Jozankei, Yoichi, Noboribetsu, Toya…) with lat/lng, travel time and cost from central Sapporo.
 - `seasons`: per month: typical high/low temperature, snow, sunset time, what to wear, seasonal highlights (Snow Festival, lilacs, YOSAKOI Soran, beer gardens, autumn leaves).
@@ -108,15 +129,17 @@ These let the attendee view say "Sunset 18:52, 14 °C, bring a light jacket" or 
 
 ### T8. Simulator (Python, ~4 h, can start with stub data)
 
+**Done 2026-11-25:** [simulate.py](../data/scripts/simulate.py) runs last in `build_db.py` (fixed seed) and prints a check. Experiences are only offered when open (`experiences.start_from`, `start_until`); all-day poster displays and exhibitions don't fill anyone's day; each window's group stays within `party_max`; headlines (`headlines.csv`, D29) are boosted and topped up to their people range, and those people skip clashing sessions. Specialist visits are one person; extra nights book in pairs. Lists in `data/raw/sim/`. About 180 reached per conference; both land inside the Early–Strong range.
+
 `simulate.py` runs once per demo conference. Generic: no demo event names in the code.
 
-**Attendees.** As many as attended the last edition. Fake name JA/EN, role from the conference field and last edition's mix (e.g. ophthalmologist, resident, orthoptist, industry), career stage, home prefecture or country, language, travel party (solo / colleagues / companion), arrival and planned departure, 2–3 interests (food, onsen, nature, running, drinks, culture, shopping), budget band. No real institutions (D23). Home prefectures reflect travelling to Sapporo, not last year's city.
+**Attendees.** min(the conference's attendees, 1,000), keeping the domestic/overseas and country mix (D28). `simulation_runs.scale` (attendees ÷ simulated) scales totals up; label scaled numbers as simulated. Fake name JA/EN, role from the conference field and last edition's mix (e.g. ophthalmologist, resident, orthoptist, industry), career stage, home prefecture or country, language, travel party (solo / colleagues / companion), arrival and planned departure, 2–3 interests (food, onsen, nature, running, drinks, culture, shopping), budget band. No real institutions (D23). Home prefectures reflect travelling to Sapporo, not last year's city.
 
 **Reach.** Only attendees the organizer's link reaches (money model, [04-long-term-plan.md](04-long-term-plan.md#money-model)) get events. The rest exist, so the views can show "% reached".
 
 **Sessions.** Each attendee follows 1–2 tracks and skips some sessions, so their free time is personal, not just the program's gaps.
 
-**Event log** (`events`, same columns as the real log): `event_id, ts, conference_id, attendee_id, plan_id, window_id, event_type (email_opened, page_visited, plan_shown, plan_opened, plan_saved, plan_joined, plan_booked, plan_cancelled, plan_removed_by_organizer), channel (email/qr/site), party_size, price_jpy, simulated`. No names in the log.
+**Event log** (`events`, same columns as the real log): `event_id, ts, conference_id, attendee_id, experience_id, window_id, event_type (email_opened, page_visited, plan_shown, plan_opened, plan_saved, plan_joined, plan_booked, plan_cancelled, plan_removed_by_organizer), channel (email/qr/site), party_size, price_jpy, simulated`. No names in the log.
 
 **Behaviour, varied around the Middle scenario (D22):**
 
@@ -132,23 +155,37 @@ Timing: registration waves, a bump after the organizer's email, extra-night book
 
 ### T9. Push and check (~1 h)
 
+**Done 2026-11-25:** `check_t9.py` passes all 7 checks. Neon has all 29 tables (50,743 rows); Aura and `micemax.rl` have 2,985 nodes and 5,349 relationships. City estimate, Dec 2026 to Nov 2027: 31 listed conferences plus 435 other smaller meetings, 109,311 attendees, Early ¥3.3M, Middle ¥32.5M, Strong ¥167.5M. Drivers change only the extra-night share (as in `simulate.py`, a domestic conference ending Fri or Sat gets the scenario's share); season is a label. Fixed on the way: Tokumitsu Coffee price (¥650), Noboribetsu combo hotel stop (¥26,920, so the combo is ¥32,960).
+
+How to rebuild and push (packages in [data/requirements.txt](../data/requirements.txt); connection details in `.env`):
+
+```
+uv venv .venv && uv pip install --python .venv/bin/python -r data/requirements.txt
+.venv/bin/python data/scripts/build_db.py     # SQLite, city estimate, simulation, graph file
+.venv/bin/python data/scripts/push_neon.py    # wipe and reload every table in Neon
+.venv/bin/python data/scripts/push_neo4j.py   # wipe Aura in batches, load the graph from micemax.rl
+.venv/bin/python data/scripts/check_t9.py
+relate query --read-only -d data/micemax.rl < data/graph-examples.cypher
+```
+
 Run `push_neon.py` and `push_neo4j.py`. Check:
 
 - Each demo event's estimated new money sits inside the money model's Early–Strong range for its size.
 - The city view's "next 12 months" figure is the money formula applied to each listed upcoming conference's stats, using the same drivers as the table above, plus one "other smaller meetings" row for the rest of the city's yearly total (about 466 events and 109,311 attendees [S1] minus the listed ones). Labelled as an estimate.
-- No plan shows a price, time or place that isn't in `plans`.
-- Real-looking variety: no plan nobody picks, no plan everybody picks.
+- No experience shows a price, time or place that isn't in `plans` or `experience_stops`.
+- Real-looking variety: no experience everybody picks. Some nobody picks is fine (D28).
 - Everything simulated carries the label.
 
 ## Built for the UI
 
 Store data in the shape the screens need, so the app doesn't patch it later. Include these in the schema (T0):
 
-- **Photos:** width, height, dominant colour (for a coloured placeholder while loading), focal point (for clean crops at any size), alt text JA/EN, and one `is_hero` photo per plan.
+- **Photos:** width, height, dominant colour (for a coloured placeholder while loading), focal point (for clean crops at any size), alt text JA/EN, and one `is_hero` photo per experience.
 - **Copy at fixed lengths:** card title (JA up to 16 characters, EN up to 40), one-line hook, detail text. Cards never truncate mid-word.
 - **One tag list** of about 20 tags, each with a JA/EN label and an icon name. Research tags are mapped to it on import.
-- **Travel time from each demo venue to each plan** (walk or transit minutes), worked out once from `places`, so cards can say "8 min walk".
+- **Travel time from each demo venue to each experience** (walk or transit minutes to its first stop), worked out once from `places`, so cards can say "8 min walk".
 - **Prices as one all-in number** per person plus what's included, so the UI never adds prices together.
+- **Experiences, not plans** (D27): the UI reads `experiences`. A combo lists its stops in order with time at each, travel between them and what you do there, so a card can show a timeline.
 - **Field content** from outreach ([08-outreach-plan.md](08-outreach-plan.md)): partner status, owner tips and our own photos.
 
 

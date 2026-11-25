@@ -11,7 +11,7 @@ Apply these guidelines in every agent session.
 
 # Project overview
 
-MiceMax helps people visiting Hokkaido for business events (MICE) spend more locally: it reads a conference's website, finds attendees' free time and offers plans that fit (extra night first, then short activities, then specialist visits). Built for a 2-day hackathon in Sapporo. Organizer, attendee and city views share one conference link.
+MiceMax helps people visiting Hokkaido for business events (MICE) spend more locally: it reads a conference's website, finds attendees' free time and offers experiences that fit (extra night first, then short activities, then specialist visits). Built for a 2-day hackathon in Sapporo. Organizer, attendee and city views share one conference link.
 
 ## Files
 
