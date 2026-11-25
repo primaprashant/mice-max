@@ -9,26 +9,53 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Geist Mono";
+  src: url("https://cdn.jsdelivr.net/npm/geist@1/dist/fonts/geist-mono/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 @theme {
-  /* Conference sessions (organizer theme color) */
-  --color-theme: oklch(0.42 0.09 240);
-  --color-theme-soft: oklch(0.95 0.02 240);
-  --color-theme-strong: oklch(0.32 0.07 240);
+  /* Neutrals: Slate scale. Same token names as before so existing pages keep working. */
+  --color-paper: #f8fafc; /* Slate-50, page background */
+  --color-ink: #1e293b; /* Slate-800, strong text */
+  --color-ink-soft: #64748b; /* Slate-500, muted text */
 
-  /* MiceMax events (banana yellow) */
-  --color-banana: oklch(0.85 0.16 95);
-  --color-banana-soft: oklch(0.96 0.05 95);
+  /* Accent (primary actions, links, focus): the single accent color. */
+  --color-theme: #2563eb;
+  --color-theme-strong: #1e40af;
+  --color-theme-soft: #eff6ff;
 
-  /* Neutrals */
-  --color-paper: oklch(0.985 0.002 240);
-  --color-ink: oklch(0.2 0.01 240);
-  --color-ink-soft: oklch(0.45 0.01 240);
+  /* MiceMax events marker: desaturated gold, a data category color,
+     never a CTA. Deep enough to pass 4.5:1 on its soft background. */
+  --color-banana: #b45309;
+  --color-banana-soft: #fef3c7;
+
+  /* Session-type tints for the day grid: light background of a hue with dark
+     text of the same hue, same tint depth as banana-soft. */
+  --color-session-oral: #dbeafe;
+  --color-session-oral-ink: #1e3a5f;
+  --color-session-symposium: #e0e7ff;
+  --color-session-symposium-ink: #312e81;
+  --color-session-poster: #dcfce7;
+  --color-session-poster-ink: #14532d;
+  --color-session-sponsor: #fef3c7;
+  --color-session-sponsor-ink: #78350f;
+  --color-session-social: #ffe4e6;
+  --color-session-social-ink: #881337;
+  --color-session-other: #f1f5f9;
+  --color-session-other-ink: #334155;
 
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", monospace;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
 }
 
 :focus-visible {
   outline: 2px solid var(--color-theme);
   outline-offset: 2px;
+}
+
+body {
+  text-underline-offset: 2px;
 }
