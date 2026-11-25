@@ -32,11 +32,13 @@ All other conferences get **stats only** (dates, size, field, scope), no individ
 
 | Table | Rows | Filled by |
 |---|---|---|
-| `conferences` | Every Sapporo event we can find, Dec 2025–Nov 2027, plus the previous edition of each demo event | T1, T3 |
+| `conferences`, `conference_venues` | Every Sapporo event we can find, Dec 2025–Nov 2027, plus the previous edition of each demo event | T1, T3 |
 | `sessions`, `windows` | Program and free-time windows of the demo events | T3 |
-| `plans`, `plan_photos`, `plan_copy` | 80–100 real plans, their photos, JA/EN text | T4–T6 |
-| `places`, `seasons`, `city_events` | Venues, areas, travel times, monthly weather and highlights | T7 |
+| `plans`, `plan_photos`, `plan_copy`, `tags`, `plan_tags` | 80–100 real plans, their photos, JA/EN text, ~20 tags | T4–T6 |
+| `plan_travel` | Minutes from each demo venue to each plan, computed from `places` | after T4, T7 |
+| `places`, `routes`, `seasons`, `city_events` | Venues, areas, transit routes, monthly weather and highlights (sunset computed in code) | T7 |
 | `attendees`, `session_attendance`, `events` | Simulated, demo events only | T8 |
+| `contacts`, `outreach`, `interviews` | Real outreach, organizations only | T10–T12 |
 
 ## Rules for every research task
 
@@ -56,6 +58,8 @@ C  T7 places and seasons                                                    ┘
 ```
 
 ### T0. Recon, then schema (~1.5 h, first)
+
+**Done 2026-11-25:** [data/RECON.md](../data/RECON.md), [schema.sql](../data/scripts/schema.sql).
 
 Look at a few real samples before deciding what to store. Don't collect data yet.
 
