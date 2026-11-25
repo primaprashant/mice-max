@@ -1,11 +1,12 @@
 """Rebuild data/micemax.db from schema.sql and the raw files. Safe to re-run.
 
-Usage: python3 data/scripts/build_db.py
+Usage: .venv/bin/python data/scripts/build_db.py  (packages: data/requirements.txt)
 """
 import datetime as dt
 import sqlite3
 from pathlib import Path
 
+import build_graph
 import city_estimate
 import compute_travel
 import import_copy
@@ -43,6 +44,7 @@ def main():
         n = db.execute(f"SELECT count(*) FROM {table}").fetchone()[0]
         if n:
             print(f"{table}: {n}")
+    build_graph.load(db)
 
 
 if __name__ == "__main__":
