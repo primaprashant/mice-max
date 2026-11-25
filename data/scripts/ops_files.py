@@ -21,5 +21,24 @@ def call_row(cid):
              "artifact": audio if audio and (REPO / audio).exists() else None, "simulated": 1}]
 
 
-def rows(cid):
-    return call_row(cid)
+def qa_rows(cid, start_date):
+    path = OPS / cid / "qa.json"
+    if not path.exists():
+        return []
+    qa = json.loads(path.read_text())
+    out = []
+    for n, q in enumerate(sorted(qa["items"], key=lambda q: q["ts"]), 1):
+        org = q["who"] == "organizer"
+        out.append({"id": f"{cid}-qa-{n:02d}", "conference_id": cid, "ts": q["ts"],
+                    "phase": "before" if q["ts"][:10] < start_date else "during",
+                    "agent": "analyst" if org else "concierge", "tool": "llm", "model": qa["written_by"]["model"],
+                    "title_ja": "主催者からの質問" if org else "参加者からの質問",
+                    "title_en": "Organizer question" if org else "Attendee question",
+                    "handed_to_human": int(q["handed_to_human"]),
+                    "summary_ja": f"Q：{q['q_ja']}\nA：{q['a_ja']}", "summary_en": f"Q: {q['q_en']}\nA: {q['a_en']}",
+                    "output": {"label_ja": qa["label_ja"], "label_en": qa["label_en"], **q}, "simulated": 1})
+    return out
+
+
+def rows(cid, start_date):
+    return call_row(cid) + qa_rows(cid, start_date)

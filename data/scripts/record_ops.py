@@ -32,4 +32,5 @@ def load(db):
             hour=10, minute=0, second=0).isoformat()  # organizer pastes the URL the day before the first email
         insert(db, ops_setup.rows(db, cid, setup_ts))
         insert(db, ops_events.rows(db, cid))
-        insert(db, ops_files.rows(cid))
+        start = db.execute("SELECT start_date FROM conferences WHERE id = ?", (cid,)).fetchone()[0]
+        insert(db, ops_files.rows(cid, start))
