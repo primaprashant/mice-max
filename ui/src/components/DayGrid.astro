@@ -5,6 +5,7 @@
  * (my-plans) add their own blocks with the same positioning rules. */
 import { type Lang } from "../i18n";
 import type { Session, Window as FreeWindow } from "../data/types";
+import { layoutBlocks, toMinutes } from "../scripts/layout";
 
 interface Props {
   lang?: Lang;
@@ -31,7 +32,6 @@ const gridStart = `${firstStart.slice(0, 2)}:00`;
 const gridEndHour = Number(lastEnd.slice(0, 2)) + (lastEnd.slice(3) !== "00" ? 1 : 0);
 const gridEnd = `${String(gridEndHour).padStart(2, "0")}:00`;
 
-const toMinutes = (time: string) => Number(time.slice(0, 2)) * 60 + Number(time.slice(3, 5));
 const gridStartMin = toMinutes(gridStart);
 const gridEndMin = toMinutes(gridEnd);
 const pos = (time: string) => ((toMinutes(time) - gridStartMin) / (gridEndMin - gridStartMin)) * 100;
@@ -42,14 +42,14 @@ const hourLabels = Array.from({ length: HOUR_LINE_COUNT + 1 }, (_, i) => `${Stri
 // Colors per session type: tinted backgrounds with dark text of the same hue,
 // same tint depth as banana-soft so everything reads at the same level.
 const TYPE_STYLES: Record<string, string> = {
-  oral: "bg-[#dbeafe] text-[#1e3a5f]",
-  symposium: "bg-[#e0e7ff] text-[#312e81]",
-  poster: "bg-[#dcfce7] text-[#14532d]",
-  sponsor: "bg-[#fef3c7] text-[#78350f]",
-  social: "bg-[#ffe4e6] text-[#881337]",
-  plenary: "bg-[#dbeafe] text-[#1e3a5f]",
-  excursion: "bg-[#dcfce7] text-[#14532d]",
-  other: "bg-slate-100 text-slate-700",
+  oral: "bg-session-oral text-session-oral-ink",
+  symposium: "bg-session-symposium text-session-symposium-ink",
+  poster: "bg-session-poster text-session-poster-ink",
+  sponsor: "bg-session-sponsor text-session-sponsor-ink",
+  social: "bg-session-social text-session-social-ink",
+  plenary: "bg-session-oral text-session-oral-ink",
+  excursion: "bg-session-poster text-session-poster-ink",
+  other: "bg-session-other text-session-other-ink",
 };
 
 // Positioning blocks for one day: sessions, windows, and client plans.
@@ -66,41 +66,7 @@ const blocks: GridBlock[] = [
   ...windows.map((w) => ({ start: w.start_time, end: w.end_time, kind: "window" as const, win: w })),
 ];
 
-// Google Calendar overlap layout: sort by start; walk through and cut the day
-// into clusters of overlapping blocks; within a cluster each block takes the
-// first column free at its start (a column frees when its events end); the
-// cluster's column count is the max simultaneous count, so each block spans
-// width / count, offset by column.
-const sorted = [...blocks].sort((a, b) => a.start.localeCompare(b.start) || b.end.localeCompare(a.end));
-type Placed = GridBlock & { col: number; cols: number };
-const placed: Placed[] = [];
-
-let cluster: { block: GridBlock; col: number }[] = [];
-let colEnds: number[] = [];
-let clusterEnd = -1;
-
-function flushCluster() {
-  if (cluster.length === 0) return;
-  for (const c of cluster) placed.push({ ...c.block, col: c.col, cols: colEnds.length });
-  cluster = [];
-  colEnds = [];
-  clusterEnd = -1;
-}
-
-for (const block of sorted) {
-  const startMin = toMinutes(block.start);
-  if (cluster.length > 0 && startMin >= clusterEnd) flushCluster();
-  let col = colEnds.findIndex((end) => end <= startMin);
-  if (col === -1) {
-    col = colEnds.length;
-    colEnds.push(toMinutes(block.end));
-  } else {
-    colEnds[col] = Math.max(colEnds[col], toMinutes(block.end));
-  }
-  cluster.push({ block, col });
-  clusterEnd = Math.max(clusterEnd, toMinutes(block.end));
-}
-flushCluster();
+const placed = layoutBlocks(blocks);
 ---
 
 <div class="grid min-w-[640px] grid-cols-[3.5rem_1fr] text-xs" data-day-grid data-grid-start={gridStart} data-grid-end={gridEnd}>
