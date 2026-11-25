@@ -22,6 +22,7 @@
     "namePlaceholder": "山田花子",
     "password": "パスワード",
     "passwordHint": "このデモでは確認しません。どの値でも動作します。",
+    "consent": "このデモでのクリックや予約を、氏名やメールアドレスなしで記録し、サービス改善に使うことに同意します。",
     "enter": "ログイン",
     "photoCreditSuffix": "写真：Unsplash",
     "photoOdoriParkTvTowerSummer": "夏の大通公園とテレビ塔",
