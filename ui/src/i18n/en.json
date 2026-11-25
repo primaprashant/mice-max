@@ -26,6 +26,7 @@
   },
   "calendar": {
     "banner": "{windowName} is free. {n} plans fit.",
+    "scrollHint": "Scroll right to see all rooms",
     "yourPlans": "Your plan",
     "moment": "High {high}°C, low {low}°C. Sunset {sunset}. {wear}",
     "whatsOn": "On in the city: {what}",

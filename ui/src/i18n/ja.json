@@ -26,6 +26,7 @@
   },
   "calendar": {
     "banner": "{windowName}は空いています。合うプランが{n}件あります。",
+    "scrollHint": "右にスクロールすると全ての会場が見られます",
     "yourPlans": "あなたのプラン",
     "moment": "最高{high}°C、最低{low}°C。日の入りは{sunset}。{wear}",
     "whatsOn": "市内で開催中：{what}",

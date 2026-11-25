@@ -192,6 +192,15 @@ export function conferenceById(id: string): Conference | undefined {
   return row ? mapConference(row) : undefined;
 }
 
+/** The conference's main venue place, for the day header (name, address). */
+export function mainVenue(placeId: string | null): { name_ja: string; name_en: string; address: string | null } | undefined {
+  if (!placeId) return undefined;
+  const row = getDb()
+    .prepare(`SELECT name_ja, name_en, address FROM places WHERE id = ?`)
+    .get(placeId) as { name_ja: string; name_en: string; address: string | null } | undefined;
+  return row;
+}
+
 export function sessionsForConference(conferenceId: string): Session[] {
   const rows = getDb()
     .prepare(`SELECT * FROM sessions WHERE conference_id = ? ORDER BY day, start_time`)

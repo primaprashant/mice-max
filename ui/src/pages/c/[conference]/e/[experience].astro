@@ -54,7 +54,7 @@ const priceLine = (() => {
         width={photos[0].width}
         height={photos[0].height}
         class="mt-4 aspect-[16/9] w-full rounded-xl object-cover"
-        style={`background-color: ${photos[0].dominant_color ?? "#ddd"}`}
+        style={`background-color: ${photos[0].dominant_color ?? "var(--color-placeholder)"}`}
       />
     )}
 
@@ -145,7 +145,7 @@ const priceLine = (() => {
             width={p.width}
             height={p.height}
             class="aspect-[4/3] w-full rounded-lg object-cover"
-            style={`background-color: ${p.dominant_color ?? "#ddd"}`}
+            style={`background-color: ${p.dominant_color ?? "var(--color-placeholder)"}`}
           />
         ))}
       </div>
