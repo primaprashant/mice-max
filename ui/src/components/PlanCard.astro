@@ -1,42 +1,74 @@
 ---
 /** One calendar block or card for any plan: sessions in theme color,
- * MiceMax experiences in banana yellow. Used by attendee and organizer views. */
+ * MiceMax experiences in banana yellow. Used by attendee and organizer views.
+ * The "suggest" variant is the square-image plan card under the day grid:
+ * hero photo on top, title and price, hook, tag pills, availability and
+ * duration at the bottom. */
 import { t, type Lang } from "../i18n";
-import type { Experience } from "../data/types";
+import { experiencePhotos } from "../data";
+import type { Experience, Tag } from "../data/types";
 
 interface Props {
   lang?: Lang;
-  /** "row" is the compact calendar block; "card" is the rich experience card. */
-  variant?: "row" | "card";
+  /** "row" is the compact calendar block; "suggest" is the rich plan card. */
+  variant?: "row" | "suggest";
   /** For row blocks: the time span to show. */
   time?: { start: string; end: string };
   title: string;
-  /** Set for experience rows/cards; sessions pass no kindLabel. */
   kindLabel?: string;
   hook?: string;
   experience?: Experience;
+  /** Suggest-card extras. */
+  tags?: Tag[];
+  /** Availability as display strings, e.g. ["03/18", "03/19"]. */
+  offered?: string[];
+  durationMin?: number | null;
+  /** Organizer stats line and action. */
+  stats?: { shown: number; joined: number };
+  removable?: boolean;
+  /** Link target and filter payload. */
+  href?: string;
+  suggestId?: string;
+  suggestWindow?: string;
+  tagIds?: string;
+  /** Wrapper element: attendee cards are <a>, organizer cards <div>. */
+  as?: "a" | "div";
   class?: string;
 }
 
-const { lang = "en", variant = "row", time, title, kindLabel, hook, experience, class: className } = Astro.props;
+const TAGS_PER_CARD = 3;
+
+const { lang = "en", variant = "row", time, title, kindLabel, hook, experience, tags = [], offered = [], durationMin = null, stats, removable = false, href, suggestId, suggestWindow, tagIds, as = "a", class: className } = Astro.props;
 
 const rowClass = kindLabel
   ? "bg-banana-soft text-ink border-l-4 border-banana"
   : "bg-theme-soft text-theme-strong border-l-4 border-theme";
-const cardClass = "bg-banana-soft border border-banana";
 
 const priceLabel = (() => {
   if (!experience || experience.price_jpy == null) return null;
   if (experience.price_jpy === 0) return t(lang, "common.free");
-  const base = "¥" + experience.price_jpy.toLocaleString("ja-JP");
-  if (experience.price_max_jpy != null) {
-    return t(lang, "common.priceFrom", { price: base });
-  }
-  return base;
+  return "¥" + experience.price_jpy.toLocaleString("ja-JP");
 })();
+
+const Wrapper = as;
+const hero = experience ? pickHero(experience.id) : null;
+
+function pickHero(id: string) {
+  const photos = experiencePhotos(id);
+  return photos.find((p) => p.is_hero) ?? photos[0] ?? null;
+}
 ---
 
-<div class:list={["rounded-lg", variant === "row" ? rowClass : cardClass, className]}>
+<Wrapper
+  href={as === "a" ? href : undefined}
+  data-suggest={suggestId}
+  data-suggest-window={suggestWindow}
+  data-tags={tagIds}
+  class:list={[
+    variant === "row" ? `rounded-md ${rowClass}` : "group flex flex-col overflow-hidden rounded-md bg-banana-soft border border-banana transition-transform active:scale-[0.98]",
+    className,
+  ]}
+>
   {
     variant === "row" ? (
       <div class="flex items-baseline gap-3 px-3 py-2">
@@ -48,12 +80,67 @@ const priceLabel = (() => {
         <span class="truncate text-sm font-medium">{title}</span>
       </div>
     ) : (
-      <div class="flex flex-col gap-1.5 p-4">
-        {kindLabel && <span class="text-xs font-medium uppercase tracking-wide text-ink-soft">{kindLabel}</span>}
-        <h3 class="text-base font-semibold leading-snug">{title}</h3>
-        {hook && <p class="text-sm text-ink-soft">{hook}</p>}
-        {priceLabel && <p class="font-mono text-sm font-medium tabular-nums">{priceLabel}</p>}
-      </div>
+      <>
+        {hero ? (
+          <img
+            src={hero.path}
+            alt={(lang === "ja" ? hero.alt_ja : hero.alt_en) ?? ""}
+            width={hero.width}
+            height={hero.height}
+            class="mx-auto mt-3 aspect-square w-[calc(100%-1.5rem)] rounded-md object-cover"
+            style={`background-color: ${hero.dominant_color ?? "var(--color-placeholder)"}`}
+          />
+        ) : (
+          <div class="mx-auto mt-3 aspect-square w-[calc(100%-1.5rem)] rounded-md bg-banana-soft/60 border border-banana/40" aria-hidden="true"></div>
+        )}
+        <div class="flex flex-1 flex-col p-3 pt-2">
+          <div class="flex items-baseline justify-between gap-3">
+            <span class="text-sm font-semibold leading-snug">{title}</span>
+            {priceLabel && (
+              <span class="font-mono text-xs font-medium tabular-nums">{priceLabel}</span>
+            )}
+          </div>
+          {hook && <p class="mt-1 line-clamp-2 text-xs text-ink-soft">{hook}</p>}
+          {tags.length > 0 && (
+            <div class="mt-2 flex flex-wrap gap-1 pb-1">
+              {tags.slice(0, TAGS_PER_CARD).map((tg) => (
+                <span class="rounded-full bg-banana/25 px-1.5 py-0.5 text-[10px] text-ink">
+                  <i class={`ph ph-${tg.icon} mr-0.5 text-[10px]`} aria-hidden="true"></i>
+                  {lang === "ja" ? tg.label_ja : tg.label_en}
+                </span>
+              ))}
+            </div>
+          )}
+          <div class="mt-auto flex items-center justify-between gap-2.5 pt-2 text-[10px] font-medium uppercase tracking-wide text-ink-soft/80">
+            <span class="flex items-center gap-0.5">
+              <i class="ph ph-calendar-blank text-[12px]" aria-hidden="true"></i>
+              {offered.join(", ")}
+            </span>
+            {durationMin != null && (
+              <span class="flex items-center gap-0.5">
+                <i class="ph ph-clock text-[12px]" aria-hidden="true"></i>
+                {t(lang, "common.minutes", { n: durationMin })}
+              </span>
+            )}
+          </div>
+        </div>
+        {stats && (
+          <div class="flex items-center justify-between gap-2 border-t border-banana/25 px-3 pb-3 pt-2">
+            <p class="text-[11px] text-ink-soft">
+              <span class="font-mono tabular-nums">{stats.shown}</span> {t(lang, "organizer.shown")}
+              <span class="ml-2 font-mono tabular-nums">{stats.joined}</span> {t(lang, "organizer.joined")}
+            </p>
+            {removable && (
+              <button
+                data-action="remove"
+                class="min-h-11 rounded-md border border-ink/15 bg-paper px-3 text-xs font-medium transition-transform active:scale-[0.97] hover:bg-ink/5"
+              >
+                {t(lang, "organizer.remove")}
+              </button>
+            )}
+          </div>
+        )}
+      </>
     )
   }
-</div>
+</Wrapper>

@@ -112,7 +112,7 @@ const sampleSession = firstSession
         </div>
         <div class="flex flex-col gap-3">
           {sampleExperiences.map(({ experience, copy }) => (
-            <PlanCard lang={lang} variant="card" kindLabel={t(lang, `experienceKind.${experience.kind}`)} title={copy.card_title} hook={copy.hook} experience={experience} />
+            <PlanCard lang={lang} variant="suggest" kindLabel={t(lang, `experienceKind.${experience.kind}`)} title={copy.card_title} hook={copy.hook} experience={experience} />
           ))}
         </div>
       </div>
