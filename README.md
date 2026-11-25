@@ -49,7 +49,7 @@ Open the printed URL (default `http://localhost:4321`). The home page (`/`) link
 | Variable | App | Required | Purpose |
 |---|---|---|---|
 | `DATABASE_URL` | backend | no | Neon Postgres connection string; unset means event-log writes return 503 |
-| `CORS_ORIGINS` | backend | no | Comma-separated allowed origins, default `*` |
+| `CORS_ORIGINS` | backend | no | Comma-separated allowed origins. Unset means same-origin only; set `*` when the UI calls the backend from another origin in development |
 | `MICEMAX_DB` | backend | no | Override the SQLite path (default: `data/micemax.db` in the repo root) |
 
 ## Layout
