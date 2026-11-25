@@ -8,6 +8,7 @@ import datetime as dt
 import json
 
 import ops_events
+import ops_files
 import ops_setup
 
 COLS = ["id", "conference_id", "phase", "ts", "step", "agent", "title_ja", "title_en", "tool", "model", "mode",
@@ -31,3 +32,4 @@ def load(db):
             hour=10, minute=0, second=0).isoformat()  # organizer pastes the URL the day before the first email
         insert(db, ops_setup.rows(db, cid, setup_ts))
         insert(db, ops_events.rows(db, cid))
+        insert(db, ops_files.rows(cid))
