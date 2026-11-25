@@ -1,6 +1,6 @@
 # MiceMax: data plan (hackathon)
 
-What data the demo needs, where it comes from, where it is stored and who builds it. Each task below can be handed to one person or agent. Decisions behind it: D7, D11, D14, D17, D21–D25 in [05-decisions-and-open-questions.md](05-decisions-and-open-questions.md).
+What data the demo needs, where it comes from, where it is stored and who builds it. Each task below can be handed to one person or agent. Decisions behind it: D7, D11, D14, D17, D21–D25, D28 in [05-decisions-and-open-questions.md](05-decisions-and-open-questions.md).
 
 ## Goal
 
@@ -38,7 +38,7 @@ All other conferences get **stats only** (dates, size, field, scope), no individ
 | `experiences`, `experience_stops`, `experience_copy`, `experience_photos`, `experience_tags`, `experience_travel` | What the attendee sees: every plan as a one-stop experience, plus combos that chain several plans (D27) | T6 |
 | `plan_travel` | Minutes from each demo venue to each plan, computed from `places` | after T4, T7 |
 | `places`, `routes`, `seasons`, `city_events` | Venues, areas, transit routes, monthly weather and highlights (sunset computed in code) | T7 |
-| `attendees`, `session_attendance`, `events` | Simulated, demo events only | T8 |
+| `attendees`, `session_attendance`, `events`, `simulation_runs` | Simulated, demo events only | T8 |
 | `contacts`, `outreach`, `interviews` | Real outreach, organizations only | T10–T12 |
 
 ## Rules for every research task
@@ -126,9 +126,11 @@ These let the attendee view say "Sunset 18:52, 14 °C, bring a light jacket" or 
 
 ### T8. Simulator (Python, ~4 h, can start with stub data)
 
+**Done 2026-11-25:** [simulate.py](../data/scripts/simulate.py) runs last in `build_db.py` (fixed seed) and prints a check. Lists in `data/raw/sim/`. About 180 reached per conference; both land inside the Early–Strong range.
+
 `simulate.py` runs once per demo conference. Generic: no demo event names in the code.
 
-**Attendees.** As many as attended the last edition. Fake name JA/EN, role from the conference field and last edition's mix (e.g. ophthalmologist, resident, orthoptist, industry), career stage, home prefecture or country, language, travel party (solo / colleagues / companion), arrival and planned departure, 2–3 interests (food, onsen, nature, running, drinks, culture, shopping), budget band. No real institutions (D23). Home prefectures reflect travelling to Sapporo, not last year's city.
+**Attendees.** min(the conference's attendees, 1,000), keeping the domestic/overseas and country mix (D28). `simulation_runs.scale` (attendees ÷ simulated) scales totals up; label scaled numbers as simulated. Fake name JA/EN, role from the conference field and last edition's mix (e.g. ophthalmologist, resident, orthoptist, industry), career stage, home prefecture or country, language, travel party (solo / colleagues / companion), arrival and planned departure, 2–3 interests (food, onsen, nature, running, drinks, culture, shopping), budget band. No real institutions (D23). Home prefectures reflect travelling to Sapporo, not last year's city.
 
 **Reach.** Only attendees the organizer's link reaches (money model, [04-long-term-plan.md](04-long-term-plan.md#money-model)) get events. The rest exist, so the views can show "% reached".
 
@@ -155,7 +157,7 @@ Run `push_neon.py` and `push_neo4j.py`. Check:
 - Each demo event's estimated new money sits inside the money model's Early–Strong range for its size.
 - The city view's "next 12 months" figure is the money formula applied to each listed upcoming conference's stats, using the same drivers as the table above, plus one "other smaller meetings" row for the rest of the city's yearly total (about 466 events and 109,311 attendees [S1] minus the listed ones). Labelled as an estimate.
 - No experience shows a price, time or place that isn't in `plans` or `experience_stops`.
-- Real-looking variety: no plan nobody picks, no plan everybody picks.
+- Real-looking variety: no experience everybody picks. Some nobody picks is fine (D28).
 - Everything simulated carries the label.
 
 ## Built for the UI

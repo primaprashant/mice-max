@@ -34,6 +34,7 @@ Made on 2026-11-24 unless noted. To change one, update this table and the brief 
 | D26 | **Free-time windows may overlap the program.** Pick each window by the kind of experience it suits (e.g. a 2-hour visit during parallel sessions or posters), not only gaps where nothing runs. Mark the overlap on the window. | Nobody attends every session, especially at long conferences (team experience). Strict gaps leave Japanese meetings, which run ~7:50–19:20, almost only evenings. |
 | D20 | **The "attendees like you picked…" stretch goal starts with plain counts** ("Attendees at your conference signed up for…", "Attendees in Sapporo this week signed up for…") before any similarity matching. | Seeing who is joining sparks more joins, and counts need no ML. |
 | D27 | **The attendee sees experiences, not plans.** An experience is one plan or a combo of several (e.g. lamb dinner, then a closing parfait), with one all-in price and a timeline. Plans are the ingredients. | Single listings are what Tabelog and Hot Pepper already do (Q8); combos that fit a free window show local know-how. Decided with the user, 2026-11-25. |
+| D28 | **Simulate at most 1,000 attendees per demo conference and store the scale factor** (`simulation_runs.scale`), so views and estimates scale totals up to the real size. Some experiences nobody picks is fine. | 1,000 is enough for popular picks and "join others" to emerge, and keeps the build fast. Unpicked experiences look like real life. Decided with the user, 2026-11-25. |
 
 ## Open questions
 

@@ -14,6 +14,7 @@ import import_photos
 import import_places
 import import_plans
 import import_programs
+import simulate
 
 DATA = Path(__file__).resolve().parent.parent
 DB = DATA / "micemax.db"
@@ -33,6 +34,7 @@ def main():
     import_photos.load(db, raw / "photos", DATA / "images", dt.date.today().isoformat())
     compute_travel.load(db)
     import_experiences.load(db, raw / "experiences", raw / "copy")
+    simulate.load(db)
     db.commit()
     for (table,) in db.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"):
         n = db.execute(f"SELECT count(*) FROM {table}").fetchone()[0]

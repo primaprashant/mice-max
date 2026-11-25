@@ -1,0 +1,70 @@
+{
+  "physician": {"ja": "医師", "en": "Physician", "stages": [
+    {"stage": "resident", "ja": "研修医", "en": "Resident", "share": 0.2},
+    {"stage": "junior", "ja": "若手医師", "en": "Junior physician", "share": 0.3},
+    {"stage": "mid_career", "ja": "中堅医師", "en": "Mid-career physician", "share": 0.3},
+    {"stage": "senior", "ja": "部長クラス", "en": "Senior (department head level)", "share": 0.2}
+  ]},
+  "nurse": {"ja": "看護師", "en": "Nurse", "stages": [
+    {"stage": "staff", "ja": "一般看護師", "en": "Staff nurse", "share": 0.45},
+    {"stage": "senior", "ja": "主任看護師", "en": "Senior nurse", "share": 0.3},
+    {"stage": "manager", "ja": "看護師長", "en": "Nurse manager", "share": 0.25}
+  ]},
+  "pharmacist": {"ja": "薬剤師", "en": "Pharmacist", "stages": [
+    {"stage": "junior", "ja": "若手薬剤師", "en": "Junior pharmacist", "share": 0.4},
+    {"stage": "mid_career", "ja": "中堅薬剤師", "en": "Mid-career pharmacist", "share": 0.35},
+    {"stage": "senior", "ja": "薬局長・部長", "en": "Senior pharmacist", "share": 0.25}
+  ]},
+  "co_medical": {"ja": "医療技術職", "en": "Allied health professional", "stages": [
+    {"stage": "junior", "ja": "若手技師", "en": "Junior technologist", "share": 0.45},
+    {"stage": "mid_career", "ja": "中堅技師", "en": "Mid-career technologist", "share": 0.35},
+    {"stage": "senior", "ja": "主任技師", "en": "Chief technologist", "share": 0.2}
+  ]},
+  "logistics_admin": {"ja": "物流・事務職", "en": "Logistics and admin", "stages": [
+    {"stage": "staff", "ja": "一般職員", "en": "Staff", "share": 0.5},
+    {"stage": "section_chief", "ja": "課長", "en": "Section chief", "share": 0.3},
+    {"stage": "manager", "ja": "部長", "en": "Manager", "share": 0.2}
+  ]},
+  "paramedic_fire": {"ja": "救急・消防", "en": "Paramedic and firefighter", "stages": [
+    {"stage": "field_staff", "ja": "現場隊員", "en": "Field staff", "share": 0.6},
+    {"stage": "instructor", "ja": "指導員", "en": "Instructor", "share": 0.25},
+    {"stage": "chief", "ja": "隊長・署長", "en": "Chief", "share": 0.15}
+  ]},
+  "government": {"ja": "行政職員", "en": "Government official", "stages": [
+    {"stage": "staff", "ja": "主任・係員", "en": "Staff", "share": 0.5},
+    {"stage": "section_chief", "ja": "課長", "en": "Section chief", "share": 0.3},
+    {"stage": "director", "ja": "部長", "en": "Director", "share": 0.2}
+  ]},
+  "sdf_police": {"ja": "自衛隊・警察", "en": "SDF or police", "stages": [
+    {"stage": "junior", "ja": "若手隊員・巡査", "en": "Junior officer", "share": 0.5},
+    {"stage": "mid_career", "ja": "中堅幹部", "en": "Mid-career officer", "share": 0.3},
+    {"stage": "senior", "ja": "上級幹部", "en": "Senior officer", "share": 0.2}
+  ]},
+  "student": {"ja": "学生", "en": "Student", "stages": [
+    {"stage": "undergraduate", "ja": "学部生", "en": "Undergraduate", "share": 0.5},
+    {"stage": "masters", "ja": "修士課程", "en": "Master's student", "share": 0.3},
+    {"stage": "phd", "ja": "博士課程", "en": "PhD student", "share": 0.2}
+  ]},
+  "industry": {"ja": "企業会社員", "en": "Corporate employee", "stages": [
+    {"stage": "staff", "ja": "一般社員", "en": "Staff", "share": 0.5},
+    {"stage": "manager", "ja": "課長・マネージャー", "en": "Manager", "share": 0.3},
+    {"stage": "executive", "ja": "部長・役員", "en": "Executive", "share": 0.2}
+  ]},
+  "industry_engineer": {"ja": "技術者", "en": "Engineer", "stages": [
+    {"stage": "junior", "ja": "若手エンジニア", "en": "Junior engineer", "share": 0.35},
+    {"stage": "mid", "ja": "中堅エンジニア", "en": "Mid-level engineer", "share": 0.35},
+    {"stage": "senior", "ja": "シニアエンジニア", "en": "Senior engineer", "share": 0.2},
+    {"stage": "manager", "ja": "技術部長", "en": "Engineering manager", "share": 0.1}
+  ]},
+  "academic_researcher": {"ja": "研究者", "en": "Academic researcher", "stages": [
+    {"stage": "postdoc", "ja": "ポスドク", "en": "Postdoc", "share": 0.35},
+    {"stage": "assistant_prof", "ja": "助教", "en": "Assistant professor", "share": 0.25},
+    {"stage": "associate_prof", "ja": "准教授", "en": "Associate professor", "share": 0.2},
+    {"stage": "professor", "ja": "教授", "en": "Professor", "share": 0.2}
+  ]},
+  "exhibitor_staff": {"ja": "出展企業担当者", "en": "Exhibitor staff", "stages": [
+    {"stage": "sales_rep", "ja": "営業担当", "en": "Sales representative", "share": 0.6},
+    {"stage": "team_lead", "ja": "チームリーダー", "en": "Team lead", "share": 0.25},
+    {"stage": "manager", "ja": "マネージャー", "en": "Manager", "share": 0.15}
+  ]}
+}

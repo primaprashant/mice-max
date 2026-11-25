@@ -365,9 +365,20 @@ CREATE TABLE attendees (
   depart_planned_ts TEXT,
   interests         TEXT,               -- JSON, 2–3 of food, onsen, nature, running, drinks, culture, shopping
   budget_band       TEXT CHECK (budget_band IN ('low','mid','high')),
-  tracks            TEXT,               -- JSON
+  tracks            TEXT,               -- JSON topics they follow (tracks, or words from session titles)
+  lives_in_city     INTEGER NOT NULL,   -- 1 = local, not travelling
   reached           INTEGER NOT NULL,   -- organizer's link reached them
   simulated         INTEGER NOT NULL DEFAULT 1
+);
+
+-- One row per simulated demo conference. Multiply simulated totals by scale for the real size.
+CREATE TABLE simulation_runs (
+  conference_id        TEXT PRIMARY KEY REFERENCES conferences(id),
+  conference_attendees INTEGER NOT NULL,
+  simulated_attendees  INTEGER NOT NULL,
+  scale                REAL NOT NULL,     -- conference_attendees / simulated_attendees
+  seed                 TEXT NOT NULL,
+  simulated            INTEGER NOT NULL DEFAULT 1
 );
 
 CREATE TABLE session_attendance (

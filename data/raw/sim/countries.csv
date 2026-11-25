@@ -1,0 +1,25 @@
+country,iso2,name_ja,weight
+Taiwan,TW,台湾,15
+South Korea,KR,韓国,25
+China,CN,中国,20
+United States,US,アメリカ,12
+Germany,DE,ドイツ,3
+Belgium,BE,ベルギー,1
+France,FR,フランス,3
+Hong Kong,HK,香港,4
+Singapore,SG,シンガポール,2
+United Kingdom,GB,イギリス,4
+Austria,AT,オーストリア,1
+Brazil,BR,ブラジル,1
+Bulgaria,BG,ブルガリア,1
+Indonesia,ID,インドネシア,2
+Malaysia,MY,マレーシア,2
+Netherlands,NL,オランダ,2
+Sweden,SE,スウェーデン,1
+Switzerland,CH,スイス,2
+India,IN,インド,4
+Thailand,TH,タイ,3
+Vietnam,VN,ベトナム,2
+Philippines,PH,フィリピン,2
+Australia,AU,オーストラリア,3
+Canada,CA,カナダ,3
