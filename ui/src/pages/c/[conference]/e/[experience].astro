@@ -27,13 +27,11 @@ if (!conf || !exp) return Astro.redirect("/");
 
 // The window the attendee would take this experience in: the first window
 // whose kind accepts it and that it fits (same rule as the calendar
-// suggestions). Extra-night plans have no window; they are not calendar slots.
-const planWindow =
-  exp.kind === "extra_night"
-    ? undefined
-    : windowsForConference(conf.id)
-        .filter((w) => w.kind !== "extra_night")
-        .find((w) => fitsWindow(exp, w, experienceTravel(exp.id, conf.main_venue_place_id)?.minutes, conf));
+// suggestions). Extra-night plans land in the extra-night window; other
+// kinds never do.
+const planWindow = windowsForConference(conf.id)
+  .filter((w) => (exp.kind === "extra_night" ? w.kind === "extra_night" : w.kind !== "extra_night"))
+  .find((w) => fitsWindow(exp, w, experienceTravel(exp.id, conf.main_venue_place_id)?.minutes, conf));
 
 const lang = getLang(Astro.cookies);
 const copy = experienceCopy(exp.id, lang)!;
