@@ -59,3 +59,25 @@
 body {
   text-underline-offset: 2px;
 }
+
+/* The scroll hint on the full-screen hero bounces to invite the scroll.
+ * It sits under the centered hero title; the bounce is a plain translateY. */
+@keyframes scroll-hint-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(9px);
+  }
+}
+
+.scroll-hint {
+  animation: scroll-hint-bounce 1.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint i {
+    animation: none;
+  }
+}
