@@ -1,0 +1,21 @@
+{
+  "chat": {
+    "open": "Ask a question",
+    "close": "Close chat",
+    "titleAttendee": "Ask about your free time",
+    "titleOrganizer": "Ask about your attendees",
+    "introAttendee": "An AI agent answers from this conference's data. Anything it can't confirm goes to a person.",
+    "introOrganizer": "An AI agent answers from this conference's data. Uptake numbers are simulated.",
+    "placeholder": "Type your question",
+    "send": "Send",
+    "typing": "Writing a reply",
+    "handed": "Passed to a person",
+    "error": "The agent could not reply. Please try again.",
+    "attendee1": "What's the weather like, and what should I wear?",
+    "attendee2": "What can I do on the evening of Day 2?",
+    "attendee3": "Can I stay an extra night and go to a hot spring?",
+    "organizer1": "How is uptake so far by type of activity?",
+    "organizer2": "Which activities are lagging, and what should we promote?",
+    "organizer3": "Which experiences are most popular?"
+  }
+}
