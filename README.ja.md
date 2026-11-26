@@ -2,6 +2,8 @@
 
 *会議の参加者を地元のお客さんに変える、自律運営の会社。*
 
+[![MiceMax の運営：AIエージェントが仕事を受け渡す様子](docs/media/ops-hero.gif)](https://mice-max.netlify.app/ops)
+
 [English version](README.md)
 
 **MICE** とは、会議(Meeting)、報奨・研修旅行(Incentive)、国際会議・学会(Convention)、展示会(Exhibition)の頭文字で、ビジネスイベントのための旅行を指します。MiceMax は、それが開催都市にもたらす効果を最大にします。

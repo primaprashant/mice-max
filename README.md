@@ -2,6 +2,8 @@
 
 *The autonomous company that turns conference visitors into local customers.*
 
+[![MiceMax operations: AI agents passing work between each other](docs/media/ops-hero.gif)](https://mice-max.netlify.app/ops)
+
 [日本語版はこちら](README.ja.md)
 
 **MICE** stands for meetings, incentive trips, conventions and exhibitions: travel for business events. MiceMax gets the most out of them for the host city.
