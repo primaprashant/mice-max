@@ -215,8 +215,7 @@ def write(cid: str, run_id: str) -> dict:
     row = steplog.record(cid, AGENT, "Call the ryokan to move the booking", "旅館に電話して予約を変更",
                          "Booking agent calls the original hotel to cancel or move the bookings under its policy.",
                          "予約担当が元の宿に電話し、規定に沿って予約の取り消しまたは変更を依頼します。",
-                         step=6, tool="voice", simulated=True, output={"groups": len(picks)})
-    row["mode"] = "replay"  # this step is not run live; shown as Replay
+                         step=6, tool="voice", simulated=True, mode="replay", output={"groups": len(picks)})
     steps.append(row)
     return {"steps": steps}
 
