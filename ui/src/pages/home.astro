@@ -1,0 +1,126 @@
+---
+/** The new entry page: no login. The shared RoleSelector band on top;
+ * below it, paginated conference cards that open in the role picked in
+ * the band. Attendee is the default. */
+export const prerender = false;
+
+import Base from "../layouts/Base.astro";
+import RoleSelector from "../components/RoleSelector.astro";
+import { getLang } from "../data/attendee";
+import { allConferences } from "../data";
+import type { Conference } from "../data/types";
+import { randomPhoto, creditKey } from "../data/photos";
+import { t, type Lang } from "../i18n";
+
+const lang = getLang(Astro.cookies);
+const photoSlug = randomPhoto();
+/* The two demo conferences always lead the list. */
+const DEMO_IDS = ["jadm32", "icep2027"];
+
+const TODAY = new Date().toISOString().slice(0, 10);
+
+function sortKey(c: Conference): string {
+  return DEMO_IDS.includes(c.id) ? "" : c.start_date;
+}
+
+const confList = allConferences()
+  .filter((c) => c.start_date >= TODAY)
+  .sort((a, b) => sortKey(a).localeCompare(sortKey(b)) || a.start_date.localeCompare(b.start_date));
+
+const PER_PAGE = 10;
+const totalPages = Math.ceil(confList.length / PER_PAGE);
+
+/* The attendee tab is this page, so every card links to the attendee
+   calendar; the other three tabs navigate to their own pages. */
+
+function dateLabel(c: Conference, lang: Lang): string {
+  const opts: Intl.DateTimeFormatOptions = { day: "numeric", month: "short", timeZone: "UTC" };
+  const start = new Date(c.start_date + "T00:00:00Z").toLocaleDateString(lang === "ja" ? "ja-JP" : "en-GB", opts);
+  if (c.end_date === c.start_date) return start;
+  const end = new Date(c.end_date + "T00:00:00Z").toLocaleDateString(lang === "ja" ? "ja-JP" : "en-GB", opts);
+  return `${start} - ${end}`;
+}
+
+const isDemo = (c: Conference) => DEMO_IDS.includes(c.id);
+---
+
+<Base title={t(lang, "app.name")}>
+  <RoleSelector lang={lang} active="attendee" title={t(lang, "home.title")} photoSlug={photoSlug} />
+
+  <main class="mx-auto w-full max-w-7xl px-6 py-8">
+    <ul data-conf-list class="grid grid-cols-1 gap-3 md:grid-cols-2">
+      {confList.map((c) => (
+        <li>
+          <a
+            href={`/c/${c.id}`}
+            data-conf-link={c.id}
+            class="flex items-baseline justify-between gap-4 rounded-lg border border-ink/10 bg-paper p-4 transition-colors hover:border-ink/25"
+          >
+            <span class="min-w-0">
+              <span class="flex items-baseline gap-2">
+                <span class="truncate text-sm font-medium">{(lang === "ja" && c.name_ja) || c.name_en}</span>
+                {isDemo(c) && (
+                  <span class="shrink-0 text-xs font-semibold uppercase tracking-wider text-theme">
+                    {t(lang, "home.demoMark")}
+                  </span>
+                )}
+              </span>
+              {c.field && <span class="mt-1 block truncate text-xs text-ink-soft">{c.field}</span>}
+            </span>
+            <span class="shrink-0 whitespace-nowrap font-mono text-xs tabular-nums text-ink-soft">
+              {dateLabel(c, lang)}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <home-pagination>
+    <nav data-pagination aria-label={t(lang, "home.paginationLabel")} class="mt-6 flex items-center justify-between gap-4">
+      <p
+        class="text-xs text-ink-soft"
+        data-page-status
+        data-range-template={t(lang, "home.showingRange")}
+      >
+        {t(lang, "home.showingRange", { from: "1", to: String(PER_PAGE), total: String(confList.length) })}
+      </p>
+      <div class="flex items-center gap-1">
+        <button
+          type="button"
+          data-page-prev
+          class="rounded-md border border-ink/25 px-3 py-1.5 text-sm font-medium text-ink-soft hover:bg-ink/5 disabled:opacity-40"
+          disabled
+        >
+          {t(lang, "home.prevPage")}
+        </button>
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+          <button
+            type="button"
+            data-page={p}
+            aria-current={p === 1 ? "page" : "false"}
+            class="min-w-8 rounded-md border border-ink/25 px-2 py-1.5 text-sm font-medium tabular-nums text-ink-soft transition-colors hover:bg-ink/5 aria-[current=page]:border-ink aria-[current=page]:bg-ink aria-[current=page]:text-paper"
+          >
+            {p}
+          </button>
+        ))}
+        <button
+          type="button"
+          data-page-next
+          class="rounded-md border border-ink/25 px-3 py-1.5 text-sm font-medium text-ink-soft hover:bg-ink/5"
+        >
+          {t(lang, "home.nextPage")}
+        </button>
+      </div>
+    </nav>
+    </home-pagination>
+  </main>
+  <footer class="pb-4">
+    <p class="mx-auto max-w-7xl px-6 text-right text-[11px] text-ink-soft">
+      {t(lang, creditKey(photoSlug))} {t(lang, "login.photoCreditSuffix")}
+    </p>
+  </footer>
+</Base>
+
+<script>
+  import "../scripts/home-pagination";
+</script>

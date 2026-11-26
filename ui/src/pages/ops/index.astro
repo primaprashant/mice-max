@@ -4,16 +4,18 @@
 export const prerender = false;
 
 import Base from "../../layouts/Base.astro";
-import Header from "../../components/Header.astro";
+import RoleSelector from "../../components/RoleSelector.astro";
 import ControlLinks from "../../components/control/ControlLinks.astro";
 import BuiltPanel from "../../components/control/BuiltPanel.astro";
 import { opsConferenceIds, conferenceById } from "../../data";
 import { getLang } from "../../data/attendee";
+import { randomPhoto, creditKey } from "../../data/photos";
 import { t } from "../../i18n";
 import { API_BASE } from "../../scripts/api";
 import { replayFeed, replayTotals } from "../../components/control/counts";
 
 const lang = getLang(Astro.cookies);
+const photoSlug = randomPhoto();
 const confs = opsConferenceIds()
   .map((id) => conferenceById(id))
   .filter((c) => c !== undefined);
@@ -45,10 +47,9 @@ const kpis = [
 ---
 
 <Base title={`${t(lang, "control.title")} (MiceMax)`}>
-  <Header />
+  <RoleSelector lang={lang} active="ops" title={t(lang, "control.headline")} photoSlug={photoSlug} />
   <main class="mx-auto w-full min-w-0 max-w-7xl px-6 py-8">
     <p class="font-mono text-xs uppercase tracking-wider text-ink-soft">{t(lang, "control.title")}</p>
-    <h1 class="mt-1 text-3xl font-semibold tracking-tight">{t(lang, "control.headline")}</h1>
     <p class="mt-3 max-w-[75ch] text-sm text-ink-soft">{t(lang, "control.intro")}</p>
 
     <ControlLinks lang={lang} />
@@ -101,6 +102,11 @@ const kpis = [
     </section>
   </main>
   <script type="application/json" id="control-data" set:html={JSON.stringify(data).replace(/</g, "\\u003c")} />
+  <footer class="pb-4">
+    <p class="mx-auto max-w-7xl px-6 text-right text-[11px] text-ink-soft">
+      {t(lang, creditKey(photoSlug))} {t(lang, "login.photoCreditSuffix")}
+    </p>
+  </footer>
 </Base>
 
 <script>

@@ -13,7 +13,19 @@
   },
   "home": {
     "componentsTitle": "What the screens are made of",
-    "componentsNote": "The shared components behind the organizer, attendee and city views, filled with demo data. Sessions in theme blue, MiceMax plans in amber."
+    "componentsNote": "The shared components behind the organizer, attendee and city views, filled with demo data. Sessions in theme blue, MiceMax plans in amber.",
+    "title": "Find your conference",
+    "subtitle": "Pick a conference, then pick a view. Every view opens on the same link.",
+    "tabOps": "Operations",
+    "demoMark": "Demo",
+    "showingRange": "Showing {from} to {to} of {total} conferences",
+    "prevPage": "Previous",
+    "nextPage": "Next",
+    "paginationLabel": "Conference list pages",
+    "hintAttendee": "Open the attendee calendar for a conference.",
+    "hintOrganizer": "Open the organizer view for a conference.",
+    "hintCity": "Open the city dashboard. It covers all conferences.",
+    "hintOps": "Open the AI operations log for a conference."
   },
   "login": {
     "title": "Welcome",
