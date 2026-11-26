@@ -17,13 +17,13 @@ _LOCK = threading.Lock()
 def record(conference_id: str, agent: str, title_en: str, title_ja: str, summary_en: str, summary_ja: str,
            *, phase: str = "during", step: Optional[int] = None, tool: str = "llm", meta: Optional[dict] = None,
            confidence: Optional[float] = None, handed_to_human: bool = False, output: Any = None,
-           simulated: bool = False) -> dict:
+           simulated: bool = False, mode: str = "live") -> dict:
     """Append one live step. meta is the dict returned by llm.chat (model, ms, tokens)."""
     meta = meta or {}
     row = {
         "id": f"live-{uuid.uuid4().hex[:12]}", "conference_id": conference_id, "phase": phase,
         "ts": datetime.now(timezone.utc).isoformat(timespec="seconds"), "step": step, "agent": agent,
-        "title_ja": title_ja, "title_en": title_en, "tool": tool, "model": meta.get("model"), "mode": "live",
+        "title_ja": title_ja, "title_en": title_en, "tool": tool, "model": meta.get("model"), "mode": mode,
         "ms": meta.get("ms"), "tokens_in": meta.get("tokens_in"), "tokens_out": meta.get("tokens_out"),
         "confidence": confidence, "handed_to_human": int(handed_to_human), "summary_ja": summary_ja,
         "summary_en": summary_en, "output": output, "artifact": None, "simulated": int(simulated),
