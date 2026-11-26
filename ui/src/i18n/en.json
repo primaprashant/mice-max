@@ -133,7 +133,10 @@
     "exportCsv": "Export CSV",
     "month": "Month",
     "chartTable": "View as table",
-    "chartTableClose": "Back to chart"
+    "chartTableClose": "Back to chart",
+    "areaUnknown": "Elsewhere in Sapporo",
+    "other": "Other",
+    "donutTotal": "Total committed spend"
   },
   "organizer": {
     "title": "For organizers",

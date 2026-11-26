@@ -4,7 +4,6 @@ export const prerender = false;
 import Base from "../layouts/Base.astro";
 import RoleSelector from "../components/RoleSelector.astro";
 import SimulatedLabel from "../components/SimulatedLabel.astro";
-import OpsBadge from "../components/OpsBadge.astro";
 import { randomPhoto, creditKey } from "../data/photos";
 import {
   cityEstimates,
@@ -52,7 +51,37 @@ const byKind = spendByKind(
     return committedSpend(id);
   })
 );
-const byArea = spendByArea(demoIds.flatMap((id) => committedSpend(id)));
+const byArea = spendByArea(demoIds.flatMap((id) => committedSpend(id))).map((a) => {
+  // experiences.area_id is NULL for plans booked at the venue itself; the
+  // data layer falls back to "Other" — give the bucket its real name.
+  const unknown = !a.area || a.area === "Other";
+  return {
+    ...a,
+    area: unknown ? t(lang, "city.areaUnknown") : a.area,
+    area_ja: unknown ? t(lang, "city.areaUnknown") : a.area_ja,
+  };
+});
+
+// Area donut: top six areas, rest folded into Other. Slots come from the
+// validated chart palette (see global.css), Other takes the muted gray.
+const DONUT_SLOTS = ["var(--color-banana)", "var(--color-viz-blue)", "var(--color-viz-green)", "var(--color-viz-violet)", "var(--color-viz-aqua)", "var(--color-viz-red)", "var(--color-muted-strong)"];
+const donutSlices = [
+  ...byArea.slice(0, 6).map((a, i) => ({
+    key: a.area,
+    name: lang === "ja" ? a.area_ja : a.area,
+    jpy: a.jpy,
+    count: a.count,
+    color: DONUT_SLOTS[i],
+  })),
+  {
+    key: "__other__",
+    name: t(lang, "city.other"),
+    jpy: byArea.slice(6).reduce((s, a) => s + a.jpy, 0),
+    count: byArea.slice(6).reduce((s, a) => s + a.count, 0),
+    color: DONUT_SLOTS[6],
+  },
+];
+const donutTotal = donutSlices.reduce((s, x) => s + x.jpy, 0);
 
 const formula = t(lang, "city.formula");
 
@@ -100,20 +129,12 @@ for (const m of monthlyTotalsArr) {
 <Base title={`${t(lang, "city.title")} (MiceMax)`}>
   <RoleSelector lang={lang} active="city" title={t(lang, "city.title")} photoSlug={photoSlug} />
   <main class="mx-auto max-w-7xl px-6 py-8">
-    <div class="flex flex-wrap items-center justify-between gap-3">
-      <SimulatedLabel lang={lang} />
-    </div>
-    <p class="mt-2 max-w-[75ch] text-sm text-ink-soft">{t(lang, "city.intro")}</p>
-
-    <div class="mt-3">
-      <OpsBadge lang={lang} text={t(lang, "ops.badges.city")} />
-    </div>
+    <p class="max-w-[75ch] text-sm text-ink-soft">{t(lang, "city.intro")}</p>
 
     <section class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
       <div class="rounded-xl border border-ink/10 p-5">
         <p class="text-xs uppercase tracking-wide text-ink-soft">{t(lang, "city.reached")}</p>
         <p class="mt-2 font-mono text-3xl font-semibold tabular-nums">{reachedTotal.toLocaleString("ja-JP")}</p>
-        <p class="mt-1 text-xs text-ink-soft">{t(lang, "city.reachedNote")}</p>
       </div>
       <div class="rounded-xl border border-ink/10 p-5">
         <p class="text-xs uppercase tracking-wide text-ink-soft">{t(lang, "city.booked")}</p>
@@ -127,36 +148,81 @@ for (const m of monthlyTotalsArr) {
       </div>
     </section>
 
-    <section class="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
+    <section class="mt-10">
       <div>
         <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "city.byKind")}</h2>
-        <div class="mt-3 overflow-x-auto">
-          <table class="w-full min-w-[420px] text-sm">
-            <caption class="sr-only">{t(lang, "city.byKind")}</caption>
-            <thead>
-              <tr class="border-b border-ink/10 text-left text-xs text-ink-soft">
-                <th scope="col" class="px-3 py-2 font-medium">{t(lang, "city.kind")}</th>
-                <th scope="col" class="px-3 py-2 text-right font-medium">{t(lang, "city.count")}</th>
-                <th scope="col" class="px-3 py-2 text-right font-medium">{t(lang, "city.spend")}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {byKind.map((k) => (
-                <tr class="border-b border-ink/5">
-                  <td class="px-3 py-2">{t(lang, `experienceKind.${k.kind}`)}</td>
-                  <td class="px-3 py-2 text-right font-mono tabular-nums">{k.count}</td>
-                  <td class="px-3 py-2 text-right font-mono tabular-nums">{yen(k.jpy)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div class="mt-3 space-y-3">
+          {byKind.map((k) => (
+            <div class="flex items-center gap-3">
+              <span class="w-32 shrink-0 text-sm">{t(lang, `experienceKind.${k.kind}`)}</span>
+              <div class="h-4 min-w-[2px] shrink rounded-r-[4px] bg-banana" style={`width:${(k.jpy / byKind[0].jpy) * 100}%`} />
+              <span class="whitespace-nowrap font-mono text-sm tabular-nums">{yen(k.jpy)}</span>
+              <span class="font-mono text-xs tabular-nums text-ink-soft">{k.count}</span>
+            </div>
+          ))}
         </div>
       </div>
 
-      <div>
+      <div class="mt-10">
         <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "city.byArea")}</h2>
-        <div class="mt-3 overflow-x-auto">
-          <table class="w-full min-w-[420px] text-sm">
+        <city-area-donut class="mt-3 block">
+          <div class="flex flex-wrap items-center gap-8" slot="donut">
+            <div class="relative w-full max-w-[528px] min-w-0">
+              <svg viewBox="0 0 120 120" class="block h-auto w-full" role="img" aria-label={t(lang, "city.byArea")}>
+                {(() => {
+                  const R = 48;
+                  const C = 2 * Math.PI * R;
+                  let acc = 0;
+                  return donutSlices.map((s) => {
+                    const frac = s.jpy / donutTotal;
+                    const el = (
+                      <g
+                        data-area={s.key}
+                        data-name={s.name}
+                        data-jpy={s.jpy}
+                        data-count={s.count}
+                        role="img"
+                        aria-label={`${s.name}: ${yen(s.jpy)}`}
+                      >
+                        <circle
+                          cx="60" cy="60" r={R} fill="none"
+                          stroke={s.color}
+                          stroke-width="20"
+                          stroke-dasharray={`${Math.max(frac * C - 1.5, 0.5)} ${C}`}
+                          stroke-dashoffset={-acc * C}
+                          transform="rotate(-90 60 60)"
+                        />
+                      </g>
+                    );
+                    acc += frac;
+                    return el;
+                  });
+                })()}
+              </svg>
+              <!-- center readout: total until a slice is selected -->
+              <div class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center">
+                <p class="max-w-[160px] text-xs leading-tight text-ink-soft" id="city-donut-label">{t(lang, "city.donutTotal")}</p>
+                <p class="font-mono text-2xl font-semibold" id="city-donut-value">{yen(donutTotal)}</p>
+                <p class="max-w-[160px] text-xs leading-tight text-ink-soft" id="city-donut-sub"></p>
+              </div>
+            </div>
+            <div class="space-y-1.5">
+              {donutSlices.map((s) => (
+                <p
+                  class="flex items-center gap-2 rounded text-sm hover:bg-ink/5"
+                  data-area={s.key}
+                  data-legend=""
+                >
+                  <span class="h-2.5 w-2.5 shrink-0 rounded-full" style={`background:${s.color}`} />
+                  <span class="text-left">{s.name}</span>
+                  <span class="font-mono text-ink-soft tabular-nums">{Math.round((s.jpy / donutTotal) * 100)}%</span>
+                  <span class="font-mono tabular-nums">{yen(s.jpy)}</span>
+                </p>
+              ))}
+              <p class="pt-1 text-xs text-ink-soft">{donutSlices[donutSlices.length - 1].count} {t(lang, "city.count")}</p>
+            </div>
+          </div>
+          <table class="w-full text-sm" slot="table" hidden>
             <caption class="sr-only">{t(lang, "city.byArea")}</caption>
             <thead>
               <tr class="border-b border-ink/10 text-left text-xs text-ink-soft">
@@ -166,7 +232,7 @@ for (const m of monthlyTotalsArr) {
               </tr>
             </thead>
             <tbody>
-              {byArea.slice(0, 9).map((a) => (
+              {byArea.map((a) => (
                 <tr class="border-b border-ink/5">
                   <td class="px-3 py-2">{lang === "ja" ? a.area_ja : a.area}</td>
                   <td class="px-3 py-2 text-right font-mono tabular-nums">{a.count}</td>
@@ -175,7 +241,7 @@ for (const m of monthlyTotalsArr) {
               ))}
             </tbody>
           </table>
-        </div>
+        </city-area-donut>
       </div>
     </section>
 
@@ -202,10 +268,10 @@ for (const m of monthlyTotalsArr) {
         </div>
       </div>
       <city-spend-chart class="mt-3 block">
-        <div class="relative" slot="chart">
+        <div class="relative mx-auto w-[80%]" slot="chart">
           <svg
             viewBox="0 0 640 240"
-            class="block h-auto w-full max-w-[640px]"
+            class="block h-auto w-full"
             role="img"
             aria-label={t(lang, "city.overTime")}
           >
@@ -290,7 +356,7 @@ for (const m of monthlyTotalsArr) {
             set:html={JSON.stringify(monthlyDetail)}
           />
         </div>
-        <table class="w-full max-w-[640px] text-sm" slot="table" hidden>
+        <table class="mx-auto w-[80%] text-sm" slot="table" hidden>
           <caption class="sr-only">{t(lang, "city.overTime")}</caption>
           <thead>
             <tr class="border-b border-ink/10 text-left text-xs text-ink-soft">
@@ -309,9 +375,10 @@ for (const m of monthlyTotalsArr) {
             ))}
           </tbody>
         </table>
-        <!-- month breakdown panel: updated when a bar is selected -->
-        <div id="city-month-detail" class="mt-4 rounded-xl border border-ink/10 p-5">
-          <p class="text-xs uppercase tracking-wide text-ink-soft" id="city-month-detail-title"></p>
+        <!-- month breakdown panel: updated when a bar is selected; tinted with
+             the same theme accent that marks the selected bar -->
+        <div id="city-month-detail" class="mx-auto mt-4 w-[80%] rounded-xl border border-theme/25 bg-theme-soft/60 p-5">
+          <p class="text-xs uppercase tracking-wide text-theme-strong" id="city-month-detail-title"></p>
           <p class="mt-1 font-mono text-2xl font-semibold" id="city-month-detail-total"></p>
           <p class="mt-1 text-xs text-ink-soft" id="city-month-detail-count"></p>
           <div class="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -327,10 +394,6 @@ for (const m of monthlyTotalsArr) {
         </div>
       </city-spend-chart>
     </section>
-
-    <script>
-      import "../scripts/city-spend-chart";
-    </script>
 
     <section class="mt-10">
       <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "city.next12Months")}</h2>
@@ -376,6 +439,11 @@ for (const m of monthlyTotalsArr) {
       <h2 class="text-sm font-semibold">{t(lang, "city.formulaTitle")}</h2>
       <p class="mt-2 max-w-[80ch] font-mono text-xs leading-relaxed">{formula}</p>
     </section>
+
+    <script>
+      import "../scripts/city-spend-chart";
+      import "../scripts/city-area-donut";
+    </script>
   </main>
   <footer class="pb-4">
     <p class="mx-auto max-w-7xl px-6 text-right text-[11px] text-ink-soft">

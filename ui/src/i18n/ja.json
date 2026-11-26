@@ -133,7 +133,10 @@
     "exportCsv": "CSVを出力",
     "month": "月",
     "chartTable": "表で見る",
-    "chartTableClose": "グラフに戻る"
+    "chartTableClose": "グラフに戻る",
+    "areaUnknown": "市内その他",
+    "other": "その他",
+    "donutTotal": "合計"
   },
   "organizer": {
     "title": "主催者向け",
