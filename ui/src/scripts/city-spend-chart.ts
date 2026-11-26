@@ -86,6 +86,27 @@ if (el && tooltip) {
   }
 
   const bars = [...el.querySelectorAll<SVGGElement>(".bar-group")];
+  let selected: SVGGElement | null = null;
+
+  /** Selection highlight: the theme ring stays on the selected bar. */
+  function select(bar: SVGGElement | null): void {
+    if (selected) {
+      (selected.querySelector(".bar-ring") as SVGPathElement).style.opacity = "";
+    }
+    selected = bar;
+    if (selected) {
+      (selected.querySelector(".bar-ring") as SVGPathElement).style.opacity = "1";
+    }
+  }
+
+  function choose(bar: SVGGElement): void {
+    select(bar);
+    fillDetail(
+      bar.dataset.month ?? "",
+      Number(bar.dataset.jpy ?? 0),
+      Number(bar.dataset.count ?? 0)
+    );
+  }
 
   for (const bar of bars) {
     bar.setAttribute("tabindex", "0");
@@ -104,28 +125,18 @@ if (el && tooltip) {
     const hide = () => tooltip.classList.add("hidden");
     bar.addEventListener("pointerenter", show);
     bar.addEventListener("pointerleave", hide);
-    bar.addEventListener("focus", () => {
-      const ring = bar.querySelector<SVGPathElement>(".bar-ring")!;
-      ring.style.opacity = "1";
-      show();
-    });
-    bar.addEventListener("blur", () => {
-      (bar.querySelector(".bar-ring") as SVGPathElement).style.opacity = "";
-      hide();
-    });
-    bar.addEventListener("click", () => {
-      fillDetail(m, Number(bar.dataset.jpy ?? 0), Number(bar.dataset.count ?? 0));
-    });
+    bar.addEventListener("click", () => choose(bar));
     bar.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        fillDetail(m, Number(bar.dataset.jpy ?? 0), Number(bar.dataset.count ?? 0));
+        choose(bar);
       }
     });
   }
 
-  // First month selected by default.
+  // First month selected by default, ring and panel filled.
   if (bars[0]) {
+    select(bars[0]);
     fillDetail(
       bars[0].dataset.month ?? "",
       Number(bars[0].dataset.jpy ?? 0),
