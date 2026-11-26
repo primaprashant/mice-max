@@ -1,7 +1,56 @@
 ---
-/** Slot for the live ChatPanel feature. Renders nothing until that feature lands. */
-import type { Lang } from "../../i18n";
+/** Live Q&A chat: floating button bottom-right opens a panel. Logic in scripts/chat-panel.ts. */
+import { t, type Lang } from "../../i18n";
+import ModeLabel from "../ModeLabel.astro";
+
 interface Props { conferenceId: string; lang: Lang; mode?: "attendee" | "organizer" }
-const { conferenceId, lang, mode } = Astro.props;
-void conferenceId; void lang; void mode;
+const { conferenceId, lang, mode = "attendee" } = Astro.props;
+const org = mode === "organizer";
+const suggestions = [1, 2, 3].map((n) => t(lang, `chat.${mode}${n}`));
 ---
+
+<chat-panel data-conference={conferenceId} data-lang={lang} data-mode={mode}
+  data-error={t(lang, "chat.error")} data-handed={t(lang, "chat.handed")}>
+  <button type="button" data-chat-open aria-expanded="false" aria-controls="chat-panel-box"
+    class="fixed bottom-5 right-5 z-[900] min-h-11 rounded-full bg-theme px-5 font-semibold text-paper shadow-lg hover:bg-theme-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme">
+    {t(lang, "chat.open")}
+  </button>
+
+  <section id="chat-panel-box" data-chat-box hidden role="dialog" aria-labelledby="chat-panel-title"
+    class="fixed bottom-5 right-5 z-[901] flex max-h-[min(36rem,calc(100vh-2.5rem))] w-[min(24rem,calc(100vw-2.5rem))] flex-col rounded-xl border border-muted-strong bg-paper shadow-2xl">
+    <header class="flex items-start justify-between gap-3 border-b border-muted-strong px-4 py-3">
+      <div>
+        <h2 id="chat-panel-title" class="font-semibold text-ink">{t(lang, org ? "chat.titleOrganizer" : "chat.titleAttendee")}</h2>
+        <p class="mt-1 text-xs text-ink-soft">{t(lang, org ? "chat.introOrganizer" : "chat.introAttendee")}</p>
+      </div>
+      <button type="button" data-chat-close aria-label={t(lang, "chat.close")}
+        class="-mr-2 -mt-1 flex size-11 shrink-0 items-center justify-center rounded text-xl text-ink-soft hover:bg-muted">×</button>
+    </header>
+
+    <ol data-chat-log aria-live="polite" class="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-3"></ol>
+
+    <p data-chat-typing hidden class="px-4 pb-2 text-xs text-ink-soft">{t(lang, "chat.typing")}…</p>
+
+    <div data-chat-suggest class="flex flex-wrap gap-2 px-4 pb-2">
+      {suggestions.map((s) => (
+        <button type="button" data-chat-suggestion
+          class="min-h-11 rounded-full border border-theme/40 bg-theme-soft px-3 text-left text-sm text-theme-strong hover:border-theme">{s}</button>
+      ))}
+    </div>
+
+    <form data-chat-form class="flex gap-2 border-t border-muted-strong p-3">
+      <label for="chat-panel-input" class="sr-only">{t(lang, "chat.placeholder")}</label>
+      <input id="chat-panel-input" data-chat-input autocomplete="off" placeholder={t(lang, "chat.placeholder")}
+        class="min-h-11 flex-1 rounded border border-muted-strong bg-paper px-3 text-sm text-ink focus:border-theme focus:outline-none" />
+      <button type="submit" class="min-h-11 rounded bg-theme px-4 text-sm font-semibold text-paper hover:bg-theme-strong disabled:opacity-50">
+        {t(lang, "chat.send")}
+      </button>
+    </form>
+
+    <template data-chat-live><ModeLabel lang={lang} mode="live" /></template>
+  </section>
+</chat-panel>
+
+<script>
+  import "../../scripts/chat-panel";
+</script>
