@@ -1,36 +1,117 @@
 ---
+/** The AI control room: every agent in the company, a live activity feed,
+ * what the agents built, and links to each conference's Ops log. */
 export const prerender = false;
 
 import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
+import ControlLinks from "../../components/control/ControlLinks.astro";
+import BuiltPanel from "../../components/control/BuiltPanel.astro";
 import { opsConferenceIds, conferenceById } from "../../data";
 import { getLang } from "../../data/attendee";
 import { t } from "../../i18n";
+import { API_BASE } from "../../scripts/api";
+import { replayFeed, replayTotals } from "../../components/control/counts";
 
 const lang = getLang(Astro.cookies);
 const confs = opsConferenceIds()
   .map((id) => conferenceById(id))
   .filter((c) => c !== undefined);
+
+// Try the backend once with a short timeout; the browser keeps retrying if it is asleep.
+let agents: unknown = null;
+try {
+  const r = await fetch(`${API_BASE}/api/ops/agents`, { signal: AbortSignal.timeout(1500) });
+  if (r.ok) agents = await r.json();
+} catch {}
+
+const keys = [
+  "next", "runs", "tokens", "rules", "humans", "person", "orgLoading", "feedWaiting", "kpiCostPending",
+  "costBasis", "handoff", "dept.setup", "dept.operations", "dept.growth", "dept.reporting",
+  "deptNote.setup", "deptNote.operations", "deptNote.growth", "deptNote.reporting",
+];
+const strings: Record<string, string> = Object.fromEntries(keys.map((k) => [k, t(lang, `control.${k}`)]));
+strings.live = t(lang, "ops.live");
+strings.replay = t(lang, "ops.replay");
+const data = { lang, strings, agents, replay: replayFeed(), replayTotals: replayTotals() };
+
+const kpis = [
+  { id: "agents", label: "kpiAgents", note: "kpiAgentsNote" },
+  { id: "steps", label: "kpiSteps", note: "kpiStepsNote" },
+  { id: "live", label: "kpiLive", note: "kpiLiveNote" },
+  { id: "handoffs", label: "kpiHandoffs", note: "kpiHandoffsNote" },
+  { id: "cost", label: "kpiCost", note: "kpiCostNote" },
+];
 ---
 
-<Base title={`${t(lang, "ops.title")} (MiceMax)`}>
+<Base title={`${t(lang, "control.title")} (MiceMax)`}>
   <Header />
-  <main class="mx-auto w-full min-w-0 max-w-5xl overflow-x-clip px-6 py-8">
-    <h1 class="text-2xl font-semibold tracking-tight">{t(lang, "ops.title")}</h1>
-    <p class="mt-2 max-w-[75ch] text-sm text-ink-soft">{t(lang, "ops.intro")}</p>
-    <section class="mt-6 flex flex-col gap-3">
-      {confs.map((c) => (
-        <a
-          href={`/ops/${c.id}`}
-          class="group flex flex-wrap items-baseline justify-between gap-3 rounded-lg border border-ink/10 px-4 py-3 transition-colors hover:border-ink/25"
-        >
-          <span>
-            <span class="block font-medium">{(lang === "ja" && c.name_ja) || c.name_en}</span>
-            <span class="font-mono text-xs tabular-nums text-ink-soft">{c.start_date} – {c.end_date}</span>
-          </span>
-          <i class="ph ph-arrow-right text-ink-soft transition-transform group-hover:translate-x-0.5" aria-hidden="true"></i>
-        </a>
+  <main class="mx-auto w-full min-w-0 max-w-7xl px-6 py-8">
+    <p class="font-mono text-xs uppercase tracking-wider text-ink-soft">{t(lang, "control.title")}</p>
+    <h1 class="mt-1 text-3xl font-semibold tracking-tight">{t(lang, "control.headline")}</h1>
+    <p class="mt-3 max-w-[75ch] text-sm text-ink-soft">{t(lang, "control.intro")}</p>
+
+    <ControlLinks lang={lang} />
+
+    <section class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-5" aria-label={t(lang, "control.title")}>
+      {kpis.map((k) => (
+        <div class:list={["rounded-lg border border-ink/10 bg-paper p-4", k.id === "cost" && "col-span-2 md:col-span-1"]}>
+          <p class="text-xs text-ink-soft">{t(lang, `control.${k.label}`)}</p>
+          <p class="mt-1 font-mono text-2xl font-semibold tabular-nums" data-kpi={k.id}>&nbsp;</p>
+          <p class="mt-1 text-[11px] leading-snug text-ink-soft">{t(lang, `control.${k.note}`)}</p>
+        </div>
       ))}
     </section>
+    <p class="mt-2 max-w-[90ch] text-[11px] text-ink-soft" data-cost-basis></p>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-5">
+      <section class="min-w-0 lg:col-span-3">
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "control.orgTitle")}</h2>
+        <div class="mt-3 flex flex-col gap-6" data-org>
+          <p class="text-sm text-ink-soft" data-org-loading>{t(lang, "control.orgLoading")}</p>
+        </div>
+      </section>
+
+      <section class="min-w-0 lg:col-span-2">
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "control.feedTitle")}</h2>
+        <p class="mt-1 text-xs text-ink-soft">{t(lang, "control.feedNote")}</p>
+        <ol class="mt-3 flex max-h-[44rem] flex-col gap-2 overflow-y-auto pr-1" data-feed aria-live="polite"></ol>
+      </section>
+    </div>
+
+    <BuiltPanel lang={lang} />
+
+    <section class="mt-10">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "control.confTitle")}</h2>
+      <p class="mt-1 text-xs text-ink-soft">{t(lang, "control.confNote")}</p>
+      <div class="mt-3 grid gap-3 md:grid-cols-2">
+        {confs.map((c) => (
+          <a
+            href={`/ops/${c.id}`}
+            class="group flex min-h-11 items-center justify-between gap-3 rounded-lg border border-ink/10 px-4 py-3 transition-colors hover:border-ink/25"
+          >
+            <span>
+              <span class="block font-medium">{(lang === "ja" && c.name_ja) || c.name_en}</span>
+              <span class="font-mono text-xs tabular-nums text-ink-soft">{c.start_date} – {c.end_date}</span>
+            </span>
+            <i class="ph ph-arrow-right text-ink-soft transition-transform group-hover:translate-x-0.5" aria-hidden="true"></i>
+          </a>
+        ))}
+      </div>
+    </section>
   </main>
+  <script type="application/json" id="control-data" set:html={JSON.stringify(data).replace(/</g, "\\u003c")} />
 </Base>
+
+<script>
+  import "../../scripts/control-room";
+</script>
+
+<style is:global>
+  @keyframes cr-in {
+    from { opacity: 0; transform: translateY(-6px); background-color: var(--color-theme-soft); }
+    to { opacity: 1; transform: none; }
+  }
+  .cr-in { animation: cr-in 0.6s ease-out; }
+  @media (prefers-reduced-motion: reduce) { .cr-in { animation: none; } }
+</style>

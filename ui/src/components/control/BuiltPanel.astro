@@ -1,0 +1,36 @@
+---
+/** "Built by agents": what the agents produced, counted from the database. */
+import { t, type Lang } from "../../i18n";
+import { builtCounts } from "./counts";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = builtCounts();
+const items = [
+  { n: c.conferences, label: "builtConferences" },
+  { n: c.sessions, label: "builtSessions" },
+  { n: c.plans, label: "builtPlans" },
+  { n: c.experiences, label: "builtExperiences" },
+  { n: c.photos, label: "builtPhotos" },
+  { n: c.copy, label: "builtCopy" },
+];
+const fmt = new Intl.NumberFormat(lang === "ja" ? "ja-JP" : "en-US");
+---
+
+<section class="mt-10 rounded-xl bg-muted p-5">
+  <div class="flex flex-wrap items-baseline justify-between gap-2">
+    <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "control.builtTitle")}</h2>
+    <p class="text-xs text-ink-soft">{t(lang, "control.builtNote")}</p>
+  </div>
+  <dl class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+    {items.map((i) => (
+      <div class="flex flex-col-reverse">
+        <dt class="text-xs text-ink-soft">{t(lang, `control.${i.label}`)}</dt>
+        <dd class="font-mono text-2xl font-semibold tabular-nums">{fmt.format(i.n)}</dd>
+      </div>
+    ))}
+  </dl>
+</section>
