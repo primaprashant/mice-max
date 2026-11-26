@@ -1,0 +1,17 @@
+{
+  "name": "micemax-video",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "node shared/serve.mjs",
+    "render": "node shared/render.mjs"
+  },
+  "dependencies": {
+    "three": "^0.187.0",
+    "playwright": "*",
+    "ffmpeg-static": "^5.2.0"
+  },
+  "allowScripts": {
+    "ffmpeg-static@5.3.0": true
+  }
+}

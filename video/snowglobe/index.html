@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MiceMax snow globe</title>
+<style>
+  @font-face { font-family: 'Fredoka'; src: url('../shared/fonts/Fredoka.ttf'); font-weight: 300 700; }
+  @font-face { font-family: 'Geist'; src: url('../shared/fonts/Geist.woff2'); font-weight: 100 900; }
+  html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #050a18; }
+  #bg { position: absolute; inset: 0;
+    background: radial-gradient(120% 90% at 50% 62%, #16264a 0%, #0b1530 45%, #040814 100%); }
+  canvas { position: absolute; inset: 0; width: 1920px; height: 1080px; }
+  #vignette { position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(130% 100% at 50% 55%, transparent 55%, rgba(2,4,12,0.75) 100%),
+                linear-gradient(to bottom, rgba(3,6,16,0.82) 0%, rgba(3,6,16,0.35) 22%, transparent 34%); }
+  .header { position: absolute; left: 0; right: 0; top: 64px; text-align: center;
+    font-family: 'Geist', sans-serif; font-weight: 800; font-size: 108px; line-height: 1.04;
+    letter-spacing: -0.035em; color: #fdf8ef; text-wrap: balance; padding: 0 140px;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.4); }
+  .header span { display: inline-block; white-space: pre; will-change: transform, opacity, filter; }
+  .header .gold { color: #ffcf6b; }
+  .header.logo { top: auto; bottom: 120px; font-size: 150px; letter-spacing: -0.04em; }
+  .num { text-align: left; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js",
+               "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="bg"></div>
+<canvas id="c"></canvas>
+<div id="vignette"></div>
+<div id="headers"></div>
+<script type="module" src="main.js"></script>
+</body>
+</html>

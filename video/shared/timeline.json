@@ -1,0 +1,17 @@
+{
+  "duration": 30,
+  "fps": 60,
+  "width": 1920,
+  "height": 1080,
+  "beats": [
+    { "id": "arrive",   "start": 0.0,  "end": 4.0,  "text": "109,000 come to Sapporo for conferences" },
+    { "id": "leave",    "start": 4.0,  "end": 7.5,  "text": "Then they fly home." },
+    { "id": "freetime", "start": 7.5,  "end": 11.5, "text": "MiceMax fills their free time." },
+    { "id": "money",    "start": 11.5, "end": 15.0, "text": "¥33M to ¥170M a year, new to Sapporo" },
+    { "id": "typical",  "start": 15.0, "end": 18.5, "text": "A typical team: 17 people" },
+    { "id": "micemax",  "start": 18.5, "end": 22.0, "text": "MiceMax: 2 people and AI" },
+    { "id": "city",     "start": 22.0, "end": 25.5, "text": "The city pays ¥3.99M to do one by hand." },
+    { "id": "scale",    "start": 25.5, "end": 28.5, "text": "We do every conference. Then every city." },
+    { "id": "logo",     "start": 28.5, "end": 30.0, "text": "MiceMax" }
+  ]
+}
