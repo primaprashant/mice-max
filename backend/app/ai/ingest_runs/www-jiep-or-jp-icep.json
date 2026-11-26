@@ -8,7 +8,7 @@
    "venue_en": "Grand Mercure Sapporo Odori Park",
    "venue_ja": null,
    "city": "Sapporo",
-   "field": "Advanced packaging and heterogeneous integration (electronics packaging)",
+   "field": "Electronics packaging (advanced packaging and heterogeneous integration)",
    "attendees_expected": 1200,
    "pages": [
     "https://www.jiep.or.jp/icep/"
@@ -38,7 +38,7 @@
     "end_date": "2027-05-15",
     "venue_en": "Grand Mercure Sapporo Odori Park",
     "venue_ja": null,
-    "field": "Advanced packaging and heterogeneous integration (electronics packaging)",
+    "field": "Electronics packaging (advanced packaging and heterogeneous integration)",
     "attendees_expected": 1200
    },
    "pages": [
@@ -53,9 +53,9 @@
   "tool": "llm",
   "mode": "live",
   "model": "anthropic/claude-sonnet-5.5",
-  "ms": 3522,
+  "ms": 1871,
   "tokens_in": 1169,
-  "tokens_out": 160
+  "tokens_out": 129
  },
  "2": {
   "ctx": {
@@ -175,7 +175,7 @@
      "title_en": "Luncheon Talk: The Origins of Silicon Valley: Lessons for Tech Hubs (Paul Wesling)",
      "title_ja": null,
      "type": "plenary",
-     "must": true
+     "must": false
     },
     {
      "day": "2027-05-12",
@@ -700,11 +700,11 @@
      "must": false
     }
    ],
-   "note": "The published text contains only site navigation, news items and important dates, with no sessions that have stated days and times, so no rows could be extracted."
+   "note": "The published text has only navigation, dates and news, with no session titles or times, so no sessions could be extracted."
   },
   "title_en": "Extract the schedule",
   "title_ja": "プログラムを取り出す",
-  "summary_en": "71 sessions over 4 days. The site lists 0; using the stored program (last edition moved to the new dates). The published text contains only site navigation, news items and important dates, with no sessions that have stated days and times, so no rows could be extracted.",
+  "summary_en": "71 sessions over 4 days. The site lists 0; using the stored program (last edition moved to the new dates). The published text has only navigation, dates and news, with no session titles or times, so no sessions could be extracted.",
   "summary_ja": "4日間で71セッション。サイト掲載は0件のため、保存済みプログラム（前回大会を新しい日付に移したもの）を使用。",
   "counters": [
    {
@@ -793,7 +793,7 @@
      "must": false
     }
    ],
-   "note": "The published text contains only site navigation, news items and important dates, with no sessions that have stated days and times, so no rows could be extracted.",
+   "note": "The published text has only navigation, dates and news, with no session titles or times, so no sessions could be extracted.",
    "source": "stored",
    "on_site": 0
   },
@@ -804,14 +804,13 @@
   "tool": "llm",
   "mode": "live",
   "model": "anthropic/claude-sonnet-5.5",
-  "ms": 2465,
+  "ms": 2040,
   "tokens_in": 1285,
-  "tokens_out": 56
+  "tokens_out": 48
  },
  "3": {
   "ctx": {
    "must": [
-    12,
     14,
     15,
     16,
@@ -821,31 +820,30 @@
   },
   "title_en": "Sort the sessions",
   "title_ja": "セッションを分類",
-  "summary_en": "6 must-attend, 65 skippable. Must-attend sessions are the plenaries common to all attendees: the luncheon talk (12), the Opening and Award Ceremony (14), and Keynotes I–IV (15, 16, 19, 47). Parallel orals, symposia, and posters are topic-specific and skippable. The sponsors' exhibition, social events, next-edition intro, and excursion are optional.",
-  "summary_ja": "必須6件、抜けられる65件。全員が参加すべきなのは、共通の全体セッションです。ランチョントーク(12)、開会・表彰式(14)、基調講演I〜IV(15、16、19、47)が該当します。並列の口頭発表、シンポジウム、ポスターは分野別のため省略可能です。スポンサー展示、懇親行事、次回案内、エクスカーションは任意参加です。",
+  "summary_en": "5 must-attend, 66 skippable. Must-attend sessions are the Opening and Award Ceremony (14) and the four keynotes (15, 16, 19, 47), which are plenary sessions relevant to nearly all attendees. The luncheon talk (12) is a plausible optional addition but is more of a general-interest talk, so I left it out. Parallel orals, symposia, posters, the exhibition, social events and the excursion are skippable or depend on individual interest.",
+  "summary_ja": "必須5件、抜けられる66件。必須としたのは、ほぼ全参加者に関係する全体セッションである開会式・授賞式(14)と4件の基調講演(15, 16, 19, 47)です。ランチョントーク(12)は追加候補になり得ますが、一般的な話題のため除外しました。並列の口頭発表、シンポジウム、ポスター、展示、懇親会、エクスカーションは個人の関心次第で省略可能です。",
   "counters": [
    {
-    "value": 6,
+    "value": 5,
     "en": "must-attend",
     "ja": "必須"
    },
    {
-    "value": 65,
+    "value": 66,
     "en": "skippable",
     "ja": "抜けられる"
    }
   ],
   "preview": {
    "must": [
-    "Luncheon Talk: The Origins of Silicon Valley: Lessons for Tech Hubs (Paul Wesling)",
     "Opening and Award Ceremony",
     "Keynote I: Chip-Package Interaction on High Bandwidth Memory (Naoki Yokoi, Micron Memory Japan)",
     "Keynote II: Enabling AI compute hardware through Silicon Photonics and advanced 3D assembly technologies (Peter Ossieur, imec)",
     "Keynote III: Advanced Thinning and Cutting Technologies Enabling AI-Oriented Heterogeneous Integration (Youngsuk Kim, DISCO)",
     "Keynote IV: The Future of Computing (Norishige Morimoto, IBM Japan)"
    ],
-   "why_en": "Must-attend sessions are the plenaries common to all attendees: the luncheon talk (12), the Opening and Award Ceremony (14), and Keynotes I–IV (15, 16, 19, 47). Parallel orals, symposia, and posters are topic-specific and skippable. The sponsors' exhibition, social events, next-edition intro, and excursion are optional.",
-   "why_ja": "全員が参加すべきなのは、共通の全体セッションです。ランチョントーク(12)、開会・表彰式(14)、基調講演I〜IV(15、16、19、47)が該当します。並列の口頭発表、シンポジウム、ポスターは分野別のため省略可能です。スポンサー展示、懇親行事、次回案内、エクスカーションは任意参加です。"
+   "why_en": "Must-attend sessions are the Opening and Award Ceremony (14) and the four keynotes (15, 16, 19, 47), which are plenary sessions relevant to nearly all attendees. The luncheon talk (12) is a plausible optional addition but is more of a general-interest talk, so I left it out. Parallel orals, symposia, posters, the exhibition, social events and the excursion are skippable or depend on individual interest.",
+   "why_ja": "必須としたのは、ほぼ全参加者に関係する全体セッションである開会式・授賞式(14)と4件の基調講演(15, 16, 19, 47)です。ランチョントーク(12)は追加候補になり得ますが、一般的な話題のため除外しました。並列の口頭発表、シンポジウム、ポスター、展示、懇親会、エクスカーションは個人の関心次第で省略可能です。"
   },
   "confidence": 0.8,
   "n": 3,
@@ -854,9 +852,9 @@
   "tool": "llm",
   "mode": "live",
   "model": "anthropic/claude-sonnet-5.5",
-  "ms": 4654,
+  "ms": 3892,
   "tokens_in": 2377,
-  "tokens_out": 296
+  "tokens_out": 325
  },
  "4": {
   "ctx": {
@@ -870,10 +868,10 @@
       "short"
      ],
      "id": "w1",
-     "name_en": "Day 1 early morning",
-     "name_ja": "1日目 早朝",
+     "name_en": "Early morning, May 12",
+     "name_ja": "5/12 早朝",
      "confidence": 0.95,
-     "reason_en": "No sessions before the 12:55 luncheon talk."
+     "reason_en": "No sessions before the luncheon talk, so attendees are free."
     },
     {
      "day": "2027-05-12",
@@ -884,10 +882,10 @@
       "evening"
      ],
      "id": "w2",
-     "name_en": "Day 1 late evening",
-     "name_ja": "1日目 夜",
-     "confidence": 0.9,
-     "reason_en": "Welcome Reception ends at 20:00, before the window opens."
+     "name_en": "Evening after reception, May 12",
+     "name_ja": "5/12 夜(レセプション後)",
+     "confidence": 0.93,
+     "reason_en": "The Welcome Reception ends at 20:00, before this window starts."
     },
     {
      "day": "2027-05-13",
@@ -898,10 +896,10 @@
       "short"
      ],
      "id": "w3",
-     "name_en": "Day 2 early morning",
-     "name_ja": "2日目 早朝",
-     "confidence": 0.9,
-     "reason_en": "Window ends at 08:00, before Keynote III at 08:30."
+     "name_en": "Early morning, May 13",
+     "name_ja": "5/13 早朝",
+     "confidence": 0.92,
+     "reason_en": "Window ends 08:00, before Keynote III at 08:30."
     },
     {
      "day": "2027-05-13",
@@ -912,10 +910,10 @@
       "evening"
      ],
      "id": "w4",
-     "name_en": "Day 2 late evening",
-     "name_ja": "2日目 夜",
-     "confidence": 0.9,
-     "reason_en": "Sponsors' Exhibition Party ends at 21:00, before the window opens."
+     "name_en": "Late evening, May 13",
+     "name_ja": "5/13 夜遅く",
+     "confidence": 0.93,
+     "reason_en": "The Sponsors' Exhibition Party ends at 21:00, before this window starts."
     },
     {
      "day": "2027-05-14",
@@ -926,10 +924,10 @@
       "short"
      ],
      "id": "w5",
-     "name_en": "Day 3 early morning",
-     "name_ja": "3日目 早朝",
+     "name_en": "Early morning, May 14",
+     "name_ja": "5/14 早朝",
      "confidence": 0.92,
-     "reason_en": "Window ends at 08:30, before Keynote IV at 09:00."
+     "reason_en": "Window ends 08:30, before Keynote IV at 09:00."
     },
     {
      "day": "2027-05-14",
@@ -940,9 +938,9 @@
       "evening"
      ],
      "id": "w6",
-     "name_en": "Day 3 evening",
-     "name_ja": "3日目 夜",
-     "confidence": 0.93,
+     "name_en": "Evening, May 14",
+     "name_ja": "5/14 夜",
+     "confidence": 0.95,
      "reason_en": "No events are scheduled in the evening."
     },
     {
@@ -954,10 +952,10 @@
       "short"
      ],
      "id": "w7",
-     "name_en": "Day 4 early morning",
-     "name_ja": "4日目 早朝",
+     "name_en": "Early morning, May 15",
+     "name_ja": "5/15 早朝",
      "confidence": 0.9,
-     "reason_en": "Window ends at 08:30, before the Excursion starts at 09:00."
+     "reason_en": "Window ends 08:30, before the excursion starts at 09:00."
     },
     {
      "day": "2027-05-15",
@@ -970,24 +968,24 @@
       "specialist"
      ],
      "id": "w8",
-     "name_en": "Day 4 evening after close",
-     "name_ja": "4日目 閉幕後の夜",
-     "confidence": 0.9,
-     "reason_en": "The Excursion ends at 15:00, so the evening is free."
+     "name_en": "Evening after close, May 15",
+     "name_ja": "5/15 夜(閉会後)",
+     "confidence": 0.92,
+     "reason_en": "The excursion ends at 15:00, so the evening is free."
     },
     {
      "day": "2027-05-15",
-     "start_time": "18:00",
-     "end_time": "18:00",
+     "start_time": "10:00",
+     "end_time": "23:59",
      "kind": "extra_night",
      "plan_kinds": [
       "extra_night"
      ],
      "id": "w9",
-     "name_en": "Extra night stay",
-     "name_ja": "延泊の夜",
-     "confidence": 0.7,
-     "reason_en": "No sessions are scheduled after the close, so the extra night is free."
+     "name_en": "Extra night, May 15",
+     "name_ja": "5/15 延泊",
+     "confidence": 0.6,
+     "reason_en": "The excursion covers only 10:00-15:00 of this window, so the rest of the afternoon and evening is free."
     }
    ]
   },
@@ -1014,59 +1012,59 @@
      "start_time": "06:30",
      "end_time": "08:30",
      "kind": "early_morning",
-     "name_en": "Day 1 early morning",
-     "name_ja": "1日目 早朝",
+     "name_en": "Early morning, May 12",
+     "name_ja": "5/12 早朝",
      "confidence": 0.95,
-     "reason_en": "No sessions before the 12:55 luncheon talk."
+     "reason_en": "No sessions before the luncheon talk, so attendees are free."
     },
     {
      "day": "2027-05-12",
      "start_time": "20:30",
      "end_time": "23:00",
      "kind": "evening",
-     "name_en": "Day 1 late evening",
-     "name_ja": "1日目 夜",
-     "confidence": 0.9,
-     "reason_en": "Welcome Reception ends at 20:00, before the window opens."
+     "name_en": "Evening after reception, May 12",
+     "name_ja": "5/12 夜(レセプション後)",
+     "confidence": 0.93,
+     "reason_en": "The Welcome Reception ends at 20:00, before this window starts."
     },
     {
      "day": "2027-05-13",
      "start_time": "06:30",
      "end_time": "08:00",
      "kind": "early_morning",
-     "name_en": "Day 2 early morning",
-     "name_ja": "2日目 早朝",
-     "confidence": 0.9,
-     "reason_en": "Window ends at 08:00, before Keynote III at 08:30."
+     "name_en": "Early morning, May 13",
+     "name_ja": "5/13 早朝",
+     "confidence": 0.92,
+     "reason_en": "Window ends 08:00, before Keynote III at 08:30."
     },
     {
      "day": "2027-05-13",
      "start_time": "21:30",
      "end_time": "23:00",
      "kind": "evening",
-     "name_en": "Day 2 late evening",
-     "name_ja": "2日目 夜",
-     "confidence": 0.9,
-     "reason_en": "Sponsors' Exhibition Party ends at 21:00, before the window opens."
+     "name_en": "Late evening, May 13",
+     "name_ja": "5/13 夜遅く",
+     "confidence": 0.93,
+     "reason_en": "The Sponsors' Exhibition Party ends at 21:00, before this window starts."
     },
     {
      "day": "2027-05-14",
      "start_time": "06:30",
      "end_time": "08:30",
      "kind": "early_morning",
-     "name_en": "Day 3 early morning",
-     "name_ja": "3日目 早朝",
+     "name_en": "Early morning, May 14",
+     "name_ja": "5/14 早朝",
      "confidence": 0.92,
-     "reason_en": "Window ends at 08:30, before Keynote IV at 09:00."
+     "reason_en": "Window ends 08:30, before Keynote IV at 09:00."
     },
     {
      "day": "2027-05-14",
      "start_time": "18:30",
      "end_time": "23:00",
      "kind": "evening",
-     "name_en": "Day 3 evening",
-     "name_ja": "3日目 夜",
-     "confidence": 0.93,
+     "name_en": "Evening, May 14",
+     "name_ja": "5/14 夜",
+     "confidence": 0.95,
      "reason_en": "No events are scheduled in the evening."
     },
     {
@@ -1074,30 +1072,30 @@
      "start_time": "06:30",
      "end_time": "08:30",
      "kind": "early_morning",
-     "name_en": "Day 4 early morning",
-     "name_ja": "4日目 早朝",
+     "name_en": "Early morning, May 15",
+     "name_ja": "5/15 早朝",
      "confidence": 0.9,
-     "reason_en": "Window ends at 08:30, before the Excursion starts at 09:00."
+     "reason_en": "Window ends 08:30, before the excursion starts at 09:00."
     },
     {
      "day": "2027-05-15",
      "start_time": "18:00",
      "end_time": "22:00",
      "kind": "after_close",
-     "name_en": "Day 4 evening after close",
-     "name_ja": "4日目 閉幕後の夜",
-     "confidence": 0.9,
-     "reason_en": "The Excursion ends at 15:00, so the evening is free."
+     "name_en": "Evening after close, May 15",
+     "name_ja": "5/15 夜(閉会後)",
+     "confidence": 0.92,
+     "reason_en": "The excursion ends at 15:00, so the evening is free."
     },
     {
      "day": "2027-05-15",
-     "start_time": "18:00",
-     "end_time": "18:00",
+     "start_time": "10:00",
+     "end_time": "23:59",
      "kind": "extra_night",
-     "name_en": "Extra night stay",
-     "name_ja": "延泊の夜",
-     "confidence": 0.7,
-     "reason_en": "No sessions are scheduled after the close, so the extra night is free."
+     "name_en": "Extra night, May 15",
+     "name_ja": "5/15 延泊",
+     "confidence": 0.6,
+     "reason_en": "The excursion covers only 10:00-15:00 of this window, so the rest of the afternoon and evening is free."
     }
    ],
    "dropped": []
@@ -1109,9 +1107,9 @@
   "tool": "rules",
   "mode": "live",
   "model": "anthropic/claude-sonnet-5.5",
-  "ms": 7864,
-  "tokens_in": 796,
-  "tokens_out": 1045
+  "ms": 9251,
+  "tokens_in": 793,
+  "tokens_out": 1276
  },
  "5": {
   "ctx": {
@@ -1130,8 +1128,8 @@
   },
   "title_en": "Estimate the audience",
   "title_ja": "参加者像を推定",
-  "summary_en": "ICEP 2027 is likely to draw mostly industry engineers, with academic researchers and students, working on advanced packaging, heterogeneous integration, and semiconductor materials. Roughly a third of attendees would be from overseas.",
-  "summary_ja": "ICEP 2027は先端パッケージングやヘテロジニアスインテグレーション、半導体材料に携わる企業技術者を中心に、研究者や学生も集まる会議で、海外参加者は約3割と見込まれます。",
+  "summary_en": "ICEP 2027 is expected to draw mainly industry engineers and some academic researchers and students working on advanced packaging, heterogeneous integration, semiconductors and materials, with a notable minority of overseas attendees.",
+  "summary_ja": "ICEP 2027は、先端パッケージングや異種集積、半導体、材料に携わる企業の技術者が中心で、研究者や学生も参加し、海外からの参加者も一定数見込まれる会議です。",
   "counters": [
    {
     "value": 4,
@@ -1153,8 +1151,8 @@
    ],
    "roles": {
     "academic_researcher": 0.25,
-    "industry_engineer": 0.55,
-    "student": 0.2,
+    "industry_engineer": 0.62,
+    "student": 0.13,
     "clinician": 0.0
    },
    "interests": [
@@ -1171,17 +1169,17 @@
   "tool": "llm",
   "mode": "live",
   "model": "anthropic/claude-sonnet-5.5",
-  "ms": 4422,
+  "ms": 3671,
   "tokens_in": 341,
-  "tokens_out": 287
+  "tokens_out": 277
  },
  "6": {
   "ctx": {
    "windows": [
     {
      "window": "w1",
-     "name_en": "Day 1 early morning",
-     "name_ja": "1日目 早朝",
+     "name_en": "Early morning, May 12",
+     "name_ja": "5/12 早朝",
      "day": "2027-05-12",
      "start": "06:30",
      "end": "08:30",
@@ -1486,8 +1484,8 @@
     },
     {
      "window": "w2",
-     "name_en": "Day 1 late evening",
-     "name_ja": "1日目 夜",
+     "name_en": "Evening after reception, May 12",
+     "name_ja": "5/12 夜(レセプション後)",
      "day": "2027-05-12",
      "start": "20:30",
      "end": "23:00",
@@ -1730,8 +1728,8 @@
     },
     {
      "window": "w3",
-     "name_en": "Day 2 early morning",
-     "name_ja": "2日目 早朝",
+     "name_en": "Early morning, May 13",
+     "name_ja": "5/13 早朝",
      "day": "2027-05-13",
      "start": "06:30",
      "end": "08:00",
@@ -2046,8 +2044,8 @@
     },
     {
      "window": "w4",
-     "name_en": "Day 2 late evening",
-     "name_ja": "2日目 夜",
+     "name_en": "Late evening, May 13",
+     "name_ja": "5/13 夜遅く",
      "day": "2027-05-13",
      "start": "21:30",
      "end": "23:00",
@@ -2302,8 +2300,8 @@
     },
     {
      "window": "w5",
-     "name_en": "Day 3 early morning",
-     "name_ja": "3日目 早朝",
+     "name_en": "Early morning, May 14",
+     "name_ja": "5/14 早朝",
      "day": "2027-05-14",
      "start": "06:30",
      "end": "08:30",
@@ -2608,8 +2606,8 @@
     },
     {
      "window": "w6",
-     "name_en": "Day 3 evening",
-     "name_ja": "3日目 夜",
+     "name_en": "Evening, May 14",
+     "name_ja": "5/14 夜",
      "day": "2027-05-14",
      "start": "18:30",
      "end": "23:00",
@@ -2810,8 +2808,8 @@
     },
     {
      "window": "w7",
-     "name_en": "Day 4 early morning",
-     "name_ja": "4日目 早朝",
+     "name_en": "Early morning, May 15",
+     "name_ja": "5/15 早朝",
      "day": "2027-05-15",
      "start": "06:30",
      "end": "08:30",
@@ -3116,8 +3114,8 @@
     },
     {
      "window": "w8",
-     "name_en": "Day 4 evening after close",
-     "name_ja": "4日目 閉幕後の夜",
+     "name_en": "Evening after close, May 15",
+     "name_ja": "5/15 夜(閉会後)",
      "day": "2027-05-15",
      "start": "18:00",
      "end": "22:00",
@@ -3782,77 +3780,104 @@
     },
     {
      "window": "w9",
-     "name_en": "Extra night stay",
-     "name_ja": "延泊の夜",
+     "name_en": "Extra night, May 15",
+     "name_ja": "5/15 延泊",
      "day": "2027-05-15",
-     "start": "18:00",
-     "end": "18:00",
-     "fits": [],
-     "ruled_out": [
+     "start": "10:00",
+     "end": "23:59",
+     "fits": [
       {
        "id": "combo-jozankei-and-market-brunch",
+       "kind": "extra_night",
        "title_en": "Jozankei onsen night and market brunch",
-       "title_ja": "定山渓の温泉と市場ブランチ",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 14:30",
-       "why_ja": "14:30までに札幌を出る必要がある"
+       "title_ja": "定山渓の温泉と市場ブランチ"
       },
       {
        "id": "combo-noboribetsu-and-upopoy",
+       "kind": "extra_night",
        "title_en": "Noboribetsu onsen and Upopoy",
-       "title_ja": "登別温泉とウポポイ",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 13:40",
-       "why_ja": "13:40までに札幌を出る必要がある"
+       "title_ja": "登別温泉とウポポイ"
       },
       {
        "id": "combo-yoichi-whisky-and-otaru-sushi",
+       "kind": "extra_night",
        "title_en": "Yoichi whisky and Otaru sushi night",
-       "title_ja": "余市ウイスキーと小樽の寿司",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 13:30",
-       "why_ja": "13:30までに札幌を出る必要がある"
+       "title_ja": "余市ウイスキーと小樽の寿司"
       },
       {
        "id": "xn-asahikawa-asahiyama-zoo-with",
+       "kind": "extra_night",
        "title_en": "Asahiyama Zoo and Dormy Inn Asahikawa",
-       "title_ja": "旭山動物園とドーミーイン旭川",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 11:00",
-       "why_ja": "11:00までに札幌を出る必要がある"
+       "title_ja": "旭山動物園とドーミーイン旭川"
       },
       {
        "id": "xn-furano-ski-day-march",
+       "kind": "extra_night",
        "title_en": "Shin Furano Prince Hotel",
-       "title_ja": "新富良野プリンスホテル",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 14:00",
-       "why_ja": "14:00までに札幌を出る必要がある"
+       "title_ja": "新富良野プリンスホテル"
       },
       {
        "id": "xn-ginrinso-historic-herring-mansion",
+       "kind": "extra_night",
        "title_en": "Ginrinso, historic ryokan above Otaru",
-       "title_ja": "料亭湯宿 銀鱗荘",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 17:00",
-       "why_ja": "17:00までに札幌を出る必要がある"
+       "title_ja": "料亭湯宿 銀鱗荘"
       },
       {
        "id": "xn-jozankei-forest-onsen-resort",
+       "kind": "extra_night",
        "title_en": "Jozankei Tsuruga Mori no Uta",
-       "title_ja": "定山渓鶴雅リゾートスパ 森の謌",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 16:00",
-       "why_ja": "16:00までに札幌を出る必要がある"
+       "title_ja": "定山渓鶴雅リゾートスパ 森の謌"
       },
       {
        "id": "xn-jozankei-onsen-resort-hotel",
+       "kind": "extra_night",
        "title_en": "Hotel Milione, Jozankei onsen",
-       "title_ja": "定山渓万世閣ホテルミリオーネ",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 14:30",
-       "why_ja": "14:30までに札幌を出る必要がある"
+       "title_ja": "定山渓万世閣ホテルミリオーネ"
       },
+      {
+       "id": "xn-lake-toya-onsen-resort",
+       "kind": "extra_night",
+       "title_en": "Toya Sun Palace and Mt Usu ropeway",
+       "title_ja": "洞爺サンパレスと有珠山"
+      },
+      {
+       "id": "xn-noboribetsu-dai-ichi-takimotokan",
+       "kind": "extra_night",
+       "title_en": "Dai-ichi Takimotokan, Noboribetsu",
+       "title_ja": "第一滝本館と登別地獄谷"
+      },
+      {
+       "id": "xn-otaru-canal-front-onsen",
+       "kind": "extra_night",
+       "title_en": "Furu-kawa, Otaru canal ryokan",
+       "title_ja": "運河の宿 おたる ふる川"
+      },
+      {
+       "id": "xn-otaru-canal-side-onsen",
+       "kind": "extra_night",
+       "title_en": "Hotel Sonia Otaru and glass blowing",
+       "title_ja": "ホテルソニア小樽と吹きガラス"
+      },
+      {
+       "id": "xn-suizantei-club-jozankei-adults",
+       "kind": "extra_night",
+       "title_en": "Suizantei Club Jozankei",
+       "title_ja": "翠山亭倶楽部定山渓"
+      },
+      {
+       "id": "xn-the-windsor-hotel-toya",
+       "kind": "extra_night",
+       "title_en": "The Windsor Hotel Toya",
+       "title_ja": "ザ・ウィンザーホテル洞爺"
+      },
+      {
+       "id": "xn-yoichi-nikka-whisky-distillery",
+       "kind": "extra_night",
+       "title_en": "Nikka Yoichi distillery and Otaru hotel",
+       "title_ja": "ニッカ余市蒸溜所と小樽の宿"
+      }
+     ],
+     "ruled_out": [
       {
        "id": "xn-kiroro-ski-in-luxury",
        "title_en": "Yu Kiroro suite and a ski day",
@@ -3860,14 +3885,6 @@
        "reason": "month",
        "why_en": "not offered in May",
        "why_ja": "5月は実施していない"
-      },
-      {
-       "id": "xn-lake-toya-onsen-resort",
-       "title_en": "Toya Sun Palace and Mt Usu ropeway",
-       "title_ja": "洞爺サンパレスと有珠山",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 13:00",
-       "why_ja": "13:00までに札幌を出る必要がある"
       },
       {
        "id": "xn-niseko-ski-day-at",
@@ -3878,60 +3895,12 @@
        "why_ja": "5月は実施していない"
       },
       {
-       "id": "xn-noboribetsu-dai-ichi-takimotokan",
-       "title_en": "Dai-ichi Takimotokan, Noboribetsu",
-       "title_ja": "第一滝本館と登別地獄谷",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 13:40",
-       "why_ja": "13:40までに札幌を出る必要がある"
-      },
-      {
-       "id": "xn-otaru-canal-front-onsen",
-       "title_en": "Furu-kawa, Otaru canal ryokan",
-       "title_ja": "運河の宿 おたる ふる川",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 16:00",
-       "why_ja": "16:00までに札幌を出る必要がある"
-      },
-      {
-       "id": "xn-otaru-canal-side-onsen",
-       "title_en": "Hotel Sonia Otaru and glass blowing",
-       "title_ja": "ホテルソニア小樽と吹きガラス",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 15:00",
-       "why_ja": "15:00までに札幌を出る必要がある"
-      },
-      {
        "id": "xn-rusutsu-ski-day-and",
        "title_en": "Rusutsu Resort Hotel and a ski day",
        "title_ja": "ルスツリゾートホテル",
        "reason": "month",
        "why_en": "not offered in May",
        "why_ja": "5月は実施していない"
-      },
-      {
-       "id": "xn-suizantei-club-jozankei-adults",
-       "title_en": "Suizantei Club Jozankei",
-       "title_ja": "翠山亭倶楽部定山渓",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 17:00",
-       "why_ja": "17:00までに札幌を出る必要がある"
-      },
-      {
-       "id": "xn-the-windsor-hotel-toya",
-       "title_en": "The Windsor Hotel Toya",
-       "title_ja": "ザ・ウィンザーホテル洞爺",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 16:30",
-       "why_ja": "16:30までに札幌を出る必要がある"
-      },
-      {
-       "id": "xn-yoichi-nikka-whisky-distillery",
-       "title_en": "Nikka Yoichi distillery and Otaru hotel",
-       "title_ja": "ニッカ余市蒸溜所と小樽の宿",
-       "reason": "leave_by",
-       "why_en": "must leave Sapporo by 13:30",
-       "why_ja": "13:30までに札幌を出る必要がある"
       }
      ]
     }
@@ -3939,8 +3908,8 @@
   },
   "title_en": "Check experiences against free time",
   "title_ja": "体験を空き時間で照合",
-  "summary_en": "107 fits across 9 windows; 251 ruled out by opening hours, season, travel or last start.",
-  "summary_ja": "9枠で107件が合う。251件を営業時間、季節、移動、最終開始で除外。",
+  "summary_en": "122 fits across 9 windows; 236 ruled out by opening hours, season, travel or last start.",
+  "summary_ja": "9枠で122件が合う。236件を営業時間、季節、移動、最終開始で除外。",
   "counters": [
    {
     "value": 109,
@@ -3948,12 +3917,12 @@
     "ja": "照合した体験"
    },
    {
-    "value": 107,
+    "value": 122,
     "en": "accepted",
     "ja": "採用"
    },
    {
-    "value": 251,
+    "value": 236,
     "en": "rejected",
     "ja": "除外"
    }
@@ -3961,8 +3930,8 @@
   "preview": {
    "sample": {
     "window": "w8",
-    "name_en": "Day 4 evening after close",
-    "name_ja": "4日目 閉幕後の夜",
+    "name_en": "Evening after close, May 15",
+    "name_ja": "5/15 夜(閉会後)",
     "day": "2027-05-15",
     "start": "18:00",
     "end": "22:00",
@@ -4057,58 +4026,58 @@
    },
    "per_window": [
     {
-     "name_en": "Day 1 early morning",
-     "name_ja": "1日目 早朝",
+     "name_en": "Early morning, May 12",
+     "name_ja": "5/12 早朝",
      "fits": 9,
      "ruled_out": 30
     },
     {
-     "name_en": "Day 1 late evening",
-     "name_ja": "1日目 夜",
+     "name_en": "Evening after reception, May 12",
+     "name_ja": "5/12 夜(レセプション後)",
      "fits": 8,
      "ruled_out": 23
     },
     {
-     "name_en": "Day 2 early morning",
-     "name_ja": "2日目 早朝",
+     "name_en": "Early morning, May 13",
+     "name_ja": "5/13 早朝",
      "fits": 4,
      "ruled_out": 35
     },
     {
-     "name_en": "Day 2 late evening",
-     "name_ja": "2日目 夜",
+     "name_en": "Late evening, May 13",
+     "name_ja": "5/13 夜遅く",
      "fits": 2,
      "ruled_out": 29
     },
     {
-     "name_en": "Day 3 early morning",
-     "name_ja": "3日目 早朝",
+     "name_en": "Early morning, May 14",
+     "name_ja": "5/14 早朝",
      "fits": 9,
      "ruled_out": 30
     },
     {
-     "name_en": "Day 3 evening",
-     "name_ja": "3日目 夜",
+     "name_en": "Evening, May 14",
+     "name_ja": "5/14 夜",
      "fits": 29,
      "ruled_out": 2
     },
     {
-     "name_en": "Day 4 early morning",
-     "name_ja": "4日目 早朝",
+     "name_en": "Early morning, May 15",
+     "name_ja": "5/15 早朝",
      "fits": 9,
      "ruled_out": 30
     },
     {
-     "name_en": "Day 4 evening after close",
-     "name_ja": "4日目 閉幕後の夜",
+     "name_en": "Evening after close, May 15",
+     "name_ja": "5/15 夜(閉会後)",
      "fits": 37,
      "ruled_out": 54
     },
     {
-     "name_en": "Extra night stay",
-     "name_ja": "延泊の夜",
-     "fits": 0,
-     "ruled_out": 18
+     "name_en": "Extra night, May 15",
+     "name_ja": "5/15 延泊",
+     "fits": 15,
+     "ruled_out": 3
     }
    ]
   },
@@ -4128,40 +4097,39 @@
    "ideas": [
     {
      "window": "w1",
-     "title_en": "Morning Run and Seafood Bowl Breakfast",
-     "title_ja": "朝ランと海鮮丼の朝食",
+     "title_en": "Morning run and seafood bowl breakfast",
+     "title_ja": "朝ラン&海鮮丼の朝ごはん",
      "experience_ids": [
       "combo-run-and-seafood-breakfast"
      ],
-     "why_en": "A light run to shake off travel fatigue, then a fresh Hokkaido seafood bowl before the conference starts."
+     "why_en": "A easy way to see Sapporo before sessions start, finishing with a fresh Hokkaido seafood bowl."
     },
     {
      "window": "w2",
-     "title_en": "Susukino Miso Ramen, then Late-Night Parfait",
-     "title_ja": "すすきの味噌ラーメンと夜パフェ",
+     "title_en": "Lamb-O jingisukan in Susukino",
+     "title_ja": "ラムO(ラムオー)すすきの店でジンギスカン",
      "experience_ids": [
-      "eve-sumire-susukino",
-      "eve-yoru-parfait-mua"
+      "eve-ef3aefe1"
      ],
-     "why_en": "Two Sapporo late-night staples, ramen and a parfait, both in or near Susukino, for a relaxed end to Day 1."
+     "why_en": "Hokkaido's signature grilled lamb, a short walk from the reception."
     },
     {
      "window": "w6",
-     "title_en": "Lamb Grill and a Closing Parfait",
-     "title_ja": "ラム焼きと締めパフェ",
-     "experience_ids": [
-      "combo-lamb-and-closing-parfait"
-     ],
-     "why_en": "Sapporo's signature jingisukan-style lamb followed by a parfait, a classic Sapporo night out with colleagues."
-    },
-    {
-     "window": "w8",
-     "title_en": "Mt Moiwa Night View and Miso Ramen",
+     "title_en": "Mt Moiwa night view and miso ramen",
      "title_ja": "藻岩山の夜景と味噌ラーメン",
      "experience_ids": [
       "combo-moiwa-night-view-and-miso-ramen"
      ],
-     "why_en": "A last-evening panorama of Sapporo's lights, with a bowl of the city's miso ramen to finish."
+     "why_en": "One of Japan's best night views of Sapporo, followed by Sapporo's classic miso ramen."
+    },
+    {
+     "window": "w9",
+     "title_en": "Yoichi whisky and Otaru sushi night",
+     "title_ja": "余市ウイスキーと小樽寿司の夜",
+     "experience_ids": [
+      "combo-yoichi-whisky-and-otaru-sushi"
+     ],
+     "why_en": "Distillery visit and Otaru's sushi street make a full extra-night outing near Sapporo."
     }
    ]
   },
@@ -4185,58 +4153,57 @@
    "kept": [
     {
      "window": "w1",
-     "title_en": "Morning Run and Seafood Bowl Breakfast",
-     "title_ja": "朝ランと海鮮丼の朝食",
+     "title_en": "Morning run and seafood bowl breakfast",
+     "title_ja": "朝ラン&海鮮丼の朝ごはん",
      "experience_ids": [
       "combo-run-and-seafood-breakfast"
      ],
-     "why_en": "A light run to shake off travel fatigue, then a fresh Hokkaido seafood bowl before the conference starts."
+     "why_en": "A easy way to see Sapporo before sessions start, finishing with a fresh Hokkaido seafood bowl."
     },
     {
      "window": "w2",
-     "title_en": "Susukino Miso Ramen, then Late-Night Parfait",
-     "title_ja": "すすきの味噌ラーメンと夜パフェ",
+     "title_en": "Lamb-O jingisukan in Susukino",
+     "title_ja": "ラムO(ラムオー)すすきの店でジンギスカン",
      "experience_ids": [
-      "eve-sumire-susukino",
-      "eve-yoru-parfait-mua"
+      "eve-ef3aefe1"
      ],
-     "why_en": "Two Sapporo late-night staples, ramen and a parfait, both in or near Susukino, for a relaxed end to Day 1."
+     "why_en": "Hokkaido's signature grilled lamb, a short walk from the reception."
     },
     {
      "window": "w6",
-     "title_en": "Lamb Grill and a Closing Parfait",
-     "title_ja": "ラム焼きと締めパフェ",
-     "experience_ids": [
-      "combo-lamb-and-closing-parfait"
-     ],
-     "why_en": "Sapporo's signature jingisukan-style lamb followed by a parfait, a classic Sapporo night out with colleagues."
-    },
-    {
-     "window": "w8",
-     "title_en": "Mt Moiwa Night View and Miso Ramen",
+     "title_en": "Mt Moiwa night view and miso ramen",
      "title_ja": "藻岩山の夜景と味噌ラーメン",
      "experience_ids": [
       "combo-moiwa-night-view-and-miso-ramen"
      ],
-     "why_en": "A last-evening panorama of Sapporo's lights, with a bowl of the city's miso ramen to finish."
+     "why_en": "One of Japan's best night views of Sapporo, followed by Sapporo's classic miso ramen."
+    },
+    {
+     "window": "w9",
+     "title_en": "Yoichi whisky and Otaru sushi night",
+     "title_ja": "余市ウイスキーと小樽寿司の夜",
+     "experience_ids": [
+      "combo-yoichi-whisky-and-otaru-sushi"
+     ],
+     "why_en": "Distillery visit and Otaru's sushi street make a full extra-night outing near Sapporo."
     }
    ],
    "rejected": [
     {
      "window": "w3",
-     "title_en": "Hokkaido Shrine and Maruyama Park Morning Walk",
+     "title_en": "Dawn walk at Hokkaido Shrine and Maruyama Park",
      "title_ja": "北海道神宮と円山公園の朝さんぽ",
      "experience_ids": [],
-     "why_en": "A quiet early-morning stroll through the forested shrine grounds and adjoining park, a calm, well-known Sapporo experience.",
+     "why_en": "A quiet, forested shrine walk in central Sapporo that fits a short morning slot before the day's sessions.",
      "reject_en": "not in our data",
      "reject_ja": "データにない"
     },
     {
-     "window": "w7",
-     "title_en": "Red Brick Government Building and Clock Tower Photo Walk",
-     "title_ja": "赤れんが庁舎と時計台のフォトさんぽ",
+     "window": "w8",
+     "title_en": "Jingisukan at Sapporo Beer Garden",
+     "title_ja": "サッポロビール園でジンギスカンと生ビール",
      "experience_ids": [],
-     "why_en": "An easy walk past two of Sapporo's best-known historic landmarks, viewed from outside and photographed in soft morning light.",
+     "why_en": "A well-known Sapporo dinner of lamb grill and fresh beer in a historic brick brewery, a good way to close the conference.",
      "reject_en": "not in our data",
      "reject_ja": "データにない"
     }
@@ -4249,29 +4216,29 @@
   "tool": "llm",
   "mode": "live",
   "model": "anthropic/claude-sonnet-5.5",
-  "ms": 19623,
-  "tokens_in": 2201,
-  "tokens_out": 2210
+  "ms": 16366,
+  "tokens_in": 2633,
+  "tokens_out": 1203
  },
  "8": {
   "ctx": {
    "top": [
     {
      "window": "w1",
-     "name_en": "Day 1 early morning",
-     "name_ja": "1日目 早朝",
+     "name_en": "Early morning, May 12",
+     "name_ja": "5/12 早朝",
      "picks": [
-      {
-       "id": "combo-run-and-seafood-breakfast",
-       "kind": "short",
-       "title_en": "Morning run and a seafood bowl breakfast",
-       "title_ja": "朝ランと二条市場の海鮮丼"
-      },
       {
        "id": "short-donbe-nijo-market",
        "kind": "short",
        "title_en": "Donbe Nijo Market seafood bowls",
        "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
       },
       {
        "id": "short-sapporo-curb-market-jogai",
@@ -4280,13 +4247,13 @@
        "title_ja": "札幌場外市場"
       }
      ],
-     "confidence": 0.6,
+     "confidence": 0.8,
      "needs_approval": false
     },
     {
      "window": "w2",
-     "name_en": "Day 1 late evening",
-     "name_ja": "1日目 夜",
+     "name_en": "Evening after reception, May 12",
+     "name_ja": "5/12 夜(レセプション後)",
      "picks": [
       {
        "id": "eve-03477ef5",
@@ -4307,13 +4274,13 @@
        "title_ja": "ジンギスカン ラム王"
       }
      ],
-     "confidence": 0.6,
+     "confidence": 0.75,
      "needs_approval": false
     },
     {
      "window": "w3",
-     "name_en": "Day 2 early morning",
-     "name_ja": "2日目 早朝",
+     "name_en": "Early morning, May 13",
+     "name_ja": "5/13 早朝",
      "picks": [
       {
        "id": "short-donbe-nijo-market",
@@ -4334,13 +4301,13 @@
        "title_ja": "北大キャンパス 朝ラン"
       }
      ],
-     "confidence": 0.55,
-     "needs_approval": true
+     "confidence": 0.6,
+     "needs_approval": false
     },
     {
      "window": "w4",
-     "name_en": "Day 2 late evening",
-     "name_ja": "2日目 夜",
+     "name_en": "Late evening, May 13",
+     "name_ja": "5/13 夜遅く",
      "picks": [
       {
        "id": "eve-sumire-susukino",
@@ -4355,101 +4322,41 @@
        "title_ja": "ミングル フードホール"
       }
      ],
-     "confidence": 0.6,
+     "confidence": 0.8,
      "needs_approval": false
     },
     {
      "window": "w5",
-     "name_en": "Day 3 early morning",
-     "name_ja": "3日目 早朝",
+     "name_en": "Early morning, May 14",
+     "name_ja": "5/14 早朝",
      "picks": [
       {
-       "id": "combo-run-and-seafood-breakfast",
+       "id": "short-donbe-nijo-market",
        "kind": "short",
-       "title_en": "Morning run and a seafood bowl breakfast",
-       "title_ja": "朝ランと二条市場の海鮮丼"
-      },
-      {
-       "id": "short-kita-no-gurume-tei",
-       "kind": "short",
-       "title_en": "Kita no Gurume-tei seafood bowls",
-       "title_ja": "北のグルメ亭"
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
       },
       {
        "id": "short-nijo-market",
        "kind": "short",
        "title_en": "Nijo Market",
        "title_ja": "二条市場"
-      }
-     ],
-     "confidence": 0.6,
-     "needs_approval": false
-    },
-    {
-     "window": "w6",
-     "name_en": "Day 3 evening",
-     "name_ja": "3日目 夜",
-     "picks": [
-      {
-       "id": "eve-03477ef5",
-       "kind": "evening",
-       "title_en": "Tsuki to Taiyo Brewing",
-       "title_ja": "月と太陽BREWING"
-      },
-      {
-       "id": "eve-1705e0f3",
-       "kind": "evening",
-       "title_en": "Sakanaya Dojo seafood izakaya",
-       "title_ja": "さかなや道場 東札幌店"
-      },
-      {
-       "id": "combo-lamb-and-closing-parfait",
-       "kind": "evening",
-       "title_en": "Lamb grill, then a closing parfait",
-       "title_ja": "ジンギスカンとシメパフェ"
-      }
-     ],
-     "confidence": 0.6,
-     "needs_approval": false
-    },
-    {
-     "window": "w7",
-     "name_en": "Day 4 early morning",
-     "name_ja": "4日目 早朝",
-     "picks": [
-      {
-       "id": "combo-run-and-seafood-breakfast",
-       "kind": "short",
-       "title_en": "Morning run and a seafood bowl breakfast",
-       "title_ja": "朝ランと二条市場の海鮮丼"
       },
       {
        "id": "short-sapporo-curb-market-jogai",
        "kind": "short",
        "title_en": "Sapporo Curb Market (Jogai Shijo)",
        "title_ja": "札幌場外市場"
-      },
-      {
-       "id": "short-donbe-nijo-market",
-       "kind": "short",
-       "title_en": "Donbe Nijo Market seafood bowls",
-       "title_ja": "丼兵衛 二条市場店"
       }
      ],
-     "confidence": 0.6,
+     "confidence": 0.8,
      "needs_approval": false
     },
     {
-     "window": "w8",
-     "name_en": "Day 4 evening after close",
-     "name_ja": "4日目 閉幕後の夜",
+     "window": "w6",
+     "name_en": "Evening, May 14",
+     "name_ja": "5/14 夜",
      "picks": [
-      {
-       "id": "eve-25959002",
-       "kind": "evening",
-       "title_en": "Sugino-me regional kaiseki",
-       "title_ja": "きょうど料理亭 杉ノ目"
-      },
       {
        "id": "eve-03477ef5",
        "kind": "evening",
@@ -4457,29 +4364,116 @@
        "title_ja": "月と太陽BREWING"
       },
       {
-       "id": "eve-2bf7d83c",
+       "id": "combo-lamb-and-closing-parfait",
        "kind": "evening",
-       "title_en": "Sushi Kyu",
-       "title_ja": "鮨九"
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ"
+      },
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
       }
      ],
-     "confidence": 0.6,
+     "confidence": 0.75,
+     "needs_approval": false
+    },
+    {
+     "window": "w7",
+     "name_en": "Early morning, May 15",
+     "name_ja": "5/15 早朝",
+     "picks": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "kind": "short",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場"
+      }
+     ],
+     "confidence": 0.8,
+     "needs_approval": false
+    },
+    {
+     "window": "w8",
+     "name_en": "Evening after close, May 15",
+     "name_ja": "5/15 夜(閉会後)",
+     "picks": [
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "kind": "evening",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ"
+      },
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
+      }
+     ],
+     "confidence": 0.75,
+     "needs_approval": false
+    },
+    {
+     "window": "w9",
+     "name_en": "Extra night, May 15",
+     "name_ja": "5/15 延泊",
+     "picks": [
+      {
+       "id": "combo-yoichi-whisky-and-otaru-sushi",
+       "kind": "extra_night",
+       "title_en": "Yoichi whisky and Otaru sushi night",
+       "title_ja": "余市ウイスキーと小樽の寿司"
+      },
+      {
+       "id": "xn-yoichi-nikka-whisky-distillery",
+       "kind": "extra_night",
+       "title_en": "Nikka Yoichi distillery and Otaru hotel",
+       "title_ja": "ニッカ余市蒸溜所と小樽の宿"
+      },
+      {
+       "id": "xn-otaru-canal-side-onsen",
+       "kind": "extra_night",
+       "title_en": "Hotel Sonia Otaru and glass blowing",
+       "title_ja": "ホテルソニア小樽と吹きガラス"
+      }
+     ],
+     "confidence": 0.75,
      "needs_approval": false
     }
    ]
   },
   "title_en": "Rank the top 3 per window",
   "title_ja": "空き時間ごとに上位3件",
-  "summary_en": "Top picks for 8 windows; 1 flagged for the organizer to approve.",
-  "summary_ja": "8枠で上位を選定、1枠は主催者の承認待ち。",
+  "summary_en": "Top picks for 9 windows; 0 flagged for the organizer to approve.",
+  "summary_ja": "9枠で上位を選定、0枠は主催者の承認待ち。",
   "counters": [
    {
-    "value": 8,
+    "value": 9,
     "en": "windows ranked",
     "ja": "選定した枠"
    },
    {
-    "value": 1,
+    "value": 0,
     "en": "need approval",
     "ja": "承認待ち"
    }
@@ -4488,20 +4482,20 @@
    "top": [
     {
      "window": "w1",
-     "name_en": "Day 1 early morning",
-     "name_ja": "1日目 早朝",
+     "name_en": "Early morning, May 12",
+     "name_ja": "5/12 早朝",
      "picks": [
-      {
-       "id": "combo-run-and-seafood-breakfast",
-       "kind": "short",
-       "title_en": "Morning run and a seafood bowl breakfast",
-       "title_ja": "朝ランと二条市場の海鮮丼"
-      },
       {
        "id": "short-donbe-nijo-market",
        "kind": "short",
        "title_en": "Donbe Nijo Market seafood bowls",
        "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
       },
       {
        "id": "short-sapporo-curb-market-jogai",
@@ -4510,13 +4504,13 @@
        "title_ja": "札幌場外市場"
       }
      ],
-     "confidence": 0.6,
+     "confidence": 0.8,
      "needs_approval": false
     },
     {
      "window": "w2",
-     "name_en": "Day 1 late evening",
-     "name_ja": "1日目 夜",
+     "name_en": "Evening after reception, May 12",
+     "name_ja": "5/12 夜(レセプション後)",
      "picks": [
       {
        "id": "eve-03477ef5",
@@ -4537,13 +4531,13 @@
        "title_ja": "ジンギスカン ラム王"
       }
      ],
-     "confidence": 0.6,
+     "confidence": 0.75,
      "needs_approval": false
     },
     {
      "window": "w3",
-     "name_en": "Day 2 early morning",
-     "name_ja": "2日目 早朝",
+     "name_en": "Early morning, May 13",
+     "name_ja": "5/13 早朝",
      "picks": [
       {
        "id": "short-donbe-nijo-market",
@@ -4564,13 +4558,13 @@
        "title_ja": "北大キャンパス 朝ラン"
       }
      ],
-     "confidence": 0.55,
-     "needs_approval": true
+     "confidence": 0.6,
+     "needs_approval": false
     },
     {
      "window": "w4",
-     "name_en": "Day 2 late evening",
-     "name_ja": "2日目 夜",
+     "name_en": "Late evening, May 13",
+     "name_ja": "5/13 夜遅く",
      "picks": [
       {
        "id": "eve-sumire-susukino",
@@ -4585,101 +4579,41 @@
        "title_ja": "ミングル フードホール"
       }
      ],
-     "confidence": 0.6,
+     "confidence": 0.8,
      "needs_approval": false
     },
     {
      "window": "w5",
-     "name_en": "Day 3 early morning",
-     "name_ja": "3日目 早朝",
+     "name_en": "Early morning, May 14",
+     "name_ja": "5/14 早朝",
      "picks": [
       {
-       "id": "combo-run-and-seafood-breakfast",
+       "id": "short-donbe-nijo-market",
        "kind": "short",
-       "title_en": "Morning run and a seafood bowl breakfast",
-       "title_ja": "朝ランと二条市場の海鮮丼"
-      },
-      {
-       "id": "short-kita-no-gurume-tei",
-       "kind": "short",
-       "title_en": "Kita no Gurume-tei seafood bowls",
-       "title_ja": "北のグルメ亭"
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
       },
       {
        "id": "short-nijo-market",
        "kind": "short",
        "title_en": "Nijo Market",
        "title_ja": "二条市場"
-      }
-     ],
-     "confidence": 0.6,
-     "needs_approval": false
-    },
-    {
-     "window": "w6",
-     "name_en": "Day 3 evening",
-     "name_ja": "3日目 夜",
-     "picks": [
-      {
-       "id": "eve-03477ef5",
-       "kind": "evening",
-       "title_en": "Tsuki to Taiyo Brewing",
-       "title_ja": "月と太陽BREWING"
-      },
-      {
-       "id": "eve-1705e0f3",
-       "kind": "evening",
-       "title_en": "Sakanaya Dojo seafood izakaya",
-       "title_ja": "さかなや道場 東札幌店"
-      },
-      {
-       "id": "combo-lamb-and-closing-parfait",
-       "kind": "evening",
-       "title_en": "Lamb grill, then a closing parfait",
-       "title_ja": "ジンギスカンとシメパフェ"
-      }
-     ],
-     "confidence": 0.6,
-     "needs_approval": false
-    },
-    {
-     "window": "w7",
-     "name_en": "Day 4 early morning",
-     "name_ja": "4日目 早朝",
-     "picks": [
-      {
-       "id": "combo-run-and-seafood-breakfast",
-       "kind": "short",
-       "title_en": "Morning run and a seafood bowl breakfast",
-       "title_ja": "朝ランと二条市場の海鮮丼"
       },
       {
        "id": "short-sapporo-curb-market-jogai",
        "kind": "short",
        "title_en": "Sapporo Curb Market (Jogai Shijo)",
        "title_ja": "札幌場外市場"
-      },
-      {
-       "id": "short-donbe-nijo-market",
-       "kind": "short",
-       "title_en": "Donbe Nijo Market seafood bowls",
-       "title_ja": "丼兵衛 二条市場店"
       }
      ],
-     "confidence": 0.6,
+     "confidence": 0.8,
      "needs_approval": false
     },
     {
-     "window": "w8",
-     "name_en": "Day 4 evening after close",
-     "name_ja": "4日目 閉幕後の夜",
+     "window": "w6",
+     "name_en": "Evening, May 14",
+     "name_ja": "5/14 夜",
      "picks": [
-      {
-       "id": "eve-25959002",
-       "kind": "evening",
-       "title_en": "Sugino-me regional kaiseki",
-       "title_ja": "きょうど料理亭 杉ノ目"
-      },
       {
        "id": "eve-03477ef5",
        "kind": "evening",
@@ -4687,39 +4621,126 @@
        "title_ja": "月と太陽BREWING"
       },
       {
-       "id": "eve-2bf7d83c",
+       "id": "combo-lamb-and-closing-parfait",
        "kind": "evening",
-       "title_en": "Sushi Kyu",
-       "title_ja": "鮨九"
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ"
+      },
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
       }
      ],
-     "confidence": 0.6,
+     "confidence": 0.75,
+     "needs_approval": false
+    },
+    {
+     "window": "w7",
+     "name_en": "Early morning, May 15",
+     "name_ja": "5/15 早朝",
+     "picks": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "kind": "short",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場"
+      }
+     ],
+     "confidence": 0.8,
+     "needs_approval": false
+    },
+    {
+     "window": "w8",
+     "name_en": "Evening after close, May 15",
+     "name_ja": "5/15 夜(閉会後)",
+     "picks": [
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "kind": "evening",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ"
+      },
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
+      }
+     ],
+     "confidence": 0.75,
+     "needs_approval": false
+    },
+    {
+     "window": "w9",
+     "name_en": "Extra night, May 15",
+     "name_ja": "5/15 延泊",
+     "picks": [
+      {
+       "id": "combo-yoichi-whisky-and-otaru-sushi",
+       "kind": "extra_night",
+       "title_en": "Yoichi whisky and Otaru sushi night",
+       "title_ja": "余市ウイスキーと小樽の寿司"
+      },
+      {
+       "id": "xn-yoichi-nikka-whisky-distillery",
+       "kind": "extra_night",
+       "title_en": "Nikka Yoichi distillery and Otaru hotel",
+       "title_ja": "ニッカ余市蒸溜所と小樽の宿"
+      },
+      {
+       "id": "xn-otaru-canal-side-onsen",
+       "kind": "extra_night",
+       "title_en": "Hotel Sonia Otaru and glass blowing",
+       "title_ja": "ホテルソニア小樽と吹きガラス"
+      }
+     ],
+     "confidence": 0.75,
      "needs_approval": false
     }
    ]
   },
-  "confidence": 0.59,
+  "confidence": 0.76,
   "n": 8,
   "key": "rank",
   "agent": "ranker",
   "tool": "llm",
   "mode": "live",
   "model": "anthropic/claude-sonnet-5.5",
-  "ms": 4015,
-  "tokens_in": 2175,
-  "tokens_out": 468
+  "ms": 4169,
+  "tokens_in": 2716,
+  "tokens_out": 532
  },
  "9": {
   "ctx": {
-   "intro_en": "Sapporo is at its best in the early morning and after dark, which is exactly when the conference lets you go. Here are our picks for ICEP 2027, from sunrise runs and seafood bowls to late-night ramen, jingisukan and craft beer.",
-   "intro_ja": "札幌の魅力がいちばん詰まっているのは、早朝と夜の時間帯です。ICEP 2027の合間に楽しめるよう、朝ラン＆海鮮丼から、締めのラーメン、ジンギスカン、クラフトビールまで、おすすめをまとめました。",
+   "intro_en": "Between sessions, Sapporo is ready to feed you: seafood bowls at Nijo Market at dawn, then miso ramen, lamb and craft beer in Susukino after dark. Here are our picks for May 12–15, plus an extra night out to Yoichi and Otaru for those staying on.",
+   "intro_ja": "ICEP 2027の合間に札幌の味を存分に楽しんでいただけるよう、5月12日〜15日のおすすめをまとめました。朝は二条市場の海鮮丼、夜はすすきのの味噌ラーメンやジンギスカンがおすすめで、15日の夜は余市と小樽へ足をのばすこともできます。",
    "email_en": {
-    "subject": "Free-time suggestions for ICEP 2027 attendees",
-    "body": "Dear Organizing Committee,\n\nI hope you are well. I have put together a short free-time page for ICEP 2027 (May 12–15, Grand Mercure Sapporo Odori Park). It covers morning runs and seafood-bowl breakfasts, plus evening options such as izakaya, jingisukan, miso ramen, craft beer and sushi.\n\nIf it would be useful, please feel free to share it on the conference website or in the welcome materials. I would also be glad to adjust it to fit your program or format.\n\nThank you very much, and I look forward to seeing everyone in Sapporo.\n\nBest regards"
+    "subject": "Free-time page for ICEP 2027 attendees (May 12–15, Sapporo)",
+    "body": "Dear Organizer,\n\nI hope you're well. I've put together a short free-time page for ICEP 2027 attendees staying at the Grand Mercure Sapporo Odori Park. It offers a few ideas for each day: early-morning seafood bowls at Nijo Market, a morning run in Odori Park, and evenings in Susukino with ramen, lamb and craft beer. There is also an optional extra night on May 15 in Yoichi and Otaru.\n\nCould you take a look and, if it suits, share it with attendees through your usual channels? I'm happy to adjust anything.\n\nWarm regards"
    },
    "email_ja": {
-    "subject": "ICEP 2027 参加者向け フリータイム案内のご提案",
-    "body": "ICEP 2027ご担当者様\n\nお世話になっております。5月12日〜15日の開催に向けて、フリータイム用の案内ページを作成しました。朝ランや海鮮丼の朝食、夜の居酒屋、ジンギスカン、味噌ラーメン、クラフトビール、寿司などを紹介しています。\n\n公式サイトや参加者向け資料でご活用いただければ幸いです。ご要望に合わせて調整もいたします。\n\nどうぞよろしくお願いいたします。"
+    "subject": "ICEP 2027 参加者向け「自由時間ページ」のご確認のお願い",
+    "body": "ICEP 2027ご担当者様\n\n参加者向けの自由時間ページの案をお送りします。朝は二条市場の海鮮丼、夜はすすきのの味噌ラーメンやジンギスカン、クラフトビールなどを、日ごとにまとめました。15日の夜には、余市と小樽を巡る小旅行も紹介しています。内容をご確認のうえ、参加者への案内にご活用いただけますと幸いです。修正のご希望もお気軽にお知らせください。どうぞよろしくお願いいたします。"
    }
   },
   "title_en": "Write JA/EN copy",
@@ -4739,15 +4760,15 @@
    }
   ],
   "preview": {
-   "intro_en": "Sapporo is at its best in the early morning and after dark, which is exactly when the conference lets you go. Here are our picks for ICEP 2027, from sunrise runs and seafood bowls to late-night ramen, jingisukan and craft beer.",
-   "intro_ja": "札幌の魅力がいちばん詰まっているのは、早朝と夜の時間帯です。ICEP 2027の合間に楽しめるよう、朝ラン＆海鮮丼から、締めのラーメン、ジンギスカン、クラフトビールまで、おすすめをまとめました。",
+   "intro_en": "Between sessions, Sapporo is ready to feed you: seafood bowls at Nijo Market at dawn, then miso ramen, lamb and craft beer in Susukino after dark. Here are our picks for May 12–15, plus an extra night out to Yoichi and Otaru for those staying on.",
+   "intro_ja": "ICEP 2027の合間に札幌の味を存分に楽しんでいただけるよう、5月12日〜15日のおすすめをまとめました。朝は二条市場の海鮮丼、夜はすすきのの味噌ラーメンやジンギスカンがおすすめで、15日の夜は余市と小樽へ足をのばすこともできます。",
    "email_en": {
-    "subject": "Free-time suggestions for ICEP 2027 attendees",
-    "body": "Dear Organizing Committee,\n\nI hope you are well. I have put together a short free-time page for ICEP 2027 (May 12–15, Grand Mercure Sapporo Odori Park). It covers morning runs and seafood-bowl breakfasts, plus evening options such as izakaya, jingisukan, miso ramen, craft beer and sushi.\n\nIf it would be useful, please feel free to share it on the conference website or in the welcome materials. I would also be glad to adjust it to fit your program or format.\n\nThank you very much, and I look forward to seeing everyone in Sapporo.\n\nBest regards"
+    "subject": "Free-time page for ICEP 2027 attendees (May 12–15, Sapporo)",
+    "body": "Dear Organizer,\n\nI hope you're well. I've put together a short free-time page for ICEP 2027 attendees staying at the Grand Mercure Sapporo Odori Park. It offers a few ideas for each day: early-morning seafood bowls at Nijo Market, a morning run in Odori Park, and evenings in Susukino with ramen, lamb and craft beer. There is also an optional extra night on May 15 in Yoichi and Otaru.\n\nCould you take a look and, if it suits, share it with attendees through your usual channels? I'm happy to adjust anything.\n\nWarm regards"
    },
    "email_ja": {
-    "subject": "ICEP 2027 参加者向け フリータイム案内のご提案",
-    "body": "ICEP 2027ご担当者様\n\nお世話になっております。5月12日〜15日の開催に向けて、フリータイム用の案内ページを作成しました。朝ランや海鮮丼の朝食、夜の居酒屋、ジンギスカン、味噌ラーメン、クラフトビール、寿司などを紹介しています。\n\n公式サイトや参加者向け資料でご活用いただければ幸いです。ご要望に合わせて調整もいたします。\n\nどうぞよろしくお願いいたします。"
+    "subject": "ICEP 2027 参加者向け「自由時間ページ」のご確認のお願い",
+    "body": "ICEP 2027ご担当者様\n\n参加者向けの自由時間ページの案をお送りします。朝は二条市場の海鮮丼、夜はすすきのの味噌ラーメンやジンギスカン、クラフトビールなどを、日ごとにまとめました。15日の夜には、余市と小樽を巡る小旅行も紹介しています。内容をご確認のうえ、参加者への案内にご活用いただけますと幸いです。修正のご希望もお気軽にお知らせください。どうぞよろしくお願いいたします。"
    }
   },
   "confidence": null,
@@ -4757,8 +4778,8 @@
   "tool": "llm",
   "mode": "live",
   "model": "anthropic/claude-sonnet-5.5",
-  "ms": 9953,
-  "tokens_in": 624,
-  "tokens_out": 1150
+  "ms": 13015,
+  "tokens_in": 679,
+  "tokens_out": 1666
  }
 }

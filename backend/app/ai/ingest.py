@@ -282,7 +282,10 @@ def rule_windows(info, ses):
         last = merged[-1][1]
         if day == info["end_date"]:
             out_.append((day, last, max(last, 1320), "after_close"))
-            out_.append((day, last, last, "extra_night"))
+            # Same shape as windows.csv: leave at hotel check-out (10:00) if the last day has no must-attend
+            # session, else after lunch (13:30), skipping the rest; stay until the end of the day.
+            must = any(x.get("must") for x in ses if x["day"] == day)
+            out_.append((day, 810 if must else 600, 1439, "extra_night"))
         elif 1380 - (last + 30) >= 90:
             out_.append((day, last + 30, 1380, "evening"))
     return [{"day": d, "start_time": hm(a), "end_time": hm(b), "kind": kd, "plan_kinds": KINDS[kd]}
