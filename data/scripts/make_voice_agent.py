@@ -17,6 +17,7 @@ import env
 ROOT = env.ENV.parent
 CONFIG = ROOT / "backend" / "app" / "ai" / "voice_agent.json"
 API = "https://api.elevenlabs.io/v1/convai/agents"
+LLM = "claude-sonnet-5-5"  # fast Claude from the API's allowed list; natural keigo
 
 PROMPT = """You are MiceMax's AI booking agent, on a phone call to {hotel_ja} ({hotel_en}).
 You call on behalf of conference attendees (conference {conf}). The person you talk to is the front desk.
@@ -68,7 +69,7 @@ def body(f: dict) -> dict:
         "conversation_config": {
             "agent": {
                 "first_message": first_ja, "language": "ja",
-                "prompt": {"prompt": PROMPT.format(**f),
+                "prompt": {"prompt": PROMPT.format(**f), "llm": LLM,
                            "built_in_tools": {"end_call": tool("end_call"),
                                               "language_detection": tool("language_detection")}},
             },
