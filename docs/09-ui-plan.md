@@ -17,7 +17,7 @@ A foundations skeleton exists on this branch in [ui/](../ui/): an Astro 7 + Tail
 
 ### Attendee view
 
-One login page for all three views, at /, with role tabs styled like the calendar's day tabs (attendee default, organizer, city). The tab picks where login redirects. Name, plus a password field that is never checked for any role. The screen index lives at /nav, linked from the header wordmark.
+The entry page lives at /home (the root `/` redirects there): a photo band with role tabs (attendee default, organizer, city, operations) above a paginated conference list. A connpass-style month calendar sits beside the list: arrows change the month, a day click narrows to that day and clicking it again returns to the month; the two demo conferences always stay visible. Each view tab tints the photo band with its own color (attendee slate, organizer green, city maroon, operations violet); the selected tab is the one solid paper pill, idle tabs are barely rounded tinted glass. One login page for all three views, at /login, with role tabs styled like the calendar's day tabs (attendee default, organizer, city). The tab picks where login redirects. Name, plus a password field that is never checked for any role. The screen index lives at /nav, linked from the header wordmark.
 
 Then a calendar view with the conference sessions (in default theme color) and our events (in a yellow banana color). Scroll down to see all available events (like connpass).
 

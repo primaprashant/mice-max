@@ -69,7 +69,7 @@ Environment variables:
 
 ## Step 2: test the SQLite fallback
 
-If you deploy before the Neon swap is wired, the app reads `data/micemax.db`. The adapter config carries `includeFiles: ['../data/micemax.db']`, so the build puts the file inside the function bundle. Checked 2026-11-25: the file is in the bundle, and the app serves the calendar, an experience page, the login page at /, and a login POST from the local build.
+If you deploy before the Neon swap is wired, the app reads `data/micemax.db`. The adapter config carries `includeFiles: ['../data/micemax.db']`, so the build puts the file inside the function bundle. Checked 2026-11-25: the file is in the bundle, and the app serves the calendar, an experience page, the login page at /login (the root redirects to /home), and a login POST from the local build.
 
 1. Open the site URL. The calendar must render.
 2. If it does not, open the function log in Netlify. A file-not-found error means the include did not run; check `includeFiles` in [ui/astro.config.mjs](../ui/astro.config.mjs).
