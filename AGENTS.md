@@ -13,7 +13,11 @@ Apply these guidelines in every agent session.
 
 MiceMax helps people visiting Hokkaido for business events (MICE) spend more locally: it reads a conference's website, finds attendees' free time and offers experiences that fit (extra night first, then short activities, then specialist visits). Built for a 2-day hackathon in Sapporo. Organizer, attendee and city views share one conference link.
 
+`README.md` (and `README.ja.md`) is written for hackathon judges, not developers. Keep developer details here. When you change one README, change the other to match.
+
 ## Files
+
+- `README.md`, `README.ja.md`: the pitch for judges, English and Japanese.
 
 - `docs/README.md`: entry point, five-line summary, glossary, reading order.
 - `docs/03-hackathon-scope.md`: what to build and not build, tech choices, and "Rules for agents building this". Read before writing code.
@@ -24,3 +28,35 @@ MiceMax helps people visiting Hokkaido for business events (MICE) spend more loc
 - `docs/01-evidence.md`, `02-vision.md`, `04-long-term-plan.md`, `06-sources.md`: background, vision, business plan, sources [S1]...
 - `docs/charts/`: chart PNGs and `make_charts.py` that draws them.
 - `docs/prompts/inventory-research.md`: prompt for building the activity and venue list.
+- `ui/README.md`: UI stack, structure and screen details.
+
+## Apps
+
+- `backend/`: FastAPI. Reads `data/micemax.db` (committed SQLite) for catalog data. Live AI features live in `backend/app/ai/`, one module per feature, each recording a step through `steplog.record`. Writes the event log to Neon only when `DATABASE_URL` is set; otherwise those writes return 503 and the demo still works.
+- `ui/`: Astro frontend. Every screen works from the same SQLite file.
+- `data/`: the SQLite master copy, its build scripts (`data/scripts/`) and source data.
+
+Deployed: frontend https://mice-max.netlify.app (Netlify), backend on Render (`backend/render.yaml`).
+
+## Run locally
+
+Needs Python 3.12+ with uv, and Node 22+.
+
+```sh
+cd backend && uv sync && .venv/bin/uvicorn app.main:app --port 8787   # check /health
+cd ui && npm install && npm run dev                                    # http://localhost:4321
+```
+
+`/` is the login (role tab, any name); `/nav` links every screen. Main screens: `/c/:conf` attendee, `/organize/:conf` organizer, `/city` city, `/ops` control room, `/ops/run` live ingest, `/ops/sales` sales agent, `/ops/:conf` disruption and voice booking.
+
+## Environment variables (backend)
+
+| Variable | Purpose |
+|---|---|
+| `DATABASE_URL` | Neon Postgres; unset means event-log writes return 503 |
+| `CORS_ORIGINS` | Comma-separated allowed origins; unset means same-origin only; `*` for local cross-origin |
+| `MICEMAX_DB` | Override the SQLite path (default `data/micemax.db`) |
+| `ORCAROUTER_KEY` | LLM calls through OrcaRouter |
+| `LINKUP_API_KEY` | Web search in ingest step 1 |
+| `NEO4J_*` | Neo4j Aura for the disruption agent (falls back to SQLite) |
+| `ELEVEN_KEY` | ElevenLabs, for the voice agent and call audio |
