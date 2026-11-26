@@ -9,26 +9,19 @@ import Hero from "../../components/ops-home/Hero.astro";
 import Timeline from "../../components/ops-home/Timeline.astro";
 import TryLive from "../../components/ops-home/TryLive.astro";
 import { getLang } from "../../data/attendee";
-import { randomPhoto, creditKey } from "../../data/photos";
 import { t } from "../../i18n";
 
 const lang = getLang(Astro.cookies);
-const photoSlug = randomPhoto();
 ---
 
 <Base title={`${t(lang, "opsHome.title")} (MiceMax)`}>
-  <RoleSelector lang={lang} active="ops" title={t(lang, "opsHome.headerTitle")} photoSlug={photoSlug} />
+  <RoleSelector lang={lang} active="ops" compact />
   <div class="oh-page bg-[#05070d] text-slate-100">
     <main>
       <Hero lang={lang} />
       <Timeline lang={lang} />
       <TryLive lang={lang} />
     </main>
-    <footer class="pb-4">
-      <p class="mx-auto max-w-7xl px-6 text-right text-[11px] text-slate-500">
-        {t(lang, creditKey(photoSlug))} {t(lang, "login.photoCreditSuffix")}
-      </p>
-    </footer>
   </div>
 </Base>
 

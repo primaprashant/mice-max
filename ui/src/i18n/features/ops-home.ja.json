@@ -1,7 +1,6 @@
 {
   "opsHome": {
     "title": "MiceMax オペレーション",
-    "headerTitle": "MiceMaxの運営",
     "headline": "AIエージェント{agents}体、人は{humans}人。",
     "sub": "会議ごとの仕事は、サイトの読み込みから市への報告まで、AIエージェントが行います。人はその確認を担当します。",
     "scrollHint": "ひとつの会議を追う",
