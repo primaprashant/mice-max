@@ -1,0 +1,7 @@
+---
+/** Slot for the live DisruptionLive feature. Renders nothing until that feature lands. */
+import type { Lang } from "../../i18n";
+interface Props { conferenceId: string; lang: Lang; mode?: "attendee" | "organizer" }
+const { conferenceId, lang, mode } = Astro.props;
+void conferenceId; void lang; void mode;
+---

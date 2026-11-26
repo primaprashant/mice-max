@@ -3,6 +3,7 @@ export const prerender = false;
 
 import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
+import ChatPanel from "../../components/live/ChatPanel.astro";
 import DayGrid from "../../components/DayGrid.astro";
 import DayTabs from "../../components/DayTabs.astro";
 import OpsBadge from "../../components/OpsBadge.astro";
@@ -424,6 +425,7 @@ const activeDay = days.includes(today) ? today : days[0];
         })}
       </DayTabs>
     </section>
+    <ChatPanel conferenceId={conf.id} lang={lang} mode="attendee" />
   </main>
   <session-modal
     data-sessions-json={JSON.stringify(sessionDetails)}

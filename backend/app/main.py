@@ -40,6 +40,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from .ai import chat, control, disruption, feed, ingest, sales, voice  # noqa: E402
+
+for _m in (feed, ingest, chat, disruption, voice, sales, control):
+    app.include_router(_m.router)
+
 
 def db() -> sqlite3.Connection:
     conn = sqlite3.connect(f"file:{DB_PATH}?mode=ro", uri=True)

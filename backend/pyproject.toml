@@ -6,6 +6,8 @@ dependencies = [
   "fastapi>=0.115",
   "uvicorn>=0.34",
   "psycopg[binary]>=3.2",
+  "httpx>=0.28",
+  "neo4j>=5.20",
 ]
 
 [dependency-groups]

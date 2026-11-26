@@ -3,6 +3,8 @@ export const prerender = false;
 
 import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
+import DisruptionLive from "../../components/live/DisruptionLive.astro";
+import VoiceCall from "../../components/live/VoiceCall.astro";
 import ModeLabel from "../../components/ModeLabel.astro";
 import OpsStepCard from "../../components/OpsStepCard.astro";
 import { conferenceById, agentSteps, experienceCopy } from "../../data";
@@ -203,6 +205,8 @@ for (const eid of disruptionExperienceIds(disruption)) {
         );
       })}
     </section>
+    <VoiceCall conferenceId={conf.id} lang={lang} />
+    <DisruptionLive conferenceId={conf.id} lang={lang} />
   </main>
 </Base>
 
