@@ -20,11 +20,7 @@ Sapporo hosted 466 conferences and 109,311 attendees in 2025, up from 443 and 89
 
 **Most attendees are Japanese, and they are our main market.** About 94% come from inside Japan, mostly to national medical and academic society meetings.
 
-![94% of Sapporo's conference attendees are Japanese](docs/charts/1-who-attends.png)
-
 **A few large national meetings bring most of the visitors from outside Hokkaido.** At the main venue, national and international meetings are 10% of events but 26% of attendance. One 2025 national meeting had 83% of its 2,949 attendees from outside Hokkaido. These visitors are the ones MiceMax targets.
-
-![A few national and international meetings bring the outside visitors](docs/charts/0-conference-mix.png)
 
 **Sapporo can't grow by hosting more conferences.** Its main venue turned away 365 bookings in FY2024, and the new venue opens around FY2033. Until then, the way to grow is more spending from each attendee.
 
@@ -63,8 +59,6 @@ New money = attendees reached
             × (share who book an activity × activity spend × share that is truly new
                + share who stay an extra night × spend per extra night)
 ```
-
-![Extra nights bring in most of the new money](docs/charts/3-money-scenarios.png)
 
 In the middle scenario, organizers reach about 19,700 attendees a year, 5% stay one extra night and 25% book an activity: **¥33.4M**. All inputs except the attendee count are our assumptions. The biggest unknown is whether Japanese attendees will add a night, so the first pilot tests that, with half the attendees seeing offers and half not.
 
@@ -125,27 +119,27 @@ A typical company running this across Sapporo would need around 17 people (our e
 flowchart TB
     subgraph AI["MiceMax: 2 people and AI agents"]
         direction LR
-        H1[Operations lead<br/>approvals and handoffs]
-        H2[Partnerships<br/>city and local businesses]
-        H1 --> A1[Sales agent]
-        H1 --> A2[Ingest agent]
-        H1 --> A3[Research and curation agents]
-        H1 --> A4[Voice booking agent]
-        H1 --> A5[Q&A agent]
-        H1 --> A6[Disruption agent]
-        H1 --> A7[Reporting]
+        H1[👤 Operations lead<br/>approvals and handoffs]
+        H2[👤 Partnerships<br/>city and local businesses]
+        H1 --> A1[🤖 Sales agent]
+        H1 --> A2[🤖 Ingest agent]
+        H1 --> A3[🤖 Research and curation agents]
+        H1 --> A4[🤖 Voice booking agent]
+        H1 --> A5[🤖 Q&A agent]
+        H1 --> A6[🤖 Disruption agent]
+        H1 --> A7[🤖 Reporting]
         H2 --> A1
     end
     subgraph Typical["Typical company: about 17 people"]
         direction LR
-        M[Manager]
-        M --> S[Sales to organizers: 3]
-        M --> P[Partner managers for venues and restaurants: 3]
-        M --> C[Experience curators: 2]
-        M --> B[Booking staff: 3]
-        M --> Q[Bilingual support: 3]
-        M --> W[Content and translation: 1]
-        M --> R[Data and city reports: 1]
+        M[👤 Manager]
+        M --> S[Sales to organizers<br/>👤👤👤]
+        M --> P[Partner managers for venues and restaurants<br/>👤👤👤]
+        M --> C[Experience curators<br/>👤👤]
+        M --> B[Booking staff<br/>👤👤👤]
+        M --> Q[Bilingual support<br/>👤👤👤]
+        M --> W[Content and translation<br/>👤]
+        M --> R[Data and city reports<br/>👤]
     end
 ```
 
