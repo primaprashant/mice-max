@@ -6,11 +6,12 @@ export const prerender = false;
 
 import Base from "../layouts/Base.astro";
 import RoleSelector from "../components/RoleSelector.astro";
+import ConferenceList from "../components/ConferenceList.astro";
 import { getLang } from "../data/attendee";
 import { allConferences } from "../data";
 import type { Conference } from "../data/types";
 import { randomPhoto, creditKey } from "../data/photos";
-import { t, type Lang } from "../i18n";
+import { t } from "../i18n";
 
 const lang = getLang(Astro.cookies);
 const photoSlug = randomPhoto();
@@ -33,57 +34,53 @@ const totalPages = Math.ceil(confList.length / PER_PAGE);
 /* The attendee tab is this page, so every card links to the attendee
    calendar; the other three tabs navigate to their own pages. */
 
-function dateLabel(c: Conference, lang: Lang): string {
-  const opts: Intl.DateTimeFormatOptions = { day: "numeric", month: "short", timeZone: "UTC" };
-  const start = new Date(c.start_date + "T00:00:00Z").toLocaleDateString(lang === "ja" ? "ja-JP" : "en-GB", opts);
-  if (c.end_date === c.start_date) return start;
-  const end = new Date(c.end_date + "T00:00:00Z").toLocaleDateString(lang === "ja" ? "ja-JP" : "en-GB", opts);
-  return `${start} - ${end}`;
-}
-
-const isDemo = (c: Conference) => DEMO_IDS.includes(c.id);
+/* Month calendar strings for the client script. */
+const CAL_STRINGS = {
+  monthScope: t(lang, "home.calMonthScope"),
+  dayScope: t(lang, "home.calDayScope"),
+};
 ---
 
 <Base title={t(lang, "app.name")}>
   <RoleSelector lang={lang} active="attendee" title={t(lang, "home.title")} photoSlug={photoSlug} />
 
   <main class="mx-auto w-full max-w-7xl px-6 py-8">
-    <ul data-conf-list class="grid grid-cols-1 gap-3 md:grid-cols-2">
-      {confList.map((c) => (
-        <li>
-          <a
-            href={`/c/${c.id}`}
-            data-conf-link={c.id}
-            class="flex items-baseline justify-between gap-4 rounded-lg border border-ink/10 bg-paper p-4 transition-colors hover:border-ink/25"
-          >
-            <span class="min-w-0">
-              <span class="flex items-baseline gap-2">
-                <span class="truncate text-sm font-medium">{(lang === "ja" && c.name_ja) || c.name_en}</span>
-                {isDemo(c) && (
-                  <span class="shrink-0 text-xs font-semibold uppercase tracking-wider text-theme">
-                    {t(lang, "home.demoMark")}
-                  </span>
-                )}
-              </span>
-              {c.field && <span class="mt-1 block truncate text-xs text-ink-soft">{c.field}</span>}
-            </span>
-            <span class="shrink-0 whitespace-nowrap font-mono text-xs tabular-nums text-ink-soft">
-              {dateLabel(c, lang)}
-            </span>
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div class="grid gap-8 lg:grid-cols-4">
+      <div class="min-w-0 lg:col-span-3">
+        <ConferenceList
+          lang={lang}
+          conferences={confList}
+          href={(id) => `/c/${id}`}
+          showDemoMark
+          dateStyle="range"
+          columns={1}
+          data-conf-list
+        />
+      </div>
+
+      <aside class="min-w-0">
+        <home-calendar data-cal data-strings={JSON.stringify(CAL_STRINGS)} class="sticky top-6 block rounded-lg border border-ink/10 bg-paper p-4">
+          <div class="flex items-center justify-between gap-2">
+            <button type="button" data-cal-prev aria-label={t(lang, "home.calPrev")} class="rounded-md border border-ink/25 px-2 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:bg-ink/5">
+              <i class="ph ph-caret-left" aria-hidden="true"></i>
+            </button>
+            <p data-cal-label class="text-sm font-semibold tracking-tight"></p>
+            <button type="button" data-cal-next aria-label={t(lang, "home.calNext")} class="rounded-md border border-ink/25 px-2 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:bg-ink/5">
+              <i class="ph ph-caret-right" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div data-cal-weekdays class="mt-3 grid grid-cols-7 gap-1"></div>
+          <div data-cal-grid class="mt-1 grid grid-cols-7 gap-1"></div>
+          <p data-cal-status class="mt-3 text-xs text-ink-soft" role="status"></p>
+          <button type="button" data-cal-all class="mt-2 rounded-md border border-ink/25 px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:bg-ink/5">
+            {t(lang, "home.calAllDay")}
+          </button>
+        </home-calendar>
+      </aside>
+    </div>
 
     <home-pagination>
-    <nav data-pagination aria-label={t(lang, "home.paginationLabel")} class="mt-6 flex items-center justify-between gap-4">
-      <p
-        class="text-xs text-ink-soft"
-        data-page-status
-        data-range-template={t(lang, "home.showingRange")}
-      >
-        {t(lang, "home.showingRange", { from: "1", to: String(PER_PAGE), total: String(confList.length) })}
-      </p>
+    <nav data-pagination aria-label={t(lang, "home.paginationLabel")} class="mt-6 flex flex-col items-center gap-2">
       <div class="flex items-center gap-1">
         <button
           type="button"
@@ -111,6 +108,13 @@ const isDemo = (c: Conference) => DEMO_IDS.includes(c.id);
           {t(lang, "home.nextPage")}
         </button>
       </div>
+      <p
+        class="text-xs text-ink-soft"
+        data-page-status
+        data-range-template={t(lang, "home.showingRange")}
+      >
+        {t(lang, "home.showingRange", { from: "1", to: String(PER_PAGE), total: String(confList.length) })}
+      </p>
     </nav>
     </home-pagination>
   </main>
@@ -123,4 +127,5 @@ const isDemo = (c: Conference) => DEMO_IDS.includes(c.id);
 
 <script>
   import "../scripts/home-pagination";
+  import "../scripts/home-calendar";
 </script>
