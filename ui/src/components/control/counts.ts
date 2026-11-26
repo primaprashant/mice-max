@@ -1,4 +1,4 @@
-/** Server-side counts for the control room, read from the SQLite master copy.
+/** Server-side counts for the /ops page, read from the SQLite master copy.
  * (data/index.ts keeps its connection private, so this opens its own.) */
 import { DatabaseSync } from "node:sqlite";
 import { existsSync } from "node:fs";
@@ -26,38 +26,8 @@ export function builtCounts() {
     sessions: count("SELECT COUNT(*) n FROM sessions"),
     plans: count("SELECT COUNT(*) n FROM plans"),
     experiences: count("SELECT COUNT(*) n FROM experiences"),
+    events: count("SELECT COUNT(*) n FROM events"),
     photos: count("SELECT (SELECT COUNT(*) FROM plan_photos) + (SELECT COUNT(*) FROM experience_photos) n"),
     copy: count("SELECT (SELECT COUNT(*) FROM plan_copy) + (SELECT COUNT(*) FROM experience_copy) n"),
-  };
-}
-
-export interface FeedRow {
-  id: string;
-  conference_id: string;
-  ts: string;
-  agent: string;
-  title_en: string;
-  title_ja: string;
-  model: string | null;
-  ms: number | null;
-  mode: "live" | "replay";
-  handed_to_human: number;
-  simulated: number;
-}
-
-/** Newest replay rows across conferences, for the feed when no live rows exist yet. */
-export function replayFeed(limit = 30): FeedRow[] {
-  return get()
-    .prepare(
-      `SELECT id, conference_id, ts, agent, title_en, title_ja, model, ms, mode, handed_to_human, simulated
-       FROM agent_steps ORDER BY ts DESC LIMIT ?`
-    )
-    .all(limit) as unknown as FeedRow[];
-}
-
-export function replayTotals() {
-  return {
-    steps: count("SELECT COUNT(*) n FROM agent_steps"),
-    handoffs: count("SELECT COUNT(*) n FROM agent_steps WHERE handed_to_human = 1"),
   };
 }

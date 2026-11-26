@@ -1,0 +1,39 @@
+---
+/** Full-screen hero: agent A's Three.js scene fills #ops-hero; text and counters sit on top. */
+import { t, type Lang } from "../../i18n";
+import { AGENTS } from "../../data/ops-home";
+import Counters from "./Counters.astro";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const agents = AGENTS.filter((a) => a.mode !== "next").length;
+---
+
+<section class="relative isolate flex min-h-[100dvh] flex-col overflow-hidden">
+  <div id="ops-hero" class="absolute inset-0"></div>
+  <div class="oh-vignette pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+  <div class="pointer-events-none relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between gap-6 px-6 pb-8 pt-12 lg:pt-20">
+    <div class="max-w-2xl">
+      <h1 class="text-5xl font-semibold leading-[1.02] tracking-tight text-balance text-white [word-break:auto-phrase] sm:text-7xl lg:text-8xl">
+        {t(lang, "opsHome.headline", { agents, humans: 1 })}
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300 lg:text-xl">
+        {t(lang, "opsHome.sub")}
+      </p>
+    </div>
+
+    <div class="min-h-[48vh] flex-1 lg:min-h-0" aria-hidden="true"></div>
+
+    <div class="flex flex-col gap-3">
+      <Counters lang={lang} />
+      <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+        <a href="#oh-timeline" class="pointer-events-auto inline-flex min-h-11 items-center gap-2 text-sm text-slate-300 transition-colors hover:text-white">
+          <i class="ph ph-arrow-down" aria-hidden="true"></i>
+          {t(lang, "opsHome.scrollHint")}
+        </a>
+        <p class="text-[11px] text-slate-500">{t(lang, "opsHome.illustrative")}</p>
+      </div>
+    </div>
+  </div>
+</section>

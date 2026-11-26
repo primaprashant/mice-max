@@ -1,0 +1,37 @@
+---
+/** Real totals from SQLite. The page script counts them up once on load. */
+import { t, type Lang } from "../../i18n";
+import { builtCounts } from "../control/counts";
+import { AGENTS } from "../../data/ops-home";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+
+const c = builtCounts();
+const items = [
+  { key: "conferences", n: c.conferences },
+  { key: "experiences", n: c.experiences },
+  { key: "events", n: c.events, simulated: true },
+  { key: "agents", n: AGENTS.filter((a) => a.mode !== "next").length },
+  { key: "humans", n: 1 },
+];
+const fmt = new Intl.NumberFormat(lang === "ja" ? "ja-JP" : "en-US");
+---
+
+<dl class="oh-glass grid grid-cols-2 gap-x-6 gap-y-5 rounded-2xl px-6 py-5 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-10">
+  {items.map((i) => (
+    <div class="min-w-0">
+      <dt class="text-[11px] font-medium uppercase tracking-[0.14em] text-slate-400">
+        {t(lang, `opsHome.counters.${i.key}`)}
+      </dt>
+      <dd class="mt-1.5 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <span class="font-mono text-2xl font-semibold tabular-nums text-white sm:text-3xl lg:text-4xl" data-count={i.n}>{fmt.format(i.n)}</span>
+        {i.simulated && (
+          <span class="rounded border border-slate-500/40 px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-slate-400">
+            {t(lang, "opsHome.counters.eventsNote")}
+          </span>
+        )}
+      </dd>
+    </div>
+  ))}
+</dl>

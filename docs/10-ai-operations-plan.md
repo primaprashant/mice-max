@@ -57,7 +57,7 @@ The Ops page: the four-phase timeline of step cards, a player and transcript for
 
 | Page | Feature | PR |
 |---|---|---|
-| `/ops` | Control room: every agent by department, KPIs, live feed, cost estimate | #22 |
+| `/ops` | Company showcase: 3D network of every agent, real counters, one conference end to end ([plan](11-ops-company-page-plan.md)) | #22, this branch |
 | `/ops/run` | Live URL ingestion, steps 1–9, animated pipeline; replays the last good run if a step fails | #24 |
 | `/ops/sales` | Sales agent drafts JA/EN outreach for upcoming conferences; nothing is sent | #23 |
 | `/ops/:conf` | Live snow disruption (real Neo4j query) and live voice booking (ElevenLabs agent in the browser) | #20, #21 |
