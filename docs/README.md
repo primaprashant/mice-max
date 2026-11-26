@@ -34,6 +34,8 @@ To redraw the charts after changing a number: `python charts/make_charts.py` (ne
 | [07-data-plan.md](07-data-plan.md) | What data the demo needs and the tasks to build it | 5 min |
 | [08-outreach-plan.md](08-outreach-plan.md) | Who we contact during the hackathon, what we ask, how it shows in the demo | 4 min |
 | [09-ui-plan.md](09-ui-plan.md) | The screens to build, shared foundations, event data schema, tech stack | 5 min |
+| [10-deployment-plan.md](10-deployment-plan.md) | How the demo goes on the internet: Netlify for the frontend, what to set where | 4 min |
+| [12-deployment-checklist.md](12-deployment-checklist.md) | The live deploy state: targets, what is verified, the Render walkthrough for the repo owner, the Neon step still open | 3 min |
 | [10-ai-operations-plan.md](10-ai-operations-plan.md) | What we add so the demo shows a company run by AI agents | 4 min |
 | [06-sources.md](06-sources.md) | Every source, numbered [S1]–[S28] | Reference |
 | [charts/](charts/) | The four charts above and the script that draws them | Reference |
