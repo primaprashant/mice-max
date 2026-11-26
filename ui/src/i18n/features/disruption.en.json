@@ -1,0 +1,14 @@
+{ "disruptionLive": {
+  "title": "Snow disruption",
+  "note": "Only the alert is simulated. Every step after it runs now: a graph query for affected attendees, alternatives in the same window, then AI picks and messages.",
+  "button": "Simulate heavy snow",
+  "running": "Agents are replanning",
+  "again": "Run again",
+  "simulatedAlert": "Simulated alert",
+  "affected": "{n} people affected",
+  "replan": "Replan by group",
+  "people": "{n} people",
+  "confidence": "Confidence {n}",
+  "messages": "Messages to attendees",
+  "error": "The run failed. Try again."
+} }
