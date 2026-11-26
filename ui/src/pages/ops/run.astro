@@ -2,9 +2,52 @@
 export const prerender = false;
 import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
+import ModeLabel from "../../components/ModeLabel.astro";
+import PipelineTrack from "../../components/ingest/PipelineTrack.astro";
+import { getLang } from "../../data/attendee";
+import { t } from "../../i18n";
+import en from "../../i18n/features/ingest.en.json";
+import ja from "../../i18n/features/ingest.ja.json";
+
+const lang = getLang(Astro.cookies);
+const strings = JSON.stringify({ lang, live: t(lang, "ops.live"), replay: t(lang, "ops.replay"), ...(lang === "ja" ? ja : en).ingest });
+const url = Astro.url.searchParams.get("url") ?? "";
 ---
 
-<Base title="MiceMax">
+<Base title={`${t(lang, "ingest.title")} (MiceMax)`}>
   <Header />
-  <main class="mx-auto w-full max-w-5xl px-6 py-8"></main>
+  <main class="mx-auto w-full max-w-6xl px-6 py-8">
+    <div class="flex flex-wrap items-center gap-3">
+      <h1 class="text-2xl font-semibold tracking-tight">{t(lang, "ingest.title")}</h1>
+      <ModeLabel lang={lang} mode="live" />
+    </div>
+    <p class="mt-2 max-w-[70ch] text-sm text-ink-soft">{t(lang, "ingest.intro")}</p>
+
+    <form id="ingest-form" class="mt-6 flex flex-col gap-2 sm:flex-row">
+      <label class="sr-only" for="ingest-url">{t(lang, "ingest.urlLabel")}</label>
+      <input id="ingest-url" name="url" type="url" required value={url} placeholder="https://"
+        class="min-h-11 flex-1 rounded-lg border border-ink/20 bg-paper px-4 font-mono text-sm focus:border-theme" />
+      <button id="ingest-go" type="submit"
+        class="min-h-11 rounded-lg bg-theme px-5 text-sm font-medium text-paper transition-transform active:scale-[0.98] disabled:opacity-50">
+        {t(lang, "ingest.run")}
+      </button>
+    </form>
+    <div class="mt-3 flex flex-wrap items-center gap-2">
+      <span class="text-xs text-ink-soft">{t(lang, "ingest.tested")}</span>
+      <span id="ingest-tested" class="flex flex-wrap gap-2"></span>
+    </div>
+
+    <section id="ingest-stage" class="mt-8 hidden">
+      <div id="ingest-counters" class="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8"></div>
+      <PipelineTrack lang={lang} />
+      <p id="ingest-status" class="mt-4 text-sm text-ink-soft" aria-live="polite"></p>
+      <div id="ingest-cards" class="mt-6 flex flex-col gap-4"></div>
+    </section>
+  </main>
+  <script type="application/json" id="ingest-strings" set:html={strings} />
 </Base>
+
+<script>
+  import { initIngest } from "../../scripts/ingest-run";
+  initIngest();
+</script>

@@ -19,31 +19,15 @@ const confs = conferences();
 
     <section class="mt-10">
       <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "organizer.readProgram")}</h2>
-      <read-program class="block mt-3">
-        <form id="upload-form" class="flex flex-col gap-3">
-          <div class="flex items-center gap-3">
-            <label class="flex-1 rounded-lg border border-dashed border-ink/25 px-4 py-3 text-sm text-ink-soft cursor-pointer hover:border-theme">
-              <input type="file" id="pdf" accept=".pdf" class="hidden" />
-              <span id="pdf-name">{t(lang, "organizer.choosePdf")}</span>
-            </label>
-            <button type="submit" class="rounded-lg bg-theme px-4 py-2.5 text-sm font-medium text-paper transition-transform active:scale-[0.98]">
-              {t(lang, "organizer.upload")}
-            </button>
-          </div>
-        </form>
-        <div id="read-progress" class="hidden mt-3 rounded-lg border border-ink/10 px-4 py-3">
-          <p class="text-sm font-medium">{t(lang, "organizer.reading")}</p>
-          <div class="mt-2 h-1 w-full overflow-hidden rounded-full bg-ink/10">
-            <div class="h-full w-1/3 rounded-full bg-theme animate-pulse"></div>
-          </div>
-          <p class="mt-2 text-xs text-ink-soft">{t(lang, "organizer.readingNote")}</p>
-        </div>
-        <div id="read-error" class="hidden mt-3 rounded-lg border border-ink/15 bg-banana-soft px-4 py-3">
-          <p class="text-sm font-medium">{t(lang, "organizer.readFailed")}</p>
-          <p class="mt-1 text-xs text-ink-soft">{t(lang, "organizer.readFailedNote")}</p>
-          <button id="retry" class="mt-2 rounded-md border border-ink/15 px-3 py-1.5 text-xs font-medium">{t(lang, "organizer.retry")}</button>
-        </div>
-      </read-program>
+      <form action="/ops/run" method="get" class="mt-3 flex flex-col gap-2 sm:flex-row">
+        <label class="sr-only" for="program-url">{t(lang, "ingest.urlLabel")}</label>
+        <input id="program-url" name="url" type="url" required placeholder="https://"
+          class="min-h-11 flex-1 rounded-lg border border-ink/20 bg-paper px-4 font-mono text-sm focus:border-theme" />
+        <button type="submit" class="min-h-11 rounded-lg bg-theme px-4 text-sm font-medium text-paper transition-transform active:scale-[0.98]">
+          {t(lang, "ingest.run")}
+        </button>
+      </form>
+      <p class="mt-2 text-xs text-ink-soft">{t(lang, "navLive.runNote")}</p>
     </section>
 
     <section class="mt-10">
@@ -62,50 +46,3 @@ const confs = conferences();
     </section>
   </main>
 </Base>
-
-<script>
-  const form = document.getElementById("upload-form") as HTMLFormElement;
-  const progress = document.getElementById("read-progress")!;
-  const error = document.getElementById("read-error")!;
-  const pdfName = document.getElementById("pdf-name")!;
-  const pdf = document.getElementById("pdf") as HTMLInputElement;
-
-  pdf?.addEventListener("change", () => {
-    if (pdf.files?.[0]) pdfName.textContent = pdf.files[0].name;
-  });
-
-  function show(el: HTMLElement) {
-    el.classList.remove("hidden");
-  }
-  function hide(el: HTMLElement) {
-    el.classList.add("hidden");
-  }
-
-  // The demo has no reader behind it: the upload simulates a read run,
-  // fails once to show the error state, and then points at a stored program.
-  let failedOnce = false;
-  form?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (!pdf.files?.[0]) return;
-    hide(error);
-    show(progress);
-    window.setTimeout(() => {
-      hide(progress);
-      if (!failedOnce) {
-        failedOnce = true;
-        show(error);
-      } else {
-        window.location.href = "/organize/jadm32";
-      }
-    }, 2500);
-  });
-
-  document.getElementById("retry")?.addEventListener("click", () => {
-    hide(error);
-    show(progress);
-    window.setTimeout(() => {
-      hide(progress);
-      window.location.href = "/organize/jadm32";
-    }, 1500);
-  });
-</script>

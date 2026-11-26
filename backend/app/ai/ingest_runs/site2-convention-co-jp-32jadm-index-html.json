@@ -1,0 +1,5012 @@
+{
+ "1": {
+  "ctx": {
+   "name_en": "The 32nd Annual Meeting of the Japanese Association for Disaster Medicine",
+   "name_ja": "第32回日本災害医学会総会・学術集会",
+   "start_date": "2027-03-18",
+   "end_date": "2027-03-20",
+   "venue_en": "Sapporo Convention Center",
+   "venue_ja": "札幌コンベンションセンター",
+   "city": "札幌市",
+   "field": "災害医学 (Disaster Medicine)",
+   "attendees_expected": null,
+   "pages": [
+    "https://site2.convention.co.jp/32jadm/index.html",
+    "https://site2.convention.co.jp/32jadm/schedule/index.html",
+    "https://site2.convention.co.jp/32jadm/outline/index.html",
+    "https://site2.convention.co.jp/32jadm/access/index.html"
+   ]
+  },
+  "title_en": "Read the conference site",
+  "title_ja": "大会サイトを読む",
+  "summary_en": "The 32nd Annual Meeting of the Japanese Association for Disaster Medicine: 2027-03-18 to 2027-03-20, Sapporo Convention Center.",
+  "summary_ja": "第32回日本災害医学会総会・学術集会：2027-03-18〜2027-03-20、札幌コンベンションセンター。",
+  "counters": [
+   {
+    "value": 4,
+    "en": "pages read",
+    "ja": "ページを読んだ"
+   },
+   {
+    "value": 3772,
+    "en": "characters",
+    "ja": "文字"
+   }
+  ],
+  "preview": {
+   "facts": {
+    "name_en": "The 32nd Annual Meeting of the Japanese Association for Disaster Medicine",
+    "name_ja": "第32回日本災害医学会総会・学術集会",
+    "start_date": "2027-03-18",
+    "end_date": "2027-03-20",
+    "venue_en": "Sapporo Convention Center",
+    "venue_ja": "札幌コンベンションセンター",
+    "field": "災害医学 (Disaster Medicine)",
+    "attendees_expected": null
+   },
+   "pages": [
+    "https://site2.convention.co.jp/32jadm/index.html",
+    "https://site2.convention.co.jp/32jadm/schedule/index.html",
+    "https://site2.convention.co.jp/32jadm/outline/index.html",
+    "https://site2.convention.co.jp/32jadm/access/index.html"
+   ],
+   "linkup": false
+  },
+  "confidence": null,
+  "n": 1,
+  "key": "read",
+  "agent": "reader",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 1974,
+  "tokens_in": 3563,
+  "tokens_out": 191
+ },
+ "2": {
+  "ctx": {
+   "sessions": [
+    {
+     "day": "2027-03-17",
+     "start_time": "13:00",
+     "end_time": "15:00",
+     "title_en": "Board meeting",
+     "title_ja": "理事会",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-17",
+     "start_time": "15:00",
+     "end_time": "17:00",
+     "title_en": "Councillors meeting",
+     "title_ja": "評議員会",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "08:00",
+     "end_time": "19:15",
+     "title_en": "Poster display and viewing",
+     "title_ja": "ポスター掲示・閲覧",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "08:30",
+     "end_time": "08:50",
+     "title_en": "Opening ceremony",
+     "title_ja": "開会式",
+     "type": "other",
+     "must": true
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "17:30",
+     "title_en": "Company and book exhibition",
+     "title_ja": "企業・書籍展示",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Science of disaster pharmacy 1",
+     "title_ja": "「災害薬事」を科学する 1",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Disaster medicine research: turning conference talks into good papers",
+     "title_ja": "災害医学研究 学会発表を良質な論文に育てるためのポイント",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Understanding disasters for disaster medicine: an introduction to disaster science (Niigata Univ. x Tohoku Univ. IRIDES)",
+     "title_ja": "新潟大災害・復興研×東北大災害研合同教育セッション「災害医療のために災害を理解する 災害科学概論」",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Management in normal times and disasters: reading CSCATTT through business management",
+     "title_ja": "平時と災害時のマネジメント比較 〜CSCATTTを経営学的に読み解く〜",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "10:30",
+     "title_en": "Training people for disaster medicine: status and challenges",
+     "title_ja": "災害医療に関わる人材養成の現状と課題",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "09:30",
+     "title_en": "40 years of Japan's international medical assistance and what comes next",
+     "title_ja": "（国際委員会企画）日本の国際医療支援40年の歩みとこれから",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "10:30",
+     "title_en": "Airport disaster response: work so far and challenges",
+     "title_ja": "空港災害対応のこれまでの取り組みと課題",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "How DMAT works in a nuclear disaster",
+     "title_ja": "原子力災害時にDMATはどう動くか",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Science of BCP",
+     "title_ja": "「BCP」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Science of nuclear disaster medicine 1",
+     "title_ja": "「原子力災害医療」を科学する 1",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:30",
+     "end_time": "10:30",
+     "title_en": "Learning from Korean Disaster Medicine: MCM and CBRNE Preparedness – Japan–Korea Joint Session",
+     "title_ja": "（国際委員会企画）Learning from Korean Disaster Medicine: MCM and CBRNE Preparedness – Japan–Korea Joint Session",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "10:10",
+     "end_time": "11:10",
+     "title_en": "Science of the Kumamoto earthquake",
+     "title_ja": "「熊本地震」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "10:10",
+     "end_time": "11:40",
+     "title_en": "Chuetsu today: looking back on the Chuetsu earthquake",
+     "title_ja": "中越のいま 〜中越地震の振り返り〜",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "10:10",
+     "end_time": "11:40",
+     "title_en": "Towards seamless support: linking health, medical and welfare data before disasters",
+     "title_ja": "「継ぎ目のない支援」の実現に向けて 平時からの保健・医療・福祉データ連携と制度的課題の克服",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "10:10",
+     "end_time": "11:40",
+     "title_en": "Disaster medical coordinators: roles and real activities",
+     "title_ja": "災害医療コーディネーターの役割と実際の活動について",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "10:10",
+     "end_time": "11:40",
+     "title_en": "BHELP 10th anniversary: better evacuation shelters through teamwork",
+     "title_ja": "BHELP10周年記念企画 多職種で作る幸せな避難所",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "10:10",
+     "end_time": "11:10",
+     "title_en": "Science of training people 1",
+     "title_ja": "「人材育成」を科学する 1",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "10:10",
+     "end_time": "11:10",
+     "title_en": "Science of nuclear disaster medicine 2",
+     "title_ja": "「原子力災害医療」を科学する 2",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "10:35",
+     "end_time": "12:05",
+     "title_en": "Acute injury and illness in disasters: systems that carry lives from the field",
+     "title_ja": "災害時急性期傷病への挑戦 ─現場から命をつなぐ体制づくり",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "10:35",
+     "end_time": "12:05",
+     "title_en": "Industry, academia and government working together",
+     "title_ja": "産学官連携のあり方を探る",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "10:40",
+     "end_time": "11:40",
+     "title_en": "Student Challenge: Emerging Voices in Global Disaster Health Management",
+     "title_ja": "（国際委員会企画）STUDENT CHALLENGE: EMERGING VOICES IN GLOBAL DISASTER HEALTH MANAGEMENT",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "12:15",
+     "end_time": "13:05",
+     "title_en": "Luncheon seminar: Infectious medical waste in normal times and disasters",
+     "title_ja": "ランチョンセミナー 平時と有事における感染性医療廃棄物 現状と今後",
+     "type": "sponsor",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "12:15",
+     "end_time": "13:05",
+     "title_en": "Luncheon seminar: The misunderstood Sphere standards: the essence of humanitarian aid",
+     "title_ja": "ランチョンセミナー 誤解だらけのスフィア基準〜数値よりも大切な人道支援の本質を読み解く〜",
+     "type": "sponsor",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "12:15",
+     "end_time": "13:05",
+     "title_en": "Luncheon seminar: Vertical evacuation in disasters: preparing for people needing special care",
+     "title_ja": "ランチョンセミナー 災害時の垂直避難 ─要配慮者への備え─",
+     "type": "sponsor",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "12:15",
+     "end_time": "13:05",
+     "title_en": "Luncheon seminar: Managing hyperkalaemia in emergency and disaster care",
+     "title_ja": "ランチョンセミナー 日常診療でも役立つ救急災害領域における高カリウム血症対応の知識",
+     "type": "sponsor",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:10",
+     "end_time": "13:50",
+     "title_en": "General assembly of members",
+     "title_ja": "総会",
+     "type": "other",
+     "must": true
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of tsunami and flood measures",
+     "title_ja": "「津波・浸水対策」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of support for responders",
+     "title_ja": "「支援者支援」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of disaster response 1",
+     "title_ja": "「災害対応」を科学する 1",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of disaster pharmacy",
+     "title_ja": "「災害薬事」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of data analysis",
+     "title_ja": "「データ解析」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of first-aid station drills",
+     "title_ja": "「救護所訓練」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of disaster drills 1",
+     "title_ja": "「災害訓練」を科学する 1",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of disaster-related deaths",
+     "title_ja": "「災害関連死」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of hospital disaster preparedness 1",
+     "title_ja": "「院内災害対策」を科学する 1",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of interprofessional collaboration",
+     "title_ja": "「多職種連携」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of disaster base hospitals 1",
+     "title_ja": "「災害拠点病院」を科学する 1",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of surveys",
+     "title_ja": "「調査」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of professional associations",
+     "title_ja": "「職能団体」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "14:00",
+     "end_time": "15:30",
+     "title_en": "Hygiene x disaster medicine: careers in health crisis management (joint with the Japanese Society for Hygiene)",
+     "title_ja": "（衛生学会との合同企画）衛生学×災害医学でひらく健康危機管理キャリア 〜学会横断で考える人材育成の未来〜",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Science of AI in disaster medicine",
+     "title_ja": "「災害医療におけるAI」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Disaster medicine DX through industry-academia partnership: Niigata University",
+     "title_ja": "（新潟大学企画）産学連携で取り組む災害医療DX ─ 新潟大学の取り組み",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Disaster care for pregnant women and children: what responders should know",
+     "title_ja": "災害医療従事者に知ってほしい妊婦と子どもの災害対応",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Urgent report: deciding on partial evacuation of a remote disaster base hospital in the Aomori offshore earthquake",
+     "title_ja": "（緊急報告）青森県東方沖地震における遠隔地災害拠点病院の一部避難の判断過程 ─異なる立場からみた判断と地域特性の共有─",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "15:00",
+     "end_time": "16:30",
+     "title_en": "Japan's Contribution to the Development and Strengthening of National EMT Systems",
+     "title_ja": "（国際委員会企画）Session on \"Japan's Contribution to the Development and Strengthening of National EMT Systems\"",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "15:00",
+     "end_time": "16:30",
+     "title_en": "Mass gatherings: lessons from stranded visitors at Expo 2025 Osaka",
+     "title_ja": "マスギャザリング対応 EXPO2025大阪・関西万博での多数来場者帰宅困難事案から考える",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "15:00",
+     "end_time": "16:30",
+     "title_en": "Society-led research: results report",
+     "title_ja": "（学会主導研究）成果報告会",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Science of disaster nursing",
+     "title_ja": "「災害看護」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Science of DMAT 1",
+     "title_ja": "「DMAT」を科学する 1",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "16:00",
+     "end_time": "17:30",
+     "title_en": "The science of disasters: frontiers of earthquake research",
+     "title_ja": "（防災学術連携体共同企画）災害を科学する 〜地震研究の最先端〜",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "16:05",
+     "end_time": "17:05",
+     "title_en": "Science of information management 1",
+     "title_ja": "「情報管理」を科学する 1",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "16:05",
+     "end_time": "17:35",
+     "title_en": "10 years after the Kumamoto earthquake: professional bodies and future disaster support",
+     "title_ja": "熊本地震から10年 ─専門職団体の歩みとこれからの災害支援体制",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "16:05",
+     "end_time": "17:35",
+     "title_en": "Building a system for certified disaster medical logistics specialists to contribute more",
+     "title_ja": "災害医療ロジスティクス専門家認定者の更なる貢献を目指した制度化についての検討",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "16:05",
+     "end_time": "17:35",
+     "title_en": "Disaster preparedness in a super-aged society",
+     "title_ja": "超高齢社会における災害対策",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "16:05",
+     "end_time": "17:05",
+     "title_en": "Science of hospital disaster preparedness",
+     "title_ja": "「院内災害対策」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "16:05",
+     "end_time": "17:05",
+     "title_en": "Science of DMAT 2",
+     "title_ja": "「DMAT」を科学する 2",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "16:35",
+     "end_time": "17:35",
+     "title_en": "Growing a research question: first steps in disaster medicine research",
+     "title_ja": "\"問い\"を育てる：メンターとメンティーが教える災害医学・医療研究の最初の一歩",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "16:40",
+     "end_time": "18:10",
+     "title_en": "Receiving International EMTs in Japan: Coordination Mechanisms and the Roles of Government and NGO Teams",
+     "title_ja": "（国際委員会企画）Receiving International EMTs in Japan: Coordination Mechanisms and the Roles of Government and NGO Teams",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "16:50",
+     "end_time": "18:20",
+     "title_en": "Thinking past the limits of disaster response: combining planned and adaptive action",
+     "title_ja": "災害対応の壁を越える思考法：決め打ちと臨機対応の統合による新たなアプローチ",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "17:10",
+     "end_time": "18:10",
+     "title_en": "Science of information management 2",
+     "title_ja": "「情報管理」を科学する 2",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "17:10",
+     "end_time": "18:10",
+     "title_en": "Science of disaster drills",
+     "title_ja": "「災害訓練」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "17:10",
+     "end_time": "18:10",
+     "title_en": "Science of rescue medicine",
+     "title_ja": "「救助医療」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "17:45",
+     "end_time": "19:15",
+     "title_en": "Looking back on the 2016 Kumamoto earthquake",
+     "title_ja": "H28 熊本地震を振り返る",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "17:45",
+     "end_time": "18:45",
+     "title_en": "Applying root cause analysis (RCA) to problems in disaster medicine",
+     "title_ja": "根本原因分析法（RCA）を災害医療の課題解決に応用しよう！",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "17:45",
+     "end_time": "19:15",
+     "title_en": "Disaster support through interprofessional work and information systems",
+     "title_ja": "多職種連携と情報システムによる災害支援体制",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "17:45",
+     "end_time": "18:45",
+     "title_en": "Fukushima today",
+     "title_ja": "フクシマのいま",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "17:45",
+     "end_time": "19:15",
+     "title_en": "The hidden burden on responders and how to support them",
+     "title_ja": "救援者の\"見えない負担\"と災害対応のこれからの支援者支援",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "18:15",
+     "end_time": "19:15",
+     "title_en": "Science of data analysis",
+     "title_ja": "「データ分析」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "18:15",
+     "end_time": "19:15",
+     "title_en": "Science of disaster response",
+     "title_ja": "「災害対応」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "18:15",
+     "end_time": "19:15",
+     "title_en": "Science of CBRNE",
+     "title_ja": "「CBRNE」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "18:20",
+     "end_time": "18:50",
+     "title_en": "International Committee: Closing Session",
+     "title_ja": "（国際委員会企画）クロージングサマリー",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "19:25",
+     "end_time": "20:45",
+     "title_en": "Welcome reception (all attendees)",
+     "title_ja": "全員懇親会",
+     "type": "social",
+     "must": true
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "07:50",
+     "end_time": "19:20",
+     "title_en": "Poster display and viewing",
+     "title_ja": "ポスター掲示・閲覧",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "07:50",
+     "end_time": "08:50",
+     "title_en": "Social medicine specialists: supervisor training",
+     "title_ja": "社会医学系専門医「指導医講習会」",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "08:30",
+     "end_time": "10:00",
+     "title_en": "Business continuity plans in government: where we stand",
+     "title_ja": "行政のBCPの現状",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "08:30",
+     "end_time": "10:00",
+     "title_en": "Why I chose disaster medicine",
+     "title_ja": "私はなぜ災害医療を志したか",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "09:00",
+     "end_time": "17:30",
+     "title_en": "Company and book exhibition",
+     "title_ja": "企業・書籍展示",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Science of international disaster relief 1",
+     "title_ja": "「国際災害支援」を科学する 1",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Disaster medicine DX with personal health records (PHR), and PHReD for people needing special care",
+     "title_ja": "本人主体のPHR（パーソナルヘルスレコード）で実現する災害医療DX／災害時要配慮者を見逃さない社会の実現！─PHRをオフラインからシームレスに活用する\"PHReD\"",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Lessons from the Chuetsu earthquake: towards a diabetes medical assistance team (DiaMAT)",
+     "title_ja": "新潟県中越地震からの教訓 〜DiaMATの創設に向けて",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Learning significant event analysis for reflection",
+     "title_ja": "振り返りの技法 significant event analysisを学ぼう",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Mt Fuji session: responding to an eruption",
+     "title_ja": "富士山セッション 富士山噴火への対応",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "What the revised Disaster Countermeasures Basic Act means for medicine",
+     "title_ja": "災害対策基本法の改正が「医療」にもたらすもの",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Science of student research",
+     "title_ja": "「学生研究」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "The science of disasters: frontiers of disaster research",
+     "title_ja": "災害を科学する 〜災害研究最前線〜",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "10:10",
+     "end_time": "11:10",
+     "title_en": "Science of international disaster relief 2",
+     "title_ja": "「国際災害支援」を科学する 2",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "10:10",
+     "end_time": "11:40",
+     "title_en": "Health and medical activities in Niigata's disasters: medical association, DMAT and government",
+     "title_ja": "（新潟県医師会企画）新潟県の災害における保健医療活動 〜被災地医師会、DMAT、行政の連携〜",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "10:10",
+     "end_time": "11:40",
+     "title_en": "Confined space medicine (CSM) training: past and future",
+     "title_ja": "CSM訓練の軌跡と未来 ─災害医療の魂を次世代へ─",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "10:10",
+     "end_time": "11:40",
+     "title_en": "Supporting hospitals and care homes that shelter in place",
+     "title_ja": "病院・福祉施設の籠城支援を考える",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "10:10",
+     "end_time": "11:40",
+     "title_en": "Radiation protection in nuclear disasters",
+     "title_ja": "原子力災害時の放射線防護措置",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "10:10",
+     "end_time": "11:40",
+     "title_en": "WHO Kobe Centre joint session: Health EDRM research today and tomorrow",
+     "title_ja": "WHOKCジョイントセッション：Health EDRM(災害・健康危機管理)研究の現在地と未来地図",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "10:10",
+     "end_time": "11:40",
+     "title_en": "Structuring and standardising practical knowledge in disaster nursing",
+     "title_ja": "災害看護の実践知の構造化と標準化に向けて",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "10:10",
+     "end_time": "11:10",
+     "title_en": "Science of wide-area patient transport",
+     "title_ja": "「広域搬送」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "10:10",
+     "end_time": "11:40",
+     "title_en": "Storytellers from Kumamoto: the Kumamoto earthquake in Minami-Aso",
+     "title_ja": "（熊本大学企画）（語り部）熊本からの発信 ─熊本地震、南阿蘇─",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "10:35",
+     "end_time": "11:35",
+     "title_en": "From Niigata: what companies are doing",
+     "title_ja": "（新潟大学企画）新潟からの発信！ ─企業の取り組み─",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "12:00",
+     "end_time": "12:50",
+     "title_en": "Luncheon seminar: Moving medical containers to disaster areas by rail, road and sea",
+     "title_ja": "ランチョンセミナー 被災地への医療コンテナの効果的輸送方法を考える",
+     "type": "sponsor",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "12:00",
+     "end_time": "12:50",
+     "title_en": "Luncheon seminar: Disaster risk management at a security company",
+     "title_ja": "ランチョンセミナー 警備会社における災害リスクマネジメント",
+     "type": "sponsor",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "12:00",
+     "end_time": "12:50",
+     "title_en": "Luncheon seminar: Building disaster-resilient hospitals: design and operations",
+     "title_ja": "ランチョンセミナー 災害に強い病院づくりに大切なこと 〜建築でできること、運営でできること〜",
+     "type": "sponsor",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "12:00",
+     "end_time": "12:50",
+     "title_en": "Luncheon seminar: Medical systems that keep working in disasters",
+     "title_ja": "ランチョンセミナー 災害時に機能する医療体制とは",
+     "type": "sponsor",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:00",
+     "end_time": "16:00",
+     "title_en": "CRASH trial course (collapsed-site rescue)",
+     "title_ja": "JADM公認CRASH試行コース",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:00",
+     "end_time": "13:45",
+     "title_en": "Presidential lecture: the science of disasters, from experience to evidence",
+     "title_ja": "会長講演 災害を科学する〜経験を科学に",
+     "type": "plenary",
+     "must": true
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of disaster base hospitals 2",
+     "title_ja": "「災害拠点病院」を科学する 2",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of information in disaster medicine",
+     "title_ja": "「災害医療における情報」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of hospital disaster preparedness 2",
+     "title_ja": "「院内災害対策」を科学する 2",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of wide-area patient transport",
+     "title_ja": "「広域搬送」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of hospital disaster preparedness 3",
+     "title_ja": "「院内災害対策」を科学する 3",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of disaster drills 2",
+     "title_ja": "「災害訓練」を科学する 2",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of disaster response 2",
+     "title_ja": "「災害対応」を科学する 2",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of equipment and supplies",
+     "title_ja": "「資機材」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of school education",
+     "title_ja": "「学校教育」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of welfare and long-term care",
+     "title_ja": "「福祉・介護」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of BCP",
+     "title_ja": "「BCP」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of vulnerable people and volunteers",
+     "title_ja": "「災害弱者とボランティア」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of communities and disaster prevention 1",
+     "title_ja": "「地域と防災」を科学する 1",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "13:55",
+     "end_time": "14:55",
+     "title_en": "Science of the Red Cross",
+     "title_ja": "「赤十字」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Hospital disaster preparedness: where do I even start?",
+     "title_ja": "病院災害対策 はて、何から始めてよいのやら",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Care-centred towns and the Noto Peninsula earthquake",
+     "title_ja": "介護医療都市と能登半島地震",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Sakeology: the world's first academic study of sake",
+     "title_ja": "世界初の日本酒学（Sakeology）",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "15:00",
+     "end_time": "16:30",
+     "title_en": "Shelter support and field kitchens in Japan and abroad, beyond the Italian model",
+     "title_ja": "日本そして海外の「避難所支援」と「炊き出し」〜イタリアだけじゃない事例から考える〜",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Oral care and eating support for vulnerable people in disasters",
+     "title_ja": "災害時の要支援者に対する口腔ケアと食支援",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Leadership and management in disaster medicine",
+     "title_ja": "災害医療現場に必要となるリーダーシップ・マネジメントを考える",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Urgent report: Japan Disaster Relief medical team in the Myanmar earthquake",
+     "title_ja": "（緊急報告）ミャンマー連邦共和国地震被害における国際緊急援助隊医療チームの活動について",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "15:00",
+     "end_time": "16:00",
+     "title_en": "Science of experiential knowledge",
+     "title_ja": "「経験知」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "15:00",
+     "end_time": "16:30",
+     "title_en": "Preventing disaster-related deaths",
+     "title_ja": "災害関連死予防の取り組み",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "15:00",
+     "end_time": "16:30",
+     "title_en": "Training for health, medical and welfare coordination headquarters",
+     "title_ja": "保健医療福祉調整本部での連携に向けた研修のあり方 〜多職種での研修と分野別の研修との関係性〜",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "16:10",
+     "end_time": "17:40",
+     "title_en": "10 years after the Kumamoto earthquake: how were the lessons used?",
+     "title_ja": "熊本地震から10年 〜その教訓はどのように活かされたか",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "16:10",
+     "end_time": "17:40",
+     "title_en": "The people of Echigo recovered",
+     "title_ja": "越の民は立ち直りたり",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "16:10",
+     "end_time": "17:40",
+     "title_en": "Hospital BCP and regional cooperation",
+     "title_ja": "病院BCPと地域連携",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "16:10",
+     "end_time": "17:40",
+     "title_en": "Patients with respiratory disease in major earthquakes",
+     "title_ja": "大震災における呼吸器疾患患者",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "16:10",
+     "end_time": "17:10",
+     "title_en": "Science of disaster transport",
+     "title_ja": "「災害時輸送」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "16:40",
+     "end_time": "17:40",
+     "title_en": "Science of training people 2",
+     "title_ja": "「人材育成」を科学する 2",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "16:40",
+     "end_time": "17:40",
+     "title_en": "People and organisations that innovate: ninja and samurai thinking in disaster response",
+     "title_ja": "イノベーションを生み出す人材と組織：忍者（起承）と武士（転結）の融合が創り出す「起承転結」の現場対応力 〜災害医療を動かすヒント〜",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "16:40",
+     "end_time": "17:40",
+     "title_en": "Outbreaks and pandemics: public health ethics and human rights",
+     "title_ja": "感染症アウトブレイク・パンデミックの対処と課題 〜公衆衛生倫理と人権問題〜",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "16:40",
+     "end_time": "17:40",
+     "title_en": "Science of disaster pharmacy 2",
+     "title_ja": "「災害薬事」を科学する 2",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "16:40",
+     "end_time": "18:10",
+     "title_en": "Keeping dialysis going: wide-area cooperation in disasters",
+     "title_ja": "透析医療を確保する災害時広域連携の進歩と課題",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "17:50",
+     "end_time": "18:50",
+     "title_en": "Science of the Noto Peninsula earthquake",
+     "title_ja": "「能登半島地震」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "17:50",
+     "end_time": "19:20",
+     "title_en": "Receiving wide-area evacuees: interim and remote evacuation",
+     "title_ja": "広域避難の受入れ 〜1.5次避難・遠隔避難",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "17:50",
+     "end_time": "19:20",
+     "title_en": "Scientific review of disaster health damage: towards shared understanding",
+     "title_ja": "災害による健康被害の科学的検証：学際的合意と協働を目指して",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "17:50",
+     "end_time": "19:20",
+     "title_en": "Cardiovascular disease after natural disasters",
+     "title_ja": "自然災害で多発する循環器疾患の現状と対策",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "17:50",
+     "end_time": "19:20",
+     "title_en": "Disasters and home medical care",
+     "title_ja": "災害と在宅医療",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "17:50",
+     "end_time": "19:20",
+     "title_en": "The future of disaster medicine education: what to teach students and how",
+     "title_ja": "災害医療教育の未来図 ─学生に何をどう教えるか─",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "17:50",
+     "end_time": "19:20",
+     "title_en": "The future of international emergency relief",
+     "title_ja": "これからの国際緊急援助の在り方について",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "17:50",
+     "end_time": "19:20",
+     "title_en": "What should BCP training deliver? The organisers' view",
+     "title_ja": "「BCP研修には何が求められるか？」─企画する立場から─",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "17:50",
+     "end_time": "19:20",
+     "title_en": "Coping in extreme situations: supporting humanitarian responders",
+     "title_ja": "極限状況を乗り越える力 ─国際緊急人道支援における『支援者支援』の多角的アプローチ─",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "19:30",
+     "end_time": "20:30",
+     "title_en": "National meeting of disaster base hospitals",
+     "title_ja": "全国災害拠点病院連絡会議",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "08:20",
+     "end_time": "12:30",
+     "title_en": "MCLS-CBRNE course",
+     "title_ja": "MCLS-CBRNEコース",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "09:00",
+     "end_time": "15:00",
+     "title_en": "Company and book exhibition",
+     "title_ja": "企業・書籍展示",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "09:10",
+     "end_time": "14:10",
+     "title_en": "Poster display and viewing",
+     "title_ja": "ポスター掲示・閲覧",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "09:10",
+     "end_time": "10:10",
+     "title_en": "Science of disaster mental health",
+     "title_ja": "「災害精神」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "09:10",
+     "end_time": "10:10",
+     "title_en": "Life, death and suffering through Buddhist thought",
+     "title_ja": "仏教思想から考える死生観と苦の定義",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "09:10",
+     "end_time": "10:10",
+     "title_en": "Opening and running shelters: challenges and new approaches",
+     "title_ja": "避難所開設・運営と被災地支援の課題と新展開",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "09:10",
+     "end_time": "10:10",
+     "title_en": "Urgent report: Japan Disaster Relief medical team after the Sri Lanka cyclone",
+     "title_ja": "（緊急報告）スリランカ民主社会主義共和国サイクロン被害における国際緊急援助隊医療チームの活動について",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "09:10",
+     "end_time": "10:10",
+     "title_en": "A fire in the hospital: what really happens?",
+     "title_ja": "病院で火災、その実際は？",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "09:10",
+     "end_time": "10:10",
+     "title_en": "Robots in disaster medicine",
+     "title_ja": "災害医療でのロボットの可能性",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "09:10",
+     "end_time": "10:10",
+     "title_en": "Electronic prescriptions in disasters",
+     "title_ja": "災害時の電子処方せんについて",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "09:10",
+     "end_time": "10:10",
+     "title_en": "Science of infection",
+     "title_ja": "「感染」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "09:10",
+     "end_time": "10:10",
+     "title_en": "Science of regional cooperation",
+     "title_ja": "「地域連携」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "09:50",
+     "end_time": "10:50",
+     "title_en": "Careers and purpose in a VUCA world",
+     "title_ja": "VUCA（変動性、不確実性、複雑性、曖昧性）の時代のキャリアと志を考える",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "10:00",
+     "end_time": "14:00",
+     "title_en": "Disaster prevention event: Disaster Quest",
+     "title_ja": "防災イベント DISASTER QUEST 2026",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "10:20",
+     "end_time": "11:20",
+     "title_en": "Science of children and children with medical care needs",
+     "title_ja": "「子ども・医療的ケア児」を科学する",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "10:20",
+     "end_time": "11:50",
+     "title_en": "What happened on the front line of the Chuetsu-oki earthquake",
+     "title_ja": "中越沖地震 最前線で起きていたこと",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "10:20",
+     "end_time": "11:50",
+     "title_en": "10 years after Kumamoto: DHEAT support for affected people",
+     "title_ja": "熊本地震から10年 ─DHEATによる被災者支援活動の継承と挑戦 〜地域で守る命と暮らし〜",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "10:20",
+     "end_time": "11:50",
+     "title_en": "Will the new Disaster Management Agency (2026) improve evacuation life in Japan?",
+     "title_ja": "令和8年防災庁の設置で日本の避難生活環境は改善されるのか",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "10:20",
+     "end_time": "11:50",
+     "title_en": "Building regional cooperation through social medicine",
+     "title_ja": "社会医学の視点ではぐくむ地域連携",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "10:20",
+     "end_time": "11:50",
+     "title_en": "Transporting hospital and care home patients",
+     "title_ja": "病院・施設搬送",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "10:20",
+     "end_time": "11:50",
+     "title_en": "Effective medicine supply and pharmaceutical hygiene in disasters",
+     "title_ja": "災害時に効果的な医薬品供給・薬事衛生を行うために今できることは 〜これまでの課題とこれから何をすべきか〜",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "10:20",
+     "end_time": "11:20",
+     "title_en": "Disasters and technology",
+     "title_ja": "災害とテクノロジー",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "10:20",
+     "end_time": "11:50",
+     "title_en": "The science of disasters: learning from the past, preparing for the future",
+     "title_ja": "災害を科学する 〜過去の災害に学び将来の災害に備える",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "11:00",
+     "end_time": "12:00",
+     "title_en": "Facing career doubts: honest talk among disaster medicine workers",
+     "title_ja": "キャリアの迷いに向き合う 〜災害医療に関わる人たちのリアルと対話〜",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "12:10",
+     "end_time": "13:00",
+     "title_en": "Luncheon seminar: Supporting bereaved families in disasters: what is DMORT?",
+     "title_ja": "ランチョンセミナー 災害における遺族支援 〜DMORT（災害死亡者家族支援チーム）とは〜",
+     "type": "sponsor",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "12:10",
+     "end_time": "13:00",
+     "title_en": "Luncheon seminar: TEC-FORCE activities of the Hokuriku Regional Development Bureau",
+     "title_ja": "ランチョンセミナー 北陸地方整備局におけるTEC-FORCE活動",
+     "type": "sponsor",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "12:10",
+     "end_time": "13:00",
+     "title_en": "Luncheon seminar: Infection risks in disasters: what hospitals and shelters need",
+     "title_ja": "ランチョンセミナー 災害時の感染症リスクと備え：医療現場と避難所で求められる対応",
+     "type": "sponsor",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "12:50",
+     "end_time": "17:00",
+     "title_en": "MCLS hospital course for mass-casualty terrorism",
+     "title_ja": "MCLS大量殺傷型テロ対応病院コース",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of support for affected areas",
+     "title_ja": "「被災地域支援」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of education",
+     "title_ja": "「教育」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of hygiene and toileting",
+     "title_ja": "「清潔・排泄」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of people needing special care, and acupuncture and massage",
+     "title_ja": "「災害時要配慮者と鍼灸マッサージ」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of disaster nursing",
+     "title_ja": "「災害看護」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of events and disaster prevention",
+     "title_ja": "「イベントと防災活動」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of training people",
+     "title_ja": "「人材育成」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of disaster mental health",
+     "title_ja": "「災害精神」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of running headquarters",
+     "title_ja": "「本部運営」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of communities and disaster prevention 2",
+     "title_ja": "「地域と防災」を科学する 2",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of DMAT",
+     "title_ja": "「DMAT」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of international disaster relief",
+     "title_ja": "「国際災害支援」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of mass casualties and local disasters",
+     "title_ja": "「多数傷病者/局地災害」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of disaster drills 3",
+     "title_ja": "「災害訓練」を科学する 3",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of disaster drills 4",
+     "title_ja": "「災害訓練」を科学する 4",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of building support systems 2",
+     "title_ja": "「支援と体制の構築」を科学する 2",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of student activities 2",
+     "title_ja": "「学生活動」を科学する 2",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of hospital disaster preparedness 4",
+     "title_ja": "「院内災害対策」を科学する 4",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "13:10",
+     "end_time": "14:10",
+     "title_en": "Science of evacuation shelters",
+     "title_ja": "「避難所」を科学する",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "14:20",
+     "end_time": "15:20",
+     "title_en": "Science of training people 3",
+     "title_ja": "「人材育成」を科学する 3",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "14:20",
+     "end_time": "15:50",
+     "title_en": "The role of local public health centres (and their directors) in disaster areas",
+     "title_ja": "被災地における現地保健所（長）の役割",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "14:20",
+     "end_time": "15:50",
+     "title_en": "Disaster response that does not learn from history",
+     "title_ja": "歴史に学ばない災害対応",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "14:20",
+     "end_time": "15:50",
+     "title_en": "Delivering care in disasters with medical vehicles, containers and ships",
+     "title_ja": "災害時における医療提供体制（医療用車両・コンテナ・船舶の活用）を考える",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "14:20",
+     "end_time": "15:20",
+     "title_en": "Using the national medical information platform in disasters",
+     "title_ja": "災害時における全国医療情報プラットフォームの活用",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "14:20",
+     "end_time": "15:20",
+     "title_en": "Disaster response thinking: the OODA loop, planned and adaptive action",
+     "title_ja": "災害対応思考の理論と実践：OODAループで読み解く決め打ちと臨機対応の相補性",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "14:20",
+     "end_time": "15:50",
+     "title_en": "Integrated mental health and psychosocial support (MHPSS) in disasters, rethought for Japan",
+     "title_ja": "統合された災害精神・心理対応を考える。海外のMHPSSの概念を日本で再考する。",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "14:20",
+     "end_time": "15:50",
+     "title_en": "AI and DX in next-generation disaster medicine, and the barriers to using them",
+     "title_ja": "AI・DXが拓く次世代災害医療と、その実装を阻む『壁』の克服",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "14:20",
+     "end_time": "15:50",
+     "title_en": "Musculoskeletal trauma in the acute phase: what orthopaedic surgeons should do",
+     "title_ja": "災害急性期の運動器外傷対応 ─災害時に整形外科医がやるべきことを考える─",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "14:20",
+     "end_time": "15:50",
+     "title_en": "Interprofessional care for venous thromboembolism (VTE) in disasters",
+     "title_ja": "災害時の静脈血栓塞栓症（VTE）の多職種連携",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "15:30",
+     "end_time": "17:00",
+     "title_en": "13th student forum (DMAS): interprofessional work in CBRNE disasters",
+     "title_ja": "DMAS企画 第13回学生フォーラム 座談会「CBRNE（複合）災害における多職種連携」",
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "15:50",
+     "end_time": "17:00",
+     "title_en": "Public lecture: new challenges from recent natural disasters",
+     "title_ja": "市民公開講座「近年の自然災害からみた新たな対応課題と防災の新展開」",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "16:00",
+     "end_time": "16:30",
+     "title_en": "Closing ceremony",
+     "title_ja": "閉会式",
+     "type": "other",
+     "must": true
+    }
+   ],
+   "note": "The program is not yet published (scheduled for mid-February 2027), and the provided text contains no session titles or times, so no rows could be extracted."
+  },
+  "title_en": "Extract the schedule",
+  "title_ja": "プログラムを取り出す",
+  "summary_en": "210 sessions over 4 days. The site lists 0; using the stored program (last edition moved to the new dates). The program is not yet published (scheduled for mid-February 2027), and the provided text contains no session titles or times, so no rows could be extracted.",
+  "summary_ja": "4日間で210セッション。サイト掲載は0件のため、保存済みプログラム（前回大会を新しい日付に移したもの）を使用。",
+  "counters": [
+   {
+    "value": 210,
+    "en": "sessions",
+    "ja": "セッション"
+   },
+   {
+    "value": 4,
+    "en": "days",
+    "ja": "日"
+   }
+  ],
+  "preview": {
+   "sessions": [
+    {
+     "day": "2027-03-17",
+     "start_time": "13:00",
+     "end_time": "15:00",
+     "title_en": "Board meeting",
+     "title_ja": "理事会",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-17",
+     "start_time": "15:00",
+     "end_time": "17:00",
+     "title_en": "Councillors meeting",
+     "title_ja": "評議員会",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "08:00",
+     "end_time": "19:15",
+     "title_en": "Poster display and viewing",
+     "title_ja": "ポスター掲示・閲覧",
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "08:30",
+     "end_time": "08:50",
+     "title_en": "Opening ceremony",
+     "title_ja": "開会式",
+     "type": "other",
+     "must": true
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "17:30",
+     "title_en": "Company and book exhibition",
+     "title_ja": "企業・書籍展示",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Science of disaster pharmacy 1",
+     "title_ja": "「災害薬事」を科学する 1",
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Disaster medicine research: turning conference talks into good papers",
+     "title_ja": "災害医学研究 学会発表を良質な論文に育てるためのポイント",
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "09:00",
+     "end_time": "10:00",
+     "title_en": "Understanding disasters for disaster medicine: an introduction to disaster science (Niigata Univ. x Tohoku Univ. IRIDES)",
+     "title_ja": "新潟大災害・復興研×東北大災害研合同教育セッション「災害医療のために災害を理解する 災害科学概論」",
+     "type": "other",
+     "must": false
+    }
+   ],
+   "note": "The program is not yet published (scheduled for mid-February 2027), and the provided text contains no session titles or times, so no rows could be extracted.",
+   "source": "stored",
+   "on_site": 0
+  },
+  "confidence": null,
+  "n": 2,
+  "key": "schedule",
+  "agent": "scheduler",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 1492,
+  "tokens_in": 3700,
+  "tokens_out": 60
+ },
+ "3": {
+  "ctx": {
+   "must": [
+    3,
+    30,
+    76,
+    105,
+    209
+   ]
+  },
+  "title_en": "Sort the sessions",
+  "title_ja": "セッションを分類",
+  "summary_en": "5 must-attend, 205 skippable. The schedule has no keynote or award session. The clear must-attend items are the Opening ceremony (3), the Presidential lecture, the only plenary (105), and the Closing ceremony (209). The General assembly of members (30) is included because it covers society business and decisions that affect all members. The all-attendee Welcome reception (76) is included for networking. Everything else is a parallel symposium, oral, poster, sponsor seminar, training course or meeting. These overlap heavily and suit particular specialties, so most attendees can skip them. Confidence is moderate because there is no explicit keynote and attendee interests differ.",
+  "summary_ja": "必須5件、抜けられる205件。本プログラムには基調講演や表彰セッションはありません。全員が参加すべきものは、開会式(3)、唯一の全体講演である会長講演(105)、閉会式(209)です。会員総会(30)は学会運営に関わる決定事項があるため含めました。全員対象の歓迎レセプション(76)はネットワーキングの場として含めています。それ以外はパラレルのシンポジウム、口演、ポスター、共催セミナー、研修コース、会議で、時間が重なり専門分野も限られるため、多くの参加者は見送ってよいと判断しました。基調講演が明示されておらず参加者の関心も分かれるため、確信度は中程度です。",
+  "counters": [
+   {
+    "value": 5,
+    "en": "must-attend",
+    "ja": "必須"
+   },
+   {
+    "value": 205,
+    "en": "skippable",
+    "ja": "抜けられる"
+   }
+  ],
+  "preview": {
+   "must": [
+    "Opening ceremony",
+    "General assembly of members",
+    "Welcome reception (all attendees)",
+    "Presidential lecture: the science of disasters, from experience to evidence",
+    "Closing ceremony"
+   ],
+   "why_en": "The schedule has no keynote or award session. The clear must-attend items are the Opening ceremony (3), the Presidential lecture, the only plenary (105), and the Closing ceremony (209). The General assembly of members (30) is included because it covers society business and decisions that affect all members. The all-attendee Welcome reception (76) is included for networking. Everything else is a parallel symposium, oral, poster, sponsor seminar, training course or meeting. These overlap heavily and suit particular specialties, so most attendees can skip them. Confidence is moderate because there is no explicit keynote and attendee interests differ.",
+   "why_ja": "本プログラムには基調講演や表彰セッションはありません。全員が参加すべきものは、開会式(3)、唯一の全体講演である会長講演(105)、閉会式(209)です。会員総会(30)は学会運営に関わる決定事項があるため含めました。全員対象の歓迎レセプション(76)はネットワーキングの場として含めています。それ以外はパラレルのシンポジウム、口演、ポスター、共催セミナー、研修コース、会議で、時間が重なり専門分野も限られるため、多くの参加者は見送ってよいと判断しました。基調講演が明示されておらず参加者の関心も分かれるため、確信度は中程度です。"
+  },
+  "confidence": 0.6,
+  "n": 3,
+  "key": "sort",
+  "agent": "sorter",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 5202,
+  "tokens_in": 7994,
+  "tokens_out": 470
+ },
+ "4": {
+  "ctx": {
+   "windows": [
+    {
+     "day": "2027-03-18",
+     "start_time": "06:30",
+     "end_time": "08:00",
+     "kind": "early_morning",
+     "plan_kinds": [
+      "short"
+     ],
+     "id": "w1",
+     "name_en": "Day 1 early morning",
+     "name_ja": "1日目早朝",
+     "confidence": 0.95,
+     "reason_en": "Ends at 08:00, before the 08:30 opening ceremony. No conflict."
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "21:15",
+     "end_time": "23:00",
+     "kind": "evening",
+     "plan_kinds": [
+      "evening"
+     ],
+     "id": "w2",
+     "name_en": "Day 1 evening",
+     "name_ja": "1日目夜",
+     "confidence": 0.95,
+     "reason_en": "Starts at 21:15, after the welcome reception ends at 20:45."
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "21:00",
+     "end_time": "23:00",
+     "kind": "evening",
+     "plan_kinds": [
+      "evening"
+     ],
+     "id": "w3",
+     "name_en": "Day 2 evening",
+     "name_ja": "2日目夜",
+     "confidence": 0.97,
+     "reason_en": "No sessions are scheduled in the evening. The lecture was at 13:00."
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "06:30",
+     "end_time": "08:40",
+     "kind": "early_morning",
+     "plan_kinds": [
+      "short"
+     ],
+     "id": "w4",
+     "name_en": "Day 3 early morning",
+     "name_ja": "3日目早朝",
+     "confidence": 0.93,
+     "reason_en": "No sessions before the 16:00 closing ceremony."
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "17:00",
+     "end_time": "22:00",
+     "kind": "after_close",
+     "plan_kinds": [
+      "short",
+      "evening",
+      "specialist"
+     ],
+     "id": "w5",
+     "name_en": "After closing, Day 3",
+     "name_ja": "閉会後(3日目)",
+     "confidence": 0.96,
+     "reason_en": "Starts at 17:00, after the closing ceremony ends at 16:30."
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "17:00",
+     "end_time": "17:00",
+     "kind": "extra_night",
+     "plan_kinds": [
+      "extra_night"
+     ],
+     "id": "w6",
+     "name_en": "Extra night after close",
+     "name_ja": "延泊夜",
+     "confidence": 0.6,
+     "reason_en": "The window has zero length (17:00-17:00), but no must-attend session or fixed event fills it. Kept as a post-close extra night."
+    }
+   ]
+  },
+  "title_en": "Find free time",
+  "title_ja": "空き時間を見つける",
+  "summary_en": "Rules found 6 windows; the check kept 6.",
+  "summary_ja": "ルールで6枠、確認後6枠。",
+  "counters": [
+   {
+    "value": 6,
+    "en": "windows",
+    "ja": "空き時間"
+   },
+   {
+    "value": 0,
+    "en": "dropped by check",
+    "ja": "確認で除外"
+   }
+  ],
+  "preview": {
+   "windows": [
+    {
+     "day": "2027-03-18",
+     "start_time": "06:30",
+     "end_time": "08:00",
+     "kind": "early_morning",
+     "name_en": "Day 1 early morning",
+     "name_ja": "1日目早朝",
+     "confidence": 0.95,
+     "reason_en": "Ends at 08:00, before the 08:30 opening ceremony. No conflict."
+    },
+    {
+     "day": "2027-03-18",
+     "start_time": "21:15",
+     "end_time": "23:00",
+     "kind": "evening",
+     "name_en": "Day 1 evening",
+     "name_ja": "1日目夜",
+     "confidence": 0.95,
+     "reason_en": "Starts at 21:15, after the welcome reception ends at 20:45."
+    },
+    {
+     "day": "2027-03-19",
+     "start_time": "21:00",
+     "end_time": "23:00",
+     "kind": "evening",
+     "name_en": "Day 2 evening",
+     "name_ja": "2日目夜",
+     "confidence": 0.97,
+     "reason_en": "No sessions are scheduled in the evening. The lecture was at 13:00."
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "06:30",
+     "end_time": "08:40",
+     "kind": "early_morning",
+     "name_en": "Day 3 early morning",
+     "name_ja": "3日目早朝",
+     "confidence": 0.93,
+     "reason_en": "No sessions before the 16:00 closing ceremony."
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "17:00",
+     "end_time": "22:00",
+     "kind": "after_close",
+     "name_en": "After closing, Day 3",
+     "name_ja": "閉会後(3日目)",
+     "confidence": 0.96,
+     "reason_en": "Starts at 17:00, after the closing ceremony ends at 16:30."
+    },
+    {
+     "day": "2027-03-20",
+     "start_time": "17:00",
+     "end_time": "17:00",
+     "kind": "extra_night",
+     "name_en": "Extra night after close",
+     "name_ja": "延泊夜",
+     "confidence": 0.6,
+     "reason_en": "The window has zero length (17:00-17:00), but no must-attend session or fixed event fills it. Kept as a post-close extra night."
+    }
+   ],
+   "dropped": []
+  },
+  "confidence": 0.89,
+  "n": 4,
+  "key": "free_time",
+  "agent": "scheduler",
+  "tool": "rules",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 6046,
+  "tokens_in": 438,
+  "tokens_out": 807
+ },
+ "5": {
+  "ctx": {
+   "fields": [
+    "disaster_medicine",
+    "emergency_medicine",
+    "critical_care",
+    "disaster_response",
+    "medicine"
+   ],
+   "interests": [
+    "food",
+    "drinks",
+    "culture",
+    "onsen"
+   ]
+  },
+  "title_en": "Estimate the audience",
+  "title_ja": "参加者像を推定",
+  "summary_en": "A national Japanese disaster medicine meeting attended mostly by physicians, nurses, and other clinicians in emergency and disaster care, with some researchers, students, and disaster-response personnel, and very few overseas participants.",
+  "summary_ja": "日本災害医学会の全国学術集会であり、救急・災害医療に携わる医師や看護師などの臨床家が中心で、研究者や学生、災害対応関係者も参加し、海外からの参加者は少数です。",
+  "counters": [
+   {
+    "value": 5,
+    "en": "matching fields",
+    "ja": "分野タグ"
+   },
+   {
+    "value": "4%",
+    "en": "from overseas (estimate)",
+    "ja": "海外から（推定）"
+   }
+  ],
+  "preview": {
+   "fields": [
+    "disaster_medicine",
+    "emergency_medicine",
+    "critical_care",
+    "disaster_response",
+    "medicine"
+   ],
+   "roles": {
+    "academic_researcher": 0.2,
+    "industry_engineer": 0.03,
+    "student": 0.1,
+    "clinician": 0.67
+   },
+   "interests": [
+    "food",
+    "drinks",
+    "culture",
+    "onsen"
+   ]
+  },
+  "confidence": 0.8,
+  "n": 5,
+  "key": "audience",
+  "agent": "audience",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 3137,
+  "tokens_in": 353,
+  "tokens_out": 289
+ },
+ "6": {
+  "ctx": {
+   "windows": [
+    {
+     "window": "w1",
+     "name_en": "Day 1 early morning",
+     "name_ja": "1日目早朝",
+     "day": "2027-03-18",
+     "start": "06:30",
+     "end": "08:00",
+     "fits": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-morning-run-hokkaido-university",
+       "kind": "short",
+       "title_en": "Morning run at Hokkaido University",
+       "title_ja": "北大キャンパス 朝ラン"
+      },
+      {
+       "id": "short-morning-run-odori-park",
+       "kind": "short",
+       "title_en": "Morning run in Odori Park",
+       "title_ja": "大通公園 朝ラン"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-hot-spring-and-beer-museum",
+       "title_en": "Hot spring and Sapporo Beer Museum",
+       "title_ja": "苗穂で温泉とビール博物館",
+       "reason": "too_long",
+       "why_en": "needs 198 min with travel, window has 90",
+       "why_ja": "往復込みで198分必要、空きは90分"
+      },
+      {
+       "id": "combo-run-and-seafood-breakfast",
+       "title_en": "Morning run and a seafood bowl breakfast",
+       "title_ja": "朝ランと二条市場の海鮮丼",
+       "reason": "too_long",
+       "why_en": "needs 119 min with travel, window has 90",
+       "why_ja": "往復込みで119分必要、空きは90分"
+      },
+      {
+       "id": "combo-soup-curry-and-clock-tower",
+       "title_en": "Soup curry lunch and the Clock Tower",
+       "title_ja": "スープカレーと時計台",
+       "reason": "too_long",
+       "why_en": "needs 125 min with travel, window has 90",
+       "why_ja": "往復込みで125分必要、空きは90分"
+      },
+      {
+       "id": "combo-specialty-coffee-walk",
+       "title_en": "Sapporo specialty coffee walk",
+       "title_ja": "札幌のコーヒー店3軒",
+       "reason": "too_long",
+       "why_en": "needs 174 min with travel, window has 90",
+       "why_ja": "往復込みで174分必要、空きは90分"
+      },
+      {
+       "id": "short-authentic-sapporo-nijo-market",
+       "title_en": "Nijo Market seafood lunch walk",
+       "title_ja": "二条市場 海鮮ランチ散歩",
+       "reason": "too_long",
+       "why_en": "needs 192 min with travel, window has 90",
+       "why_ja": "往復込みで192分必要、空きは90分"
+      },
+      {
+       "id": "short-chitosetsuru-sake-museum",
+       "title_en": "Chitosetsuru Sake Museum",
+       "title_ja": "千歳鶴 酒ミュージアム",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:00",
+       "why_ja": "開始が10:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-historical-village-of-hokkaido",
+       "title_en": "Historical Village of Hokkaido",
+       "title_ja": "北海道開拓の村",
+       "reason": "too_long",
+       "why_en": "needs 214 min with travel, window has 90",
+       "why_ja": "往復込みで214分必要、空きは90分"
+      },
+      {
+       "id": "short-hitsujigaoka-observation-hill",
+       "title_en": "Hitsujigaoka Observation Hill",
+       "title_ja": "さっぽろ羊ヶ丘展望台",
+       "reason": "too_long",
+       "why_en": "needs 118 min with travel, window has 90",
+       "why_ja": "往復込みで118分必要、空きは90分"
+      },
+      {
+       "id": "short-hokkaido-university-museum",
+       "title_en": "Hokkaido University Museum",
+       "title_ja": "北海道大学総合博物館",
+       "reason": "too_long",
+       "why_en": "needs 108 min with travel, window has 90",
+       "why_ja": "往復込みで108分必要、空きは90分"
+      },
+      {
+       "id": "short-jr-tower-observatory-t38",
+       "title_en": "JR Tower Observatory T38",
+       "title_ja": "JRタワー展望室 T38",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:00",
+       "why_ja": "開始が10:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-kita-no-gurume-tei",
+       "title_en": "Kita no Gurume-tei seafood bowls",
+       "title_ja": "北のグルメ亭",
+       "reason": "too_long",
+       "why_en": "needs 99 min with travel, window has 90",
+       "why_ja": "往復込みで99分必要、空きは90分"
+      },
+      {
+       "id": "short-kuranoyu-hot-spring-naebo",
+       "title_en": "Kuranoyu hot spring by Naebo Station",
+       "title_ja": "苗穂駅前温泉 蔵ノ湯",
+       "reason": "too_long",
+       "why_en": "needs 126 min with travel, window has 90",
+       "why_ja": "往復込みで126分必要、空きは90分"
+      },
+      {
+       "id": "short-marumi-coffee-odori-main",
+       "title_en": "Marumi Coffee Odori main store",
+       "title_ja": "丸美珈琲店 大通本店",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:00",
+       "why_ja": "開始が09:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-mituki-sakura-tea-ceremony",
+       "title_en": "Mituki Sakura tea ceremony trial",
+       "title_ja": "美月桜 茶道体験",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:00, so not back by 08:00",
+       "why_ja": "開始が11:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-morihico-main-store",
+       "title_en": "Morihico main store",
+       "title_ja": "森彦 本店",
+       "reason": "too_long",
+       "why_en": "needs 114 min with travel, window has 90",
+       "why_ja": "往復込みで114分必要、空きは90分"
+      },
+      {
+       "id": "short-morning-run-nakajima-park",
+       "title_en": "Nakajima Park and river run, about 5 km",
+       "title_ja": "中島公園と豊平川の朝ラン",
+       "reason": "month",
+       "why_en": "not offered in Mar",
+       "why_ja": "3月は実施していない"
+      },
+      {
+       "id": "short-morning-run-shiroishi-kokoro",
+       "title_en": "Morning run on Shiroishi Kokoro-do path",
+       "title_ja": "白石こころーど 朝ラン",
+       "reason": "month",
+       "why_en": "not offered in Mar",
+       "why_ja": "3月は実施していない"
+      },
+      {
+       "id": "short-new-chitose-airport-observation",
+       "title_en": "New Chitose Airport Observation Deck",
+       "title_ja": "新千歳空港 展望デッキ",
+       "reason": "month",
+       "why_en": "not offered in Mar",
+       "why_ja": "3月は実施していない"
+      },
+      {
+       "id": "short-nijo-market",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場",
+       "reason": "too_long",
+       "why_en": "needs 100 min with travel, window has 90",
+       "why_ja": "往復込みで100分必要、空きは90分"
+      },
+      {
+       "id": "short-okurayama-ski-jump-observatory",
+       "title_en": "Okurayama ski jump and Olympic Museum",
+       "title_ja": "大倉山ジャンプ台と展望台",
+       "reason": "too_long",
+       "why_en": "needs 154 min with travel, window has 90",
+       "why_ja": "往復込みで154分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-ainu-culture-promotion",
+       "title_en": "Sapporo Ainu Culture Promotion Center",
+       "title_ja": "札幌市アイヌ文化交流センター",
+       "reason": "too_long",
+       "why_en": "needs 192 min with travel, window has 90",
+       "why_ja": "往復込みで192分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-beer-museum-guided",
+       "title_en": "Sapporo Beer Museum tour and tasting",
+       "title_ja": "サッポロビール博物館",
+       "reason": "too_long",
+       "why_en": "needs 95 min with travel, window has 90",
+       "why_ja": "往復込みで95分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-clock-tower",
+       "title_en": "Sapporo Clock Tower",
+       "title_ja": "札幌市時計台",
+       "reason": "ends_late",
+       "why_en": "can't start before 08:45, so not back by 08:00",
+       "why_ja": "開始が08:45になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場",
+       "reason": "too_long",
+       "why_en": "needs 114 min with travel, window has 90",
+       "why_ja": "往復込みで114分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-maruyama-zoo",
+       "title_en": "Sapporo Maruyama Zoo",
+       "title_ja": "札幌市円山動物園",
+       "reason": "too_long",
+       "why_en": "needs 208 min with travel, window has 90",
+       "why_ja": "往復込みで208分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-moiwa-ski-area",
+       "title_en": "Moiwa ski area night skiing",
+       "title_ja": "藻岩山スキー場 ナイター",
+       "reason": "too_long",
+       "why_en": "needs 238 min with travel, window has 90",
+       "why_ja": "往復込みで238分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-mt-moiwa-ropeway",
+       "title_en": "Sapporo Mt. Moiwa Ropeway",
+       "title_ja": "札幌もいわ山ロープウェイ",
+       "reason": "too_long",
+       "why_en": "needs 142 min with travel, window has 90",
+       "why_ja": "往復込みで142分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-tv-tower",
+       "title_en": "Sapporo TV Tower",
+       "title_ja": "さっぽろテレビ塔",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:00",
+       "why_ja": "開始が09:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-sapporo-walking-tour-h",
+       "title_en": "Sapporo walking tour in English",
+       "title_ja": "札幌ウォーキングツアー（英語）",
+       "reason": "too_long",
+       "why_en": "needs 222 min with travel, window has 90",
+       "why_ja": "往復込みで222分必要、空きは90分"
+      },
+      {
+       "id": "short-shiroi-koibito-park",
+       "title_en": "Shiroi Koibito Park",
+       "title_ja": "白い恋人パーク",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 90",
+       "why_ja": "往復込みで162分必要、空きは90分"
+      },
+      {
+       "id": "short-snowshoe-trek-in-asahiyama",
+       "title_en": "Asahiyama snowshoe trek, hotel pickup",
+       "title_ja": "旭山記念公園 スノーシュー",
+       "reason": "too_long",
+       "why_en": "needs 236 min with travel, window has 90",
+       "why_ja": "往復込みで236分必要、空きは90分"
+      },
+      {
+       "id": "short-soup-curry-king-central",
+       "title_en": "Soup Curry King Central",
+       "title_ja": "SOUP CURRY KING",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:30, so not back by 08:00",
+       "why_ja": "開始が11:30になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-susukino-natural-hot-spring",
+       "title_en": "Tokakyo hot spring in Susukino",
+       "title_ja": "すすきの天然温泉 湯香郷",
+       "reason": "too_long",
+       "why_en": "needs 132 min with travel, window has 90",
+       "why_ja": "往復込みで132分必要、空きは90分"
+      },
+      {
+       "id": "short-takino-snow-world-takino",
+       "title_en": "Takino Snow World",
+       "title_ja": "滝野スノーワールド",
+       "reason": "too_long",
+       "why_en": "needs 336 min with travel, window has 90",
+       "why_ja": "往復込みで336分必要、空きは90分"
+      },
+      {
+       "id": "short-tokumitsu-coffee-odori",
+       "title_en": "Tokumitsu Coffee Odori",
+       "title_ja": "徳光珈琲 大通店",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:00",
+       "why_ja": "開始が10:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-upopoy-national-ainu-museum",
+       "title_en": "Upopoy National Ainu Museum and Park",
+       "title_ja": "ウポポイ アイヌ民族博物館",
+       "reason": "too_long",
+       "why_en": "needs 426 min with travel, window has 90",
+       "why_ja": "往復込みで426分必要、空きは90分"
+      }
+     ]
+    },
+    {
+     "window": "w2",
+     "name_en": "Day 1 evening",
+     "name_ja": "1日目夜",
+     "day": "2027-03-18",
+     "start": "21:15",
+     "end": "23:00",
+     "fits": [
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      },
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      },
+      {
+       "id": "eve-yoru-parfait-mua",
+       "kind": "evening",
+       "title_en": "Yoru Parfait MUA late-night parfaits",
+       "title_ja": "夜パフェ MUA"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ",
+       "reason": "too_long",
+       "why_en": "needs 212 min with travel, window has 105",
+       "why_ja": "往復込みで212分必要、空きは105分"
+      },
+      {
+       "id": "combo-moiwa-night-view-and-miso-ramen",
+       "title_en": "Mt Moiwa night view and miso ramen",
+       "title_ja": "藻岩山の夜景と味噌ラーメン",
+       "reason": "too_long",
+       "why_en": "needs 207 min with travel, window has 105",
+       "why_ja": "往復込みで207分必要、空きは105分"
+      },
+      {
+       "id": "combo-sake-brewery-and-izakaya",
+       "title_en": "Sake brewery tasting, then its izakaya",
+       "title_ja": "酒蔵の試飲と蔵元の居酒屋",
+       "reason": "too_long",
+       "why_en": "needs 223 min with travel, window has 105",
+       "why_ja": "往復込みで223分必要、空きは105分"
+      },
+      {
+       "id": "eve-008530cb",
+       "title_en": "Bettei seafood izakaya, Sapporo",
+       "title_ja": "海鮮居酒屋 別邸",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 105",
+       "why_ja": "往復込みで164分必要、空きは105分"
+      },
+      {
+       "id": "eve-03477ef5",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING",
+       "reason": "too_long",
+       "why_en": "needs 130 min with travel, window has 105",
+       "why_ja": "往復込みで130分必要、空きは105分"
+      },
+      {
+       "id": "eve-07500563",
+       "title_en": "Sanka-tei yakiniku and lamb grill",
+       "title_ja": "さんか亭",
+       "reason": "too_long",
+       "why_en": "needs 132 min with travel, window has 105",
+       "why_ja": "往復込みで132分必要、空きは105分"
+      },
+      {
+       "id": "eve-1705e0f3",
+       "title_en": "Sakanaya Dojo seafood izakaya",
+       "title_ja": "さかなや道場 東札幌店",
+       "reason": "too_long",
+       "why_en": "needs 148 min with travel, window has 105",
+       "why_ja": "往復込みで148分必要、空きは105分"
+      },
+      {
+       "id": "eve-18488276",
+       "title_en": "Chukaro Chinese restaurant, LaSola",
+       "title_ja": "中華楼 ラソラ店",
+       "reason": "too_long",
+       "why_en": "needs 144 min with travel, window has 105",
+       "why_ja": "往復込みで144分必要、空きは105分"
+      },
+      {
+       "id": "eve-1868ffb1",
+       "title_en": "Sapporo Yakiniku Hishimaru",
+       "title_ja": "札幌焼肉 ひし丸",
+       "reason": "too_long",
+       "why_en": "needs 138 min with travel, window has 105",
+       "why_ja": "往復込みで138分必要、空きは105分"
+      },
+      {
+       "id": "eve-238d9c01",
+       "title_en": "Kamoshiya Honten izakaya",
+       "title_ja": "カモシヤ ホンテン",
+       "reason": "too_long",
+       "why_en": "needs 136 min with travel, window has 105",
+       "why_ja": "往復込みで136分必要、空きは105分"
+      },
+      {
+       "id": "eve-24cf3e2b",
+       "title_en": "Curry Shop S soup curry",
+       "title_ja": "カレーショップ エス",
+       "reason": "too_long",
+       "why_en": "needs 132 min with travel, window has 105",
+       "why_ja": "往復込みで132分必要、空きは105分"
+      },
+      {
+       "id": "eve-25959002",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 105",
+       "why_ja": "往復込みで164分必要、空きは105分"
+      },
+      {
+       "id": "eve-2bf7d83c",
+       "title_en": "Sushi Kyu",
+       "title_ja": "鮨九",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 105",
+       "why_ja": "往復込みで162分必要、空きは105分"
+      },
+      {
+       "id": "eve-3373d943",
+       "title_en": "Chitosetsuru Kissyo izakaya",
+       "title_ja": "蔵元直営 千歳鶴 吉翔",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 105",
+       "why_ja": "往復込みで164分必要、空きは105分"
+      },
+      {
+       "id": "eve-48802ccc",
+       "title_en": "Robatayaki Utari",
+       "title_ja": "炉ばた焼 ウタリ",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 105",
+       "why_ja": "往復込みで164分必要、空きは105分"
+      },
+      {
+       "id": "eve-5b208569",
+       "title_en": "Kushiro robatayaki, Susukino",
+       "title_ja": "炭焼炉ばた くし路",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 105",
+       "why_ja": "往復込みで162分必要、空きは105分"
+      },
+      {
+       "id": "eve-762e7596",
+       "title_en": "Imari seafood izakaya, Odori",
+       "title_ja": "海鮮個室酒場 伊まり",
+       "reason": "too_long",
+       "why_en": "needs 196 min with travel, window has 105",
+       "why_ja": "往復込みで196分必要、空きは105分"
+      },
+      {
+       "id": "eve-7d4d077a",
+       "title_en": "Kita no Utage private-room izakaya",
+       "title_ja": "個室居酒屋 北の宴",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 105",
+       "why_ja": "往復込みで162分必要、空きは105分"
+      },
+      {
+       "id": "eve-939a0d4f",
+       "title_en": "Matsuo Jingisukan lamb grill, Susukino",
+       "title_ja": "松尾ジンギスカン すすきの店",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 105",
+       "why_ja": "往復込みで164分必要、空きは105分"
+      },
+      {
+       "id": "eve-9548bd7a",
+       "title_en": "Izakaya Labo, Nishi 11-chome",
+       "title_ja": "イザカヤラボ 西11丁目店",
+       "reason": "too_long",
+       "why_en": "needs 226 min with travel, window has 105",
+       "why_ja": "往復込みで226分必要、空きは105分"
+      },
+      {
+       "id": "eve-957c9708",
+       "title_en": "Fudo jingisukan, Sapporo Station",
+       "title_ja": "ジンギスカン 風土 札幌駅前店",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 105",
+       "why_ja": "往復込みで164分必要、空きは105分"
+      },
+      {
+       "id": "eve-a1b59cc3",
+       "title_en": "Hyakuya seafood and charcoal grill",
+       "title_ja": "海鮮と炭焼 ひゃくや",
+       "reason": "too_long",
+       "why_en": "needs 192 min with travel, window has 105",
+       "why_ja": "往復込みで192分必要、空きは105分"
+      },
+      {
+       "id": "eve-bb7771b7",
+       "title_en": "Hyosetsu no Mon crab restaurant",
+       "title_ja": "氷雪の門",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 105",
+       "why_ja": "往復込みで162分必要、空きは105分"
+      },
+      {
+       "id": "eve-beer-bar-north-island",
+       "title_en": "North Island brewery bar, Odori",
+       "title_ja": "ビアバー ノースアイランド",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 105",
+       "why_ja": "往復込みで162分必要、空きは105分"
+      },
+      {
+       "id": "eve-ef3aefe1",
+       "title_en": "Lamb-O jingisukan, Susukino",
+       "title_ja": "ジンギスカン ラム王",
+       "reason": "too_long",
+       "why_en": "needs 134 min with travel, window has 105",
+       "why_ja": "往復込みで134分必要、空きは105分"
+      },
+      {
+       "id": "eve-f61f3452",
+       "title_en": "Kaimi Hachikyo seafood izakaya",
+       "title_ja": "海味はちきょう",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 105",
+       "why_ja": "往復込みで162分必要、空きは105分"
+      },
+      {
+       "id": "eve-otaru-masazushi-honten-sushi",
+       "title_en": "Otaru Masazushi Honten sushi restaurant",
+       "title_ja": "おたる政寿司 本店",
+       "reason": "too_long",
+       "why_en": "needs 262 min with travel, window has 105",
+       "why_ja": "往復込みで262分必要、空きは105分"
+      },
+      {
+       "id": "eve-sapporo-kanihonke-sapporo-ekimae",
+       "title_en": "Sapporo Kanihonke crab restaurant",
+       "title_ja": "札幌かに本家 札幌駅前本店",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 105",
+       "why_ja": "往復込みで164分必要、空きは105分"
+      }
+     ]
+    },
+    {
+     "window": "w3",
+     "name_en": "Day 2 evening",
+     "name_ja": "2日目夜",
+     "day": "2027-03-19",
+     "start": "21:00",
+     "end": "23:00",
+     "fits": [
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      },
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      },
+      {
+       "id": "eve-yoru-parfait-mua",
+       "kind": "evening",
+       "title_en": "Yoru Parfait MUA late-night parfaits",
+       "title_ja": "夜パフェ MUA"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ",
+       "reason": "too_long",
+       "why_en": "needs 212 min with travel, window has 120",
+       "why_ja": "往復込みで212分必要、空きは120分"
+      },
+      {
+       "id": "combo-moiwa-night-view-and-miso-ramen",
+       "title_en": "Mt Moiwa night view and miso ramen",
+       "title_ja": "藻岩山の夜景と味噌ラーメン",
+       "reason": "too_long",
+       "why_en": "needs 207 min with travel, window has 120",
+       "why_ja": "往復込みで207分必要、空きは120分"
+      },
+      {
+       "id": "combo-sake-brewery-and-izakaya",
+       "title_en": "Sake brewery tasting, then its izakaya",
+       "title_ja": "酒蔵の試飲と蔵元の居酒屋",
+       "reason": "too_long",
+       "why_en": "needs 223 min with travel, window has 120",
+       "why_ja": "往復込みで223分必要、空きは120分"
+      },
+      {
+       "id": "eve-008530cb",
+       "title_en": "Bettei seafood izakaya, Sapporo",
+       "title_ja": "海鮮居酒屋 別邸",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 120",
+       "why_ja": "往復込みで164分必要、空きは120分"
+      },
+      {
+       "id": "eve-03477ef5",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING",
+       "reason": "too_long",
+       "why_en": "needs 130 min with travel, window has 120",
+       "why_ja": "往復込みで130分必要、空きは120分"
+      },
+      {
+       "id": "eve-07500563",
+       "title_en": "Sanka-tei yakiniku and lamb grill",
+       "title_ja": "さんか亭",
+       "reason": "too_long",
+       "why_en": "needs 132 min with travel, window has 120",
+       "why_ja": "往復込みで132分必要、空きは120分"
+      },
+      {
+       "id": "eve-1705e0f3",
+       "title_en": "Sakanaya Dojo seafood izakaya",
+       "title_ja": "さかなや道場 東札幌店",
+       "reason": "too_long",
+       "why_en": "needs 148 min with travel, window has 120",
+       "why_ja": "往復込みで148分必要、空きは120分"
+      },
+      {
+       "id": "eve-18488276",
+       "title_en": "Chukaro Chinese restaurant, LaSola",
+       "title_ja": "中華楼 ラソラ店",
+       "reason": "too_long",
+       "why_en": "needs 144 min with travel, window has 120",
+       "why_ja": "往復込みで144分必要、空きは120分"
+      },
+      {
+       "id": "eve-1868ffb1",
+       "title_en": "Sapporo Yakiniku Hishimaru",
+       "title_ja": "札幌焼肉 ひし丸",
+       "reason": "too_long",
+       "why_en": "needs 138 min with travel, window has 120",
+       "why_ja": "往復込みで138分必要、空きは120分"
+      },
+      {
+       "id": "eve-238d9c01",
+       "title_en": "Kamoshiya Honten izakaya",
+       "title_ja": "カモシヤ ホンテン",
+       "reason": "too_long",
+       "why_en": "needs 136 min with travel, window has 120",
+       "why_ja": "往復込みで136分必要、空きは120分"
+      },
+      {
+       "id": "eve-24cf3e2b",
+       "title_en": "Curry Shop S soup curry",
+       "title_ja": "カレーショップ エス",
+       "reason": "too_long",
+       "why_en": "needs 132 min with travel, window has 120",
+       "why_ja": "往復込みで132分必要、空きは120分"
+      },
+      {
+       "id": "eve-25959002",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 120",
+       "why_ja": "往復込みで164分必要、空きは120分"
+      },
+      {
+       "id": "eve-2bf7d83c",
+       "title_en": "Sushi Kyu",
+       "title_ja": "鮨九",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 120",
+       "why_ja": "往復込みで162分必要、空きは120分"
+      },
+      {
+       "id": "eve-3373d943",
+       "title_en": "Chitosetsuru Kissyo izakaya",
+       "title_ja": "蔵元直営 千歳鶴 吉翔",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 120",
+       "why_ja": "往復込みで164分必要、空きは120分"
+      },
+      {
+       "id": "eve-48802ccc",
+       "title_en": "Robatayaki Utari",
+       "title_ja": "炉ばた焼 ウタリ",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 120",
+       "why_ja": "往復込みで164分必要、空きは120分"
+      },
+      {
+       "id": "eve-5b208569",
+       "title_en": "Kushiro robatayaki, Susukino",
+       "title_ja": "炭焼炉ばた くし路",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 120",
+       "why_ja": "往復込みで162分必要、空きは120分"
+      },
+      {
+       "id": "eve-762e7596",
+       "title_en": "Imari seafood izakaya, Odori",
+       "title_ja": "海鮮個室酒場 伊まり",
+       "reason": "too_long",
+       "why_en": "needs 196 min with travel, window has 120",
+       "why_ja": "往復込みで196分必要、空きは120分"
+      },
+      {
+       "id": "eve-7d4d077a",
+       "title_en": "Kita no Utage private-room izakaya",
+       "title_ja": "個室居酒屋 北の宴",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 120",
+       "why_ja": "往復込みで162分必要、空きは120分"
+      },
+      {
+       "id": "eve-939a0d4f",
+       "title_en": "Matsuo Jingisukan lamb grill, Susukino",
+       "title_ja": "松尾ジンギスカン すすきの店",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 120",
+       "why_ja": "往復込みで164分必要、空きは120分"
+      },
+      {
+       "id": "eve-9548bd7a",
+       "title_en": "Izakaya Labo, Nishi 11-chome",
+       "title_ja": "イザカヤラボ 西11丁目店",
+       "reason": "too_long",
+       "why_en": "needs 226 min with travel, window has 120",
+       "why_ja": "往復込みで226分必要、空きは120分"
+      },
+      {
+       "id": "eve-957c9708",
+       "title_en": "Fudo jingisukan, Sapporo Station",
+       "title_ja": "ジンギスカン 風土 札幌駅前店",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 120",
+       "why_ja": "往復込みで164分必要、空きは120分"
+      },
+      {
+       "id": "eve-a1b59cc3",
+       "title_en": "Hyakuya seafood and charcoal grill",
+       "title_ja": "海鮮と炭焼 ひゃくや",
+       "reason": "too_long",
+       "why_en": "needs 192 min with travel, window has 120",
+       "why_ja": "往復込みで192分必要、空きは120分"
+      },
+      {
+       "id": "eve-bb7771b7",
+       "title_en": "Hyosetsu no Mon crab restaurant",
+       "title_ja": "氷雪の門",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 120",
+       "why_ja": "往復込みで162分必要、空きは120分"
+      },
+      {
+       "id": "eve-beer-bar-north-island",
+       "title_en": "North Island brewery bar, Odori",
+       "title_ja": "ビアバー ノースアイランド",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 120",
+       "why_ja": "往復込みで162分必要、空きは120分"
+      },
+      {
+       "id": "eve-ef3aefe1",
+       "title_en": "Lamb-O jingisukan, Susukino",
+       "title_ja": "ジンギスカン ラム王",
+       "reason": "too_long",
+       "why_en": "needs 134 min with travel, window has 120",
+       "why_ja": "往復込みで134分必要、空きは120分"
+      },
+      {
+       "id": "eve-f61f3452",
+       "title_en": "Kaimi Hachikyo seafood izakaya",
+       "title_ja": "海味はちきょう",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 120",
+       "why_ja": "往復込みで162分必要、空きは120分"
+      },
+      {
+       "id": "eve-otaru-masazushi-honten-sushi",
+       "title_en": "Otaru Masazushi Honten sushi restaurant",
+       "title_ja": "おたる政寿司 本店",
+       "reason": "too_long",
+       "why_en": "needs 262 min with travel, window has 120",
+       "why_ja": "往復込みで262分必要、空きは120分"
+      },
+      {
+       "id": "eve-sapporo-kanihonke-sapporo-ekimae",
+       "title_en": "Sapporo Kanihonke crab restaurant",
+       "title_ja": "札幌かに本家 札幌駅前本店",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 120",
+       "why_ja": "往復込みで164分必要、空きは120分"
+      }
+     ]
+    },
+    {
+     "window": "w4",
+     "name_en": "Day 3 early morning",
+     "name_ja": "3日目早朝",
+     "day": "2027-03-20",
+     "start": "06:30",
+     "end": "08:40",
+     "fits": [
+      {
+       "id": "combo-run-and-seafood-breakfast",
+       "kind": "short",
+       "title_en": "Morning run and a seafood bowl breakfast",
+       "title_ja": "朝ランと二条市場の海鮮丼"
+      },
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-kita-no-gurume-tei",
+       "kind": "short",
+       "title_en": "Kita no Gurume-tei seafood bowls",
+       "title_ja": "北のグルメ亭"
+      },
+      {
+       "id": "short-morning-run-hokkaido-university",
+       "kind": "short",
+       "title_en": "Morning run at Hokkaido University",
+       "title_ja": "北大キャンパス 朝ラン"
+      },
+      {
+       "id": "short-morning-run-odori-park",
+       "kind": "short",
+       "title_en": "Morning run in Odori Park",
+       "title_ja": "大通公園 朝ラン"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "kind": "short",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-hot-spring-and-beer-museum",
+       "title_en": "Hot spring and Sapporo Beer Museum",
+       "title_ja": "苗穂で温泉とビール博物館",
+       "reason": "too_long",
+       "why_en": "needs 198 min with travel, window has 130",
+       "why_ja": "往復込みで198分必要、空きは130分"
+      },
+      {
+       "id": "combo-soup-curry-and-clock-tower",
+       "title_en": "Soup curry lunch and the Clock Tower",
+       "title_ja": "スープカレーと時計台",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:30, so not back by 08:40",
+       "why_ja": "開始が11:30になり、08:40までに戻れない"
+      },
+      {
+       "id": "combo-specialty-coffee-walk",
+       "title_en": "Sapporo specialty coffee walk",
+       "title_ja": "札幌のコーヒー店3軒",
+       "reason": "too_long",
+       "why_en": "needs 174 min with travel, window has 130",
+       "why_ja": "往復込みで174分必要、空きは130分"
+      },
+      {
+       "id": "short-authentic-sapporo-nijo-market",
+       "title_en": "Nijo Market seafood lunch walk",
+       "title_ja": "二条市場 海鮮ランチ散歩",
+       "reason": "too_long",
+       "why_en": "needs 192 min with travel, window has 130",
+       "why_ja": "往復込みで192分必要、空きは130分"
+      },
+      {
+       "id": "short-chitosetsuru-sake-museum",
+       "title_en": "Chitosetsuru Sake Museum",
+       "title_ja": "千歳鶴 酒ミュージアム",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:40",
+       "why_ja": "開始が10:00になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-historical-village-of-hokkaido",
+       "title_en": "Historical Village of Hokkaido",
+       "title_ja": "北海道開拓の村",
+       "reason": "too_long",
+       "why_en": "needs 214 min with travel, window has 130",
+       "why_ja": "往復込みで214分必要、空きは130分"
+      },
+      {
+       "id": "short-hitsujigaoka-observation-hill",
+       "title_en": "Hitsujigaoka Observation Hill",
+       "title_ja": "さっぽろ羊ヶ丘展望台",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:40",
+       "why_ja": "開始が09:00になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-hokkaido-university-museum",
+       "title_en": "Hokkaido University Museum",
+       "title_ja": "北海道大学総合博物館",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:40",
+       "why_ja": "開始が10:00になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-jr-tower-observatory-t38",
+       "title_en": "JR Tower Observatory T38",
+       "title_ja": "JRタワー展望室 T38",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:40",
+       "why_ja": "開始が10:00になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-kuranoyu-hot-spring-naebo",
+       "title_en": "Kuranoyu hot spring by Naebo Station",
+       "title_ja": "苗穂駅前温泉 蔵ノ湯",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:40",
+       "why_ja": "開始が10:00になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-marumi-coffee-odori-main",
+       "title_en": "Marumi Coffee Odori main store",
+       "title_ja": "丸美珈琲店 大通本店",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:40",
+       "why_ja": "開始が09:00になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-mituki-sakura-tea-ceremony",
+       "title_en": "Mituki Sakura tea ceremony trial",
+       "title_ja": "美月桜 茶道体験",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:00, so not back by 08:40",
+       "why_ja": "開始が11:00になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-morihico-main-store",
+       "title_en": "Morihico main store",
+       "title_ja": "森彦 本店",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:40",
+       "why_ja": "開始が09:00になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-morning-run-nakajima-park",
+       "title_en": "Nakajima Park and river run, about 5 km",
+       "title_ja": "中島公園と豊平川の朝ラン",
+       "reason": "month",
+       "why_en": "not offered in Mar",
+       "why_ja": "3月は実施していない"
+      },
+      {
+       "id": "short-morning-run-shiroishi-kokoro",
+       "title_en": "Morning run on Shiroishi Kokoro-do path",
+       "title_ja": "白石こころーど 朝ラン",
+       "reason": "month",
+       "why_en": "not offered in Mar",
+       "why_ja": "3月は実施していない"
+      },
+      {
+       "id": "short-new-chitose-airport-observation",
+       "title_en": "New Chitose Airport Observation Deck",
+       "title_ja": "新千歳空港 展望デッキ",
+       "reason": "month",
+       "why_en": "not offered in Mar",
+       "why_ja": "3月は実施していない"
+      },
+      {
+       "id": "short-okurayama-ski-jump-observatory",
+       "title_en": "Okurayama ski jump and Olympic Museum",
+       "title_ja": "大倉山ジャンプ台と展望台",
+       "reason": "too_long",
+       "why_en": "needs 154 min with travel, window has 130",
+       "why_ja": "往復込みで154分必要、空きは130分"
+      },
+      {
+       "id": "short-sapporo-ainu-culture-promotion",
+       "title_en": "Sapporo Ainu Culture Promotion Center",
+       "title_ja": "札幌市アイヌ文化交流センター",
+       "reason": "too_long",
+       "why_en": "needs 192 min with travel, window has 130",
+       "why_ja": "往復込みで192分必要、空きは130分"
+      },
+      {
+       "id": "short-sapporo-beer-museum-guided",
+       "title_en": "Sapporo Beer Museum tour and tasting",
+       "title_ja": "サッポロビール博物館",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:00, so not back by 08:40",
+       "why_ja": "開始が11:00になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-sapporo-clock-tower",
+       "title_en": "Sapporo Clock Tower",
+       "title_ja": "札幌市時計台",
+       "reason": "ends_late",
+       "why_en": "can't start before 08:45, so not back by 08:40",
+       "why_ja": "開始が08:45になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-sapporo-maruyama-zoo",
+       "title_en": "Sapporo Maruyama Zoo",
+       "title_ja": "札幌市円山動物園",
+       "reason": "too_long",
+       "why_en": "needs 208 min with travel, window has 130",
+       "why_ja": "往復込みで208分必要、空きは130分"
+      },
+      {
+       "id": "short-sapporo-moiwa-ski-area",
+       "title_en": "Moiwa ski area night skiing",
+       "title_ja": "藻岩山スキー場 ナイター",
+       "reason": "too_long",
+       "why_en": "needs 238 min with travel, window has 130",
+       "why_ja": "往復込みで238分必要、空きは130分"
+      },
+      {
+       "id": "short-sapporo-mt-moiwa-ropeway",
+       "title_en": "Sapporo Mt. Moiwa Ropeway",
+       "title_ja": "札幌もいわ山ロープウェイ",
+       "reason": "too_long",
+       "why_en": "needs 142 min with travel, window has 130",
+       "why_ja": "往復込みで142分必要、空きは130分"
+      },
+      {
+       "id": "short-sapporo-tv-tower",
+       "title_en": "Sapporo TV Tower",
+       "title_ja": "さっぽろテレビ塔",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:40",
+       "why_ja": "開始が09:00になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-sapporo-walking-tour-h",
+       "title_en": "Sapporo walking tour in English",
+       "title_ja": "札幌ウォーキングツアー（英語）",
+       "reason": "too_long",
+       "why_en": "needs 222 min with travel, window has 130",
+       "why_ja": "往復込みで222分必要、空きは130分"
+      },
+      {
+       "id": "short-shiroi-koibito-park",
+       "title_en": "Shiroi Koibito Park",
+       "title_ja": "白い恋人パーク",
+       "reason": "too_long",
+       "why_en": "needs 162 min with travel, window has 130",
+       "why_ja": "往復込みで162分必要、空きは130分"
+      },
+      {
+       "id": "short-snowshoe-trek-in-asahiyama",
+       "title_en": "Asahiyama snowshoe trek, hotel pickup",
+       "title_ja": "旭山記念公園 スノーシュー",
+       "reason": "too_long",
+       "why_en": "needs 236 min with travel, window has 130",
+       "why_ja": "往復込みで236分必要、空きは130分"
+      },
+      {
+       "id": "short-soup-curry-king-central",
+       "title_en": "Soup Curry King Central",
+       "title_ja": "SOUP CURRY KING",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:30, so not back by 08:40",
+       "why_ja": "開始が11:30になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-susukino-natural-hot-spring",
+       "title_en": "Tokakyo hot spring in Susukino",
+       "title_ja": "すすきの天然温泉 湯香郷",
+       "reason": "too_long",
+       "why_en": "needs 132 min with travel, window has 130",
+       "why_ja": "往復込みで132分必要、空きは130分"
+      },
+      {
+       "id": "short-takino-snow-world-takino",
+       "title_en": "Takino Snow World",
+       "title_ja": "滝野スノーワールド",
+       "reason": "too_long",
+       "why_en": "needs 336 min with travel, window has 130",
+       "why_ja": "往復込みで336分必要、空きは130分"
+      },
+      {
+       "id": "short-tokumitsu-coffee-odori",
+       "title_en": "Tokumitsu Coffee Odori",
+       "title_ja": "徳光珈琲 大通店",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:40",
+       "why_ja": "開始が10:00になり、08:40までに戻れない"
+      },
+      {
+       "id": "short-upopoy-national-ainu-museum",
+       "title_en": "Upopoy National Ainu Museum and Park",
+       "title_ja": "ウポポイ アイヌ民族博物館",
+       "reason": "too_long",
+       "why_en": "needs 426 min with travel, window has 130",
+       "why_ja": "往復込みで426分必要、空きは130分"
+      }
+     ]
+    },
+    {
+     "window": "w5",
+     "name_en": "After closing, Day 3",
+     "name_ja": "閉会後(3日目)",
+     "day": "2027-03-20",
+     "start": "17:00",
+     "end": "22:00",
+     "fits": [
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "kind": "evening",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ"
+      },
+      {
+       "id": "combo-moiwa-night-view-and-miso-ramen",
+       "kind": "evening",
+       "title_en": "Mt Moiwa night view and miso ramen",
+       "title_ja": "藻岩山の夜景と味噌ラーメン"
+      },
+      {
+       "id": "eve-008530cb",
+       "kind": "evening",
+       "title_en": "Bettei seafood izakaya, Sapporo",
+       "title_ja": "海鮮居酒屋 別邸"
+      },
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "eve-07500563",
+       "kind": "evening",
+       "title_en": "Sanka-tei yakiniku and lamb grill",
+       "title_ja": "さんか亭"
+      },
+      {
+       "id": "eve-1705e0f3",
+       "kind": "evening",
+       "title_en": "Sakanaya Dojo seafood izakaya",
+       "title_ja": "さかなや道場 東札幌店"
+      },
+      {
+       "id": "eve-18488276",
+       "kind": "evening",
+       "title_en": "Chukaro Chinese restaurant, LaSola",
+       "title_ja": "中華楼 ラソラ店"
+      },
+      {
+       "id": "eve-1868ffb1",
+       "kind": "evening",
+       "title_en": "Sapporo Yakiniku Hishimaru",
+       "title_ja": "札幌焼肉 ひし丸"
+      },
+      {
+       "id": "eve-238d9c01",
+       "kind": "evening",
+       "title_en": "Kamoshiya Honten izakaya",
+       "title_ja": "カモシヤ ホンテン"
+      },
+      {
+       "id": "eve-24cf3e2b",
+       "kind": "evening",
+       "title_en": "Curry Shop S soup curry",
+       "title_ja": "カレーショップ エス"
+      },
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
+      },
+      {
+       "id": "eve-2bf7d83c",
+       "kind": "evening",
+       "title_en": "Sushi Kyu",
+       "title_ja": "鮨九"
+      },
+      {
+       "id": "eve-3373d943",
+       "kind": "evening",
+       "title_en": "Chitosetsuru Kissyo izakaya",
+       "title_ja": "蔵元直営 千歳鶴 吉翔"
+      },
+      {
+       "id": "eve-48802ccc",
+       "kind": "evening",
+       "title_en": "Robatayaki Utari",
+       "title_ja": "炉ばた焼 ウタリ"
+      },
+      {
+       "id": "eve-5b208569",
+       "kind": "evening",
+       "title_en": "Kushiro robatayaki, Susukino",
+       "title_ja": "炭焼炉ばた くし路"
+      },
+      {
+       "id": "eve-762e7596",
+       "kind": "evening",
+       "title_en": "Imari seafood izakaya, Odori",
+       "title_ja": "海鮮個室酒場 伊まり"
+      },
+      {
+       "id": "eve-7d4d077a",
+       "kind": "evening",
+       "title_en": "Kita no Utage private-room izakaya",
+       "title_ja": "個室居酒屋 北の宴"
+      },
+      {
+       "id": "eve-939a0d4f",
+       "kind": "evening",
+       "title_en": "Matsuo Jingisukan lamb grill, Susukino",
+       "title_ja": "松尾ジンギスカン すすきの店"
+      },
+      {
+       "id": "eve-9548bd7a",
+       "kind": "evening",
+       "title_en": "Izakaya Labo, Nishi 11-chome",
+       "title_ja": "イザカヤラボ 西11丁目店"
+      },
+      {
+       "id": "eve-957c9708",
+       "kind": "evening",
+       "title_en": "Fudo jingisukan, Sapporo Station",
+       "title_ja": "ジンギスカン 風土 札幌駅前店"
+      },
+      {
+       "id": "eve-a1b59cc3",
+       "kind": "evening",
+       "title_en": "Hyakuya seafood and charcoal grill",
+       "title_ja": "海鮮と炭焼 ひゃくや"
+      },
+      {
+       "id": "eve-bb7771b7",
+       "kind": "evening",
+       "title_en": "Hyosetsu no Mon crab restaurant",
+       "title_ja": "氷雪の門"
+      },
+      {
+       "id": "eve-beer-bar-north-island",
+       "kind": "evening",
+       "title_en": "North Island brewery bar, Odori",
+       "title_ja": "ビアバー ノースアイランド"
+      },
+      {
+       "id": "eve-ef3aefe1",
+       "kind": "evening",
+       "title_en": "Lamb-O jingisukan, Susukino",
+       "title_ja": "ジンギスカン ラム王"
+      },
+      {
+       "id": "eve-f61f3452",
+       "kind": "evening",
+       "title_en": "Kaimi Hachikyo seafood izakaya",
+       "title_ja": "海味はちきょう"
+      },
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      },
+      {
+       "id": "eve-otaru-masazushi-honten-sushi",
+       "kind": "evening",
+       "title_en": "Otaru Masazushi Honten sushi restaurant",
+       "title_ja": "おたる政寿司 本店"
+      },
+      {
+       "id": "eve-sapporo-kanihonke-sapporo-ekimae",
+       "kind": "evening",
+       "title_en": "Sapporo Kanihonke crab restaurant",
+       "title_ja": "札幌かに本家 札幌駅前本店"
+      },
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      },
+      {
+       "id": "eve-yoru-parfait-mua",
+       "kind": "evening",
+       "title_en": "Yoru Parfait MUA late-night parfaits",
+       "title_ja": "夜パフェ MUA"
+      },
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-jr-tower-observatory-t38",
+       "kind": "short",
+       "title_en": "JR Tower Observatory T38",
+       "title_ja": "JRタワー展望室 T38"
+      },
+      {
+       "id": "short-kuranoyu-hot-spring-naebo",
+       "kind": "short",
+       "title_en": "Kuranoyu hot spring by Naebo Station",
+       "title_ja": "苗穂駅前温泉 蔵ノ湯"
+      },
+      {
+       "id": "short-marumi-coffee-odori-main",
+       "kind": "short",
+       "title_en": "Marumi Coffee Odori main store",
+       "title_ja": "丸美珈琲店 大通本店"
+      },
+      {
+       "id": "short-morihico-main-store",
+       "kind": "short",
+       "title_en": "Morihico main store",
+       "title_ja": "森彦 本店"
+      },
+      {
+       "id": "short-sapporo-moiwa-ski-area",
+       "kind": "short",
+       "title_en": "Moiwa ski area night skiing",
+       "title_ja": "藻岩山スキー場 ナイター"
+      },
+      {
+       "id": "short-sapporo-mt-moiwa-ropeway",
+       "kind": "short",
+       "title_en": "Sapporo Mt. Moiwa Ropeway",
+       "title_ja": "札幌もいわ山ロープウェイ"
+      },
+      {
+       "id": "short-sapporo-tv-tower",
+       "kind": "short",
+       "title_en": "Sapporo TV Tower",
+       "title_ja": "さっぽろテレビ塔"
+      },
+      {
+       "id": "short-soup-curry-king-central",
+       "kind": "short",
+       "title_en": "Soup Curry King Central",
+       "title_ja": "SOUP CURRY KING"
+      },
+      {
+       "id": "short-susukino-natural-hot-spring",
+       "kind": "short",
+       "title_en": "Tokakyo hot spring in Susukino",
+       "title_ja": "すすきの天然温泉 湯香郷"
+      },
+      {
+       "id": "short-tokumitsu-coffee-odori",
+       "kind": "short",
+       "title_en": "Tokumitsu Coffee Odori",
+       "title_ja": "徳光珈琲 大通店"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-chitose-semiconductor-day",
+       "title_en": "Chitose semiconductor research visit",
+       "title_ja": "千歳の半導体研究と展望デッキ",
+       "reason": "month",
+       "why_en": "not offered in Mar",
+       "why_ja": "3月は実施していない"
+      },
+      {
+       "id": "combo-dairy-and-beer-factories",
+       "title_en": "Dairy and beer factory tours",
+       "title_ja": "乳業とビールの工場めぐり",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "combo-disaster-medicine-half-day",
+       "title_en": "Disaster medicine half day",
+       "title_ja": "災害医療の半日見学",
+       "reason": "closed",
+       "why_en": "arrives 17:19, last start 13:32",
+       "why_ja": "着くのは17:19、開始は13:32まで"
+      },
+      {
+       "id": "combo-hot-spring-and-beer-museum",
+       "title_en": "Hot spring and Sapporo Beer Museum",
+       "title_ja": "苗穂で温泉とビール博物館",
+       "reason": "closed",
+       "why_en": "arrives 17:18, last start 15:18",
+       "why_ja": "着くのは17:18、開始は15:18まで"
+      },
+      {
+       "id": "combo-run-and-seafood-breakfast",
+       "title_en": "Morning run and a seafood bowl breakfast",
+       "title_ja": "朝ランと二条市場の海鮮丼",
+       "reason": "closed",
+       "why_en": "arrives 17:21, last start 08:30",
+       "why_ja": "着くのは17:21、開始は08:30まで"
+      },
+      {
+       "id": "combo-sake-brewery-and-izakaya",
+       "title_en": "Sake brewery tasting, then its izakaya",
+       "title_ja": "酒蔵の試飲と蔵元の居酒屋",
+       "reason": "closed",
+       "why_en": "arrives 17:19, last start 17:15",
+       "why_ja": "着くのは17:19、開始は17:15まで"
+      },
+      {
+       "id": "combo-soup-curry-and-clock-tower",
+       "title_en": "Soup curry lunch and the Clock Tower",
+       "title_ja": "スープカレーと時計台",
+       "reason": "closed",
+       "why_en": "arrives 17:21, last start 15:47",
+       "why_ja": "着くのは17:21、開始は15:47まで"
+      },
+      {
+       "id": "combo-specialty-coffee-walk",
+       "title_en": "Sapporo specialty coffee walk",
+       "title_ja": "札幌のコーヒー店3軒",
+       "reason": "closed",
+       "why_en": "arrives 17:21, last start 16:48",
+       "why_ja": "着くのは17:21、開始は16:48まで"
+      },
+      {
+       "id": "short-authentic-sapporo-nijo-market",
+       "title_en": "Nijo Market seafood lunch walk",
+       "title_ja": "二条市場 海鮮ランチ散歩",
+       "reason": "closed",
+       "why_en": "arrives 17:21, last start 10:00",
+       "why_ja": "着くのは17:21、開始は10:00まで"
+      },
+      {
+       "id": "short-chitosetsuru-sake-museum",
+       "title_en": "Chitosetsuru Sake Museum",
+       "title_ja": "千歳鶴 酒ミュージアム",
+       "reason": "closed",
+       "why_en": "arrives 17:19, last start 17:15",
+       "why_ja": "着くのは17:19、開始は17:15まで"
+      },
+      {
+       "id": "short-historical-village-of-hokkaido",
+       "title_en": "Historical Village of Hokkaido",
+       "title_ja": "北海道開拓の村",
+       "reason": "closed",
+       "why_en": "arrives 17:32, last start 14:00",
+       "why_ja": "着くのは17:32、開始は14:00まで"
+      },
+      {
+       "id": "short-hitsujigaoka-observation-hill",
+       "title_en": "Hitsujigaoka Observation Hill",
+       "title_ja": "さっぽろ羊ヶ丘展望台",
+       "reason": "closed",
+       "why_en": "arrives 17:29, last start 16:00",
+       "why_ja": "着くのは17:29、開始は16:00まで"
+      },
+      {
+       "id": "short-hokkaido-university-museum",
+       "title_en": "Hokkaido University Museum",
+       "title_ja": "北海道大学総合博物館",
+       "reason": "closed",
+       "why_en": "arrives 17:24, last start 16:00",
+       "why_ja": "着くのは17:24、開始は16:00まで"
+      },
+      {
+       "id": "short-kita-no-gurume-tei",
+       "title_en": "Kita no Gurume-tei seafood bowls",
+       "title_ja": "北のグルメ亭",
+       "reason": "closed",
+       "why_en": "arrives 17:27, last start 14:15",
+       "why_ja": "着くのは17:27、開始は14:15まで"
+      },
+      {
+       "id": "short-mituki-sakura-tea-ceremony",
+       "title_en": "Mituki Sakura tea ceremony trial",
+       "title_ja": "美月桜 茶道体験",
+       "reason": "closed",
+       "why_en": "arrives 17:22, last start 15:00",
+       "why_ja": "着くのは17:22、開始は15:00まで"
+      },
+      {
+       "id": "short-morning-run-hokkaido-university",
+       "title_en": "Morning run at Hokkaido University",
+       "title_ja": "北大キャンパス 朝ラン",
+       "reason": "closed",
+       "why_en": "arrives 17:23, last start 08:20",
+       "why_ja": "着くのは17:23、開始は08:20まで"
+      },
+      {
+       "id": "short-morning-run-nakajima-park",
+       "title_en": "Nakajima Park and river run, about 5 km",
+       "title_ja": "中島公園と豊平川の朝ラン",
+       "reason": "month",
+       "why_en": "not offered in Mar",
+       "why_ja": "3月は実施していない"
+      },
+      {
+       "id": "short-morning-run-odori-park",
+       "title_en": "Morning run in Odori Park",
+       "title_ja": "大通公園 朝ラン",
+       "reason": "closed",
+       "why_en": "arrives 17:21, last start 08:30",
+       "why_ja": "着くのは17:21、開始は08:30まで"
+      },
+      {
+       "id": "short-morning-run-shiroishi-kokoro",
+       "title_en": "Morning run on Shiroishi Kokoro-do path",
+       "title_ja": "白石こころーど 朝ラン",
+       "reason": "month",
+       "why_en": "not offered in Mar",
+       "why_ja": "3月は実施していない"
+      },
+      {
+       "id": "short-new-chitose-airport-observation",
+       "title_en": "New Chitose Airport Observation Deck",
+       "title_ja": "新千歳空港 展望デッキ",
+       "reason": "month",
+       "why_en": "not offered in Mar",
+       "why_ja": "3月は実施していない"
+      },
+      {
+       "id": "short-nijo-market",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場",
+       "reason": "closed",
+       "why_en": "arrives 17:20, last start 16:00",
+       "why_ja": "着くのは17:20、開始は16:00まで"
+      },
+      {
+       "id": "short-okurayama-ski-jump-observatory",
+       "title_en": "Okurayama ski jump and Olympic Museum",
+       "title_ja": "大倉山ジャンプ台と展望台",
+       "reason": "closed",
+       "why_en": "arrives 17:32, last start 15:30",
+       "why_ja": "着くのは17:32、開始は15:30まで"
+      },
+      {
+       "id": "short-sapporo-ainu-culture-promotion",
+       "title_en": "Sapporo Ainu Culture Promotion Center",
+       "title_ja": "札幌市アイヌ文化交流センター",
+       "reason": "closed",
+       "why_en": "arrives 17:51, last start 15:30",
+       "why_ja": "着くのは17:51、開始は15:30まで"
+      },
+      {
+       "id": "short-sapporo-beer-museum-guided",
+       "title_en": "Sapporo Beer Museum tour and tasting",
+       "title_ja": "サッポロビール博物館",
+       "reason": "closed",
+       "why_en": "arrives 17:20, last start 17:05",
+       "why_ja": "着くのは17:20、開始は17:05まで"
+      },
+      {
+       "id": "short-sapporo-clock-tower",
+       "title_en": "Sapporo Clock Tower",
+       "title_ja": "札幌市時計台",
+       "reason": "closed",
+       "why_en": "arrives 17:21, last start 16:40",
+       "why_ja": "着くのは17:21、開始は16:40まで"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場",
+       "reason": "closed",
+       "why_en": "arrives 17:27, last start 14:00",
+       "why_ja": "着くのは17:27、開始は14:00まで"
+      },
+      {
+       "id": "short-sapporo-maruyama-zoo",
+       "title_en": "Sapporo Maruyama Zoo",
+       "title_ja": "札幌市円山動物園",
+       "reason": "closed",
+       "why_en": "arrives 17:29, last start 14:00",
+       "why_ja": "着くのは17:29、開始は14:00まで"
+      },
+      {
+       "id": "short-sapporo-walking-tour-h",
+       "title_en": "Sapporo walking tour in English",
+       "title_ja": "札幌ウォーキングツアー（英語）",
+       "reason": "closed",
+       "why_en": "arrives 17:21, last start 14:00",
+       "why_ja": "着くのは17:21、開始は14:00まで"
+      },
+      {
+       "id": "short-shiroi-koibito-park",
+       "title_en": "Shiroi Koibito Park",
+       "title_ja": "白い恋人パーク",
+       "reason": "closed",
+       "why_en": "arrives 17:36, last start 16:30",
+       "why_ja": "着くのは17:36、開始は16:30まで"
+      },
+      {
+       "id": "short-snowshoe-trek-in-asahiyama",
+       "title_en": "Asahiyama snowshoe trek, hotel pickup",
+       "title_ja": "旭山記念公園 スノーシュー",
+       "reason": "closed",
+       "why_en": "arrives 17:28, last start 09:00",
+       "why_ja": "着くのは17:28、開始は09:00まで"
+      },
+      {
+       "id": "short-takino-snow-world-takino",
+       "title_en": "Takino Snow World",
+       "title_ja": "滝野スノーワールド",
+       "reason": "too_long",
+       "why_en": "needs 336 min with travel, window has 300",
+       "why_ja": "往復込みで336分必要、空きは300分"
+      },
+      {
+       "id": "short-upopoy-national-ainu-museum",
+       "title_en": "Upopoy National Ainu Museum and Park",
+       "title_ja": "ウポポイ アイヌ民族博物館",
+       "reason": "too_long",
+       "why_en": "needs 426 min with travel, window has 300",
+       "why_ja": "往復込みで426分必要、空きは300分"
+      },
+      {
+       "id": "spec-chitose-institute-of-science",
+       "title_en": "CIST Silicon Research Center, Chitose",
+       "title_ja": "公立千歳科学技術大学",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-civil-engineering-research-institute",
+       "title_en": "CERI cold-region engineering institute",
+       "title_ja": "寒地土木研究所",
+       "reason": "closed",
+       "why_en": "arrives 17:21, last start 15:30",
+       "why_ja": "着くのは17:21、開始は15:30まで"
+      },
+      {
+       "id": "spec-hokkaido-research-organization-industrial",
+       "title_en": "HRO Industrial Research Institute",
+       "title_ja": "道総研 工業試験場",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-hokkaido-university-museum",
+       "title_en": "Hokkaido University Museum",
+       "title_ja": "北海道大学総合博物館",
+       "reason": "closed",
+       "why_en": "arrives 17:24, last start 17:00",
+       "why_ja": "着くのは17:24、開始は17:00まで"
+      },
+      {
+       "id": "spec-hokkaido-university-research-center",
+       "title_en": "Hokkaido University RCIQE",
+       "title_ja": "北大 量子集積研究センター",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-japanese-red-cross-hokkaido",
+       "title_en": "Hokkaido Red Cross Blood Center",
+       "title_ja": "北海道ブロック血液センター",
+       "reason": "closed",
+       "why_en": "arrives 17:28, last start 17:00",
+       "why_ja": "着くのは17:28、開始は17:00まで"
+      },
+      {
+       "id": "spec-jgsdf-camp-makomanai-unit",
+       "title_en": "JGSDF Camp Makomanai tour",
+       "title_ja": "陸上自衛隊 真駒内駐屯地",
+       "reason": "closed",
+       "why_en": "arrives 17:35, last start 16:00",
+       "why_ja": "着くのは17:35、開始は16:00まで"
+      },
+      {
+       "id": "spec-naro-hokkaido-agricultural-research",
+       "title_en": "Hokkaido Agricultural Research Center",
+       "title_ja": "北海道農業研究センター",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-rapidus-chitose-iim-1",
+       "title_en": "Rapidus Chitose (IIM-1 and RCS)",
+       "title_ja": "Rapidus千歳 IIM-1",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-sapporo-breweries-hokkaido-brewery",
+       "title_en": "Sapporo Breweries Hokkaido Brewery tour",
+       "title_ja": "サッポロビール北海道工場",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-sapporo-citizens-disaster-prevention",
+       "title_en": "Sapporo Disaster Prevention Center",
+       "title_ja": "札幌市民防災センター",
+       "reason": "closed",
+       "why_en": "arrives 17:19, last start 15:00",
+       "why_ja": "着くのは17:19、開始は15:00まで"
+      },
+      {
+       "id": "spec-sapporo-city-fire-academy",
+       "title_en": "Sapporo City Fire Academy",
+       "title_ja": "札幌市消防学校",
+       "reason": "closed",
+       "why_en": "arrives 17:33, last start 16:30",
+       "why_ja": "着くのは17:33、開始は16:30まで"
+      },
+      {
+       "id": "spec-sapporo-komaoka-waste-incineration",
+       "title_en": "Sapporo Komaoka Waste Plant",
+       "title_ja": "札幌市駒岡清掃工場",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-sapporo-medical-university-advanced",
+       "title_en": "SMU Advanced Critical Care Center",
+       "title_ja": "札幌医大 高度救命救急センター",
+       "reason": "closed",
+       "why_en": "arrives 17:25, last start 16:30",
+       "why_ja": "着くのは17:25、開始は16:30まで"
+      },
+      {
+       "id": "spec-sapporo-regional-headquarters-japan",
+       "title_en": "Sapporo Regional Headquarters, JMA",
+       "title_ja": "札幌管区気象台",
+       "reason": "closed",
+       "why_en": "arrives 17:25, last start 15:05",
+       "why_ja": "着くのは17:25、開始は15:05まで"
+      },
+      {
+       "id": "spec-snow-brand-megmilk-dairy",
+       "title_en": "Snow Brand Megmilk Dairy Museum",
+       "title_ja": "雪印メグミルク 酪農と乳の歴史館",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-sumco-chitose-plant",
+       "title_en": "SUMCO Chitose Plant",
+       "title_ja": "SUMCO 千歳工場",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-teine-keijinkai-hospital-emergency",
+       "title_en": "Teine Keijinkai Emergency Center",
+       "title_ja": "手稲渓仁会病院 救命救急センター",
+       "reason": "closed",
+       "why_en": "arrives 17:43, last start 16:30",
+       "why_ja": "着くのは17:43、開始は16:30まで"
+      }
+     ]
+    },
+    {
+     "window": "w6",
+     "name_en": "Extra night after close",
+     "name_ja": "延泊夜",
+     "day": "2027-03-20",
+     "start": "17:00",
+     "end": "17:00",
+     "fits": [
+      {
+       "id": "xn-ginrinso-historic-herring-mansion",
+       "kind": "extra_night",
+       "title_en": "Ginrinso, historic ryokan above Otaru",
+       "title_ja": "料亭湯宿 銀鱗荘"
+      },
+      {
+       "id": "xn-suizantei-club-jozankei-adults",
+       "kind": "extra_night",
+       "title_en": "Suizantei Club Jozankei",
+       "title_ja": "翠山亭倶楽部定山渓"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-jozankei-and-market-brunch",
+       "title_en": "Jozankei onsen night and market brunch",
+       "title_ja": "定山渓の温泉と市場ブランチ",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 14:30",
+       "why_ja": "14:30までに札幌を出る必要がある"
+      },
+      {
+       "id": "combo-noboribetsu-and-upopoy",
+       "title_en": "Noboribetsu onsen and Upopoy",
+       "title_ja": "登別温泉とウポポイ",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 13:40",
+       "why_ja": "13:40までに札幌を出る必要がある"
+      },
+      {
+       "id": "combo-yoichi-whisky-and-otaru-sushi",
+       "title_en": "Yoichi whisky and Otaru sushi night",
+       "title_ja": "余市ウイスキーと小樽の寿司",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 13:30",
+       "why_ja": "13:30までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-asahikawa-asahiyama-zoo-with",
+       "title_en": "Asahiyama Zoo and Dormy Inn Asahikawa",
+       "title_ja": "旭山動物園とドーミーイン旭川",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 11:00",
+       "why_ja": "11:00までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-furano-ski-day-march",
+       "title_en": "Shin Furano Prince Hotel",
+       "title_ja": "新富良野プリンスホテル",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 14:00",
+       "why_ja": "14:00までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-jozankei-forest-onsen-resort",
+       "title_en": "Jozankei Tsuruga Mori no Uta",
+       "title_ja": "定山渓鶴雅リゾートスパ 森の謌",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 16:00",
+       "why_ja": "16:00までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-jozankei-onsen-resort-hotel",
+       "title_en": "Hotel Milione, Jozankei onsen",
+       "title_ja": "定山渓万世閣ホテルミリオーネ",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 14:30",
+       "why_ja": "14:30までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-kiroro-ski-in-luxury",
+       "title_en": "Yu Kiroro suite and a ski day",
+       "title_ja": "キロロのスイートとスキー",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 09:00",
+       "why_ja": "09:00までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-lake-toya-onsen-resort",
+       "title_en": "Toya Sun Palace and Mt Usu ropeway",
+       "title_ja": "洞爺サンパレスと有珠山",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 13:00",
+       "why_ja": "13:00までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-niseko-ski-day-at",
+       "title_en": "Hilton Niseko Village and a ski day",
+       "title_ja": "ヒルトンニセコビレッジ",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 09:20",
+       "why_ja": "09:20までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-noboribetsu-dai-ichi-takimotokan",
+       "title_en": "Dai-ichi Takimotokan, Noboribetsu",
+       "title_ja": "第一滝本館と登別地獄谷",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 13:40",
+       "why_ja": "13:40までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-otaru-canal-front-onsen",
+       "title_en": "Furu-kawa, Otaru canal ryokan",
+       "title_ja": "運河の宿 おたる ふる川",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 16:00",
+       "why_ja": "16:00までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-otaru-canal-side-onsen",
+       "title_en": "Hotel Sonia Otaru and glass blowing",
+       "title_ja": "ホテルソニア小樽と吹きガラス",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 15:00",
+       "why_ja": "15:00までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-rusutsu-ski-day-and",
+       "title_en": "Rusutsu Resort Hotel and a ski day",
+       "title_ja": "ルスツリゾートホテル",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 09:00",
+       "why_ja": "09:00までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-the-windsor-hotel-toya",
+       "title_en": "The Windsor Hotel Toya",
+       "title_ja": "ザ・ウィンザーホテル洞爺",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 16:30",
+       "why_ja": "16:30までに札幌を出る必要がある"
+      },
+      {
+       "id": "xn-yoichi-nikka-whisky-distillery",
+       "title_en": "Nikka Yoichi distillery and Otaru hotel",
+       "title_ja": "ニッカ余市蒸溜所と小樽の宿",
+       "reason": "leave_by",
+       "why_en": "must leave Sapporo by 13:30",
+       "why_ja": "13:30までに札幌を出る必要がある"
+      }
+     ]
+    }
+   ]
+  },
+  "title_en": "Check experiences against free time",
+  "title_ja": "体験を空き時間で照合",
+  "summary_en": "59 fits across 6 windows; 190 ruled out by opening hours, season, travel or last start.",
+  "summary_ja": "6枠で59件が合う。190件を営業時間、季節、移動、最終開始で除外。",
+  "counters": [
+   {
+    "value": 109,
+    "en": "experiences checked",
+    "ja": "照合した体験"
+   },
+   {
+    "value": 59,
+    "en": "accepted",
+    "ja": "採用"
+   },
+   {
+    "value": 190,
+    "en": "rejected",
+    "ja": "除外"
+   }
+  ],
+  "preview": {
+   "sample": {
+    "window": "w5",
+    "name_en": "After closing, Day 3",
+    "name_ja": "閉会後(3日目)",
+    "day": "2027-03-20",
+    "start": "17:00",
+    "end": "22:00",
+    "fits": [
+     {
+      "id": "combo-lamb-and-closing-parfait",
+      "kind": "evening",
+      "title_en": "Lamb grill, then a closing parfait",
+      "title_ja": "ジンギスカンとシメパフェ"
+     },
+     {
+      "id": "combo-moiwa-night-view-and-miso-ramen",
+      "kind": "evening",
+      "title_en": "Mt Moiwa night view and miso ramen",
+      "title_ja": "藻岩山の夜景と味噌ラーメン"
+     },
+     {
+      "id": "eve-008530cb",
+      "kind": "evening",
+      "title_en": "Bettei seafood izakaya, Sapporo",
+      "title_ja": "海鮮居酒屋 別邸"
+     },
+     {
+      "id": "eve-03477ef5",
+      "kind": "evening",
+      "title_en": "Tsuki to Taiyo Brewing",
+      "title_ja": "月と太陽BREWING"
+     },
+     {
+      "id": "eve-07500563",
+      "kind": "evening",
+      "title_en": "Sanka-tei yakiniku and lamb grill",
+      "title_ja": "さんか亭"
+     },
+     {
+      "id": "eve-1705e0f3",
+      "kind": "evening",
+      "title_en": "Sakanaya Dojo seafood izakaya",
+      "title_ja": "さかなや道場 東札幌店"
+     }
+    ],
+    "ruled_out": [
+     {
+      "id": "combo-chitose-semiconductor-day",
+      "title_en": "Chitose semiconductor research visit",
+      "title_ja": "千歳の半導体研究と展望デッキ",
+      "reason": "month",
+      "why_en": "not offered in Mar",
+      "why_ja": "3月は実施していない"
+     },
+     {
+      "id": "combo-dairy-and-beer-factories",
+      "title_en": "Dairy and beer factory tours",
+      "title_ja": "乳業とビールの工場めぐり",
+      "reason": "field",
+      "why_en": "not for this field",
+      "why_ja": "この分野向けではない"
+     },
+     {
+      "id": "combo-disaster-medicine-half-day",
+      "title_en": "Disaster medicine half day",
+      "title_ja": "災害医療の半日見学",
+      "reason": "closed",
+      "why_en": "arrives 17:19, last start 13:32",
+      "why_ja": "着くのは17:19、開始は13:32まで"
+     },
+     {
+      "id": "combo-hot-spring-and-beer-museum",
+      "title_en": "Hot spring and Sapporo Beer Museum",
+      "title_ja": "苗穂で温泉とビール博物館",
+      "reason": "closed",
+      "why_en": "arrives 17:18, last start 15:18",
+      "why_ja": "着くのは17:18、開始は15:18まで"
+     },
+     {
+      "id": "combo-run-and-seafood-breakfast",
+      "title_en": "Morning run and a seafood bowl breakfast",
+      "title_ja": "朝ランと二条市場の海鮮丼",
+      "reason": "closed",
+      "why_en": "arrives 17:21, last start 08:30",
+      "why_ja": "着くのは17:21、開始は08:30まで"
+     },
+     {
+      "id": "combo-sake-brewery-and-izakaya",
+      "title_en": "Sake brewery tasting, then its izakaya",
+      "title_ja": "酒蔵の試飲と蔵元の居酒屋",
+      "reason": "closed",
+      "why_en": "arrives 17:19, last start 17:15",
+      "why_ja": "着くのは17:19、開始は17:15まで"
+     }
+    ]
+   },
+   "per_window": [
+    {
+     "name_en": "Day 1 early morning",
+     "name_ja": "1日目早朝",
+     "fits": 3,
+     "ruled_out": 36
+    },
+    {
+     "name_en": "Day 1 evening",
+     "name_ja": "1日目夜",
+     "fits": 3,
+     "ruled_out": 28
+    },
+    {
+     "name_en": "Day 2 evening",
+     "name_ja": "2日目夜",
+     "fits": 3,
+     "ruled_out": 28
+    },
+    {
+     "name_en": "Day 3 early morning",
+     "name_ja": "3日目早朝",
+     "fits": 7,
+     "ruled_out": 32
+    },
+    {
+     "name_en": "After closing, Day 3",
+     "name_ja": "閉会後(3日目)",
+     "fits": 41,
+     "ruled_out": 50
+    },
+    {
+     "name_en": "Extra night after close",
+     "name_ja": "延泊夜",
+     "fits": 2,
+     "ruled_out": 16
+    }
+   ]
+  },
+  "confidence": null,
+  "n": 6,
+  "key": "filter",
+  "agent": "filter",
+  "tool": "rules",
+  "mode": "live",
+  "model": null,
+  "ms": 3,
+  "tokens_in": null,
+  "tokens_out": null
+ },
+ "7": {
+  "ctx": {
+   "ideas": [
+    {
+     "window": "w4",
+     "title_en": "Run and Seafood Bowl Breakfast",
+     "title_ja": "朝ラン＆海鮮丼の朝ごはん",
+     "experience_ids": [
+      "combo-run-and-seafood-breakfast"
+     ],
+     "why_en": "Start the last day with a light jog, then refuel on fresh seafood bowls before the closing sessions. It fits neatly into the 06:30-08:40 window."
+    },
+    {
+     "window": "w5",
+     "title_en": "Mt Moiwa Night View and Miso Ramen",
+     "title_ja": "藻岩山の夜景と味噌ラーメン",
+     "experience_ids": [
+      "combo-moiwa-night-view-and-miso-ramen"
+     ],
+     "why_en": "Take in Sapporo's night view from above, then warm up with a bowl of Hokkaido's signature miso ramen. A memorable way to end the conference."
+    },
+    {
+     "window": "w5",
+     "title_en": "Lamb Grill, Then a Closing Parfait",
+     "title_ja": "ラム料理と〆パフェ",
+     "experience_ids": [
+      "combo-lamb-and-closing-parfait"
+     ],
+     "why_en": "Share a Hokkaido lamb dinner with new contacts, then finish with a Sapporo-style parfait, the local after-dinner tradition."
+    },
+    {
+     "window": "w2",
+     "title_en": "Susukino Late-Night Ramen and Parfait",
+     "title_ja": "すすきの深夜ラーメン＆パフェ",
+     "experience_ids": [
+      "eve-sumire-susukino",
+      "eve-yoru-parfait-mua"
+     ],
+     "why_en": "After the Day 1 sessions, have miso ramen at Sumire, then a late parfait at Yoru Parfait MUA. It is a classic Sapporo night out within walking distance in Susukino."
+    }
+   ]
+  },
+  "title_en": "Build experiences",
+  "title_ja": "体験を組み立てる",
+  "summary_en": "AI proposed 6 ideas; the check kept 4 and rejected 2.",
+  "summary_ja": "AIの提案6件、採用4件、却下2件。",
+  "counters": [
+   {
+    "value": 4,
+    "en": "ideas kept",
+    "ja": "採用"
+   },
+   {
+    "value": 2,
+    "en": "rejected by check",
+    "ja": "却下"
+   }
+  ],
+  "preview": {
+   "kept": [
+    {
+     "window": "w4",
+     "title_en": "Run and Seafood Bowl Breakfast",
+     "title_ja": "朝ラン＆海鮮丼の朝ごはん",
+     "experience_ids": [
+      "combo-run-and-seafood-breakfast"
+     ],
+     "why_en": "Start the last day with a light jog, then refuel on fresh seafood bowls before the closing sessions. It fits neatly into the 06:30-08:40 window."
+    },
+    {
+     "window": "w5",
+     "title_en": "Mt Moiwa Night View and Miso Ramen",
+     "title_ja": "藻岩山の夜景と味噌ラーメン",
+     "experience_ids": [
+      "combo-moiwa-night-view-and-miso-ramen"
+     ],
+     "why_en": "Take in Sapporo's night view from above, then warm up with a bowl of Hokkaido's signature miso ramen. A memorable way to end the conference."
+    },
+    {
+     "window": "w5",
+     "title_en": "Lamb Grill, Then a Closing Parfait",
+     "title_ja": "ラム料理と〆パフェ",
+     "experience_ids": [
+      "combo-lamb-and-closing-parfait"
+     ],
+     "why_en": "Share a Hokkaido lamb dinner with new contacts, then finish with a Sapporo-style parfait, the local after-dinner tradition."
+    },
+    {
+     "window": "w2",
+     "title_en": "Susukino Late-Night Ramen and Parfait",
+     "title_ja": "すすきの深夜ラーメン＆パフェ",
+     "experience_ids": [
+      "eve-sumire-susukino",
+      "eve-yoru-parfait-mua"
+     ],
+     "why_en": "After the Day 1 sessions, have miso ramen at Sumire, then a late parfait at Yoru Parfait MUA. It is a classic Sapporo night out within walking distance in Susukino."
+    }
+   ],
+   "rejected": [
+    {
+     "window": "w6",
+     "title_en": "Otaru Canal Stroll and Sushi Street",
+     "title_ja": "小樽運河散策と寿司屋通り",
+     "experience_ids": [],
+     "why_en": "On the extra night, visit the lantern-lit Otaru Canal and sample the city's famous sushi. It pairs well with a stay at Ginrinso above the town.",
+     "reject_en": "not in our data",
+     "reject_ja": "データにない"
+    },
+    {
+     "window": "w6",
+     "title_en": "Jozankei Onsen Soak and Hot Spring Town Walk",
+     "title_ja": "定山渓温泉の湯めぐりと温泉街散策",
+     "experience_ids": [],
+     "why_en": "Jozankei is a well-known hot spring town about an hour from Sapporo. A soak and a walk through the quiet town are a relaxing way to recover after the conference, especially in March.",
+     "reject_en": "not in our data",
+     "reject_ja": "データにない"
+    }
+   ]
+  },
+  "confidence": null,
+  "n": 7,
+  "key": "build",
+  "agent": "builder",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 8643,
+  "tokens_in": 1163,
+  "tokens_out": 968
+ },
+ "8": {
+  "ctx": {
+   "top": [
+    {
+     "window": "w1",
+     "name_en": "Day 1 early morning",
+     "name_ja": "1日目早朝",
+     "picks": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-morning-run-odori-park",
+       "kind": "short",
+       "title_en": "Morning run in Odori Park",
+       "title_ja": "大通公園 朝ラン"
+      },
+      {
+       "id": "short-morning-run-hokkaido-university",
+       "kind": "short",
+       "title_en": "Morning run at Hokkaido University",
+       "title_ja": "北大キャンパス 朝ラン"
+      }
+     ],
+     "confidence": 0.7,
+     "needs_approval": false
+    },
+    {
+     "window": "w2",
+     "name_en": "Day 1 evening",
+     "name_ja": "1日目夜",
+     "picks": [
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      },
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      },
+      {
+       "id": "eve-yoru-parfait-mua",
+       "kind": "evening",
+       "title_en": "Yoru Parfait MUA late-night parfaits",
+       "title_ja": "夜パフェ MUA"
+      }
+     ],
+     "confidence": 0.7,
+     "needs_approval": false
+    },
+    {
+     "window": "w3",
+     "name_en": "Day 2 evening",
+     "name_ja": "2日目夜",
+     "picks": [
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      },
+      {
+       "id": "eve-yoru-parfait-mua",
+       "kind": "evening",
+       "title_en": "Yoru Parfait MUA late-night parfaits",
+       "title_ja": "夜パフェ MUA"
+      },
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      }
+     ],
+     "confidence": 0.65,
+     "needs_approval": false
+    },
+    {
+     "window": "w4",
+     "name_en": "Day 3 early morning",
+     "name_ja": "3日目早朝",
+     "picks": [
+      {
+       "id": "combo-run-and-seafood-breakfast",
+       "kind": "short",
+       "title_en": "Morning run and a seafood bowl breakfast",
+       "title_ja": "朝ランと二条市場の海鮮丼"
+      },
+      {
+       "id": "short-kita-no-gurume-tei",
+       "kind": "short",
+       "title_en": "Kita no Gurume-tei seafood bowls",
+       "title_ja": "北のグルメ亭"
+      },
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      }
+     ],
+     "confidence": 0.7,
+     "needs_approval": false
+    },
+    {
+     "window": "w5",
+     "name_en": "After closing, Day 3",
+     "name_ja": "閉会後(3日目)",
+     "picks": [
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
+      },
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "eve-48802ccc",
+       "kind": "evening",
+       "title_en": "Robatayaki Utari",
+       "title_ja": "炉ばた焼 ウタリ"
+      }
+     ],
+     "confidence": 0.65,
+     "needs_approval": false
+    },
+    {
+     "window": "w6",
+     "name_en": "Extra night after close",
+     "name_ja": "延泊夜",
+     "picks": [
+      {
+       "id": "xn-suizantei-club-jozankei-adults",
+       "kind": "extra_night",
+       "title_en": "Suizantei Club Jozankei",
+       "title_ja": "翠山亭倶楽部定山渓"
+      },
+      {
+       "id": "xn-ginrinso-historic-herring-mansion",
+       "kind": "extra_night",
+       "title_en": "Ginrinso, historic ryokan above Otaru",
+       "title_ja": "料亭湯宿 銀鱗荘"
+      }
+     ],
+     "confidence": 0.7,
+     "needs_approval": false
+    }
+   ]
+  },
+  "title_en": "Rank the top 3 per window",
+  "title_ja": "空き時間ごとに上位3件",
+  "summary_en": "Top picks for 6 windows; 0 flagged for the organizer to approve.",
+  "summary_ja": "6枠で上位を選定、0枠は主催者の承認待ち。",
+  "counters": [
+   {
+    "value": 6,
+    "en": "windows ranked",
+    "ja": "選定した枠"
+   },
+   {
+    "value": 0,
+    "en": "need approval",
+    "ja": "承認待ち"
+   }
+  ],
+  "preview": {
+   "top": [
+    {
+     "window": "w1",
+     "name_en": "Day 1 early morning",
+     "name_ja": "1日目早朝",
+     "picks": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-morning-run-odori-park",
+       "kind": "short",
+       "title_en": "Morning run in Odori Park",
+       "title_ja": "大通公園 朝ラン"
+      },
+      {
+       "id": "short-morning-run-hokkaido-university",
+       "kind": "short",
+       "title_en": "Morning run at Hokkaido University",
+       "title_ja": "北大キャンパス 朝ラン"
+      }
+     ],
+     "confidence": 0.7,
+     "needs_approval": false
+    },
+    {
+     "window": "w2",
+     "name_en": "Day 1 evening",
+     "name_ja": "1日目夜",
+     "picks": [
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      },
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      },
+      {
+       "id": "eve-yoru-parfait-mua",
+       "kind": "evening",
+       "title_en": "Yoru Parfait MUA late-night parfaits",
+       "title_ja": "夜パフェ MUA"
+      }
+     ],
+     "confidence": 0.7,
+     "needs_approval": false
+    },
+    {
+     "window": "w3",
+     "name_en": "Day 2 evening",
+     "name_ja": "2日目夜",
+     "picks": [
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      },
+      {
+       "id": "eve-yoru-parfait-mua",
+       "kind": "evening",
+       "title_en": "Yoru Parfait MUA late-night parfaits",
+       "title_ja": "夜パフェ MUA"
+      },
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      }
+     ],
+     "confidence": 0.65,
+     "needs_approval": false
+    },
+    {
+     "window": "w4",
+     "name_en": "Day 3 early morning",
+     "name_ja": "3日目早朝",
+     "picks": [
+      {
+       "id": "combo-run-and-seafood-breakfast",
+       "kind": "short",
+       "title_en": "Morning run and a seafood bowl breakfast",
+       "title_ja": "朝ランと二条市場の海鮮丼"
+      },
+      {
+       "id": "short-kita-no-gurume-tei",
+       "kind": "short",
+       "title_en": "Kita no Gurume-tei seafood bowls",
+       "title_ja": "北のグルメ亭"
+      },
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      }
+     ],
+     "confidence": 0.7,
+     "needs_approval": false
+    },
+    {
+     "window": "w5",
+     "name_en": "After closing, Day 3",
+     "name_ja": "閉会後(3日目)",
+     "picks": [
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
+      },
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "eve-48802ccc",
+       "kind": "evening",
+       "title_en": "Robatayaki Utari",
+       "title_ja": "炉ばた焼 ウタリ"
+      }
+     ],
+     "confidence": 0.65,
+     "needs_approval": false
+    },
+    {
+     "window": "w6",
+     "name_en": "Extra night after close",
+     "name_ja": "延泊夜",
+     "picks": [
+      {
+       "id": "xn-suizantei-club-jozankei-adults",
+       "kind": "extra_night",
+       "title_en": "Suizantei Club Jozankei",
+       "title_ja": "翠山亭倶楽部定山渓"
+      },
+      {
+       "id": "xn-ginrinso-historic-herring-mansion",
+       "kind": "extra_night",
+       "title_en": "Ginrinso, historic ryokan above Otaru",
+       "title_ja": "料亭湯宿 銀鱗荘"
+      }
+     ],
+     "confidence": 0.7,
+     "needs_approval": false
+    }
+   ]
+  },
+  "confidence": 0.68,
+  "n": 8,
+  "key": "rank",
+  "agent": "ranker",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 3941,
+  "tokens_in": 1159,
+  "tokens_out": 366
+ },
+ "9": {
+  "ctx": {
+   "intro_en": "Around the sessions, Sapporo is ready with seafood bowls at Nijo Market, morning runs through Odori Park or Hokkaido University, and miso ramen and late-night parfaits in Susukino. After the closing on Day 3, linger over kaiseki, craft beer or robatayaki, or stretch your stay with a night in Jozankei or above Otaru.",
+   "intro_ja": "会議の合間や前後のひとときに、札幌ならではの味と景色をどうぞ。早朝は二条市場の海鮮丼や大通公園・北大のランニング、夜はすすきのの味噌ラーメンと夜パフェ、最終日の閉会後は懐石や地ビール、炉端焼きを、もう一泊するなら定山渓や小樽の宿もおすすめです。",
+   "email_en": {
+    "subject": "Free-time page for the 32nd JADM Annual Meeting in Sapporo",
+    "body": "Dear Organizer,\n\nI have put together a short free-time page for attendees of the 32nd Annual Meeting of the Japanese Association for Disaster Medicine (March 18-20, 2027, Sapporo Convention Center). It covers early-morning seafood bowls and runs, ramen and late-night parfaits in Susukino, and post-closing dinner options on Day 3. It also suggests two ryokan for those who want an extra night.\n\nCould you please review it and let me know if you would like any changes before it goes live?\n\nThank you, and best regards"
+   },
+   "email_ja": {
+    "subject": "【第32回日本災害医学会総会】自由時間ページのご確認のお願い",
+    "body": "ご担当者様\n\n第32回日本災害医学会総会・学術集会の参加者向けに、札幌での自由時間のおすすめをまとめました。早朝の海鮮丼やランニング、すすきののラーメンと夜パフェ、最終日の閉会後のお食事、延泊向けの宿もご紹介しています。ご確認のうえ、修正点があればお知らせください。\n\nどうぞよろしくお願いいたします。"
+   }
+  },
+  "title_en": "Write JA/EN copy",
+  "title_ja": "日英の紹介文を書く",
+  "summary_en": "Page intro and organizer email written in Japanese and English.",
+  "summary_ja": "ページ紹介文と主催者向けメールを日本語と英語で作成。",
+  "counters": [
+   {
+    "value": 2,
+    "en": "languages",
+    "ja": "言語"
+   },
+   {
+    "value": 2,
+    "en": "texts",
+    "ja": "文書"
+   }
+  ],
+  "preview": {
+   "intro_en": "Around the sessions, Sapporo is ready with seafood bowls at Nijo Market, morning runs through Odori Park or Hokkaido University, and miso ramen and late-night parfaits in Susukino. After the closing on Day 3, linger over kaiseki, craft beer or robatayaki, or stretch your stay with a night in Jozankei or above Otaru.",
+   "intro_ja": "会議の合間や前後のひとときに、札幌ならではの味と景色をどうぞ。早朝は二条市場の海鮮丼や大通公園・北大のランニング、夜はすすきのの味噌ラーメンと夜パフェ、最終日の閉会後は懐石や地ビール、炉端焼きを、もう一泊するなら定山渓や小樽の宿もおすすめです。",
+   "email_en": {
+    "subject": "Free-time page for the 32nd JADM Annual Meeting in Sapporo",
+    "body": "Dear Organizer,\n\nI have put together a short free-time page for attendees of the 32nd Annual Meeting of the Japanese Association for Disaster Medicine (March 18-20, 2027, Sapporo Convention Center). It covers early-morning seafood bowls and runs, ramen and late-night parfaits in Susukino, and post-closing dinner options on Day 3. It also suggests two ryokan for those who want an extra night.\n\nCould you please review it and let me know if you would like any changes before it goes live?\n\nThank you, and best regards"
+   },
+   "email_ja": {
+    "subject": "【第32回日本災害医学会総会】自由時間ページのご確認のお願い",
+    "body": "ご担当者様\n\n第32回日本災害医学会総会・学術集会の参加者向けに、札幌での自由時間のおすすめをまとめました。早朝の海鮮丼やランニング、すすきののラーメンと夜パフェ、最終日の閉会後のお食事、延泊向けの宿もご紹介しています。ご確認のうえ、修正点があればお知らせください。\n\nどうぞよろしくお願いいたします。"
+   }
+  },
+  "confidence": null,
+  "n": 9,
+  "key": "write",
+  "agent": "writer",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 13287,
+  "tokens_in": 538,
+  "tokens_out": 1677
+ }
+}
