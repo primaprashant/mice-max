@@ -20,6 +20,7 @@ const { lang = "en", tags } = Astro.props;
       <button
         type="button"
         data-plan-filter-all
+        data-sfx-chip
         aria-pressed="true"
         class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper min-h-11 px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
       >
@@ -30,6 +31,7 @@ const { lang = "en", tags } = Astro.props;
         <button
           type="button"
           data-plan-filter={tg.id}
+          data-sfx-chip
           aria-pressed="false"
           class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper min-h-11 px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
         >

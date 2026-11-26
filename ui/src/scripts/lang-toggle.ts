@@ -17,6 +17,7 @@ for (const toggle of toggles) {
   buttons.forEach((b) =>
     b.addEventListener("click", () => {
       const lang = b.dataset.lang ?? "en";
+      import("./sfx").then(({ press }) => press("synth-on")).catch(() => {});
       setActive(lang);
       document.cookie = `lang=${lang}; path=/; max-age=31536000`;
       location.reload();

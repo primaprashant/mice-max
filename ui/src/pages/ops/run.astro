@@ -27,7 +27,7 @@ const url = Astro.url.searchParams.get("url") ?? "";
       <label class="sr-only" for="ingest-url">{t(lang, "ingest.urlLabel")}</label>
       <input id="ingest-url" name="url" type="url" required value={url} placeholder="https://"
         class="min-h-11 flex-1 rounded-lg border border-ink/20 bg-paper px-4 font-mono text-sm focus:border-theme" />
-      <button id="ingest-go" type="submit"
+      <button id="ingest-go" type="submit" data-sfx-run
         class="min-h-11 rounded-lg bg-theme px-5 text-sm font-medium text-paper transition-transform active:scale-[0.98] disabled:opacity-50">
         {t(lang, "ingest.run")}
       </button>
@@ -49,5 +49,6 @@ const url = Astro.url.searchParams.get("url") ?? "";
 
 <script>
   import { initIngest } from "../../scripts/ingest-run";
+  import "../../scripts/sfx";
   initIngest();
 </script>

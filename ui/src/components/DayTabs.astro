@@ -27,6 +27,7 @@ const { lang, days, activeDay } = Astro.props;
           <button
             type="button"
             data-day-tab={day}
+            data-sfx-tab
             aria-pressed={active ? "true" : "false"}
             class:list={[
               "w-full rounded-md border px-3 py-1.5 text-sm font-medium transition-colors",

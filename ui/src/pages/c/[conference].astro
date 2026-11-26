@@ -223,6 +223,7 @@ const activeDay = days.includes(today) ? today : days[0];
               >
               <a
                 href={`/c/${conf.id}/e/${experience.id}`}
+                data-sfx-warm
                 class="group flex h-full flex-col gap-3 rounded-xl border border-banana bg-banana-soft p-4 transition-transform active:scale-[0.99]"
               >
                 {(() => {
@@ -441,6 +442,7 @@ const activeDay = days.includes(today) ? today : days[0];
   import "../../scripts/extra-night-nav";
   import "../../scripts/plan-state";
   import "../../scripts/day-tabs";
+  import "../../scripts/sfx";
   import "../../scripts/suggest-log";
   import "../../scripts/now-line";
   import "../../scripts/session-modal";
