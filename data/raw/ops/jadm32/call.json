@@ -1,0 +1,146 @@
+{
+ "label_ja": "模擬通話",
+ "label_en": "simulated call",
+ "brief": {
+  "conference_id": "jadm32",
+  "experience_id": "xn-jozankei-forest-onsen-resort",
+  "window_id": "jadm32-w15",
+  "day": "2027-03-20",
+  "window_name_ja": "土曜にもう一泊",
+  "suggested_start": "13:30",
+  "headline_note": "Sat. Leave SCC 13:30; 14:30 Makomanai shuttle; hotel 15:00 = check-in. Jalan had 2 deluxe twins left for 3/20",
+  "plans": [
+   {
+    "name_ja": "定山渓鶴雅リゾートスパ 森の謌",
+    "name_en": "Jozankei forest onsen resort (Tsuruga Mori no Uta)",
+    "booking_method": "online",
+    "booking_deadline": "Makomanai shuttle: phone by 17:00 the day before (011-598-2671); Kappa Liner: 17:00 the day before",
+    "price_variants": "[{\"name\": \"Sat 2027-03-20 deluxe twin, 早期割90 (book by about 2026-12-20), all-in\", \"price_jpy\": 34446}, {\"name\": \"Sat 2027-03-20 deluxe twin, 早期割60, all-in\", \"price_jpy\": 36382}]",
+    "notes": "Stay: Jalan dinner+breakfast buffet, Sat 3/20 '【早期割90】' デラックスツイン 61,952 for 2 = 30,976 pp, あと2部屋 on 2026-11-25 (the cheaper barrier-free twin, 26,136 pp, is the one wheelchair room and not used); 早期割90 needs booking by about 2026-12-20, then 早期割60 65,824 for 2. Sat 5/15 '【早期割120】' twin 47,190 = 23,595 pp (may be the barrier-free room; recheck), all-in may=27065. Check-in 15:00, check-out 10:00. 大浴場 and 露天風呂; baths 11:30 to 9:30 (closed 2:00-5:00). Cards VISA, JCB, Master, Amex. Fares: Kappa Liner web 1,460 x2 (~60 min; Sapporo Sta. 9:10-16:00, last back 17:06). Free alternative: subway to Makomanai + hotel shuttle (Makomanai->hotel 10:30/14:30/16:30; hotel->Makomanai 9:30/11:30/15:30, about 30 min), reserved by phone 011-598-2671 by 17:00 the day before. Tax: Sapporo 200 + Hokkaido 200 + onsen tax 150. 2027-03-20 is the Saturday of a 3-day weekend (3/21 Vernal Equinox, 3/22 substitute holiday). All-in per person: mar=34446.",
+    "source_url": "https://www.morino-uta.com/access/"
+   }
+  ],
+  "group": [
+   {
+    "name_ja": "山田 良子",
+    "party_size": 2,
+    "booked_online": true
+   },
+   {
+    "name_ja": "森 里美",
+    "party_size": 2,
+    "booked_online": true
+   },
+   {
+    "name_ja": "渡辺 久子",
+    "party_size": 1,
+    "booked_online": true
+   }
+  ],
+  "people": 5,
+  "call_ts": "2027-03-17T11:00:00+09:00"
+ },
+ "lines": [
+  {
+   "speaker": "staff",
+   "ja": "お電話ありがとうございます。定山渓鶴雅リゾートスパ 森の謌でございます。",
+   "en": "Thank you for calling. This is Jozankei Tsuruga Resort Spa Mori no Uta."
+  },
+  {
+   "speaker": "agent",
+   "ja": "お世話になっております。私、MiceMaxのAIアシスタントでございます。学会にご参加の皆様に代わってお電話いたしました。3月20日土曜日の、真駒内からの送迎バスを予約させていただきたいのですが。",
+   "en": "Hello. I'm an AI assistant calling for MiceMax on behalf of conference attendees. I'd like to reserve your shuttle bus from Makomanai for Saturday, March 20."
+  },
+  {
+   "speaker": "staff",
+   "ja": "かしこまりました。ご宿泊のご予約はお済みでいらっしゃいますか。",
+   "en": "Certainly. Do the guests already have a room reservation with us?"
+  },
+  {
+   "speaker": "agent",
+   "ja": "はい、3月20日から1泊、オンラインで予約済みでございます。お名前は山田良子様、森里美様、渡辺久子様の3件でございます。",
+   "en": "Yes. They have booked online for one night from March 20. There are three reservations, under Yoshiko Yamada, Satomi Mori, and Hisako Watanabe."
+  },
+  {
+   "speaker": "staff",
+   "ja": "確認いたしますので、少々お待ちくださいませ。……お待たせいたしました。3件とも3月20日ご到着で承っております。",
+   "en": "Let me check. One moment, please. ... Thank you for waiting. I have all three reservations arriving March 20."
+  },
+  {
+   "speaker": "agent",
+   "ja": "ありがとうございます。それでは、真駒内14時30分発の便に合計5名でお願いいたします。山田様が2名、森様が2名、渡辺様が1名でございます。",
+   "en": "Thank you. Then we'd like the 14:30 departure from Makomanai for 5 people in total: 2 under Yamada, 2 under Mori, and 1 under Watanabe."
+  },
+  {
+   "speaker": "staff",
+   "ja": "3月20日、真駒内14時30分発の便に5名様でございますね。承知いたしました。",
+   "en": "So that's 5 guests on the 14:30 departure from Makomanai on March 20. Understood."
+  },
+  {
+   "speaker": "agent",
+   "ja": "所要時間は30分ほどと伺っておりますので、15時頃の到着でチェックインに間に合うかと存じますが、よろしいでしょうか。",
+   "en": "I understand the ride takes about 30 minutes, so they should arrive around 15:00 in time for check-in. Is that right?"
+  },
+  {
+   "speaker": "staff",
+   "ja": "はい、チェックインは15時からでございますので、ご到着後そのままお手続きいただけます。",
+   "en": "Yes. Check-in starts at 15:00, so they can check in as soon as they arrive."
+  },
+  {
+   "speaker": "agent",
+   "ja": "承知いたしました。翌日の真駒内へのお帰りの便につきましては、皆様のご予定を確認のうえ、改めてご連絡してもよろしいでしょうか。",
+   "en": "Understood. May I call back about the return shuttle to Makomanai the next day once I've confirmed everyone's plans?"
+  },
+  {
+   "speaker": "staff",
+   "ja": "はい、もちろんでございます。ご利用日の前日17時までにお電話いただければ承ります。",
+   "en": "Of course. If you call by 17:00 the day before, we can take the reservation."
+  },
+  {
+   "speaker": "agent",
+   "ja": "ありがとうございます。念のため復唱いたします。3月20日土曜日、真駒内14時30分発、山田様、森様、渡辺様の合計5名でございます。",
+   "en": "Thank you. Let me repeat the details: Saturday, March 20, 14:30 departure from Makomanai, 5 people in total under Yamada, Mori, and Watanabe."
+  },
+  {
+   "speaker": "staff",
+   "ja": "はい、そちらの内容で確かにご予約を承りました。",
+   "en": "Yes, the reservation is confirmed with those details."
+  },
+  {
+   "speaker": "agent",
+   "ja": "ご対応いただきありがとうございました。どうぞよろしくお願いいたします。",
+   "en": "Thank you very much for your help. We appreciate it."
+  },
+  {
+   "speaker": "staff",
+   "ja": "こちらこそありがとうございます。皆様のお越しをお待ちしております。失礼いたします。",
+   "en": "Thank you as well. We look forward to welcoming everyone. Goodbye."
+  }
+ ],
+ "result_ja": "3月20日（土）真駒内14時30分発の送迎バスを5名分（山田様2名・森様2名・渡辺様1名）予約完了。帰りの便は後日、前日17時までに電話で予約予定。",
+ "result_en": "Reserved the 14:30 Makomanai-to-hotel shuttle on Sat, March 20 for 5 people (Yamada 2, Mori 2, Watanabe 1). The return shuttle will be booked later by phone, by 17:00 the day before.",
+ "facts_used": [
+  "Hotel: 定山渓鶴雅リゾートスパ 森の謌",
+  "Stay date: Saturday 2027-03-20",
+  "Rooms booked online by 山田 良子 (2), 森 里美 (2), 渡辺 久子 (1); 5 people total",
+  "Makomanai shuttle must be reserved by phone by 17:00 the day before",
+  "Shuttle Makomanai->hotel departs at 14:30 (among 10:30/14:30/16:30)",
+  "Shuttle ride is about 30 minutes",
+  "Check-in 15:00",
+  "Hotel->Makomanai return shuttle exists (9:30/11:30/15:30)"
+ ],
+ "written_by": {
+  "model": "anthropic/claude-opus-5.5",
+  "ms": 30967,
+  "tokens_in": 1529,
+  "tokens_out": 6573
+ },
+ "audio": {
+  "path": "data/media/calls/jadm32.mp3",
+  "voices": {
+   "agent": "GKDaBI8TKSBJVhsCLD6n",
+   "staff": "G3EZ8O36A0x9lmeOtr0f"
+  },
+  "model": "eleven_multilingual_v2"
+ }
+}

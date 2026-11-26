@@ -4,6 +4,7 @@ export const prerender = false;
 import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
 import PlanCard from "../../components/PlanCard.astro";
+import OpsBadge from "../../components/OpsBadge.astro";
 import {
   conferenceById,
   sessionsForConference,
@@ -93,6 +94,10 @@ const shareUrl = `${Astro.url.origin}/c/${conf.id}`;
         {t(lang, "organizer.movedFromLast")}
       </p>
     )}
+
+    <div class="mt-3">
+      <OpsBadge lang={lang} conference={conf.id} text={t(lang, "ops.badges.organizer")} />
+    </div>
 
     <section class="mt-8">
       <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "organizer.program")}</h2>

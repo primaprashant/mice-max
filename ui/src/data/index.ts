@@ -21,6 +21,7 @@ import type {
   CityEstimate,
   Season,
   CityEvent,
+  AgentStep,
 } from "./types";
 
 const DEMO_CONFERENCE_IDS = ["jadm32", "icep2027"] as const;
@@ -119,6 +120,8 @@ function mapExperience(r: any): Experience {
     english_ok: r.english_ok === 1,
     needs_agreement: r.needs_agreement === 1,
     fields: r.fields ? JSON.parse(r.fields) : [],
+    months: r.months ? JSON.parse(r.months) : null,
+    days_closed: r.days_closed,
   };
 }
 
@@ -318,6 +321,19 @@ export function headlineFor(conferenceId: string, kind: ExperienceKind): Headlin
   return row as unknown as Headline | undefined;
 }
 
+/** The place an experience happens at, from its first stop's plan row. */
+export function experiencePlace(id: string): { name_en: string; name_ja: string; address: string | null } | undefined {
+  const row = getDb()
+    .prepare(
+      `SELECT p.name_en, p.name_ja, p.address FROM experience_stops es
+       JOIN plans pl ON pl.id = es.plan_id
+       JOIN places p ON p.id = pl.place_id
+       WHERE es.experience_id = ? ORDER BY es.n LIMIT 1`
+    )
+    .get(id);
+  return row ? (row as unknown as { name_en: string; name_ja: string; address: string | null }) : undefined;
+}
+
 /** Simulated attendees who joined an experience (for "join others"). */
 export function attendeesJoined(experienceId: string, limit = 12): Attendee[] {
   const rows = getDb()
@@ -381,6 +397,43 @@ export function committedSpend(conferenceId: string): { kind: string; area: stri
   }));
 }
 
+/** One committed-spend row per conference-month-kind-area, with everything the
+ * city view's export and chart need: month, kind, area, conference. Amounts
+ * are the raw simulated-log values, not scaled to conference size. */
+export function committedSpendDetailed(): {
+  month: string;
+  kind: string;
+  area: string;
+  area_ja: string;
+  conference: string;
+  count: number;
+  jpy: number;
+}[] {
+  const rows = getDb()
+    .prepare(
+      `SELECT strftime('%Y-%m', ev.ts) AS month, e.kind AS kind,
+              p.name_en AS area, p.name_ja AS area_ja, c.name_en AS conference,
+              COUNT(*) AS count, SUM(ev.price_jpy) AS jpy
+       FROM events ev
+       JOIN experiences e ON e.id = ev.experience_id
+       LEFT JOIN places p ON p.id = e.area_id
+       JOIN conferences c ON c.id = ev.conference_id
+       WHERE ev.event_type IN ('plan_joined','plan_booked')
+       GROUP BY ev.conference_id, month, e.kind, p.id
+       ORDER BY month`
+    )
+    .all() as any[];
+  return rows.map((r) => ({
+    month: r.month,
+    kind: r.kind,
+    area: r.area ?? "Other",
+    area_ja: r.area_ja ?? "その他",
+    conference: r.conference,
+    count: Number(r.count),
+    jpy: Number(r.jpy ?? 0),
+  }));
+}
+
 /** Reach per conference: attendees the organizer's link reached, and the total. */
 export function reachByConference(): Map<string, { reached: number; total: number }> {
   const rows = getDb()
@@ -391,4 +444,38 @@ export function reachByConference(): Map<string, { reached: number; total: numbe
     map.set(r.conference_id, { reached: Number(r.reached), total: Number(r.total) });
   }
   return map;
+}
+
+// --- operations log (agent_steps, docs/10) -----------------------------------
+
+const OPS_ORDER = `CASE phase WHEN 'setup' THEN 0 WHEN 'before' THEN 1 WHEN 'during' THEN 2 ELSE 3 END`;
+
+function mapStep(r: any): AgentStep {
+  return {
+    ...r,
+    handed_to_human: r.handed_to_human === 1,
+    simulated: r.simulated === 1,
+    output: r.output ? JSON.parse(r.output) : null,
+  };
+}
+
+/** All agent steps for one conference, timeline order (phase, then ts). */
+export function agentSteps(conferenceId: string): AgentStep[] {
+  const rows = getDb()
+    .prepare(
+      `SELECT * FROM agent_steps WHERE conference_id = ? ORDER BY ${OPS_ORDER}, ts, id`
+    )
+    .all(conferenceId);
+  return rows.map(mapStep);
+}
+
+/** Conferences that have agent_steps rows, newest first by start_date. */
+export function opsConferenceIds(): string[] {
+  const rows = getDb()
+    .prepare(
+      `SELECT DISTINCT s.conference_id FROM agent_steps s
+       JOIN conferences c ON c.id = s.conference_id ORDER BY c.start_date DESC`
+    )
+    .all();
+  return (rows as any[]).map((r) => r.conference_id);
 }

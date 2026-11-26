@@ -4,11 +4,12 @@
   },
   "nav": {
     "intro": "Two demo conferences with real programs and simulated attendee data. Start with the attendee view.",
-    "login": "Attendee login",
+    "login": "Login",
     "loginNote": "Name only, no password check",
     "calendarNote": "Attendee calendar with free-time windows and plans",
     "organizerNote": "Approve or remove suggestions, get the share links",
-    "cityNote": "Simulated reach, spend and the money formula"
+    "cityNote": "Simulated reach, spend and the money formula",
+    "opsNote": "Every AI agent step, Live or Replay"
   },
   "home": {
     "componentsTitle": "What the screens are made of",
@@ -21,8 +22,33 @@
     "name": "Your name",
     "namePlaceholder": "Yamada Hanako",
     "password": "Password",
-    "passwordHint": "",
-    "enter": "Enter"
+    "roleAttendee": "Attendees",
+    "roleOrganizer": "Organizers",
+    "roleCity": "Cities",
+    "consent": "I agree that my clicks and bookings are logged without my name or email, to improve the service.",
+    "enter": "Enter",
+    "photoCreditSuffix": "Photo: Unsplash",
+    "photoOdoriParkTvTowerSummer": "Odori Park and the TV Tower in summer",
+    "photoTvTowerBlueSky": "Sapporo TV Tower on a clear day",
+    "photoTvTowerSkylineDusk": "Sapporo skyline at dusk",
+    "photoTvTowerWinter": "Sapporo TV Tower in winter",
+    "photoSnowyStreetDowntown": "Snowy street in central Sapporo",
+    "photoOdoriParkSnowNight": "Odori Park at night in winter",
+    "photoNikkaWhiskyBillboardSusukino": "Susukino at night",
+    "photoMoerenumaParkGlassPyramid": "Moerenuma Park",
+    "photoMoineMountainsSkiJumpCity": "Mt. Moiwa and the ski jump",
+    "photoHokkaidoSeafoodMarket": "Hokkaido morning market",
+    "photoHokkaidoShrineSnow": "Hokkaido Shrine in winter",
+    "photoSapporoNightViewElevated": "Sapporo at dusk from above",
+    "photoSapporoStreetSunsetMountains": "Sapporo street at sunset",
+    "photoSapporoTramStreetDay": "Sapporo streetcar in winter",
+    "photoSnowyStreetNightCrowd": "Snowfall downtown",
+    "photoSusukinoSnowyStorefrontNight": "Izakaya storefront in Susukino",
+    "photoSusukinoWinterIlluminations": "Winter illuminations",
+    "photoTanukikojiShoppingArcadeNight": "Tanukikoji arcade at night",
+    "photoTvTowerPanasonicNightSnow": "TV Tower at night in the snow",
+    "photoToyakoLakeWinterShore": "Lake Toya in winter",
+    "photoYokoshiTomamuFlowerField": "Flower fields in Biei"
   },
   "calendar": {
     "banner": "{windowName} is free. {n} plans fit.",
@@ -45,7 +71,13 @@
     "joinOthers": "Who is going",
     "noJoiners": "No one has joined yet. Be the first.",
     "book": "Book and pay",
-    "join": "Join"
+    "join": "Join",
+    "attendingOf": "{n} going, {spots} spots left",
+    "attending": "{n} going",
+    "spotsLeft": "{n} spots left",
+    "location": "Location",
+    "chooseDate": "Date",
+    "scrollDown": "Scroll down"
   },
   "checkout": {
     "title": "Checkout",
@@ -71,6 +103,7 @@
     "count": "Plans",
     "spend": "Spend",
     "next12Months": "Next 12 months, all Sapporo conferences",
+    "uptakeNote": "Early, Middle and Strong are three scenarios, from pessimistic to optimistic: how many attendees the organizer's link reaches, how many of them book an activity, and how many add a hotel night. Middle is the working estimate.",
     "conference": "Conference",
     "attendees": "Attendees",
     "early": "Early",
@@ -78,7 +111,13 @@
     "strong": "Strong",
     "total": "Total",
     "formulaTitle": "The money formula",
-    "formula": "attendees reached × extra-night rate (end weekday × overseas share × long weekend) × spend per extra night + activity take-up × average activity price. Early, Middle and Strong are three uptake assumptions."
+    "formula": "attendees reached × extra-night rate (end weekday × overseas share × long weekend) × spend per extra night + activity take-up × average activity price. Early, Middle and Strong are three uptake assumptions.",
+    "overTime": "New spend over time",
+    "overTimeNote": "Committed plans per month, from the simulated event log",
+    "exportCsv": "Export CSV",
+    "month": "Month",
+    "chartTable": "View as table",
+    "chartTableClose": "Back to chart"
   },
   "organizer": {
     "title": "For organizers",
@@ -152,5 +191,66 @@
     "social": "Social",
     "excursion": "Excursion",
     "other": "Other"
+  },
+  "ops": {
+    "title": "Operations",
+    "intro": "How the AI agents ran this conference: every step they took, with the tool used and the output. Live rows ran on the site; replay rows were recorded earlier.",
+    "pickerNote": "Conference",
+    "replay": "Replay",
+    "live": "Live",
+    "phase": {
+      "setup": "Setup",
+      "before": "Before",
+      "during": "During",
+      "after": "After"
+    },
+    "phaseNote": {
+      "setup": "Organizer pastes the URL. The agents read the site and build the conference.",
+      "before": "Registration to arrival. Emails, groups, booking calls, reminders.",
+      "during": "Conference days. Questions answered, disruptions replanned, hosts set.",
+      "after": "The money flows into the city view."
+    },
+    "stepCount": "{n} steps",
+    "tool": {
+      "llm": "LLM",
+      "jev": "Jev",
+      "graph": "Graph",
+      "voice": "Voice",
+      "video": "Video",
+      "search": "Search",
+      "rules": "Rules"
+    },
+    "handedToHuman": "Passed to a person",
+    "detail": "Details",
+    "output": "Output JSON",
+    "truncated": "{n} more items",
+    "model": "Model",
+    "tokens": "{tin} in / {tout} out tokens",
+    "ms": "{ms} ms",
+    "call": "Booking call",
+    "playCall": "Play the call",
+    "transcript": "Transcript",
+    "speakerAgent": "MiceMax agent",
+    "speakerStaff": "Staff",
+    "qaTitle": "Questions and answers",
+    "qaNote": "Sample questions written from this conference's data.",
+    "question": "Q",
+    "answer": "A",
+    "disruption": "Disruption replanning",
+    "alert": "Alert",
+    "messages": "Messages to attendees",
+    "alternatives": "Moved to",
+    "affected": "{n} bookings affected",
+    "badges": {
+      "organizer": "Set up by AI agents",
+      "calendar": "Windows found by AI",
+      "experience": "Page written by AI",
+      "city": "Estimate computed by AI",
+      "viewAll": "See the full log"
+    },
+    "who": {
+      "organizer": "Organizer",
+      "attendee": "Attendee"
+    }
   }
 }

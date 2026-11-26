@@ -8,6 +8,8 @@ This brief sets the scope for what we build at the hackathon. The vision ([02-vi
 
 Everything else supports that loop.
 
+**Update 2026-11-25 (D30):** the final demo adds an AI operations layer on top of this loop (live pipeline, booking call, Q&A, disruption replanning, Ops view). See [10-ai-operations-plan.md](10-ai-operations-plan.md).
+
 ## Demo story (end to end)
 
 1. **Organizer view.** Paste a conference URL (or upload the program PDF). The AI reads it and shows:
@@ -113,6 +115,7 @@ Shows the data flywheel ([04-long-term-plan.md](04-long-term-plan.md#data-flywhe
 - Never invent places, prices or opening hours. If the list doesn't have it, don't show it.
 - Japanese is the primary language. English must be complete, not partial.
 - Design for any conference. Nothing may be hard-coded to the demo events.
+- Every PR opens from [.github/pull_request_template.md](../.github/pull_request_template.md): Screenshots first (local captures with `<details><kbd>`, URLs added after upload), then What (one bullet per change, naming the file or function), then Why (one bullet per reason). No AI review-notes block in the template; a reviewer reads the diff itself.
 
 ## How the judges will score us, and our answer
 
