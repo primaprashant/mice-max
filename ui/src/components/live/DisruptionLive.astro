@@ -1,7 +1,45 @@
 ---
-/** Slot for the live DisruptionLive feature. Renders nothing until that feature lands. */
-import type { Lang } from "../../i18n";
+/** Live snow disruption: a button fires a simulated alert; agent steps reveal as the backend runs them. */
+import { t, type Lang } from "../../i18n";
+import ModeLabel from "../ModeLabel.astro";
 interface Props { conferenceId: string; lang: Lang; mode?: "attendee" | "organizer" }
-const { conferenceId, lang, mode } = Astro.props;
-void conferenceId; void lang; void mode;
+const { conferenceId, lang } = Astro.props;
+const k = (key: string) => t(lang, `disruptionLive.${key}`);
+const strings = {
+  live: t(lang, "ops.live"), replay: t(lang, "ops.replay"), simulated: k("simulatedAlert"), running: k("running"),
+  again: k("again"), error: k("error"), affected: k("affected"), replan: k("replan"), people: k("people"),
+  confidence: k("confidence"), messages: k("messages"),
+};
 ---
+
+<section class="mt-6 rounded-xl border border-ink/10" data-disruption-live data-conference={conferenceId} data-lang={lang}>
+  <script type="application/json" data-strings set:html={JSON.stringify(strings)} />
+  <div class="flex flex-wrap items-center justify-between gap-3 px-5 pt-4">
+    <h2 class="flex items-center gap-2 text-sm font-semibold">
+      <i class="ph ph-cloud-snow text-base" aria-hidden="true"></i>
+      {k("title")}
+    </h2>
+    <ModeLabel lang={lang} mode="live" />
+  </div>
+  <div class="px-5 pb-5 pt-2">
+    <p class="text-xs text-ink-soft">{k("note")}</p>
+    <button
+      type="button"
+      data-run
+      class="mt-3 inline-flex min-h-11 items-center gap-2 rounded-lg bg-theme px-5 py-2.5 text-sm font-semibold text-paper hover:bg-theme-strong disabled:opacity-60"
+    >
+      <i class="ph ph-snowflake text-base" aria-hidden="true"></i>
+      <span data-run-label>{k("button")}</span>
+    </button>
+    <ol class="mt-4 space-y-3" data-steps aria-live="polite"></ol>
+    <p class="mt-3 hidden text-sm text-ink-soft" data-pending>
+      <i class="ph ph-spinner motion-safe:animate-spin" aria-hidden="true"></i>
+      <span>{k("running")}</span>
+    </p>
+    <p class="mt-3 hidden text-sm text-ink" data-error role="alert">{k("error")}</p>
+  </div>
+</section>
+
+<script>
+  import "../../scripts/disruption-live";
+</script>
