@@ -2,9 +2,8 @@
  * script drives the center readout from hover only — the chart is not a
  * control, so slices take no click, focus, or button role. Hovering a slice
  * or its legend row shows that area (name, spend, plan count); leaving
- * returns the center to the total. The table view toggle keeps the exact
- * figures reachable without the chart. All names are inserted with
- * textContent, never innerHTML. */
+ * returns the center to the total. All names are inserted with textContent,
+ * never innerHTML. */
 const el = document.querySelector<HTMLElement>("city-area-donut");
 const lang = (document.documentElement.lang === "ja" ? "ja" : "en") as "en" | "ja";
 
@@ -21,8 +20,6 @@ if (el) {
   const labelEl = el.querySelector("#city-donut-label")!;
   const valueEl = el.querySelector("#city-donut-value")!;
   const subEl = el.querySelector("#city-donut-sub")!;
-  const tableEl = el.querySelector<HTMLElement>("[slot=table]")!;
-  const donutEl = el.querySelector<HTMLElement>("[slot=donut]")!;
   const totalJpy = Number(valueEl.textContent?.replace(/[^\d]/g, "") ?? 0);
 
   function showTotal(): void {
@@ -59,22 +56,6 @@ if (el) {
     row.addEventListener("pointerenter", () => hover(row.dataset.area ?? null));
   }
   el.addEventListener("pointerleave", () => hover(null));
-
-  // Table view toggle, same pattern as the monthly chart.
-  const toggle = document.createElement("button");
-  toggle.type = "button";
-  toggle.className =
-    "inline-flex min-h-[44px] items-center rounded-lg border border-ink/15 px-4 py-2 text-sm font-medium hover:bg-ink/5";
-  toggle.textContent = lang === "ja" ? "表で見る" : "View as table";
-  toggle.addEventListener("click", () => {
-    const showingTable = !tableEl.hidden;
-    tableEl.hidden = !showingTable;
-    donutEl.hidden = showingTable;
-    toggle.textContent = showingTable
-      ? lang === "ja" ? "グラフに戻る" : "Back to chart"
-      : lang === "ja" ? "表で見る" : "View as table";
-  });
-  donutEl.parentElement!.appendChild(toggle);
 
   showTotal();
 }
