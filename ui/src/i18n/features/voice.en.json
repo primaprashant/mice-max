@@ -1,0 +1,31 @@
+{
+  "voice": {
+    "title": "Call the ryokan live",
+    "simulated": "Simulated booking",
+    "intro": "The AI booking agent calls the hotel through this laptop's microphone. You play the front desk.",
+    "roleLabel": "Your role",
+    "role": "You are the front desk of {hotel}. Answer the phone, check the reservations for {day}, then accept or refuse the request. Japanese or English both work.",
+    "start": "Start the call",
+    "end": "End the call",
+    "status": {
+      "idle": "Ready",
+      "connecting": "Connecting",
+      "listening": "Agent is listening",
+      "speaking": "Agent is speaking",
+      "reading": "Call ended. Reading the booking",
+      "done": "Call ended",
+      "error": "Something went wrong. Try again.",
+      "mic": "The call needs microphone access."
+    },
+    "transcript": "Live transcript",
+    "agent": "AI agent",
+    "staff": "Front desk",
+    "result": "Booking result",
+    "confirmed": "Confirmed",
+    "notConfirmed": "Not confirmed",
+    "date": "Date",
+    "time": "Time",
+    "party": "People",
+    "notes": "Notes"
+  }
+}
