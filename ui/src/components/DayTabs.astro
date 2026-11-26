@@ -1,0 +1,43 @@
+---
+/** Day tab bar plus panel slot, shared by the attendee calendar and the
+ * organizer program view. One panel visible at a time; visibility is
+ * toggled by the day-tabs script. */
+import { type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  days: string[];
+  activeDay: string;
+}
+
+const { lang, days, activeDay } = Astro.props;
+---
+
+<day-tabs class="block">
+  <div class="sticky top-0 z-[500] -mx-6 grid grid-flow-col auto-cols-fr overflow-x-auto bg-paper px-6 py-2" data-day-tab-row>
+    {
+      days.map((day, i) => {
+        const weekday = new Date(day + "T00:00:00Z").toLocaleDateString("en-US", { weekday: "long", timeZone: "UTC" });
+        const label =
+          lang === "ja"
+            ? `${i + 1}日目 (${day.slice(5).replace("-", "/")} ${new Date(day + "T00:00:00Z").toLocaleDateString("ja-JP", { weekday: "short", timeZone: "UTC" })})`
+            : `Day ${i + 1} (${day.slice(5).replace("-", "/")}, ${weekday})`;
+        const active = day === activeDay;
+        return (
+          <button
+            type="button"
+            data-day-tab={day}
+            aria-pressed={active ? "true" : "false"}
+            class:list={[
+              "w-full rounded-md border px-3 py-1.5 text-sm font-medium transition-colors",
+              active ? "border-ink bg-ink text-paper" : "border-ink/25 text-ink-soft hover:bg-ink/5",
+            ]}
+          >
+            {label}
+          </button>
+        );
+      })
+    }
+  </div>
+  <slot />
+</day-tabs>

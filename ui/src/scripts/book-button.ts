@@ -1,7 +1,7 @@
 /** The book/join button on the experience page. Free experiences join in
  * place; paid ones go through the dummy checkout, then come back booked.
  * Every join and booking also appends a row to the event log on the backend. */
-import { planFor, putPlan, removePlan, type StoredPlan } from "./plan-store";
+import { loadPlans, planFor, putPlan, removePlan, type StoredPlan } from "./plan-store";
 import { logEvent } from "./event-log";
 
 class BookButton extends HTMLElement {
@@ -35,6 +35,7 @@ class BookButton extends HTMLElement {
         party_size: Number(url.searchParams.get("party") ?? "1") || 1,
       });
       logEvent("plan_booked", { experienceId: expId, partySize: Number(url.searchParams.get("party") ?? "1") || 1, priceJpy: price || null });
+      document.dispatchEvent(new CustomEvent("micemax:plans-changed"));
       for (const key of ["booked", "day", "start", "end", "party"]) url.searchParams.delete(key);
       window.history.replaceState(null, "", url.pathname + url.search);
     }
@@ -44,6 +45,17 @@ class BookButton extends HTMLElement {
     if (existing) {
       this.renderDone(btn, labels, existing.status, expId);
       return;
+    }
+
+    // One extra night per attendee: when this event is an extra night and
+    // any other extra-night plan exists, block the button with the reason.
+    if (btn.dataset.kind === "extra_night") {
+      const plans = loadPlans();
+      const otherNight = plans.find((p) => p.ref_id !== expId && this.isExtraNight(p.ref_id));
+      if (otherNight) {
+        this.renderBlocked(btn, labels);
+        return;
+      }
     }
 
     btn.addEventListener("click", () => {
@@ -56,6 +68,7 @@ class BookButton extends HTMLElement {
       const plan: StoredPlan = { kind: "event", ref_id: expId, day, start, end, status: "joined", party_size: 1 };
       putPlan(plan);
       logEvent("plan_joined", { experienceId: expId, partySize: 1, priceJpy: price || null });
+      document.dispatchEvent(new CustomEvent("micemax:plans-changed"));
       this.renderDone(btn, labels, "joined", expId);
     });
   }
@@ -75,6 +88,17 @@ class BookButton extends HTMLElement {
       window.location.reload();
     });
     this.appendChild(cancel);
+  }
+
+  renderBlocked(btn: HTMLButtonElement, labels: Record<string, string>) {
+    btn.textContent = labels.blocked ?? "You already have a booking at this time slot";
+    btn.classList.add("bg-muted", "text-ink-soft");
+    btn.classList.remove("bg-theme", "text-paper");
+    btn.setAttribute("disabled", "true");
+  }
+
+  private isExtraNight(refId: string): boolean {
+    return document.querySelectorAll(`extra-night-card[data-exp="${refId}"]`).length > 0;
   }
 }
 

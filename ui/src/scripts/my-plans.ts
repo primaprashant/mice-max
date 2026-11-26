@@ -1,8 +1,12 @@
 /** Renders the attendee's own plans into the calendar grid, from the
- * plan-store (localStorage), so the grid updates after booking. Uses the
- * shared layout module, same as DayGrid.astro, so the blocks line up. */
+ * plan-store (localStorage), so the grid updates after booking. Blocks span
+ * the full grid width. Stacking is resolved at runtime by block-z.ts, not
+ * hardcoded: all blocks start equal and overlap depth decides the layer.
+ * A booked plan's block grays to slate with a muted border, matching the
+ * extra-night banner's booked treatment; the status itself shows on the
+ * card in the free-time section below, not in the grid. */
 import { loadPlans } from "./plan-store";
-import { layoutBlocks, toMinutes } from "./layout";
+import { toMinutes } from "./layout";
 
 class MyPlans extends HTMLElement {
   connectedCallback() {
@@ -18,18 +22,21 @@ class MyPlans extends HTMLElement {
 
     const plans = loadPlans()
       .filter((p) => p.day === day)
-      .map((p) => ({ start: p.start, end: p.end, title: titles[p.ref_id] ?? p.ref_id }));
+      .map((p) => ({ ...p, title: titles[p.ref_id] ?? p.ref_id }));
     const gridStartMin = toMinutes(gridStart);
     const gridEndMin = toMinutes(gridEnd);
     const pos = (t: string) => ((toMinutes(t) - gridStartMin) / (gridEndMin - gridStartMin)) * 100;
 
-    const blocks = layoutBlocks(plans).map((p) => {
+    const blocks = plans.map((p) => {
       const top = Math.max(0, pos(p.start));
       const bottom = Math.min(100, pos(p.end));
       if (bottom <= top) return null; // plan sits outside the grid range
       const div = document.createElement("div");
+      // The grid block stays banana in every state: it marks where the
+      // attendee will be. The booked gray-out lives on the card in the
+      // free-time section, not here.
       div.className = "absolute rounded-md bg-banana-soft border border-banana px-1.5 py-0.5";
-      div.style.cssText = `top: ${top}%; height: ${bottom - top}%; left: ${p.col * (100 / p.cols) + 0.5}%; width: ${100 / p.cols - 1}%;`;
+      div.style.cssText = `top: ${top}%; height: ${bottom - top}%; left: 0.5%; width: 99%;`;
       const time = document.createElement("span");
       time.className = "block truncate font-mono text-[10px] tabular-nums opacity-80";
       time.textContent = p.start && p.end ? `${p.start}–${p.end}` : "";
@@ -40,6 +47,8 @@ class MyPlans extends HTMLElement {
       return div;
     });
     this.replaceChildren(...blocks.filter((b) => b !== null));
+    // Plans rendered after the initial z-resolution: ask block-z to re-run.
+    this.dispatchEvent(new CustomEvent("micemax:blocks-changed", { bubbles: true }));
   }
 }
 

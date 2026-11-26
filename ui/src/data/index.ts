@@ -195,6 +195,15 @@ export function conferenceById(id: string): Conference | undefined {
   return row ? mapConference(row) : undefined;
 }
 
+/** The conference's main venue place, for the day header (name, address). */
+export function mainVenue(placeId: string | null): { name_ja: string; name_en: string; address: string | null } | undefined {
+  if (!placeId) return undefined;
+  const row = getDb()
+    .prepare(`SELECT name_ja, name_en, address FROM places WHERE id = ?`)
+    .get(placeId) as { name_ja: string; name_en: string; address: string | null } | undefined;
+  return row;
+}
+
 export function sessionsForConference(conferenceId: string): Session[] {
   const rows = getDb()
     .prepare(`SELECT * FROM sessions WHERE conference_id = ? ORDER BY day, start_time`)
@@ -305,6 +314,36 @@ export function experienceTags(id: string): Tag[] {
     )
     .all(id);
   return rows as unknown as Tag[];
+}
+
+/** The full tag catalog, for filter chips. */
+export function allTags(): Tag[] {
+  return getDb().prepare(`SELECT * FROM tags ORDER BY label_en`).all() as unknown as Tag[];
+}
+
+/** The conference days an experience is offered on (from its windows),
+ * sorted, for the card's availability line. */
+export function experienceOfferedDays(experienceId: string): string[] {
+  const rows = getDb()
+    .prepare(
+      `SELECT DISTINCT w.day FROM windows w JOIN events ev ON ev.window_id = w.id
+       WHERE ev.experience_id = ? AND ev.event_type != 'plan_removed_by_organizer'
+       ORDER BY w.day`
+    )
+    .all(experienceId) as { day: string }[];
+  return rows.map((r) => r.day);
+}
+
+/** Ids of every experience of the given kind offered to a conference,
+ * from the offered events, not the headline table. */
+export function offeredExperienceIds(conferenceId: string, kind: ExperienceKind): string[] {
+  const rows = getDb()
+    .prepare(
+      `SELECT DISTINCT ev.experience_id FROM events ev JOIN experiences e ON e.id = ev.experience_id
+       WHERE ev.conference_id = ? AND e.kind = ? AND ev.event_type != 'plan_removed_by_organizer'`
+    )
+    .all(conferenceId, kind) as { experience_id: string }[];
+  return rows.map((r) => r.experience_id);
 }
 
 export function headlines(conferenceId: string): Headline[] {

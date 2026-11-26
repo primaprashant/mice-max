@@ -52,6 +52,9 @@
   },
   "calendar": {
     "banner": "{windowName} is free. {n} plans fit.",
+    "scrollHint": "Scroll right to see all rooms",
+    "plansTitle": "Plans that fit your free time this day",
+    "noPlansMatch": "No plans match these filters. Clear a filter to see more.",
     "yourPlans": "Your plan",
     "moment": "High {high}°C, low {low}°C. Sunset {sunset}. {wear}",
     "whatsOn": "On in the city: {what}",
@@ -71,6 +74,7 @@
     "joinOthers": "Who is going",
     "noJoiners": "No one has joined yet. Be the first.",
     "book": "Book and pay",
+    "blockedBooking": "You already have a booking at this time slot",
     "join": "Join",
     "attendingOf": "{n} going, {spots} spots left",
     "attending": "{n} going",
@@ -135,7 +139,8 @@
     "sessions": "sessions",
     "movedFromLast": "Program moved from the previous edition onto these dates",
     "program": "Program and free-time windows",
-    "shown": "shown",
+    "suggestionsTitle": "Plans suggested to attendees",
+    "shown": "views",
     "joined": "joined",
     "remove": "Remove",
     "share": "Share with attendees",
@@ -165,6 +170,10 @@
     "from": "from",
     "until": "until",
     "dismiss": "Dismiss",
+    "all": "All",
+    "scrollLeft": "Scroll left",
+    "scrollRight": "Scroll right",
+    "clickAnywhereToDismiss": "Click anywhere to dismiss",
     "cancelBooking": "Cancel the booking"
   },
   "windowKind": {

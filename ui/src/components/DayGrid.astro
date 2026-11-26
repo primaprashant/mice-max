@@ -1,46 +1,43 @@
 ---
-/** A Google Calendar-style day grid: time gutter on the left, events as
- * absolutely positioned blocks, overlapping events share the width.
- * Sessions tinted by type, free-time windows dashed amber, client plans
- * (my-plans) add their own blocks with the same positioning rules. */
-import { type Lang } from "../i18n";
+/** A Google Calendar-style day grid with a column per room: time gutter on
+ * the left, room headers sticky on horizontal scroll, sessions as absolutely
+ * positioned blocks in their room's column, free-time windows and client
+ * plans (my-plans) spanning the full grid width. Sessions tinted by type. */
+import { type Lang, t } from "../i18n";
 import type { Session, Window as FreeWindow } from "../data/types";
-import { layoutBlocks, toMinutes } from "../scripts/layout";
+import { layoutBlocks, toMinutes, type PlacedBlock } from "../scripts/layout";
 
 interface Props {
   lang?: Lang;
   day: string;
   sessions: Session[];
-  windows: FreeWindow[];
   /** Experience id to card title, for client-side plan blocks. */
   titles: Record<string, string>;
+  today: string;
+  /** Attendee only: draw the attendee's own plans and the now line. */
+  showPlans?: boolean;
 }
 
-const { lang = "en", day, sessions, windows, titles } = Astro.props;
+const { lang = "en", day, sessions, titles, today, showPlans = true } = Astro.props;
 
-// Grid range: first event start to last event end, padded to whole hours so
-// hour lines land on clean offsets.
-const allEvents = [
-  ...sessions.map((s) => ({ start: s.start_time, end: s.end_time })),
-  ...windows.map((w) => ({ start: w.start_time, end: w.end_time })),
-];
-if (allEvents.length === 0) return; // no grid without content
+// Fixed grid range for every day and every conference: 06:00 to 24:00.
+// A constant keeps the hour ruler identical across day tabs, which is what
+// makes the calendar read as one consistent UI. The demo data spans 06:00
+// to 23:59; move GRID_START/GRID_END_HOURS if new data goes past them.
+const GRID_START = "06:00";
+const GRID_END_HOURS = 18; // 06:00 + 18h = 24:00
 
-const firstStart = allEvents.reduce((min, e) => (e.start < min ? e.start : min), allEvents[0].start);
-const lastEnd = allEvents.reduce((max, e) => (e.end > max ? e.end : max), allEvents[0].end);
-const gridStart = `${firstStart.slice(0, 2)}:00`;
-const gridEndHour = Number(lastEnd.slice(0, 2)) + (lastEnd.slice(3) !== "00" ? 1 : 0);
-const gridEnd = `${String(gridEndHour).padStart(2, "0")}:00`;
+const gridStart = GRID_START;
+const gridEnd = `${String(Number(gridStart.slice(0, 2)) + GRID_END_HOURS).padStart(2, "0")}:00`;
 
 const gridStartMin = toMinutes(gridStart);
 const gridEndMin = toMinutes(gridEnd);
 const pos = (time: string) => ((toMinutes(time) - gridStartMin) / (gridEndMin - gridStartMin)) * 100;
 
-const HOUR_LINE_COUNT = gridEndHour - Number(gridStart.slice(0, 2));
-const hourLabels = Array.from({ length: HOUR_LINE_COUNT + 1 }, (_, i) =>
-  `${String(Number(gridStart.slice(0, 2)) + i).padStart(2, "0")}:00`,
-);
-// Last slot is the grid end boundary; label it 24:00 as a boundary, not a clock time.
+const HOUR_LINE_COUNT = GRID_END_HOURS;
+// Half-hour lines: label whole hours only, tick at every half hour.
+const HALF_STEPS = HOUR_LINE_COUNT * 2 + 1;
+const hourLabelAt = (i: number) => (i % 2 === 0 ? `${String(Number(gridStart.slice(0, 2)) + i / 2).padStart(2, "0")}:00` : null);
 
 // Colors per session type: tinted backgrounds with dark text of the same hue,
 // same tint depth as banana-soft so everything reads at the same level.
@@ -55,7 +52,26 @@ const TYPE_STYLES: Record<string, string> = {
   other: "bg-session-other text-session-other-ink",
 };
 
-// Positioning blocks for one day: sessions, windows, and client plans.
+// Logistical types span every room column, like the reference agenda's
+// "doors open" and party rows. Program types stay in their room's column,
+// even when the program data types them "other".
+const FULL_WIDTH_TYPES = new Set(["social", "excursion"]);
+
+// Room columns in first-appearance order; null room gets a catch-all column.
+const roomNames: string[] = [];
+for (const s of sessions) {
+  const room = s.room ?? "";
+  if (!roomNames.includes(room)) roomNames.push(room);
+}
+const hasUnnamed = roomNames.includes("");
+const namedRooms = roomNames.filter((r) => r !== "");
+const columns = [...namedRooms, ...(hasUnnamed ? [""] : [])];
+const ROOM_COL_WIDTH_REM = 14;
+const GRID_MIN_WIDTH_REM = 3.5 + columns.length * ROOM_COL_WIDTH_REM;
+
+// Positioning blocks for one day: whole-day sessions span all columns.
+// Free-time windows do not render in the grid; the suggestion cards below
+// carry them, and the attendee's own plans (my-plans) draw over the grid.
 type GridBlock = {
   start: string;
   end: string;
@@ -64,82 +80,224 @@ type GridBlock = {
   win?: FreeWindow;
 };
 
-const blocks: GridBlock[] = [
-  ...sessions.map((s) => ({ start: s.start_time, end: s.end_time, kind: "session" as const, session: s })),
-  ...windows.map((w) => ({ start: w.start_time, end: w.end_time, kind: "window" as const, win: w })),
+const fullWidthBlocks: GridBlock[] = [
+  ...sessions.filter((s) => FULL_WIDTH_TYPES.has(s.type) || !s.room).map((s) => ({ start: s.start_time, end: s.end_time, kind: "session" as const, session: s })),
 ];
+const roomSessions = sessions.filter((s) => s.room && !FULL_WIDTH_TYPES.has(s.type));
 
-const placed = layoutBlocks(blocks);
+// Within one room column, the same overlap layout as main's grid: the shared
+// layout module cuts into clusters of overlapping blocks per column. When a
+// cluster holds more sessions than fit side by side at a readable width, the
+// widest ones render and the rest collapse into one "+N more" chip.
+const MAX_SUB_COLS = 3;
+const fullWidthPlaced = layoutBlocks(fullWidthBlocks);
+const roomPlacedByRoom = new Map<string, GridBlock[]>();
+for (const room of columns) roomPlacedByRoom.set(room, []);
+for (const s of roomSessions) roomPlacedByRoom.get(s.room!)!.push({ start: s.start_time, end: s.end_time, kind: "session", session: s });
+
+const roomPlaced = [...roomPlacedByRoom.entries()].map(([, blocks], i) => {
+  const placed: (GridBlock & PlacedBlock & { chipTitles?: string[] })[] = [];
+  const sorted = [...blocks].sort((a, b) => a.start.localeCompare(b.start) || b.end.localeCompare(a.end));
+  // Walk the sorted blocks and cut the day into overlap clusters, the same
+  // way layoutBlocks does, so a cluster's members can be capped together.
+  let cluster: (GridBlock & PlacedBlock)[] = [];
+  let clusterEnd = -1;
+  const flush = () => {
+    if (cluster.length === 0) return;
+    if (cluster.length <= MAX_SUB_COLS) {
+      placed.push(...cluster);
+    } else {
+      // Widest first: the longest sessions keep their text; the rest
+      // collapse into one "+N" chip whose tooltip lists their titles.
+      const keep = [...cluster]
+        .sort((a, b) => (toMinutes(b.end) - toMinutes(b.start)) - (toMinutes(a.end) - toMinutes(a.start)) || a.start.localeCompare(b.start))
+        .slice(0, MAX_SUB_COLS);
+      placed.push(...keep);
+      const dropped = [...cluster].sort((a, b) => a.start.localeCompare(b.start)).filter((p) => !keep.includes(p));
+      const titles = dropped.map((p) => (lang === "ja" ? p.session!.title_ja : p.session!.title_en) ?? p.session!.id);
+      placed.push({ start: dropped[0].start, end: dropped[0].end, kind: "session", session: dropped[0].session, col: MAX_SUB_COLS, cols: MAX_SUB_COLS + 1, chipTitles: titles });
+    }
+    cluster = [];
+    clusterEnd = -1;
+  };
+  for (const block of sorted) {
+    const startMin = toMinutes(block.start);
+    if (cluster.length > 0 && startMin >= clusterEnd) flush();
+    const col = (cluster.at(-1)?.col ?? -1) + 1;
+    cluster.push({ ...block, col, cols: MAX_SUB_COLS });
+    clusterEnd = Math.max(clusterEnd, toMinutes(block.end));
+  }
+  flush();
+  return { index: i, placed };
+});
 ---
 
-<div class="grid min-w-[640px] grid-cols-[3.5rem_1fr] text-xs" data-day-grid data-grid-start={gridStart} data-grid-end={gridEnd}>
-  <!-- Time gutter -->
-  <div class="relative" style={`height: ${HOUR_LINE_COUNT * 3}rem`}>
-    {
-      hourLabels.map((label, i) => (
-        <span
-          class="absolute right-2 -translate-y-1/2 font-mono text-[11px] tabular-nums text-ink-soft"
-          style={`top: ${(i / (hourLabels.length - 1)) * 100}%`}
-        >
-          {label}
-        </span>
-      ))
-    }
+<div
+  class="grid grid-cols-[3.5rem_1fr] text-xs"
+  data-day-grid
+  data-grid-start={gridStart}
+  data-grid-end={gridEnd}
+  style={`min-width: ${GRID_MIN_WIDTH_REM}rem`}
+>
+  <!-- Time gutter: sticky with the room headers on horizontal scroll -->
+  <div class="sticky left-0 z-[400] bg-paper">
+    <div class="h-9"></div>
+    <div class="relative" style={`height: ${HOUR_LINE_COUNT * 3}rem`}>
+      {
+        Array.from({ length: HALF_STEPS }, (_, i) => {
+          const label = hourLabelAt(i);
+          return (
+            <span
+              class:list={[
+                "absolute right-2 -translate-y-1/2 font-mono tabular-nums text-ink-soft",
+                label ? "text-[11px]" : "hidden",
+              ]}
+              style={`top: ${(i / HALF_STEPS) * 100}%`}
+            >
+              {label}
+            </span>
+          );
+        })
+      }
+    </div>
   </div>
-  <div class="relative border-l border-ink/10" style={`height: ${HOUR_LINE_COUNT * 3}rem`}>
-    {
-      hourLabels.map((_, i) => (
-        <div
-          class="absolute inset-x-0 border-t border-ink/5"
-          style={`top: ${(i / (hourLabels.length - 1)) * 100}%`}
-        />
-      ))
-    }
-    {
-      placed.map((p) => {
-        const top = pos(p.start);
-        const bottom = pos(p.end);
-        const width = 100 / p.cols;
-        const left = p.col * width;
-        const inset = 1; // gap between side-by-side blocks
-        const innerWidth = width - inset;
-        const long = bottom - top > 6; // enough vertical room for hook text
-
-        if (p.kind === "window") {
-          const w = p.win!;
+  <div class="min-w-0">
+    <!-- Room headers: sticky to the top of the scroll container -->
+    <div class="sticky top-0 z-[300] flex h-9 bg-paper">
+      {
+        columns.map((room) => (
+          <div
+            class="min-w-0 flex-shrink-0 truncate border-b border-ink/10 px-2 py-2 text-[11px] font-semibold text-ink"
+            style={`width: ${100 / columns.length}%`}
+            title={room}
+          >
+            {room || (lang === "ja" ? "会場未定" : "No room")}
+          </div>
+        ))
+      }
+    </div>
+    <div class="relative border-l border-ink/10" style={`height: ${HOUR_LINE_COUNT * 3}rem`}>
+      {
+        Array.from({ length: HALF_STEPS }, (_, i) => (
+          <div
+            class:list={["absolute inset-x-0 border-t", i % 2 === 0 ? "border-ink/5" : "border-ink/[0.03]"]}
+            style={`top: ${(i / HALF_STEPS) * 100}%`}
+          />
+        ))
+      }
+      {
+        // Room-column sessions: each room is a horizontal band, its own blocks
+        // positioned inside that band using the band-relative percentage.
+        roomPlaced.map(({ index, placed }) => {
+          const bandLeft = (index / columns.length) * 100;
+          const bandWidth = 100 / columns.length;
+          return placed.map((p) => {
+            const top = pos(p.start);
+            const bottom = pos(p.end);
+            const width = bandWidth / p.cols;
+            const left = bandLeft + p.col * width;
+            const inset = 1; // gap between side-by-side blocks
+            const innerWidth = width - inset;
+            const long = bottom - top > 6; // enough vertical room for meta text
+            const s = p.session!;
+            const title = (lang === "ja" ? s.title_ja : s.title_en) ?? s.id;
+            const isOverflowChip = p.col === MAX_SUB_COLS && p.cols === MAX_SUB_COLS + 1;
+            const overflowList = p.chipTitles ?? [];
+            // The band's percentage width can leave a sub-column under the
+            // text's minimum readable width; floor it to 7rem and keep the
+            // block anchored at its left so neighbours stay visible.
+            const pxPerPct = GRID_MIN_WIDTH_REM / 100;
+            const widthRem = Math.max(innerWidth * pxPerPct, 7);
+            if (isOverflowChip) {
+              return (
+                <button
+                  type="button"
+                  data-session-id={s.id}
+                  class="absolute flex items-center justify-center rounded-full border border-session-border bg-session-other px-2 text-[11px] font-medium text-session-other-ink"
+                  style={`top: ${top}%; height: ${bottom - top}%; left: ${(left + inset / 2) * pxPerPct}rem; min-width: 2rem; max-width: ${widthRem}rem`}
+                  title={overflowList.join("\n")}
+                >
+                  {`+${overflowList.length}`}
+                </button>
+              );
+            }
+            return (
+              <div
+                data-session-id={s.id}
+                role="button"
+                tabindex="0"
+                aria-label={title}
+                class="group absolute cursor-default overflow-hidden rounded-md border border-session-border px-1.5 py-0.5 ring-theme/0 transition-shadow hover:ring-2 hover:ring-theme/40"
+                class:list={[TYPE_STYLES[s.type] ?? TYPE_STYLES.other]}
+                style={`top: ${top}%; height: ${bottom - top}%; left: ${(left + inset / 2) * pxPerPct}rem; width: ${widthRem}rem`}
+                title={title}
+              >
+                <p class="truncate text-[11px] font-medium leading-tight">{title}</p>
+                {long && s.track && (
+                  <p class="mt-0.5 truncate text-[10px] leading-tight opacity-80">{s.track}</p>
+                )}
+                {long && !s.track && s.fee_jpy != null && s.fee_jpy > 0 && (
+                  <p class="mt-0.5 truncate text-[10px] font-medium leading-tight opacity-80">
+                    {t(lang, "common.priceFrom", { price: `¥${s.fee_jpy.toLocaleString("ja-JP")}` })}
+                  </p>
+                )}
+                {long && (
+                  <p class="truncate font-mono text-[10px] tabular-nums opacity-70">
+                    {s.start_time}–{s.end_time}
+                  </p>
+                )}
+              </div>
+            );
+          });
+        })
+      }
+      {
+        // Full-width blocks: whole-day events and no-room sessions.
+        fullWidthPlaced.map((p) => {
+          const top = pos(p.start);
+          const bottom = pos(p.end);
+          const long = bottom - top > 6;
+          const s = p.session!;
+          const title = (lang === "ja" ? s.title_ja : s.title_en) ?? s.id;
           return (
             <div
-              class="absolute rounded-md border border-dashed border-banana/60 bg-banana-soft/40 px-1.5 py-0.5"
-              style={`top: ${top}%; height: ${bottom - top}%; left: ${left + inset / 2}%; width: ${innerWidth}%`}
+              data-session-id={s.id}
+              role="button"
+              tabindex="0"
+              aria-label={title}
+              class="absolute overflow-hidden rounded-md border border-session-border px-1.5 py-0.5 ring-theme/0 transition-shadow hover:ring-2 hover:ring-theme/40"
+              class:list={[TYPE_STYLES[s.type] ?? TYPE_STYLES.other]}
+              style={`top: ${top}%; height: ${bottom - top}%; left: ${GRID_MIN_WIDTH_REM * 0.005}rem; width: ${GRID_MIN_WIDTH_REM * 0.99}rem`}
+              title={title}
             >
-              <p class="truncate font-medium text-banana">{lang === "ja" ? w.name_ja : w.name_en}</p>
-              <p class="truncate font-mono text-[10px] tabular-nums text-banana/80">
-                {w.start_time}–{w.end_time}
-              </p>
+              <p class="truncate text-[11px] font-medium leading-tight">{title}</p>
+              {long && s.fee_jpy != null && s.fee_jpy > 0 && (
+                <p class="mt-0.5 truncate text-[10px] font-medium leading-tight opacity-80">
+                  {t(lang, "common.priceFrom", { price: `¥${s.fee_jpy.toLocaleString("ja-JP")}` })}
+                </p>
+              )}
+              {long && (
+                <p class="truncate font-mono text-[10px] tabular-nums opacity-70">
+                  {s.start_time}–{s.end_time}
+                </p>
+              )}
             </div>
           );
-        }
-
-        const s = p.session!;
-        const title = (lang === "ja" ? s.title_ja : s.title_en) ?? s.id;
-        return (
-          <div
-            class="absolute overflow-hidden rounded-md px-1.5 py-0.5"
-            class:list={[TYPE_STYLES[s.type] ?? TYPE_STYLES.other]}
-            style={`top: ${top}%; height: ${bottom - top}%; left: ${left + inset / 2}%; width: ${innerWidth}%`}
-          >
-            <p class="truncate text-[11px] font-medium leading-tight">{title}</p>
-            {long && <p class="truncate text-[10px] leading-tight opacity-70 font-mono tabular-nums">{s.start_time}–{s.end_time}</p>}
-          </div>
-        );
-      })
-    }
-    <my-plans
-      class="absolute inset-0"
-      data-day={day}
-      data-grid-start={gridStart}
-      data-grid-end={gridEnd}
-      data-titles={JSON.stringify(titles)}
-    />
+        })
+      }
+      {showPlans && (
+        <my-plans
+          class="absolute inset-0"
+          data-day={day}
+          data-grid-start={gridStart}
+          data-grid-end={gridEnd}
+          data-titles={JSON.stringify(titles)}
+          data-label-saved={t(lang, "common.saved")}
+          data-label-joined={t(lang, "common.joined")}
+          data-label-booked={t(lang, "common.booked")}
+        />
+      )}
+      {showPlans && day === today && <now-line data-grid-start={gridStart} data-grid-end={gridEnd} class="absolute inset-0" />}
+    </div>
   </div>
 </div>

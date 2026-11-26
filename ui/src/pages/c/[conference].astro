@@ -4,26 +4,44 @@ export const prerender = false;
 import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
 import DayGrid from "../../components/DayGrid.astro";
+import DayTabs from "../../components/DayTabs.astro";
 import OpsBadge from "../../components/OpsBadge.astro";
 import {
   conferenceById,
+  mainVenue,
   sessionsForConference,
   windowsForConference,
   experiencesForConference,
   experienceById,
   experienceCopy,
   experiencePhotos,
+  experienceTags,
   experienceTravel,
   windowStats,
   headlines,
   attendeeById,
   seasonFor,
   cityEventsBetween,
+  allTags,
+  experienceOfferedDays,
+  offeredExperienceIds,
 } from "../../data";
 import { fitsWindow } from "../../data/fit";
 import { getLang, ATTENDEE_COOKIE, DEMO_ATTENDEE_ID } from "../../data/attendee";
 import { sunsetSapporo, yen } from "../../data/city";
 import { t } from "../../i18n";
+import type { Tag, Window as FreeWindow } from "../../data/types";
+
+/** The tag row by id, for the filter chips. */
+function tagById(id: string): Tag | undefined {
+  return tagCatalog.find((tg) => tg.id === id);
+}
+
+/** Tag pills shown on each card; the rest stay behind the filter chips. */
+const TAGS_PER_CARD = 3;
+
+/** Every tag in the catalog, loaded once. */
+const tagCatalog: Tag[] = allTags();
 
 const { conference } = Astro.params;
 const conf = conferenceById(conference ?? "");
@@ -85,11 +103,15 @@ for (const w of windows) {
   suggestionsByWindow.set(w.id, list);
 }
 
-// Extra-night windows: their headline experiences become the banner.
-const extraNightWindows = windows.filter((w) => w.kind === "extra_night");
-const extraNightExperiences = extraNightWindows
+// Extra-night banner: every extra-night experience offered to this
+// conference, headline first (the sim's pick), then the rest sorted by id.
+const headlineExtraNightId = windows
+  .filter((w) => w.kind === "extra_night")
   .map((w) => headlineByWindow.get(w.id))
-  .filter((id): id is string => Boolean(id))
+  .find((id): id is string => Boolean(id)) ?? "";
+const extraNightIds = [...new Set(offeredExperienceIds(conf.id, "extra_night"))].filter((id) => id !== headlineExtraNightId).sort((a, b) => a.localeCompare(b));
+const extraNightExperiences = [headlineExtraNightId, ...extraNightIds]
+  .filter(Boolean)
   .map((id) => experienceById(id)!)
   .filter(Boolean)
   .map((e) => ({ experience: e, copy: experienceCopy(e.id, lang)! }));
@@ -101,6 +123,25 @@ const cityEvents = cityEventsBetween(conf.start_date, conf.end_date);
 
 // Experience id to card title, for client-side plan blocks in the grid.
 const expTitles = Object.fromEntries(exps.map((e) => [e.id, experienceCopy(e.id, lang)?.card_title ?? e.id]));
+
+// The venue name and address for the day header.
+const venue = mainVenue(conf.main_venue_place_id);
+
+// Session details for the client-side modal, keyed by session id. The modal
+// shows what the program data has: title, time, type, track, room, fee.
+const sessionDetails = Object.fromEntries(
+  sessions.map((s) => [
+    s.id,
+    {
+      title: (lang === "ja" ? s.title_ja : s.title_en) ?? s.id,
+      time: `${s.day.slice(5).replace("-", "/")} ${s.start_time}–${s.end_time}`,
+      type: t(lang, `sessionType.${s.type}`),
+      track: s.track,
+      room: s.room,
+      fee: s.fee_jpy != null && s.fee_jpy > 0 ? t(lang, "common.priceFrom", { price: `¥${s.fee_jpy.toLocaleString("ja-JP")}` }) : null,
+    },
+  ]),
+);
 
 // Default tab: today when the visit falls inside the conference dates, else
 // Day 1. The visitor's local date, not UTC, so the morning of day 2 and 3
@@ -148,37 +189,68 @@ const activeDay = days.includes(today) ? today : days[0];
 
     {extraNightExperiences.length > 0 && (
       <section class="mt-8">
-        <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "calendar.extraNightBannerTitle")}</h2>
-        <div class="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
-          {extraNightExperiences.map(({ experience, copy }) => (
-            <a
-              href={`/c/${conf.id}/e/${experience.id}`}
-              class="group flex items-center gap-4 rounded-xl border border-banana bg-banana-soft p-4 transition-transform active:scale-[0.99]"
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "calendar.extraNightBannerTitle")}</h2>
+          <extra-night-nav class="flex gap-1" data-extra-night-nav>
+            <button
+              type="button"
+              data-extra-night-prev
+              aria-label={t(lang, "common.scrollLeft")}
+              class="flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 bg-muted text-ink-soft transition-colors hover:bg-muted-strong disabled:opacity-40"
+              disabled
             >
-              <div class="flex-1">
-                <h3 class="text-base font-semibold leading-snug">{copy.card_title}</h3>
-                <p class="mt-1 text-sm text-ink-soft">{copy.hook}</p>
-                {experience.price_jpy != null && (
-                  <p class="mt-2 font-mono text-sm font-medium tabular-nums">
-                    {experience.price_jpy === 0 ? t(lang, "common.free") : t(lang, "common.priceFrom", { price: `¥${experience.price_jpy.toLocaleString("ja-JP")}` })}
-                    <span class="ml-1 font-sans text-xs font-normal text-ink-soft">{t(lang, "common.allIncluded")}</span>
-                  </p>
-                )}
-              </div>
-              {(() => {
-                const hero = experiencePhotos(experience.id).find((p) => p.is_hero) ?? experiencePhotos(experience.id)[0];
-                return hero ? (
-                  <img
-                    src={hero.path}
-                    alt={(lang === "ja" ? hero.alt_ja : hero.alt_en) ?? ""}
-                    width={hero.width}
-                    height={hero.height}
-                    class="h-20 w-32 flex-shrink-0 rounded-lg object-cover"
-                    style={`background-color: ${hero.dominant_color ?? "#ddd"}`}
-                  />
-                ) : null;
-              })()}
-            </a>
+              <i class="ph ph-caret-left text-base" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              data-extra-night-next
+              aria-label={t(lang, "common.scrollRight")}
+              class="flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 bg-muted text-ink-soft transition-colors hover:bg-muted-strong disabled:opacity-40"
+            >
+              <i class="ph ph-caret-right text-base" aria-hidden="true"></i>
+            </button>
+          </extra-night-nav>
+        </div>
+        <div class="mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1" data-extra-night-track>
+          {extraNightExperiences.map(({ experience, copy }) => (
+            <extra-night-card
+                data-exp={experience.id}
+                data-label-saved={t(lang, "common.saved")}
+                data-label-joined={t(lang, "common.joined")}
+                data-label-booked={t(lang, "common.booked")}
+                class="w-72 flex-shrink-0 snap-start"
+              >
+              <a
+                href={`/c/${conf.id}/e/${experience.id}`}
+                class="group flex h-full flex-col gap-3 rounded-xl border border-banana bg-banana-soft p-4 transition-transform active:scale-[0.99]"
+              >
+                {(() => {
+                  const hero = experiencePhotos(experience.id).find((p) => p.is_hero) ?? experiencePhotos(experience.id)[0];
+                  return hero ? (
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src={hero.path}
+                      alt={(lang === "ja" ? hero.alt_ja : hero.alt_en) ?? ""}
+                      width={hero.width}
+                      height={hero.height}
+                      class="aspect-[16/9] w-full rounded-lg object-cover"
+                      style={`background-color: ${hero.dominant_color ?? "var(--color-placeholder)"}`}
+                    />
+                  ) : null;
+                })()}
+                <div class="flex-1">
+                  <h3 class="text-sm font-semibold leading-snug">{copy.card_title}</h3>
+                  <p class="mt-1 line-clamp-2 text-xs text-ink-soft">{copy.hook}</p>
+                  {experience.price_jpy != null && (
+                    <p class="mt-2 font-mono text-sm font-medium tabular-nums">
+                      {experience.price_jpy === 0 ? t(lang, "common.free") : t(lang, "common.priceFrom", { price: `¥${experience.price_jpy.toLocaleString("ja-JP")}` })}
+                      <span class="ml-1 font-sans text-xs font-normal text-ink-soft">{t(lang, "common.allIncluded")}</span>
+                    </p>
+                  )}
+                </div>
+                </a>
+            </extra-night-card>
           ))}
         </div>
       </section>
@@ -200,90 +272,176 @@ const activeDay = days.includes(today) ? today : days[0];
     </first-visit-banner>
 
     <section class="mt-10">
-      <day-tabs class="block">
-        <div class="flex flex-wrap gap-1">
-          {days.map((day, i) => {
-            const weekday = new Date(day + "T00:00:00Z").toLocaleDateString("en-US", { weekday: "long", timeZone: "UTC" });
-            const label =
-              lang === "ja"
-                ? `${i + 1}日目 (${day.slice(5).replace("-", "/")} ${new Date(day + "T00:00:00Z").toLocaleDateString("ja-JP", { weekday: "short", timeZone: "UTC" })})`
-                : `Day ${i + 1} (${day.slice(5).replace("-", "/")}, ${weekday})`;
-            const active = day === activeDay;
-            return (
-              <button
-                type="button"
-                data-day-tab={day}
-                aria-pressed={active ? "true" : "false"}
-                class:list={[
-                  "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
-                  active ? "bg-ink text-paper" : "text-ink-soft hover:bg-ink/5",
-                ]}
-              >
-                {label}
-              </button>
-            );
-          })}
-        </div>
+      <DayTabs lang={lang} days={days} activeDay={activeDay}>
 
-        {days.map((day) => (
+        {days.map((day) => {
+          const daySessions = sessionsByDay.get(day) ?? [];
+          const dayWindows = windows.filter((w) => w.day === day);
+          const allDay = [...daySessions, ...dayWindows];
+          const dayStart = allDay.length ? allDay.reduce((min, e) => (e.start_time < min ? e.start_time : min), allDay[0].start_time) : "";
+          const dayEnd = allDay.length ? allDay.reduce((max, e) => (e.end_time > max ? e.end_time : max), allDay[0].end_time) : "";
+          return (
           <div data-day-panel={day} class:list={["mt-6", day === activeDay ? "" : "hidden"]}>
-            <div class="overflow-x-auto pt-4">
+            <div class="mb-2 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              {venue && (
+                <p class="text-xs text-ink-soft">
+                  {(lang === "ja" ? venue.name_ja : venue.name_en)}{venue.address ? ` · ${venue.address}` : ""}
+                </p>
+              )}
+              {dayStart && (
+                <p class="font-mono text-xs tabular-nums text-ink-soft">
+                  {dayStart}–{dayEnd}
+                </p>
+              )}
+            </div>
+            <div class="overflow-x-auto">
               <DayGrid
                 lang={lang}
                 day={day}
-                sessions={sessionsByDay.get(day) ?? []}
-                windows={windows.filter((w) => w.day === day)}
+                sessions={daySessions}
                 titles={expTitles}
+                today={today}
               />
             </div>
-          <div class="mt-3 grid grid-cols-1 gap-2 md:grid-cols-2">
+            <p class="mt-2 text-[11px] text-ink-soft md:hidden" data-scroll-hint>
+              {t(lang, "calendar.scrollHint")}
+            </p>
+          <plan-filters class="mt-6 grid grid-cols-1 gap-3 border-t border-ink/10 pt-4 md:grid-cols-3 lg:grid-cols-4" data-plan-filters-top>
+            <h3 class="text-sm font-semibold text-ink-soft md:col-span-full">
+              {t(lang, "calendar.plansTitle")}
+            </h3>
             {(() => {
               const dayWindows = windows.filter((w) => w.day === day);
               const seen = new Set<string>();
-              const cards: { experience: (typeof exps)[number]; copy: NonNullable<ReturnType<typeof experienceCopy>>; travel?: ReturnType<typeof experienceTravel>; windowName: string; windowId: string }[] = [];
+              const cards: { experience: (typeof exps)[number]; copy: NonNullable<ReturnType<typeof experienceCopy>>; win: FreeWindow; tags: Tag[] }[] = [];
               for (const w of dayWindows) {
-                const name = lang === "ja" ? w.name_ja : w.name_en;
                 for (const s of suggestionsByWindow.get(w.id) ?? []) {
                   if (seen.has(s.experience.id)) continue;
                   seen.add(s.experience.id);
-                  cards.push({ ...s, windowName: name, windowId: w.id });
+                  cards.push({ ...s, win: w, tags: experienceTags(s.experience.id) });
                 }
               }
-              return cards.map(({ experience, copy, travel, windowName, windowId }) => (
-                <a
-                  href={`/c/${conf.id}/e/${experience.id}`}
-                  data-suggest={experience.id}
-                  data-suggest-window={windowId}
-                  class="group block rounded-md bg-banana-soft border border-banana px-3 py-2 transition-transform active:scale-[0.98]"
-                >
-                  <div class="flex items-baseline justify-between gap-3">
-                    <span class="text-sm font-semibold">{copy.card_title}</span>
-                    {experience.price_jpy != null && (
-                      <span class="font-mono text-xs tabular-nums">
-                        {experience.price_jpy === 0 ? t(lang, "common.free") : yen(experience.price_jpy)}
-                      </span>
-                    )}
-                  </div>
-                  <p class="mt-0.5 line-clamp-1 text-xs text-ink-soft">{copy.hook}</p>
-                  <div class="flex gap-2 text-[11px] text-ink-soft">
-                    <span>{windowName}</span>
-                    {travel && <span>{t(lang, travel.mode === "walk" ? "common.minWalk" : "common.minTransit", { n: travel.minutes })}</span>}
-                    {experience.duration_min && <span>{t(lang, "common.minutes", { n: experience.duration_min })}</span>}
-                  </div>
-                </a>
-              ));
+              // Filter chips: the union of tags across this day's cards, most
+              // used first, capped to keep the row short.
+              const tagCount = new Map<string, number>();
+              for (const c of cards) for (const tg of c.tags) tagCount.set(tg.id, (tagCount.get(tg.id) ?? 0) + 1);
+              const filterTags = [...tagCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([id]) => tagById(id)).filter((tg): tg is Tag => Boolean(tg));
+              return (
+                <>
+                  {filterTags.length > 0 && (
+                    <div class="mb-1 flex flex-wrap gap-1.5 md:col-span-full" data-plan-filters>
+                      <button
+                        type="button"
+                        data-plan-filter-all
+                        aria-pressed="true"
+                        class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper min-h-11 px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
+                      >
+                        <i class="ph ph-x text-[12px]" aria-hidden="true"></i>
+                        {t(lang, "common.all")}
+                      </button>
+                      {filterTags.map((tg) => (
+                        <button
+                          type="button"
+                          data-plan-filter={tg.id}
+                          aria-pressed="false"
+                          class="flex items-center gap-1 rounded-full border border-ink/25 bg-paper min-h-11 px-2.5 py-1 text-xs text-ink-soft transition-colors hover:bg-ink/5 aria-pressed:border-theme aria-pressed:bg-theme-soft aria-pressed:text-theme-strong"
+                        >
+                          <i class={`ph ph-${tg.icon} text-[12px]`} aria-hidden="true"></i>
+                          {lang === "ja" ? tg.label_ja : tg.label_en}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  <p class="hidden text-xs text-ink-soft md:col-span-full" data-filter-empty role="status">
+                    {t(lang, "calendar.noPlansMatch")}
+                  </p>
+                  {cards.map(({ experience, copy, win, tags }) => {
+                    const hero = experiencePhotos(experience.id).find((p) => p.is_hero) ?? experiencePhotos(experience.id)[0];
+                    // Availability as real dates, the attendee's format:
+                    // 03/18, 03/19, 03/20 — not the window's display name.
+                    const offered = experienceOfferedDays(experience.id).map((d) => d.slice(5).replace("-", "/"));
+                    return (
+                      <a
+                        href={`/c/${conf.id}/e/${experience.id}`}
+                        data-suggest={experience.id}
+                        data-suggest-window={win.id}
+                        data-tags={tags.map((tg) => tg.id).join(" ")}
+                        data-booked-label={t(lang, "common.booked")}
+                        class="group flex flex-col overflow-hidden rounded-md bg-banana-soft border border-banana transition-transform active:scale-[0.98]"
+                      >
+                        {hero ? (
+                          <img
+                            loading="lazy"
+                            decoding="async"
+                            src={hero.path}
+                            alt={(lang === "ja" ? hero.alt_ja : hero.alt_en) ?? ""}
+                            width={hero.width}
+                            height={hero.height}
+                            class="mx-auto mt-3 aspect-square w-[calc(100%-1.5rem)] rounded-md object-cover"
+                            style={`background-color: ${hero.dominant_color ?? "var(--color-placeholder)"}`}
+                          />
+                        ) : (
+                          <div class="mx-auto mt-3 aspect-square w-[calc(100%-1.5rem)] rounded-md bg-banana-soft/60 border border-banana/40" aria-hidden="true"></div>
+                        )}
+                        <div class="flex flex-1 flex-col p-3 pt-2">
+                          <div class="flex items-baseline justify-between gap-3">
+                            <span class="text-sm font-semibold leading-snug">{copy.card_title}</span>
+                            <span class="font-mono text-xs font-medium tabular-nums">
+                              {experience.price_jpy === 0 ? t(lang, "common.free") : experience.price_jpy != null ? yen(experience.price_jpy) : t(lang, "common.free")}
+                            </span>
+                          </div>
+                          <p class="mt-1 line-clamp-2 text-xs text-ink-soft">{copy.hook}</p>
+                          <div class="mt-2 flex flex-wrap gap-1 pb-1">
+                            {tags.slice(0, TAGS_PER_CARD).map((tg) => (
+                              <span class="rounded-full bg-banana/25 px-1.5 py-0.5 text-[10px] text-ink">
+                                <i class={`ph ph-${tg.icon} mr-0.5 text-[10px]`} aria-hidden="true"></i>
+                                {lang === "ja" ? tg.label_ja : tg.label_en}
+                              </span>
+                            ))}
+                          </div>
+                          <div class="mt-auto flex items-center justify-between gap-2.5 pt-2 text-[10px] font-medium uppercase tracking-wide text-ink-soft/80">
+                            <span class="flex items-center gap-0.5">
+                              <i class="ph ph-calendar-blank text-[12px]" aria-hidden="true"></i>
+                              {offered.join(", ")}
+                            </span>
+                            {experience.duration_min && (
+                              <span class="flex items-center gap-0.5">
+                                <i class="ph ph-clock text-[12px]" aria-hidden="true"></i>
+                                {t(lang, "common.minutes", { n: experience.duration_min })}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </>
+              );
             })()}
+          </plan-filters>
           </div>
-        </div>
-      ))}
-      </day-tabs>
+        );
+        })}
+      </DayTabs>
     </section>
   </main>
+  <session-modal
+    data-sessions-json={JSON.stringify(sessionDetails)}
+    data-close-label={t(lang, "common.dismiss")}
+    data-hint-label={t(lang, "common.clickAnywhereToDismiss")}
+  />
 </Base>
 
 <script>
   import "../../scripts/my-plans";
   import "../../scripts/first-visit-banner";
+  import "../../scripts/extra-night-card";
+  import "../../scripts/extra-night-nav";
+  import "../../scripts/plan-state";
   import "../../scripts/day-tabs";
   import "../../scripts/suggest-log";
+  import "../../scripts/now-line";
+  import "../../scripts/session-modal";
+  import "../../scripts/block-z";
+  import "../../scripts/plan-filters";
 </script>
