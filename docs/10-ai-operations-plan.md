@@ -53,6 +53,16 @@ LLM text in M4–M6 is generated once by a script (OrcaRouter) and saved in `dat
 
 The Ops page: the four-phase timeline of step cards, a player and transcript for the call, the disruption card with its messages, the Q&A samples. Small badges in the other views link to their step.
 
+**Live (2026-11-26):** all live calls run on the FastAPI backend (`backend/app/ai/`, one module per feature); each records a step row through `steplog.record`, shown by `GET /api/ops/live`.
+
+| Page | Feature | PR |
+|---|---|---|
+| `/ops` | Control room: every agent by department, KPIs, live feed, cost estimate | #22 |
+| `/ops/run` | Live URL ingestion, steps 1–9, animated pipeline; replays the last good run if a step fails | #24 |
+| `/ops/sales` | Sales agent drafts JA/EN outreach for upcoming conferences; nothing is sent | #23 |
+| `/ops/:conf` | Live snow disruption (real Neo4j query) and live voice booking (ElevenLabs agent in the browser) | #20, #21 |
+| `/c/:conf`, `/organize/:conf` | Q&A chat, attendee and organizer, hands off to a person when unsure | #19 |
+
 ### Then expand
 
 Add from the full version below in this order: a live pipeline on the tested list, live Q&A chat, live disruption, a real voice agent, preview videos.

@@ -3,7 +3,15 @@ import ja from "./ja.json";
 
 export type Lang = "en" | "ja";
 
-const dictionaries: Record<Lang, Record<string, unknown>> = { en, ja };
+const dictionaries: Record<Lang, Record<string, unknown>> = { en: { ...en }, ja: { ...ja } };
+
+// Feature strings live in features/<feature>.<lang>.json (top-level keys merged in),
+// so parallel features never edit the same file.
+const featureFiles = import.meta.glob<Record<string, unknown>>("./features/*.json", { eager: true, import: "default" });
+for (const [path, dict] of Object.entries(featureFiles)) {
+  const lang = path.match(/\.(en|ja)\.json$/)?.[1] as Lang | undefined;
+  if (lang) Object.assign(dictionaries[lang], dict);
+}
 
 /** Look up a dotted key path in the dictionary, e.g. t(lang, "common.join"). */
 export function t(lang: Lang, key: string, vars?: Record<string, string | number>): string {

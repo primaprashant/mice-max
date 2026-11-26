@@ -3,6 +3,7 @@ export const prerender = false;
 
 import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
+import ChatPanel from "../../components/live/ChatPanel.astro";
 import DayGrid from "../../components/DayGrid.astro";
 import DayTabs from "../../components/DayTabs.astro";
 import PlanCard from "../../components/PlanCard.astro";
@@ -278,6 +279,7 @@ const shareUrl = `${Astro.url.origin}/c/${conf.id}`;
         </div>
       </div>
     </section>
+    <ChatPanel conferenceId={conf.id} lang={lang} mode="organizer" />
   </main>
   <session-modal
     data-sessions-json={JSON.stringify(sessionDetails)}
