@@ -3,7 +3,9 @@
  * the role tabs styled like the calendar's day tabs, and a hint line that
  * describes the active tab. Tabs are plain links, so no script runs here.
  * The page picks the photo (random per request, like login) and passes
- * the slug in, so its footer credit names the same image. */
+ * the slug in, so its footer credit names the same image.
+ * `compact` (used by /ops) drops the photo, title and hint: one dark row
+ * with the wordmark, tabs and language toggle. */
 import { t, type Lang } from "../i18n";
 
 interface Props {
@@ -11,10 +13,11 @@ interface Props {
   active: "attendee" | "organizer" | "city" | "ops";
   title?: string;
   /** The page picks the photo so the footer credit names the same image. */
-  photoSlug: string;
+  photoSlug?: string;
+  compact?: boolean;
 }
 
-const { lang, active, title, photoSlug } = Astro.props;
+const { lang, active, title, photoSlug, compact = false } = Astro.props;
 
 const TABS = [
   { id: "attendee", icon: "ph-users", href: "/home", labelKey: "login.roleAttendee" },
@@ -44,6 +47,32 @@ const scrimColor = SCRIMS[active] ?? SCRIMS.attendee!;
 const activeColor = scrimColor;
 ---
 
+{compact ? (
+<header class="border-b border-white/10 bg-[#05070d]">
+  <div class="mx-auto flex w-full max-w-7xl flex-wrap items-center gap-x-6 gap-y-2 px-6 py-3">
+    <a href="/home" class="text-xs font-semibold uppercase tracking-widest text-paper">
+      {t(lang, "app.name")}
+    </a>
+    <nav class="order-last grid w-full grid-flow-col auto-cols-fr gap-1 sm:order-none sm:w-auto sm:flex-1">
+      {TABS.map((tab) => (
+        <a
+          href={tab.href}
+          aria-current={tab.id === active ? "page" : "false"}
+          class={`${tab.id === active ? ACTIVE_PILL : IDLE_PILL} truncate px-1.5 py-1.5 text-center text-xs font-medium transition-colors sm:px-3 sm:text-sm`}
+          style={tab.id === active ? undefined : `background: color-mix(in oklab, ${activeColor} 30%, transparent)`}
+        >
+          <i class={`ph ${tab.icon} mr-1.5 hidden align-[-0.125em] sm:inline`} aria-hidden="true" />
+          {t(lang, tab.labelKey)}
+        </a>
+      ))}
+    </nav>
+    <lang-toggle class="ml-auto inline-flex rounded-md border border-white/20 bg-paper/20 p-0.5 text-xs sm:ml-0">
+      <button data-lang="en" class="rounded px-2 py-1 font-medium text-paper">EN</button>
+      <button data-lang="ja" class="rounded px-2 py-1 font-medium text-paper">JA</button>
+    </lang-toggle>
+  </div>
+</header>
+) : (
 <header class="relative flex min-h-[50dvh] flex-col">
   <img
     src={`/images/login/${photoSlug}.webp`}
@@ -93,6 +122,7 @@ const activeColor = scrimColor;
     </p>
   </div>
 </header>
+)}
 
 <script>
   import "../scripts/lang-toggle";

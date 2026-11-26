@@ -1,7 +1,6 @@
 {
   "opsHome": {
     "title": "MiceMax operations",
-    "headerTitle": "How MiceMax runs",
     "headline": "{agents} agents. {humans} person.",
     "sub": "AI agents do the work for every conference, from reading its website to reporting to the city. One person checks it.",
     "scrollHint": "Follow one conference",
