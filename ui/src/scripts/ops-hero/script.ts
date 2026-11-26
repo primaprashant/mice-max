@@ -1,4 +1,4 @@
-// The scripted ~40 s story loop: a conference arrives, setup runs, operations fan out,
+// The scripted ~23 s story loop: a conference arrives, setup runs, operations fan out,
 // snow forces a replan, a hand-off reaches the human, reports go out, sales finds the next one.
 import * as THREE from 'three';
 import { AGENTS, LOOP_SECONDS, SCRIPT, type Beat } from '../../data/ops-home';
@@ -90,7 +90,7 @@ export class Story {
       const start = end.clone().add(new THREE.Vector3(-22, -10, 12));
       const mid = start.clone().lerp(end, 0.55).add(new THREE.Vector3(2, -4, 4));
       const curve = new THREE.CatmullRomCurve3([start, mid, end.clone()]);
-      this.particles.spawn({ curve, speed: 0.42, color: WHITE.clone().multiplyScalar(2.5), size: 4.5, trail: true, onArrive, follow: label });
+      this.particles.spawn({ curve, speed: 0.9, color: WHITE.clone().multiplyScalar(2.5), size: 4.5, trail: true, onArrive, follow: label });
     }
   }
 
@@ -117,7 +117,7 @@ export class Story {
         break;
       case 'chain': {
         const i = SETUP_CHAIN.indexOf(beat.node!);
-        this.send(SETUP_CHAIN[i - 1], beat.node!, { size: 3.2, speed: 0.75, color: WHITE, onArrive: () => this.arrive(beat.node!, beat) });
+        this.send(SETUP_CHAIN[i - 1], beat.node!, { size: 3.2, speed: 2.2, color: WHITE, onArrive: () => this.arrive(beat.node!, beat) });
         break;
       }
       case 'burst':

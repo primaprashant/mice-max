@@ -99,27 +99,30 @@ export interface Beat {
   bubble?: Text; // thought bubble over the target node
 }
 
-export const LOOP_SECONDS = 40;
+// Setup runs fast (about 4 s) so the loop reaches operations quickly; an ICEP 2027
+// question at the start shows other conferences running at the same time.
+export const LOOP_SECONDS = 23;
 
 export const SCRIPT: Beat[] = [
   { at: 0, kind: 'comet', to: 'reader', label: { en: 'convention.co.jp/32jadm', ja: 'convention.co.jp/32jadm' }, bubble: { en: 'Reading the JADM32 website', ja: 'JADM32のサイトを読んでいます' } },
-  { at: 2.5, kind: 'chain', node: 'scheduler', bubble: { en: '210 sessions found', ja: '210セッションを抽出' } },
-  { at: 4.5, kind: 'chain', node: 'sorter', bubble: { en: 'Must-attend vs skippable', ja: '必須と任意を仕分け' } },
-  { at: 6.5, kind: 'chain', node: 'window-finder', bubble: { en: '15 free windows', ja: '空き時間 15枠' } },
-  { at: 8.5, kind: 'chain', node: 'audience', bubble: { en: 'Nurses 30%, physicians 25%', ja: '看護師30%、医師25%' } },
-  { at: 10.5, kind: 'chain', node: 'filter', bubble: { en: '276 fit, 361 ruled out', ja: '適合276件、除外361件' } },
-  { at: 12.5, kind: 'chain', node: 'builder', bubble: { en: 'Jozankei onsen evening', ja: '定山渓温泉の夜' } },
-  { at: 14.5, kind: 'chain', node: 'ranker', bubble: { en: 'Mt Moiwa night view ranks first', ja: '藻岩山の夜景が1位' } },
-  { at: 16.5, kind: 'chain', node: 'writer', bubble: { en: 'JA/EN page and email ready', ja: '日英ページとメール完成' } },
-  { at: 19, kind: 'burst', from: 'writer', to: 'mailer', bubble: { en: 'Emailing 3,000 attendees', ja: '参加者3,000人にメール送信' } },
-  { at: 20.5, kind: 'ring', node: 'booker', bubble: { en: 'Calling to book the Makomanai shuttle', ja: '真駒内シャトルを電話で予約' } },
-  { at: 22, kind: 'sparks', from: 'writer', to: 'concierge', bubble: { en: 'Is the onsen tattoo-friendly?', ja: '温泉はタトゥー可？' } },
-  { at: 25, kind: 'alert', node: 'replanner', bubble: { en: 'Snow stopped the Jozankei bus. Replanning', ja: '大雪で定山渓バス運休。再計画中' } },
-  { at: 26.5, kind: 'flow', from: 'replanner', to: 'reporter' },
-  { at: 28.5, kind: 'spark', from: 'concierge', to: 'human', bubble: { en: 'Handed to a person: refund question', ja: '人に引き継ぎ：返金の質問' } },
-  { at: 31.5, kind: 'flow', from: 'host-assigner', to: 'reporter', bubble: { en: 'Weekly report sent', ja: '週次報告を送信' } },
-  { at: 33.5, kind: 'flow', from: 'reporter', to: 'city-report', bubble: { en: 'Results for the city', ja: '市への成果' } },
-  { at: 35.5, kind: 'comet', from: 'sales', to: 'reader', label: { en: 'Next: Japan Venous Talk 2027', ja: '次：Japan Venous Talk 2027' }, bubble: { en: 'Found the next conference', ja: '次の会議を発見' } },
+  { at: 0.4, kind: 'sparks', from: 'writer', to: 'concierge', bubble: { en: 'ICEP 2027 guest: ramen near the venue?', ja: 'ICEP 2027参加者：会場近くのラーメンは？' } },
+  { at: 1.2, kind: 'chain', node: 'scheduler', bubble: { en: '210 sessions found', ja: '210セッションを抽出' } },
+  { at: 1.65, kind: 'chain', node: 'sorter' },
+  { at: 2.1, kind: 'chain', node: 'window-finder', bubble: { en: '15 free windows', ja: '空き時間 15枠' } },
+  { at: 2.55, kind: 'chain', node: 'audience' },
+  { at: 3.0, kind: 'chain', node: 'filter', bubble: { en: '276 fit, 361 ruled out', ja: '適合276件、除外361件' } },
+  { at: 3.45, kind: 'chain', node: 'builder' },
+  { at: 3.9, kind: 'chain', node: 'ranker' },
+  { at: 4.35, kind: 'chain', node: 'writer', bubble: { en: 'JA/EN page and email ready', ja: '日英ページとメール完成' } },
+  { at: 5.2, kind: 'burst', from: 'writer', to: 'mailer', bubble: { en: 'Emailing 3,000 attendees', ja: '参加者3,000人にメール送信' } },
+  { at: 6.2, kind: 'ring', node: 'booker', bubble: { en: 'Calling to book the Makomanai shuttle', ja: '真駒内シャトルを電話で予約' } },
+  { at: 7.6, kind: 'sparks', from: 'writer', to: 'concierge', bubble: { en: 'Is the onsen tattoo-friendly?', ja: '温泉はタトゥー可？' } },
+  { at: 9.5, kind: 'alert', node: 'replanner', bubble: { en: 'Snow stopped the Jozankei bus. Replanning', ja: '大雪で定山渓バス運休。再計画中' } },
+  { at: 11, kind: 'flow', from: 'replanner', to: 'reporter' },
+  { at: 12.5, kind: 'spark', from: 'concierge', to: 'human', bubble: { en: 'Handed to a person: refund question', ja: '人に引き継ぎ：返金の質問' } },
+  { at: 15, kind: 'flow', from: 'host-assigner', to: 'reporter', bubble: { en: 'Weekly report sent', ja: '週次報告を送信' } },
+  { at: 17, kind: 'flow', from: 'reporter', to: 'city-report', bubble: { en: 'Results for the city', ja: '市への成果' } },
+  { at: 19, kind: 'comet', from: 'sales', to: 'reader', label: { en: 'Next: Japan Venous Talk 2027', ja: '次：Japan Venous Talk 2027' }, bubble: { en: 'Found the next conference', ja: '次の会議を発見' } },
 ];
 
 export interface TimelineBeat {

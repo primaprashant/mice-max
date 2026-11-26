@@ -35,7 +35,7 @@ Three.js with `EffectComposer` + `UnrealBloomPass` and `CSS2DRenderer` for label
 
 - **Nodes**: the 19 agents from `backend/app/ai/control.py` `AGENTS`, plus one distinct **human** node (warm white, larger, near the centre). The four departments sit as clusters in 3D space: Setup (9 nodes, a chain), Operations (7), Growth (1), Reporting (2). One colour per department, emissive spheres with a soft glow sprite. `city-report` (mode "next") is dimmer.
 - **Edges**: faint curved lines (CatmullRom) along the work flow: the setup chain 1→9, writer→mailer and booker and concierge, operations→reporter→city-report, reporter→sales, sales→reader (the loop closes: sales finds the next conference).
-- **Script loop (~40 s, repeats)**:
+- **Script loop (~23 s, repeats; setup takes about 4 s so it reaches operations fast)**:
   1. A comet labelled with a conference URL flies in from off-screen to `reader`.
   2. A bright pulse runs down the setup chain; each node flashes and shows a bubble as the pulse arrives.
   3. `writer` fans out: a burst of many small particles to `mailer` (emails), a ring pulse with a short waveform at `booker` (call), back-and-forth sparks at `concierge` (Q&A).
