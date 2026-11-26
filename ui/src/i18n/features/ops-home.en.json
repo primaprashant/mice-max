@@ -1,0 +1,44 @@
+{
+  "opsHome": {
+    "title": "MiceMax operations",
+    "kicker": "MiceMax operations",
+    "headline": "A company run by AI agents",
+    "sub": "{agents} agents run every conference. {humans} human checks their work.",
+    "scrollHint": "See one conference, end to end",
+    "illustrative": "Animation is illustrative; counts are real",
+    "counters": {
+      "conferences": "Conferences read",
+      "experiences": "Experiences checked",
+      "events": "Attendee actions handled",
+      "eventsNote": "Simulated",
+      "agents": "AI agents",
+      "humans": "Humans"
+    },
+    "timeline": {
+      "kicker": "JADM32, Sapporo",
+      "title": "One conference, end to end",
+      "intro": "What the agents do for one real conference, from the organizer pasting a link to the city seeing the results.",
+      "open": "Open screen"
+    },
+    "live": {
+      "kicker": "Try it live",
+      "title": "Every screen is real",
+      "intro": "These run on the same agents. Nothing here is a mock-up.",
+      "runTitle": "Paste a conference URL",
+      "runNote": "Watch the setup agents read a new conference live.",
+      "salesTitle": "Sales agent",
+      "salesNote": "Finds upcoming conferences and drafts outreach.",
+      "disruptionTitle": "Snow disruption and voice booking",
+      "disruptionNote": "Replan guests when a bus stops, and book by phone.",
+      "confTitle": "Ops log for each conference",
+      "confNote": "Every step the agents took, and what was handed to a person."
+    },
+    "dept": {
+      "setup": "Setup",
+      "operations": "Operations",
+      "growth": "Growth",
+      "reporting": "Reporting"
+    },
+    "headerTitle": "How MiceMax runs"
+  }
+}

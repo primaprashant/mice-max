@@ -1,0 +1,44 @@
+{
+  "opsHome": {
+    "title": "MiceMax オペレーション",
+    "kicker": "MiceMax オペレーション",
+    "headline": "AIエージェントが動かす会社",
+    "sub": "{agents}のエージェントがすべての会議を運営し、{humans}人の担当者がその仕事を確認します。",
+    "scrollHint": "ひとつの会議の流れを見る",
+    "illustrative": "アニメーションはイメージです。数値は実データです",
+    "counters": {
+      "conferences": "読み込んだ会議",
+      "experiences": "確認した体験",
+      "events": "対応した参加者の操作",
+      "eventsNote": "シミュレーション",
+      "agents": "AIエージェント",
+      "humans": "人間"
+    },
+    "timeline": {
+      "kicker": "JADM32、札幌",
+      "title": "ひとつの会議を最初から最後まで",
+      "intro": "実在の会議ひとつに対してエージェントが行うこと。主催者がリンクを貼ってから、市が成果を確認するまで。",
+      "open": "画面を開く"
+    },
+    "live": {
+      "kicker": "実際に試す",
+      "title": "すべて本物の画面です",
+      "intro": "どれも同じエージェントで動いています。モックではありません。",
+      "runTitle": "会議のURLを貼り付ける",
+      "runNote": "セットアップのエージェントが新しい会議を読み込む様子をその場で見られます。",
+      "salesTitle": "営業エージェント",
+      "salesNote": "これから開かれる会議を探し、営業文を書きます。",
+      "disruptionTitle": "大雪対応と電話予約",
+      "disruptionNote": "バスが止まったら参加者の予定を立て直し、電話で予約します。",
+      "confTitle": "会議ごとの運営ログ",
+      "confNote": "エージェントが行ったすべての手順と、人に引き継いだ内容。"
+    },
+    "dept": {
+      "setup": "セットアップ",
+      "operations": "運営",
+      "growth": "成長",
+      "reporting": "報告"
+    },
+    "headerTitle": "MiceMaxの運営"
+  }
+}

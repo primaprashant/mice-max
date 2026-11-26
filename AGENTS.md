@@ -25,6 +25,7 @@ MiceMax helps people visiting Hokkaido for business events (MICE) spend more loc
 - `docs/07-data-plan.md`: data the demo needs (real, written, simulated), where it is stored (SQLite master copy) and tasks T0–T9 to build it.
 - `docs/08-outreach-plan.md`: real outreach during the hackathon (interviews, businesses, organizers, city) and how it shows in the demo.
 - `docs/10-ai-operations-plan.md`: the AI operations layer for the final demo (live pipeline, agents, Ops view), work streams and order. Read before building it.
+- `docs/11-ops-company-page-plan.md`: the `/ops` company showcase (3D agent network) and its files.
 - `docs/01-evidence.md`, `02-vision.md`, `04-long-term-plan.md`, `06-sources.md`: background, vision, business plan, sources [S1]...
 - `docs/charts/`: chart PNGs and `make_charts.py` that draws them.
 - `docs/prompts/inventory-research.md`: prompt for building the activity and venue list.
@@ -47,7 +48,7 @@ cd backend && uv sync && .venv/bin/uvicorn app.main:app --port 8787   # check /h
 cd ui && npm install && npm run dev                                    # http://localhost:4321
 ```
 
-`/` is the login (role tab, any name); `/nav` links every screen. Main screens: `/c/:conf` attendee, `/organize/:conf` organizer, `/city` city, `/ops` control room, `/ops/run` live ingest, `/ops/sales` sales agent, `/ops/:conf` disruption and voice booking.
+`/` is the login (role tab, any name); `/nav` links every screen. Main screens: `/c/:conf` attendee, `/organize/:conf` organizer, `/city` city, `/ops` company showcase (3D agent network), `/ops/run` live ingest, `/ops/sales` sales agent, `/ops/:conf` disruption and voice booking.
 
 ## Environment variables (backend)
 

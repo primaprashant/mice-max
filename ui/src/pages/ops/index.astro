@@ -1,123 +1,83 @@
 ---
-/** The AI control room: every agent in the company, a live activity feed,
- * what the agents built, and links to each conference's Ops log. */
+/** /ops: the company showcase. A 3D agent network hero (scripts/ops-hero),
+ * real counts, one conference end to end, then links to the live screens. */
 export const prerender = false;
 
 import Base from "../../layouts/Base.astro";
 import RoleSelector from "../../components/RoleSelector.astro";
-import ControlLinks from "../../components/control/ControlLinks.astro";
-import BuiltPanel from "../../components/control/BuiltPanel.astro";
-import { opsConferenceIds, conferenceById } from "../../data";
+import Hero from "../../components/ops-home/Hero.astro";
+import Timeline from "../../components/ops-home/Timeline.astro";
+import TryLive from "../../components/ops-home/TryLive.astro";
 import { getLang } from "../../data/attendee";
 import { randomPhoto, creditKey } from "../../data/photos";
 import { t } from "../../i18n";
-import { API_BASE } from "../../scripts/api";
-import { replayFeed, replayTotals } from "../../components/control/counts";
 
 const lang = getLang(Astro.cookies);
 const photoSlug = randomPhoto();
-const confs = opsConferenceIds()
-  .map((id) => conferenceById(id))
-  .filter((c) => c !== undefined);
-
-// Try the backend once with a short timeout; the browser keeps retrying if it is asleep.
-let agents: unknown = null;
-try {
-  const r = await fetch(`${API_BASE}/api/ops/agents`, { signal: AbortSignal.timeout(1500) });
-  if (r.ok) agents = await r.json();
-} catch {}
-
-const keys = [
-  "next", "runs", "tokens", "rules", "humans", "person", "orgLoading", "feedWaiting", "kpiCostPending",
-  "costBasis", "handoff", "dept.setup", "dept.operations", "dept.growth", "dept.reporting",
-  "deptNote.setup", "deptNote.operations", "deptNote.growth", "deptNote.reporting",
-];
-const strings: Record<string, string> = Object.fromEntries(keys.map((k) => [k, t(lang, `control.${k}`)]));
-strings.live = t(lang, "ops.live");
-strings.replay = t(lang, "ops.replay");
-const data = { lang, strings, agents, replay: replayFeed(), replayTotals: replayTotals() };
-
-const kpis = [
-  { id: "agents", label: "kpiAgents", note: "kpiAgentsNote" },
-  { id: "steps", label: "kpiSteps", note: "kpiStepsNote" },
-  { id: "live", label: "kpiLive", note: "kpiLiveNote" },
-  { id: "handoffs", label: "kpiHandoffs", note: "kpiHandoffsNote" },
-  { id: "cost", label: "kpiCost", note: "kpiCostNote" },
-];
 ---
 
-<Base title={`${t(lang, "control.title")} (MiceMax)`}>
-  <RoleSelector lang={lang} active="ops" title={t(lang, "control.headline")} photoSlug={photoSlug} />
-  <main class="mx-auto w-full min-w-0 max-w-7xl px-6 py-8">
-    <p class="font-mono text-xs uppercase tracking-wider text-ink-soft">{t(lang, "control.title")}</p>
-    <p class="mt-3 max-w-[75ch] text-sm text-ink-soft">{t(lang, "control.intro")}</p>
-
-    <ControlLinks lang={lang} />
-
-    <section class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-5" aria-label={t(lang, "control.title")}>
-      {kpis.map((k) => (
-        <div class:list={["rounded-lg border border-ink/10 bg-paper p-4", k.id === "cost" && "col-span-2 md:col-span-1"]}>
-          <p class="text-xs text-ink-soft">{t(lang, `control.${k.label}`)}</p>
-          <p class="mt-1 font-mono text-2xl font-semibold tabular-nums" data-kpi={k.id}>&nbsp;</p>
-          <p class="mt-1 text-[11px] leading-snug text-ink-soft">{t(lang, `control.${k.note}`)}</p>
-        </div>
-      ))}
-    </section>
-    <p class="mt-2 max-w-[90ch] text-[11px] text-ink-soft" data-cost-basis></p>
-
-    <div class="mt-10 grid gap-8 lg:grid-cols-5">
-      <section class="min-w-0 lg:col-span-3">
-        <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "control.orgTitle")}</h2>
-        <div class="mt-3 flex flex-col gap-6" data-org>
-          <p class="text-sm text-ink-soft" data-org-loading>{t(lang, "control.orgLoading")}</p>
-        </div>
-      </section>
-
-      <section class="min-w-0 lg:col-span-2">
-        <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "control.feedTitle")}</h2>
-        <p class="mt-1 text-xs text-ink-soft">{t(lang, "control.feedNote")}</p>
-        <ol class="mt-3 flex max-h-[44rem] flex-col gap-2 overflow-y-auto pr-1" data-feed aria-live="polite"></ol>
-      </section>
-    </div>
-
-    <BuiltPanel lang={lang} />
-
-    <section class="mt-10">
-      <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "control.confTitle")}</h2>
-      <p class="mt-1 text-xs text-ink-soft">{t(lang, "control.confNote")}</p>
-      <div class="mt-3 grid gap-3 md:grid-cols-2">
-        {confs.map((c) => (
-          <a
-            href={`/ops/${c.id}`}
-            class="group flex min-h-11 items-center justify-between gap-3 rounded-lg border border-ink/10 px-4 py-3 transition-colors hover:border-ink/25"
-          >
-            <span>
-              <span class="block font-medium">{(lang === "ja" && c.name_ja) || c.name_en}</span>
-              <span class="font-mono text-xs tabular-nums text-ink-soft">{c.start_date} – {c.end_date}</span>
-            </span>
-            <i class="ph ph-arrow-right text-ink-soft transition-transform group-hover:translate-x-0.5" aria-hidden="true"></i>
-          </a>
-        ))}
-      </div>
-    </section>
-  </main>
-  <script type="application/json" id="control-data" set:html={JSON.stringify(data).replace(/</g, "\\u003c")} />
-  <footer class="pb-4">
-    <p class="mx-auto max-w-7xl px-6 text-right text-[11px] text-ink-soft">
-      {t(lang, creditKey(photoSlug))} {t(lang, "login.photoCreditSuffix")}
-    </p>
-  </footer>
+<Base title={`${t(lang, "opsHome.title")} (MiceMax)`}>
+  <RoleSelector lang={lang} active="ops" title={t(lang, "opsHome.headerTitle")} photoSlug={photoSlug} />
+  <div class="oh-page bg-[#05070d] text-slate-100">
+    <main>
+      <Hero lang={lang} />
+      <Timeline lang={lang} />
+      <TryLive lang={lang} />
+    </main>
+    <footer class="pb-4">
+      <p class="mx-auto max-w-7xl px-6 text-right text-[11px] text-slate-500">
+        {t(lang, creditKey(photoSlug))} {t(lang, "login.photoCreditSuffix")}
+      </p>
+    </footer>
+  </div>
 </Base>
 
 <script>
-  import "../../scripts/control-room";
+  import "../../scripts/ops-hero";
+  import "../../scripts/ops-home-scroll";
 </script>
 
 <style is:global>
-  @keyframes cr-in {
-    from { opacity: 0; transform: translateY(-6px); background-color: var(--color-theme-soft); }
-    to { opacity: 1; transform: none; }
+  .oh-page { color-scheme: dark; }
+  .oh-glass {
+    border: 1px solid rgb(255 255 255 / 0.08);
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.06), rgb(255 255 255 / 0.02));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 20px 50px -30px rgb(0 0 0 / 0.8);
   }
-  .cr-in { animation: cr-in 0.6s ease-out; }
-  @media (prefers-reduced-motion: reduce) { .cr-in { animation: none; } }
+  .oh-vignette {
+    background:
+      linear-gradient(90deg, rgb(5 7 13 / 0.85) 0%, rgb(5 7 13 / 0.35) 45%, transparent 70%),
+      linear-gradient(0deg, #05070d 0%, rgb(5 7 13 / 0.6) 22%, transparent 45%);
+  }
+  .oh-card { transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; }
+  .oh-card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--c) 45%, transparent);
+    box-shadow: 0 30px 60px -30px color-mix(in srgb, var(--c) 50%, transparent);
+  }
+
+  /* Timeline: the line fills with scroll (--p from 0 to 1), beats fade in. */
+  .oh-line-fill {
+    transform: scaleY(var(--p, 0));
+    background: linear-gradient(180deg, #38bdf8, #a78bfa 55%, #f472b6);
+    box-shadow: 0 0 12px 1px rgb(56 189 248 / 0.6);
+  }
+  .oh-node {
+    background: #05070d;
+    border: 2px solid var(--c);
+    box-shadow: 0 0 0 4px #05070d;
+    transition: background-color 0.5s, box-shadow 0.5s;
+  }
+  .oh-beat.is-in .oh-node {
+    background: var(--c);
+    box-shadow: 0 0 0 4px #05070d, 0 0 18px 3px color-mix(in srgb, var(--c) 70%, transparent);
+  }
+  .oh-ready .oh-beat { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+  .oh-ready .oh-beat.is-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .oh-ready .oh-beat { opacity: 1; transform: none; transition: none; }
+    .oh-card, .oh-card:hover { transform: none; }
+  }
 </style>
