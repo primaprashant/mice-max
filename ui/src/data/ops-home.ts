@@ -22,7 +22,7 @@ const RUN = '/ops/run';
 export const DEPTS: { id: Dept; en: string; ja: string; color: string }[] = [
   { id: 'setup', en: 'Setup', ja: 'セットアップ', color: '#38bdf8' },
   { id: 'operations', en: 'Operations', ja: '運営', color: '#a78bfa' },
-  { id: 'growth', en: 'Growth', ja: '成長', color: '#34d399' },
+  { id: 'growth', en: 'Sales', ja: '営業', color: '#34d399' },
   { id: 'reporting', en: 'Reporting', ja: '報告', color: '#f472b6' },
 ];
 
@@ -52,8 +52,8 @@ export const HUMAN = {
   id: 'human',
   role_en: 'Approves sends and handles hand-offs',
   role_ja: '送信を承認し、引き継ぎに対応する',
-  label_en: 'Human',
-  label_ja: '人間',
+  label_en: 'Person',
+  label_ja: '担当者',
 };
 
 const SETUP_CHAIN = AGENTS.filter((a) => a.dept === 'setup').map((a) => a.id);
@@ -132,15 +132,15 @@ export interface TimelineBeat {
 }
 
 export const TIMELINE: TimelineBeat[] = [
-  { time_en: 'T+0', time_ja: 'T+0', agents: ['reader'], text_en: 'The organizer pastes the conference URL and the site is read.', text_ja: '主催者が会議のURLを貼り付け、サイトを読み込みます。', link: RUN },
-  { time_en: 'T+1 min', time_ja: 'T+1分', agents: ['scheduler', 'sorter'], text_en: '210 sessions are extracted and sorted into must-attend and skippable.', text_ja: '210のセッションを抽出し、必須と任意に分けます。', link: RUN },
-  { time_en: 'T+2 min', time_ja: 'T+2分', agents: ['window-finder'], text_en: "15 free windows are found in attendees' schedules.", text_ja: '参加者の日程から15の空き時間を見つけます。', link: RUN },
-  { time_en: 'T+3 min', time_ja: 'T+3分', agents: ['filter'], text_en: '276 fits across 15 windows; 361 ruled out, each with a reason such as "too long" or "too late to start".', text_ja: '15枠で276件が適合。361件は「長すぎる」「開始が遅すぎる」など理由付きで除外します。', link: RUN },
-  { time_en: 'T+4 min', time_ja: 'T+4分', agents: ['writer'], text_en: 'A JA/EN page and email are ready for the organizer.', text_ja: '主催者向けの日英ページとメールが完成します。', link: `/organize/${DEMO_CONF}` },
-  { time_en: 'Weeks before', time_ja: '数週間前', agents: ['mailer', 'group-filler'], text_en: 'Emails and reminders go out; groups that need people get a nudge.', text_ja: 'メールとリマインダーを送り、人数の足りないグループに声をかけます。', link: C },
-  { time_en: '2 days before', time_ja: '2日前', agents: ['booker'], text_en: 'The booker calls the ryokan to book the Makomanai shuttle by voice.', text_ja: '予約エージェントが旅館に電話し、真駒内シャトルを音声で予約します。', link: C },
-  { time_en: 'Conference day', time_ja: '会議当日', agents: ['replanner'], text_en: 'Snow stops the Jozankei bus; guests are replanned and messaged.', text_ja: '大雪で定山渓行きバスが運休。参加者の予定を立て直し、連絡します。', link: C },
-  { time_en: 'Day after', time_ja: '翌日', agents: ['reporter'], text_en: 'Results go to the city view.', text_ja: '成果が市のビューに届きます。', link: '/city' },
+  { time_en: '0 min', time_ja: '0分', agents: ['reader'], text_en: 'The organizer pastes a link. The agent reads the conference website.', text_ja: '主催者がリンクを貼ると、エージェントが会議のサイトを読みます。', link: RUN },
+  { time_en: '1 min', time_ja: '1分', agents: ['scheduler', 'sorter'], text_en: 'Pulls out 210 sessions and marks which ones people can skip.', text_ja: '210のセッションを取り出し、抜けてもよいものに印を付けます。', link: RUN },
+  { time_en: '2 min', time_ja: '2分', agents: ['window-finder'], text_en: 'Finds 15 free windows in the program.', text_ja: 'プログラムの中に15の空き時間を見つけます。', link: RUN },
+  { time_en: '3 min', time_ja: '3分', agents: ['filter'], text_en: '276 experiences fit. 361 are ruled out, each with a reason like "too long" or "starts too late".', text_ja: '276件が合い、361件は「長すぎる」「開始が遅い」などの理由付きで外れます。', link: RUN },
+  { time_en: '4 min', time_ja: '4分', agents: ['writer'], text_en: 'Writes the page and invite email in Japanese and English.', text_ja: '案内ページと招待メールを日本語と英語で書きます。', link: `/organize/${DEMO_CONF}` },
+  { time_en: 'Weeks before', time_ja: '数週間前', agents: ['mailer', 'group-filler'], text_en: 'Sends emails and reminders, and nudges groups that need more people.', text_ja: 'メールとリマインダーを送り、人数の足りないグループに声をかけます。', link: C },
+  { time_en: '2 days before', time_ja: '2日前', agents: ['booker'], text_en: 'Calls the ryokan to book the Makomanai shuttle.', text_ja: '旅館に電話して、真駒内シャトルを予約します。', link: C },
+  { time_en: 'Conference day', time_ja: '会議当日', agents: ['replanner'], text_en: 'Snow stops the Jozankei bus. Guests get a new plan and a message.', text_ja: '大雪で定山渓行きのバスが運休。参加者に新しい予定と連絡が届きます。', link: C },
+  { time_en: 'Day after', time_ja: '翌日', agents: ['reporter'], text_en: 'Sends the results to the city.', text_ja: '成果を市に届けます。', link: '/city' },
 ];
 
 export function agentById(id: string): Agent | undefined {

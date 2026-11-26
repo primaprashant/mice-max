@@ -1,44 +1,39 @@
 {
   "opsHome": {
     "title": "MiceMax オペレーション",
-    "kicker": "MiceMax オペレーション",
-    "headline": "AIエージェントが動かす会社",
-    "sub": "{agents}のエージェントがすべての会議を運営し、{humans}人の担当者がその仕事を確認します。",
-    "scrollHint": "ひとつの会議の流れを見る",
-    "illustrative": "アニメーションはイメージです。数値は実データです",
+    "headerTitle": "MiceMaxの運営",
+    "headline": "AIエージェント{agents}体、人は{humans}人。",
+    "sub": "会議ごとの仕事は、サイトの読み込みから市への報告まで、AIエージェントが行います。人はその確認を担当します。",
+    "scrollHint": "ひとつの会議を追う",
+    "illustrative": "アニメーションはイメージです。数値はデータベースの実数です。",
     "counters": {
       "conferences": "読み込んだ会議",
       "experiences": "確認した体験",
-      "events": "対応した参加者の操作",
+      "events": "参加者の操作",
       "eventsNote": "シミュレーション",
       "agents": "AIエージェント",
-      "humans": "人間"
+      "humans": "人"
     },
     "timeline": {
-      "kicker": "JADM32、札幌",
-      "title": "ひとつの会議を最初から最後まで",
-      "intro": "実在の会議ひとつに対してエージェントが行うこと。主催者がリンクを貼ってから、市が成果を確認するまで。",
-      "open": "画面を開く"
+      "title": "ひとつの会議：JADM32",
+      "intro": "札幌、2027年3月。主催者がリンクを貼ってから、市が成果を確認するまで。"
     },
     "live": {
-      "kicker": "実際に試す",
-      "title": "すべて本物の画面です",
-      "intro": "どれも同じエージェントで動いています。モックではありません。",
-      "runTitle": "会議のURLを貼り付ける",
-      "runNote": "セットアップのエージェントが新しい会議を読み込む様子をその場で見られます。",
+      "title": "試してみる",
+      "runTitle": "会議のリンクを貼る",
+      "runNote": "初めて見る会議を読み込み、計画を立てる様子を見られます。",
       "salesTitle": "営業エージェント",
-      "salesNote": "これから開かれる会議を探し、営業文を書きます。",
-      "disruptionTitle": "大雪対応と電話予約",
-      "disruptionNote": "バスが止まったら参加者の予定を立て直し、電話で予約します。",
-      "confTitle": "会議ごとの運営ログ",
+      "salesNote": "これから開かれる会議を探し、最初のメールを書きます。",
+      "disruptionTitle": "大雪と電話予約",
+      "disruptionNote": "バスを止めて、予定の立て直しを見る。予約エージェントと話す。",
+      "confTitle": "会議ごとのログ",
       "confNote": "エージェントが行ったすべての手順と、人に引き継いだ内容。"
     },
     "dept": {
       "setup": "セットアップ",
       "operations": "運営",
-      "growth": "成長",
+      "growth": "営業",
       "reporting": "報告"
-    },
-    "headerTitle": "MiceMaxの運営"
+    }
   }
 }

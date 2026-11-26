@@ -1,44 +1,39 @@
 {
   "opsHome": {
     "title": "MiceMax operations",
-    "kicker": "MiceMax operations",
-    "headline": "A company run by AI agents",
-    "sub": "{agents} agents run every conference. {humans} human checks their work.",
-    "scrollHint": "See one conference, end to end",
-    "illustrative": "Animation is illustrative; counts are real",
+    "headerTitle": "How MiceMax runs",
+    "headline": "{agents} agents. {humans} person.",
+    "sub": "AI agents do the work for every conference, from reading its website to reporting to the city. One person checks it.",
+    "scrollHint": "Follow one conference",
+    "illustrative": "The animation is a sketch. The numbers come from our database.",
     "counters": {
       "conferences": "Conferences read",
       "experiences": "Experiences checked",
-      "events": "Attendee actions handled",
+      "events": "Attendee actions",
       "eventsNote": "Simulated",
       "agents": "AI agents",
-      "humans": "Humans"
+      "humans": "People"
     },
     "timeline": {
-      "kicker": "JADM32, Sapporo",
-      "title": "One conference, end to end",
-      "intro": "What the agents do for one real conference, from the organizer pasting a link to the city seeing the results.",
-      "open": "Open screen"
+      "title": "One conference: JADM32",
+      "intro": "Sapporo, March 2027. What happens from the moment the organizer pastes a link until the city sees the results."
     },
     "live": {
-      "kicker": "Try it live",
-      "title": "Every screen is real",
-      "intro": "These run on the same agents. Nothing here is a mock-up.",
-      "runTitle": "Paste a conference URL",
-      "runNote": "Watch the setup agents read a new conference live.",
+      "title": "Try it",
+      "runTitle": "Paste a conference link",
+      "runNote": "Watch a conference we have never seen get read and planned.",
       "salesTitle": "Sales agent",
-      "salesNote": "Finds upcoming conferences and drafts outreach.",
-      "disruptionTitle": "Snow disruption and voice booking",
-      "disruptionNote": "Replan guests when a bus stops, and book by phone.",
-      "confTitle": "Ops log for each conference",
-      "confNote": "Every step the agents took, and what was handed to a person."
+      "salesNote": "Finds upcoming conferences and drafts the first email.",
+      "disruptionTitle": "Snow and phone booking",
+      "disruptionNote": "Stop a bus and see guests replanned. Talk to the booking agent.",
+      "confTitle": "Logs by conference",
+      "confNote": "Every step the agents took, and what they passed to a person."
     },
     "dept": {
       "setup": "Setup",
       "operations": "Operations",
-      "growth": "Growth",
+      "growth": "Sales",
       "reporting": "Reporting"
-    },
-    "headerTitle": "How MiceMax runs"
+    }
   }
 }
