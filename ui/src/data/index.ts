@@ -183,6 +183,18 @@ export function conferences(): Conference[] {
   return rows.map(mapConference);
 }
 
+/** Every conference, demo or not; the home list reads it. */
+export function allConferences(): Conference[] {
+  const rows = getDb()
+    .prepare(
+      `SELECT c.*, v.place_id AS main_venue_place_id
+       FROM conferences c
+       LEFT JOIN conference_venues v ON v.conference_id = c.id AND v.is_main = 1`
+    )
+    .all();
+  return rows.map(mapConference);
+}
+
 export function conferenceById(id: string): Conference | undefined {
   const row = getDb()
     .prepare(
