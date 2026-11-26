@@ -23,11 +23,25 @@ const TABS = [
   { id: "ops", icon: "ph-graph", href: "/ops", labelKey: "home.tabOps" },
 ] as const;
 
-/* Active tab and active lang pill share one look: solid ink fill, paper
-   text and a larger radius. The scrim's dark side sits under the tabs, so
-   ink reads as a clear step brighter than the photo behind it. */
-const ACTIVE_PILL = "border-ink bg-ink text-paper rounded-lg";
-const IDLE_PILL = "border-ink/25 bg-paper/85 text-ink-soft rounded-md";
+/* Active tab and idle tabs invert on radius too: the selected tab is the
+   one solid paper pill (rounded-full, half the tab height); idle tabs
+   are barely rounded tinted glass, so they sit into the photo more than
+   they stand out. Both steps stay AA against their fill. */
+const ACTIVE_PILL = "bg-paper text-ink rounded-full";
+const IDLE_PILL = "text-paper rounded-sm ring-1 ring-paper/60";
+
+/* The photo scrim picks its color from the active view, so each view
+   reads as its own space: ink for attendees, green for organizers,
+   maroon for cities, violet for operations. */
+const SCRIMS: Record<string, string> = {
+  attendee: "var(--color-view-attendee)",
+  organizer: "var(--color-view-organizer)",
+  city: "var(--color-view-city)",
+  ops: "var(--color-view-ops)",
+};
+const scrimColor = SCRIMS[active] ?? SCRIMS.attendee!;
+/* The active pill carries the same tint as the scrim. */
+const activeColor = scrimColor;
 ---
 
 <header class="relative flex min-h-[50dvh] flex-col">
@@ -38,7 +52,8 @@ const IDLE_PILL = "border-ink/25 bg-paper/85 text-ink-soft rounded-md";
     class="absolute inset-0 h-full w-full object-cover"
   />
   <div
-    class="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/40 to-ink/10"
+    class="absolute inset-0"
+    style={`background: linear-gradient(to right, color-mix(in oklab, ${scrimColor} 80%, transparent), color-mix(in oklab, ${scrimColor} 40%, transparent), color-mix(in oklab, ${scrimColor} 10%, transparent))`}
     aria-hidden="true"
   >
   </div>
@@ -64,11 +79,10 @@ const IDLE_PILL = "border-ink/25 bg-paper/85 text-ink-soft rounded-md";
           <a
             href={tab.href}
             aria-current={tab.id === active ? "page" : "false"}
-            class={`border px-3 py-1.5 text-center text-sm font-medium transition-colors ${
-              tab.id === active ? ACTIVE_PILL : `${IDLE_PILL} hover:bg-paper`
-            }`}
+            class={`${tab.id === active ? ACTIVE_PILL : IDLE_PILL} px-3 py-1.5 text-center text-sm font-medium transition-colors`}
+            style={tab.id === active ? undefined : `background: color-mix(in oklab, ${activeColor} 30%, transparent)`}
           >
-            <i class={`ph ${tab.icon}`} aria-hidden="true" />
+            <i class={`ph ${tab.icon} mr-1.5 align-[-0.125em]`} aria-hidden="true" />
             {t(lang, tab.labelKey)}
           </a>
         ))

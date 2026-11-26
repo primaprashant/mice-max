@@ -47,7 +47,7 @@ cd backend && uv sync && .venv/bin/uvicorn app.main:app --port 8787   # check /h
 cd ui && npm install && npm run dev                                    # http://localhost:4321
 ```
 
-`/` is the login (role tab, any name); `/nav` links every screen. Main screens: `/c/:conf` attendee, `/organize/:conf` organizer, `/city` city, `/ops` control room, `/ops/run` live ingest, `/ops/sales` sales agent, `/ops/:conf` disruption and voice booking.
+`/` redirects to `/home` (login is at `/login`, role tab, any name); `/nav` links every screen. Main screens: `/c/:conf` attendee, `/organize/:conf` organizer, `/city` city, `/ops` control room, `/ops/run` live ingest, `/ops/sales` sales agent, `/ops/:conf` disruption and voice booking.
 
 ## Environment variables (backend)
 

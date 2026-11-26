@@ -3,6 +3,7 @@ export const prerender = false;
 
 import Base from "../layouts/Base.astro";
 import RoleSelector from "../components/RoleSelector.astro";
+import ConferenceList from "../components/ConferenceList.astro";
 import { conferences } from "../data";
 import { getLang } from "../data/attendee";
 import { randomPhoto, creditKey } from "../data/photos";
@@ -34,16 +35,7 @@ const photoSlug = randomPhoto();
     <section class="mt-10">
       <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "organizer.stored")}</h2>
       <p class="mt-1 text-sm text-ink-soft">{t(lang, "organizer.storedNote")}</p>
-      <ul class="mt-3 flex flex-col gap-2">
-        {confs.map((c) => (
-          <li>
-            <a href={`/organize/${c.id}`} class="block rounded-lg border border-ink/10 px-4 py-3 transition-transform active:scale-[0.99]">
-              <span class="block text-sm font-medium">{(lang === "ja" && c.name_ja) || c.name_en}</span>
-              <span class="font-mono text-xs tabular-nums text-ink-soft">{c.start_date}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
+      <ConferenceList lang={lang} conferences={confs} href={(id) => `/organize/${id}`} dateStyle="iso" class="mt-3" />
     </section>
   </main>
   <footer class="pb-4">

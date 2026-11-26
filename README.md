@@ -145,7 +145,7 @@ flowchart TB
 
 ## Try it in 5 minutes
 
-Open https://mice-max.netlify.app, pick a role and enter any name (there is no password check). The demo uses a real conference: the 32nd Annual Meeting of the Japanese Association for Disaster Medicine, March 2027, about 3,000 attendees.
+Open https://mice-max.netlify.app and pick a conference (the landing page is the attendee view; the tabs at the top switch to the other views). To sign in with a name, use https://mice-max.netlify.app/login — enter any name (there is no password check). The demo uses a real conference: the 32nd Annual Meeting of the Japanese Association for Disaster Medicine, March 2027, about 3,000 attendees.
 
 | Open | What to look at |
 |---|---|
