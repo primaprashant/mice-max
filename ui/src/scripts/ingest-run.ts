@@ -1,6 +1,7 @@
 /** /ops/run: start a live ingest run and call steps 1-9 in turn, animating the track as each finishes. */
 import { apiGet, apiPost } from "./api";
 import { renderCard, esc, type StepResult, type Strings } from "./ingest-cards";
+import { press } from "./sfx";
 
 interface Tested { id: string; name_en: string; name_ja: string | null; url: string }
 interface Start { run_id: string }
@@ -46,6 +47,7 @@ async function run(url: string, S: Strings) {
       try {
         res = await apiPost<StepResult>(`/api/ingest/${run_id}/step/${n}`, {});
       } catch {
+        press("treadmill-sharp");
         setNode(n, "failed");
         if (n < 9) setLink(n, "");
         $("ingest-status").textContent = S.failed.replace("{n}", String(n));
@@ -62,6 +64,7 @@ async function run(url: string, S: Strings) {
       $("ingest-cards").insertAdjacentHTML("beforeend", renderCard(res, S));
     }
     $("ingest-status").textContent = S.done.replace("{s}", ((performance.now() - t0) / 1000).toFixed(1));
+    press("ps4-double");
   } finally {
     clearInterval(clock);
     running = false;

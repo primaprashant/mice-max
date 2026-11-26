@@ -2,6 +2,8 @@
  * default (a suggestion not removed is approved); remove fades the card and
  * remembers the choice in localStorage for the session. Document-level
  * delegation: the cards live in per-day panels, no wrapper element needed. */
+import { press } from "./sfx";
+
 const KEY = "micemax_removed";
 
 function removed(): Set<string> {
@@ -14,6 +16,7 @@ document.addEventListener("click", (e) => {
   const row = btn.closest<HTMLElement>(".suggestion");
   const id = row?.dataset.exp;
   if (!row || !id) return;
+  press("lock-open");
   const cur = removed();
   cur.add(id);
   localStorage.setItem(KEY, JSON.stringify([...cur]));

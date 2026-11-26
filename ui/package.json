@@ -20,6 +20,7 @@
     "@tailwindcss/vite": "^4.3.5",
     "@types/three": "^0.187.0",
     "astro": "^7.4.13",
+    "button-sounds": "^1.0.0",
     "tailwindcss": "^4.3.5",
     "three": "^0.187.0"
   },

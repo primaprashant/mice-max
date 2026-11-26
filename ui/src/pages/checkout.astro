@@ -61,6 +61,7 @@ const total = price * party;
       <form id="pay-form" data-exp={exp.id} data-day={Astro.url.searchParams.get("day") ?? ""} data-start={Astro.url.searchParams.get("start") ?? ""} data-end={Astro.url.searchParams.get("end") ?? ""} data-party={String(party)} data-price={String(price)}>
         <button
           type="submit"
+          data-sfx-submit
           class="w-full rounded-lg bg-theme px-4 py-3 text-sm font-medium text-paper transition-transform active:scale-[0.98]"
         >
           {t(lang, "checkout.pay")}
@@ -77,6 +78,7 @@ const total = price * party;
 <script>
   import { putPlan } from "../scripts/plan-store";
   import { logEvent } from "../scripts/event-log";
+  import "../scripts/sfx";
 
   const form = document.getElementById("pay-form") as HTMLFormElement | null;
   form?.addEventListener("submit", (e) => {

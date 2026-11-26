@@ -86,6 +86,7 @@ const activeRole = ROLES[0]!.id;
               <button
                 type="button"
                 data-role-tab={role.id}
+                data-sfx-tab
                 aria-pressed={role.id === activeRole ? "true" : "false"}
                 class:list={[
                   "w-full rounded-md border px-3 py-1.5 text-sm font-medium transition-colors",
@@ -131,6 +132,7 @@ const activeRole = ROLES[0]!.id;
 
           <button
             type="submit"
+            data-sfx-submit
             class="rounded-md bg-theme px-4 py-2.5 text-sm font-medium text-paper transition-transform active:scale-[0.98]"
           >
             {t(lang, "login.enter")}
@@ -150,6 +152,7 @@ const activeRole = ROLES[0]!.id;
 <script>
   import "../scripts/lang-toggle";
   import "../scripts/role-tabs";
+  import "../scripts/sfx";
   import { logEvent } from "../scripts/event-log";
 
   document.getElementById("login-form")?.addEventListener("submit", () => {

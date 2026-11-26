@@ -3,6 +3,7 @@
  * Every join and booking also appends a row to the event log on the backend. */
 import { loadPlans, planFor, putPlan, removePlan, type StoredPlan } from "./plan-store";
 import { logEvent } from "./event-log";
+import { press } from "./sfx";
 
 class BookButton extends HTMLElement {
   connectedCallback() {
@@ -24,6 +25,7 @@ class BookButton extends HTMLElement {
     // then clean the query string so a reload does not add it again.
     const url = new URL(window.location.href);
     if (url.searchParams.get("booked") === "1" && !planFor(expId)) {
+      press("ps4-double");
       const day = url.searchParams.get("day") || "";
       putPlan({
         kind: "event",
@@ -65,6 +67,7 @@ class BookButton extends HTMLElement {
         window.location.href = `/checkout?${params}`;
         return;
       }
+      press("guitar-toggle-on");
       const plan: StoredPlan = { kind: "event", ref_id: expId, day, start, end, status: "joined", party_size: 1 };
       putPlan(plan);
       logEvent("plan_joined", { experienceId: expId, partySize: 1, priceJpy: price || null });
@@ -84,6 +87,7 @@ class BookButton extends HTMLElement {
     cancel.textContent = labels.cancel ?? "Cancel";
     cancel.className = "mt-2 w-full rounded-lg border border-ink/15 px-4 py-2 text-sm text-ink-soft transition-transform active:scale-[0.98]";
     cancel.addEventListener("click", () => {
+      press("guitar-toggle-off");
       removePlan(expId);
       window.location.reload();
     });

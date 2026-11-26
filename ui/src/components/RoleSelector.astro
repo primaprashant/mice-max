@@ -87,10 +87,19 @@ const activeColor = scrimColor;
   >
   </div>
   <div class="relative z-10 flex w-full justify-end px-6 pt-4">
-    <lang-toggle class="inline-flex rounded-md border border-white/20 bg-paper/20 p-0.5 text-xs backdrop-blur">
-      <button data-lang="en" class="rounded px-2 py-1 font-medium text-paper">EN</button>
-      <button data-lang="ja" class="rounded px-2 py-1 font-medium text-paper">JA</button>
-    </lang-toggle>
+    <div class="flex items-center gap-2">
+      <lang-toggle class="inline-flex rounded-md border border-white/20 bg-paper/20 p-0.5 text-xs backdrop-blur">
+        <button data-lang="en" class="rounded px-2 py-1 font-medium text-paper">EN</button>
+        <button data-lang="ja" class="rounded px-2 py-1 font-medium text-paper">JA</button>
+      </lang-toggle>
+      <sfx-toggle
+        aria-pressed="true"
+        class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-white/20 bg-paper/20 text-sm text-paper backdrop-blur transition-colors hover:bg-paper/30"
+      >
+        <i class="ph ph-speaker-high" aria-hidden="true"></i>
+        <span class="sr-only">Toggle UI sounds</span>
+      </sfx-toggle>
+    </div>
   </div>
   <div class="relative z-10 mx-auto mt-auto flex w-full max-w-7xl flex-col px-6 pb-10 pt-5">
     <a href="/home" class="text-xs font-semibold uppercase tracking-widest text-paper">
@@ -107,6 +116,7 @@ const activeColor = scrimColor;
         TABS.map((tab) => (
           <a
             href={tab.href}
+            data-sfx-tab
             aria-current={tab.id === active ? "page" : "false"}
             class={`${tab.id === active ? ACTIVE_PILL : IDLE_PILL} px-3 py-1.5 text-center text-sm font-medium transition-colors`}
             style={tab.id === active ? undefined : `background: color-mix(in oklab, ${activeColor} 30%, transparent)`}
@@ -126,4 +136,5 @@ const activeColor = scrimColor;
 
 <script>
   import "../scripts/lang-toggle";
+  import "../scripts/sfx";
 </script>

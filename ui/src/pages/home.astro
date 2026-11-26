@@ -61,18 +61,18 @@ const CAL_STRINGS = {
       <aside class="min-w-0">
         <home-calendar data-cal data-strings={JSON.stringify(CAL_STRINGS)} class="sticky top-6 block rounded-lg border border-ink/10 bg-paper p-4">
           <div class="flex items-center justify-between gap-2">
-            <button type="button" data-cal-prev aria-label={t(lang, "home.calPrev")} class="rounded-md border border-ink/25 px-2 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:bg-ink/5">
+            <button type="button" data-cal-prev data-sfx-page aria-label={t(lang, "home.calPrev")} class="rounded-md border border-ink/25 px-2 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:bg-ink/5">
               <i class="ph ph-caret-left" aria-hidden="true"></i>
             </button>
             <p data-cal-label class="text-sm font-semibold tracking-tight"></p>
-            <button type="button" data-cal-next aria-label={t(lang, "home.calNext")} class="rounded-md border border-ink/25 px-2 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:bg-ink/5">
+            <button type="button" data-cal-next data-sfx-page aria-label={t(lang, "home.calNext")} class="rounded-md border border-ink/25 px-2 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:bg-ink/5">
               <i class="ph ph-caret-right" aria-hidden="true"></i>
             </button>
           </div>
           <div data-cal-weekdays class="mt-3 grid grid-cols-7 gap-1"></div>
           <div data-cal-grid class="mt-1 grid grid-cols-7 gap-1"></div>
           <p data-cal-status class="mt-3 text-xs text-ink-soft" role="status"></p>
-          <button type="button" data-cal-all class="mt-2 rounded-md border border-ink/25 px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:bg-ink/5">
+          <button type="button" data-cal-all data-sfx-page class="mt-2 rounded-md border border-ink/25 px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:bg-ink/5">
             {t(lang, "home.calAllDay")}
           </button>
         </home-calendar>
@@ -85,6 +85,7 @@ const CAL_STRINGS = {
         <button
           type="button"
           data-page-prev
+          data-sfx-page
           class="rounded-md border border-ink/25 px-3 py-1.5 text-sm font-medium text-ink-soft hover:bg-ink/5 disabled:opacity-40"
           disabled
         >
@@ -94,6 +95,7 @@ const CAL_STRINGS = {
           <button
             type="button"
             data-page={p}
+            data-sfx-page
             aria-current={p === 1 ? "page" : "false"}
             class="min-w-8 rounded-md border border-ink/25 px-2 py-1.5 text-sm font-medium tabular-nums text-ink-soft transition-colors hover:bg-ink/5 aria-[current=page]:border-ink aria-[current=page]:bg-ink aria-[current=page]:text-paper"
           >
@@ -103,6 +105,7 @@ const CAL_STRINGS = {
         <button
           type="button"
           data-page-next
+          data-sfx-page
           class="rounded-md border border-ink/25 px-3 py-1.5 text-sm font-medium text-ink-soft hover:bg-ink/5"
         >
           {t(lang, "home.nextPage")}
@@ -128,4 +131,5 @@ const CAL_STRINGS = {
 <script>
   import "../scripts/home-pagination";
   import "../scripts/home-calendar";
+  import "../scripts/sfx";
 </script>
