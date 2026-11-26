@@ -2,9 +2,10 @@
 export const prerender = false;
 
 import Base from "../layouts/Base.astro";
-import Header from "../components/Header.astro";
+import RoleSelector from "../components/RoleSelector.astro";
 import SimulatedLabel from "../components/SimulatedLabel.astro";
 import OpsBadge from "../components/OpsBadge.astro";
+import { randomPhoto, creditKey } from "../data/photos";
 import {
   cityEstimates,
   demoConferenceIds,
@@ -19,6 +20,7 @@ import { yen, monthLabel } from "../data/city";
 import { t } from "../i18n";
 
 const lang = getLang(Astro.cookies);
+const photoSlug = randomPhoto();
 const estimates = cityEstimates();
 const totals = totalsOf(estimates);
 const scales = simulationScales();
@@ -96,10 +98,9 @@ for (const m of monthlyTotalsArr) {
 ---
 
 <Base title={`${t(lang, "city.title")} (MiceMax)`}>
-  <Header />
+  <RoleSelector lang={lang} active="city" title={t(lang, "city.title")} photoSlug={photoSlug} />
   <main class="mx-auto max-w-7xl px-6 py-8">
     <div class="flex flex-wrap items-center justify-between gap-3">
-      <h1 class="text-2xl font-semibold tracking-tight">{t(lang, "city.title")}</h1>
       <SimulatedLabel lang={lang} />
     </div>
     <p class="mt-2 max-w-[75ch] text-sm text-ink-soft">{t(lang, "city.intro")}</p>
@@ -376,4 +377,9 @@ for (const m of monthlyTotalsArr) {
       <p class="mt-2 max-w-[80ch] font-mono text-xs leading-relaxed">{formula}</p>
     </section>
   </main>
+  <footer class="pb-4">
+    <p class="mx-auto max-w-7xl px-6 text-right text-[11px] text-ink-soft">
+      {t(lang, creditKey(photoSlug))} {t(lang, "login.photoCreditSuffix")}
+    </p>
+  </footer>
 </Base>
