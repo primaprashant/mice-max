@@ -32,6 +32,14 @@
   --color-banana: #b45309;
   --color-banana-soft: #fef3c7;
 
+  /* Multi-series chart palette (city view splits). CVD-validated as a set on
+     the paper surface (dataviz six checks): slots in this order never cycle. */
+  --color-viz-blue: #2563eb;
+  --color-viz-green: #008a17;
+  --color-viz-violet: #6a4ce2;
+  --color-viz-aqua: #00b894;
+  --color-viz-red: #ec4647;
+
   /* Session-type tints for the day grid: light background of a hue with dark
      text of the same hue, same tint depth as banana-soft. */
   --color-session-oral: #dbeafe;
