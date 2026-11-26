@@ -166,8 +166,8 @@ for (const m of monthlyTotalsArr) {
       <div class="mt-10">
         <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-soft">{t(lang, "city.byArea")}</h2>
         <city-area-donut class="mt-3 block">
-          <div class="flex flex-wrap items-center gap-8" slot="donut">
-            <div class="relative w-full max-w-[528px] min-w-0">
+          <div class="mx-auto flex w-[80%] flex-wrap items-center justify-center gap-16" slot="donut">
+            <div class="relative min-w-0 flex-1 basis-[420px]" style="max-width:528px">
               <svg viewBox="0 0 120 120" class="block h-auto w-full" role="img" aria-label={t(lang, "city.byArea")}>
                 {(() => {
                   const R = 48;
@@ -206,7 +206,7 @@ for (const m of monthlyTotalsArr) {
                 <p class="max-w-[160px] text-xs leading-tight text-ink-soft" id="city-donut-sub"></p>
               </div>
             </div>
-            <div class="space-y-1.5">
+            <div class="min-w-[280px] flex-1 space-y-1.5">
               {donutSlices.map((s) => (
                 <p
                   class="flex items-center gap-2 rounded text-sm hover:bg-ink/5"
@@ -222,25 +222,6 @@ for (const m of monthlyTotalsArr) {
               <p class="pt-1 text-xs text-ink-soft">{donutSlices[donutSlices.length - 1].count} {t(lang, "city.count")}</p>
             </div>
           </div>
-          <table class="w-full text-sm" slot="table" hidden>
-            <caption class="sr-only">{t(lang, "city.byArea")}</caption>
-            <thead>
-              <tr class="border-b border-ink/10 text-left text-xs text-ink-soft">
-                <th scope="col" class="px-3 py-2 font-medium">{t(lang, "city.area")}</th>
-                <th scope="col" class="px-3 py-2 text-right font-medium">{t(lang, "city.count")}</th>
-                <th scope="col" class="px-3 py-2 text-right font-medium">{t(lang, "city.spend")}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {byArea.map((a) => (
-                <tr class="border-b border-ink/5">
-                  <td class="px-3 py-2">{lang === "ja" ? a.area_ja : a.area}</td>
-                  <td class="px-3 py-2 text-right font-mono tabular-nums">{a.count}</td>
-                  <td class="px-3 py-2 text-right font-mono tabular-nums">{yen(a.jpy)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </city-area-donut>
       </div>
     </section>
@@ -366,7 +347,9 @@ for (const m of monthlyTotalsArr) {
             </tr>
           </thead>
           <tbody>
-            {monthly.map((m) => (
+            {/* one row per month: the aggregated totals the bars plot, not the
+                per-area detail rows the frontmatter keeps for the panel */}
+            {monthlyTotalsArr.map((m) => (
               <tr class="border-b border-ink/5">
                 <td class="px-3 py-2 font-mono tabular-nums">{monthLabel(m.month, lang)}</td>
                 <td class="px-3 py-2 text-right font-mono tabular-nums">{m.count.toLocaleString("ja-JP")}</td>
