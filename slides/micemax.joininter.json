@@ -1,0 +1,78 @@
+{
+  "format": "hh-deck/1",
+  "title": "MiceMax",
+  "tagline": "The autonomous company that turns conference visitors into local customers",
+  "lang": "en",
+  "slides": [
+    {
+      "type": "title"
+    },
+    {
+      "type": "problem",
+      "title": "Sapporo's conference visitors fly in, attend, fly out",
+      "body": "Sapporo hosted **466 conferences and 109,311 attendees** in 2025.\n\nMost attendees never plan anything: an unfamiliar city, a packed schedule, extra work. They come for the conference and leave. By suggesting them relevant activities of interest and additional stays, we can increase spending per visitor.",
+      "stat": {
+        "value": "¥170M/yr",
+        "label": "estimated new local spending if Sapporo ran MiceMax across its conferences"
+      }
+    },
+    {
+      "type": "image",
+      "src": "https://raw.githubusercontent.com/primaprashant/mice-max/main/docs/media/ops-hero.gif",
+      "alt": "MiceMax operations: AI agents passing work between each other",
+      "caption": "18 agents run every conference, see them at mice-max.netlify.app/ops"
+    },
+    {
+      "type": "how",
+      "title": "Every job in the company, done by an agent",
+      "steps": [
+        "Sales: rank conferences, draft JA/EN outreach: a person approves before sending",
+        "Ingest: read the program, find free time slots, pick the right experiences. LLM proposes, graph curates.",
+        "Operations: voice booking, Q&A chat, snow-disruption replanning",
+        "Security: every action logged with model, tokens, cost, confidence"
+      ],
+      "stack": [
+        "Claude Sonnet 5.5",
+        "OrcaRouter",
+        "Neo4j Aura",
+        "ElevenLabs",
+        "Neon Postgres",
+        "FastAPI",
+        "Astro"
+      ],
+      "body": "\n\nA typical company running this across Sapporo needs about **17 humans**.\n\n MiceMax runs the whole operation with **18 agents and 2 humans**."
+    },
+    {
+      "type": "metrics",
+      "auto": false,
+      "items": [
+        {
+          "value": "¥3.99M",
+          "label": "what Sapporo pays today: one +1-night program, by hand"
+        },
+        {
+          "value": "¥2–5M/yr",
+          "label": "to run MiceMax for every conference in a city"
+        },
+        {
+          "value": "¥170M",
+          "label": "estimated new local spend per year, Sapporo middle scenario"
+        },
+        {
+          "value": "17 → 2",
+          "label": "What took 17 humans earlier, now only needs 2"
+        }
+      ]
+    },
+    {
+      "type": "next",
+      "title": "Next: prove it with a real pilot",
+      "bullets": [
+        "One real Sapporo conference in 2027, free for the organizer",
+        "Offers shown to half the attendees, half don't. This measures impact",
+        "Then every Sapporo conference, then Hakodate, then Japan"
+      ],
+      "ask": "The first pilot conference and a city contact."
+    }
+  ]
+}

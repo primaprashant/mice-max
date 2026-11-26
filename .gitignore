@@ -7,3 +7,8 @@ dist/
 .superpowers/
 .claude/
 .astro/
+slides/*
+!slides/schema.json
+!slides/micemax.joininter.json
+!slides/README.md
+!slides/images/

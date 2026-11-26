@@ -1,0 +1,376 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hh-deck/1",
+  "title": "Hack Hokkaido demo deck (hh-deck/1)",
+  "description": "One JSON document per project. The portal renders it as slides in the Hack Hokkaido style and uses it on demo night.",
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "const": "hh-deck/1"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "tagline": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "lang": {
+      "default": "en",
+      "type": "string",
+      "enum": [
+        "en",
+        "ja"
+      ]
+    },
+    "slides": {
+      "minItems": 1,
+      "maxItems": 8,
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "title"
+              },
+              "title": {
+                "description": "Defaults to the project name.",
+                "type": "string",
+                "maxLength": 80
+              },
+              "subtitle": {
+                "description": "Defaults to the one-line pitch.",
+                "type": "string",
+                "maxLength": 160
+              },
+              "notes": {
+                "description": "Speaker notes. Shown only in presenter view.",
+                "type": "string",
+                "maxLength": 1000
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "problem"
+              },
+              "title": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "body": {
+                "type": "string",
+                "maxLength": 2000,
+                "description": "Markdown. Raw HTML is not rendered."
+              },
+              "stat": {
+                "description": "One big number.",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "maxLength": 12
+                  },
+                  "label": {
+                    "type": "string",
+                    "maxLength": 80
+                  }
+                },
+                "required": [
+                  "value",
+                  "label"
+                ],
+                "additionalProperties": false
+              },
+              "notes": {
+                "description": "Speaker notes. Shown only in presenter view.",
+                "type": "string",
+                "maxLength": 1000
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "demo"
+              },
+              "title": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "mode": {
+                "default": "live",
+                "description": "live = team shows it live; video = play the exported demo video.",
+                "type": "string",
+                "enum": [
+                  "live",
+                  "video"
+                ]
+              },
+              "url": {
+                "description": "Live demo URL, if any.",
+                "type": "string",
+                "maxLength": 500
+              },
+              "fallback": {
+                "default": "video",
+                "description": "If live fails, play the project video.",
+                "type": "string",
+                "enum": [
+                  "video",
+                  "none"
+                ]
+              },
+              "notes": {
+                "description": "Speaker notes. Shown only in presenter view.",
+                "type": "string",
+                "maxLength": 1000
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "how"
+              },
+              "title": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "steps": {
+                "maxItems": 6,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 120
+                }
+              },
+              "stack": {
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 40
+                }
+              },
+              "body": {
+                "type": "string",
+                "maxLength": 2000,
+                "description": "Markdown. Raw HTML is not rendered."
+              },
+              "notes": {
+                "description": "Speaker notes. Shown only in presenter view.",
+                "type": "string",
+                "maxLength": 1000
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "metrics"
+              },
+              "title": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "auto": {
+                "default": true,
+                "description": "Show numbers the portal measures (team, commits, demo length).",
+                "type": "boolean"
+              },
+              "items": {
+                "description": "Your own numbers.",
+                "maxItems": 4,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "maxLength": 12
+                    },
+                    "label": {
+                      "type": "string",
+                      "maxLength": 60
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "label"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "notes": {
+                "description": "Speaker notes. Shown only in presenter view.",
+                "type": "string",
+                "maxLength": 1000
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "image"
+              },
+              "src": {
+                "type": "string",
+                "maxLength": 500
+              },
+              "alt": {
+                "type": "string",
+                "maxLength": 160
+              },
+              "caption": {
+                "type": "string",
+                "maxLength": 160
+              },
+              "notes": {
+                "description": "Speaker notes. Shown only in presenter view.",
+                "type": "string",
+                "maxLength": 1000
+              }
+            },
+            "required": [
+              "type",
+              "src"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "quote"
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 280
+              },
+              "who": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "notes": {
+                "description": "Speaker notes. Shown only in presenter view.",
+                "type": "string",
+                "maxLength": 1000
+              }
+            },
+            "required": [
+              "type",
+              "text"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "next"
+              },
+              "title": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "bullets": {
+                "maxItems": 5,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 140
+                }
+              },
+              "ask": {
+                "description": "What you want from the room.",
+                "type": "string",
+                "maxLength": 200
+              },
+              "notes": {
+                "description": "Speaker notes. Shown only in presenter view.",
+                "type": "string",
+                "maxLength": 1000
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "md"
+              },
+              "title": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "body": {
+                "type": "string",
+                "maxLength": 2000,
+                "description": "Markdown. Raw HTML is not rendered."
+              },
+              "notes": {
+                "description": "Speaker notes. Shown only in presenter view.",
+                "type": "string",
+                "maxLength": 1000
+              }
+            },
+            "required": [
+              "type",
+              "body"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "format",
+    "slides"
+  ],
+  "additionalProperties": false
+}
