@@ -32,7 +32,8 @@ async function openPage() {
   await page.waitForFunction(() => window.ready !== undefined);
   await page.evaluate(() => window.ready);
   await page.evaluate(() => document.fonts.ready);
-  return async t => { await page.evaluate(t => window.renderAt(t), t); return page.screenshot({ type: 'png' }); };
+  // JPEG is ~10x faster to capture than PNG; quality 95 is visually lossless before x264.
+  return async (t, type = 'jpeg') => { await page.evaluate(t => window.renderAt(t), t); return page.screenshot(type === 'png' ? { type } : { type, quality: 95 }); };
 }
 
 // Render frames [i0, i1) to an MP4 file.
@@ -56,7 +57,7 @@ if (opt('stills')) {
   const shot = await openPage();
   for (const t of opt('stills').split(',').map(Number)) {
     const f = path.join(sd, `t${t.toFixed(2).padStart(5, '0')}.png`);
-    fs.writeFileSync(f, await shot(t));
+    fs.writeFileSync(f, await shot(t, 'png'));
     console.log(f);
   }
 } else {
