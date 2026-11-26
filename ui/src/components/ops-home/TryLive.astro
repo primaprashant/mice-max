@@ -1,0 +1,53 @@
+---
+/** Closing section: the live screens, then each conference's Ops log. */
+import { t, type Lang } from "../../i18n";
+import { opsConferenceIds, conferenceById } from "../../data";
+import { DEMO_CONF, deptColor } from "../../data/ops-home";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+
+const confs = opsConferenceIds()
+  .map((id) => conferenceById(id))
+  .filter((c) => c !== undefined);
+
+const cards = [
+  { href: "/ops/run", icon: "ph-link", key: "run", color: deptColor("setup") },
+  { href: "/ops/sales", icon: "ph-magnifying-glass", key: "sales", color: deptColor("growth") },
+  { href: `/ops/${DEMO_CONF}`, icon: "ph-snowflake", key: "disruption", color: deptColor("operations") },
+];
+---
+
+<section class="relative mx-auto w-full max-w-7xl px-6 pb-28 pt-8 lg:pb-36">
+  <h2 class="text-4xl font-semibold tracking-tight text-white lg:text-5xl">{t(lang, "opsHome.live.title")}</h2>
+
+  <div class="mt-12 grid gap-5 md:grid-cols-3">
+    {cards.map((c) => (
+      <a href={c.href} class="oh-glass oh-card group flex min-h-56 flex-col justify-between rounded-2xl p-7" style={`--c:${c.color}`}>
+        <i class={`ph ${c.icon} text-3xl`} style={`color:${c.color}`} aria-hidden="true"></i>
+        <span>
+          <span class="block text-2xl font-semibold tracking-tight text-white">{t(lang, `opsHome.live.${c.key}Title`)}</span>
+          <span class="mt-2 block text-base leading-relaxed text-slate-400">{t(lang, `opsHome.live.${c.key}Note`)}</span>
+          <i class="ph ph-arrow-right mt-5 inline-block text-xl text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-white" aria-hidden="true"></i>
+        </span>
+      </a>
+    ))}
+  </div>
+
+  <h3 class="mt-24 text-xl font-semibold text-white">{t(lang, "opsHome.live.confTitle")}</h3>
+  <p class="mt-2 text-sm text-slate-400">{t(lang, "opsHome.live.confNote")}</p>
+  <div class="mt-6 grid gap-3 md:grid-cols-2">
+    {confs.map((c) => (
+      <a
+        href={`/ops/${c.id}`}
+        class="oh-glass group flex min-h-11 items-center justify-between gap-3 rounded-xl px-5 py-4 transition-colors hover:border-white/20"
+      >
+        <span class="min-w-0">
+          <span class="block font-medium text-slate-100">{(lang === "ja" && c.name_ja) || c.name_en}</span>
+          <span class="font-mono text-xs tabular-nums text-slate-500">{c.start_date} – {c.end_date}</span>
+        </span>
+        <i class="ph ph-arrow-right text-slate-500 transition-transform group-hover:translate-x-0.5 group-hover:text-white" aria-hidden="true"></i>
+      </a>
+    ))}
+  </div>
+</section>

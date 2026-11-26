@@ -1,0 +1,39 @@
+{
+  "opsHome": {
+    "title": "MiceMax オペレーション",
+    "headerTitle": "MiceMaxの運営",
+    "headline": "AIエージェント{agents}体、人は{humans}人。",
+    "sub": "会議ごとの仕事は、サイトの読み込みから市への報告まで、AIエージェントが行います。人はその確認を担当します。",
+    "scrollHint": "ひとつの会議を追う",
+    "illustrative": "アニメーションはイメージです。数値はデータベースの実数です。",
+    "counters": {
+      "conferences": "読み込んだ会議",
+      "experiences": "確認した体験",
+      "events": "参加者の操作",
+      "eventsNote": "シミュレーション",
+      "agents": "AIエージェント",
+      "humans": "人"
+    },
+    "timeline": {
+      "title": "ひとつの会議：JADM32",
+      "intro": "札幌、2027年3月。主催者がリンクを貼ってから、市が成果を確認するまで。"
+    },
+    "live": {
+      "title": "試してみる",
+      "runTitle": "会議のリンクを貼る",
+      "runNote": "初めて見る会議を読み込み、計画を立てる様子を見られます。",
+      "salesTitle": "営業エージェント",
+      "salesNote": "これから開かれる会議を探し、最初のメールを書きます。",
+      "disruptionTitle": "大雪と電話予約",
+      "disruptionNote": "バスを止めて、予定の立て直しを見る。予約エージェントと話す。",
+      "confTitle": "会議ごとのログ",
+      "confNote": "エージェントが行ったすべての手順と、人に引き継いだ内容。"
+    },
+    "dept": {
+      "setup": "セットアップ",
+      "operations": "運営",
+      "growth": "営業",
+      "reporting": "報告"
+    }
+  }
+}
