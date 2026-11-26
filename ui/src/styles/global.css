@@ -32,6 +32,14 @@
   --color-banana: #b45309;
   --color-banana-soft: #fef3c7;
 
+  /* View-scrim tints: the header photo gradient takes one of these per
+     view tab, for visual distinction between attendees, organizers,
+     cities and operations. Dark enough to carry paper text at AA. */
+  --color-view-attendee: #1e293b; /* ink slate, the current look */
+  --color-view-organizer: #14532d; /* deep green */
+  --color-view-city: #7f1d1d; /* deep maroon */
+  --color-view-ops: #312e81; /* deep violet */
+
   /* Session-type tints for the day grid: light background of a hue with dark
      text of the same hue, same tint depth as banana-soft. */
   --color-session-oral: #dbeafe;

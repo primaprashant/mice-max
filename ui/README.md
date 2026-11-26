@@ -17,7 +17,7 @@ Astro 7 with Tailwind 4 and Phosphor icons, server-rendered (Netlify adapter). P
 │   ├── i18n/          # en.json and ja.json, read through src/i18n/index.ts
 │   ├── layouts/       # Base.astro: page shell, fonts, theme
 │   ├── pages/         # the screens, listed below
-│   ├── scripts/       # client islands: plan-store, layout, book-button, my-plans, day-tabs, lang-toggle, first-visit-banner, suggest-log, event-log, organizer-approve
+│   ├── scripts/       # client islands: plan-store, layout, book-button, my-plans, day-tabs, lang-toggle, first-visit-banner, suggest-log, event-log, organizer-approve, home-pagination, home-calendar
 │   └── styles/        # global.css: theme tokens
 └── package.json
 ```
@@ -26,7 +26,9 @@ Astro 7 with Tailwind 4 and Phosphor icons, server-rendered (Netlify adapter). P
 
 | Route | Screen |
 | :---- | :----- |
-| `/` | Login for all three views: role tabs (attendee default, organizer, city), name, dummy password; attendee consent line required, hidden for the other roles. Full-bleed Sapporo photo (random from `public/images/login`), language toggle. The tab picks the redirect |
+| `/` | Redirects to `/home` |
+| `/home` | Entry page: the photo band (role tabs: attendee default, organizer, city, operations) above a paginated conference list and a connpass-style month calendar. The calendar filters the list: arrows change the month, a day click narrows to that day, clicking it again returns to the month, and the two demo conferences always stay visible. Every card opens in the view picked in the band |
+| `/login` | Login for all three views: role tabs (attendee default, organizer, city), name, dummy password; attendee consent line required, hidden for the other roles. Full-bleed Sapporo photo (random from `public/images/login`), language toggle. The tab picks the redirect |
 | `/nav` | Screen index: links to the login page, both demo conferences and their experiences, and the Ops view |
 | `/c/:conference` | Attendee calendar: day tabs, one Google-Calendar-style grid per day (sessions tinted by type, free-time windows dashed), suggestion cards below the grid, extra-night banner, moment line (weather, computed sunset, city events), first-visit banner |
 | `/c/:conference/e/:experience` | Experience page: photos, price, travel time, stops for combos, tags, who is going (from the simulated log), book/join |
@@ -38,7 +40,7 @@ Astro 7 with Tailwind 4 and Phosphor icons, server-rendered (Netlify adapter). P
 
 ## What exists
 
-- `src/styles/global.css` holds the theme tokens: `theme` (single accent: buttons, links, focus), `banana` (MiceMax events marker), the `session-*` tints for the day grid's session types, and `paper`, `ink`, `ink-soft`. Use the tokens; no raw color values.
+- `src/styles/global.css` holds the theme tokens: `theme` (single accent: buttons, links, focus), `banana` (MiceMax events marker), the `session-*` tints for the day grid's session types, the `view-*` tints for each view tab's photo band (attendee slate, organizer green, city maroon, operations violet), and `paper`, `ink`, `ink-soft`. Use the tokens; no raw color values.
 - `src/i18n/` holds the language module. `t(lang, key)` reads a dotted key from `en.json` or `ja.json` and throws on a missing key, so a hardcoded string fails fast. English is the default; the docs require Japanese complete, not partial.
 - `src/data/index.ts` is the only place that reads data. It reads the committed SQLite master copy (`data/micemax.db`) when no Neon connection is set; the Neon swap replaces the bodies of these functions, not the screens.
 - `src/data/fit.ts` ports the simulator's `fits` rule (data/scripts/simulate.py), so the UI's suggestions match the graph's FITS edges.
