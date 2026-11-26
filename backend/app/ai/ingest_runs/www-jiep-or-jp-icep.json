@@ -1,0 +1,4785 @@
+{
+ "1": {
+  "ctx": {
+   "name_en": "ICEP 2027",
+   "name_ja": null,
+   "start_date": "2027-05-12",
+   "end_date": "2027-05-15",
+   "venue_en": "Grand Mercure Sapporo Odori Park",
+   "venue_ja": null,
+   "city": "Sapporo",
+   "field": "Electronics packaging (advanced packaging and heterogeneous integration)",
+   "attendees_expected": 1200,
+   "pages": [
+    "https://www.jiep.or.jp/icep/"
+   ]
+  },
+  "title_en": "Read the conference site",
+  "title_ja": "大会サイトを読む",
+  "summary_en": "ICEP 2027: 2027-05-12 to 2027-05-15, Grand Mercure Sapporo Odori Park.",
+  "summary_ja": "ICEP 2027：2027-05-12〜2027-05-15、Grand Mercure Sapporo Odori Park。",
+  "counters": [
+   {
+    "value": 1,
+    "en": "pages read",
+    "ja": "ページを読んだ"
+   },
+   {
+    "value": 2613,
+    "en": "characters",
+    "ja": "文字"
+   }
+  ],
+  "preview": {
+   "facts": {
+    "name_en": "ICEP 2027",
+    "name_ja": null,
+    "start_date": "2027-05-12",
+    "end_date": "2027-05-15",
+    "venue_en": "Grand Mercure Sapporo Odori Park",
+    "venue_ja": null,
+    "field": "Electronics packaging (advanced packaging and heterogeneous integration)",
+    "attendees_expected": 1200
+   },
+   "pages": [
+    "https://www.jiep.or.jp/icep/"
+   ],
+   "linkup": false
+  },
+  "confidence": null,
+  "n": 1,
+  "key": "read",
+  "agent": "reader",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 1871,
+  "tokens_in": 1169,
+  "tokens_out": 129
+ },
+ "2": {
+  "ctx": {
+   "sessions": [
+    {
+     "day": "2027-05-12",
+     "start_time": "09:00",
+     "end_time": "10:40",
+     "title_en": "INEMI Session",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "09:00",
+     "end_time": "10:40",
+     "title_en": "Fan-Out Packaging-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "09:00",
+     "end_time": "10:40",
+     "title_en": "HB Process",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "09:00",
+     "end_time": "10:40",
+     "title_en": "Materials-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "09:00",
+     "end_time": "10:40",
+     "title_en": "Emerging Technologies-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "09:00",
+     "end_time": "17:30",
+     "title_en": "Sponsors' Exhibition",
+     "title_ja": null,
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "10:55",
+     "end_time": "12:35",
+     "title_en": "MEF (MEMS Engineer Forum) Session",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "10:55",
+     "end_time": "12:35",
+     "title_en": "IMAPS Session",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "10:55",
+     "end_time": "12:35",
+     "title_en": "Fan-Out Packaging-2",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "10:55",
+     "end_time": "12:35",
+     "title_en": "Solder/Intermetallic Connect",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "10:55",
+     "end_time": "12:35",
+     "title_en": "Materials-2",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "10:55",
+     "end_time": "12:35",
+     "title_en": "Emerging Technologies-2",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "12:55",
+     "end_time": "13:25",
+     "title_en": "Luncheon Talk: The Origins of Silicon Valley: Lessons for Tech Hubs (Paul Wesling)",
+     "title_ja": null,
+     "type": "plenary",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "13:35",
+     "end_time": "14:50",
+     "title_en": "Poster Session 1",
+     "title_ja": null,
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "15:00",
+     "end_time": "15:30",
+     "title_en": "Opening and Award Ceremony",
+     "title_ja": null,
+     "type": "plenary",
+     "must": true
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "15:40",
+     "end_time": "16:40",
+     "title_en": "Keynote I: Chip-Package Interaction on High Bandwidth Memory (Naoki Yokoi, Micron Memory Japan)",
+     "title_ja": null,
+     "type": "plenary",
+     "must": true
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "16:40",
+     "end_time": "17:25",
+     "title_en": "Keynote II: Enabling AI compute hardware through Silicon Photonics and advanced 3D assembly technologies (Peter Ossieur, imec)",
+     "title_ja": null,
+     "type": "plenary",
+     "must": true
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "17:25",
+     "end_time": "17:30",
+     "title_en": "Introduction to ICEP 2027 (next edition)",
+     "title_ja": null,
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "18:00",
+     "end_time": "20:00",
+     "title_en": "Welcome Reception",
+     "title_ja": null,
+     "type": "social",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "08:30",
+     "end_time": "09:15",
+     "title_en": "Keynote III: Advanced Thinning and Cutting Technologies Enabling AI-Oriented Heterogeneous Integration (Youngsuk Kim, DISCO)",
+     "title_ja": null,
+     "type": "plenary",
+     "must": true
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "08:30",
+     "end_time": "18:45",
+     "title_en": "Sponsors' Exhibition",
+     "title_ja": null,
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "09:30",
+     "end_time": "11:10",
+     "title_en": "Glass PKG-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "09:30",
+     "end_time": "11:10",
+     "title_en": "ISMP-1",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "09:30",
+     "end_time": "11:10",
+     "title_en": "Ceramic Solution",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "09:30",
+     "end_time": "11:10",
+     "title_en": "Cu-Cu Bonding",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "09:30",
+     "end_time": "11:10",
+     "title_en": "Materials-3",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "09:30",
+     "end_time": "11:10",
+     "title_en": "Thermal Management-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "11:25",
+     "end_time": "13:05",
+     "title_en": "Glass PKG-2",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "11:25",
+     "end_time": "13:05",
+     "title_en": "ISMP-2",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "11:25",
+     "end_time": "13:05",
+     "title_en": "Direct Bonding",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "11:25",
+     "end_time": "13:05",
+     "title_en": "Interconnection",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "11:25",
+     "end_time": "13:05",
+     "title_en": "Materials-4",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "11:25",
+     "end_time": "13:05",
+     "title_en": "Thermal Management-2",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "13:55",
+     "end_time": "15:35",
+     "title_en": "HIR",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "13:55",
+     "end_time": "15:35",
+     "title_en": "SMTA",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "13:55",
+     "end_time": "15:35",
+     "title_en": "Process Development-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "13:55",
+     "end_time": "15:35",
+     "title_en": "DMR-E",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "13:55",
+     "end_time": "15:35",
+     "title_en": "Materials-5",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "13:55",
+     "end_time": "15:35",
+     "title_en": "Thermal Management-3",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "15:50",
+     "end_time": "17:30",
+     "title_en": "PLP",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "15:50",
+     "end_time": "17:30",
+     "title_en": "Setouchi",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "15:50",
+     "end_time": "17:30",
+     "title_en": "Process Development-2",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "15:50",
+     "end_time": "17:30",
+     "title_en": "Mech Simulation-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "15:50",
+     "end_time": "17:30",
+     "title_en": "Materials-6",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "15:50",
+     "end_time": "17:30",
+     "title_en": "Thermal Management-4",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "17:30",
+     "end_time": "18:45",
+     "title_en": "Poster Session 2",
+     "title_ja": null,
+     "type": "poster",
+     "must": false
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "19:00",
+     "end_time": "21:00",
+     "title_en": "Sponsors' Exhibition Party",
+     "title_ja": null,
+     "type": "social",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "09:00",
+     "end_time": "09:45",
+     "title_en": "Keynote IV: The Future of Computing (Norishige Morimoto, IBM Japan)",
+     "title_ja": null,
+     "type": "plenary",
+     "must": true
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "09:00",
+     "end_time": "18:00",
+     "title_en": "Sponsors' Exhibition",
+     "title_ja": null,
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "10:00",
+     "end_time": "11:40",
+     "title_en": "IMPACT",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "10:00",
+     "end_time": "11:40",
+     "title_en": "Printed Electronics",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "10:00",
+     "end_time": "11:40",
+     "title_en": "Hybrid Bonding-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "10:00",
+     "end_time": "11:40",
+     "title_en": "Mech Simulation-2",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "10:00",
+     "end_time": "11:40",
+     "title_en": "High-Speed, Wireless & Components",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "10:00",
+     "end_time": "11:40",
+     "title_en": "Power Electronics-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "12:30",
+     "end_time": "14:10",
+     "title_en": "Glass PKG-3",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "12:30",
+     "end_time": "14:10",
+     "title_en": "ICEPT",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "12:30",
+     "end_time": "14:10",
+     "title_en": "Hybrid Bonding-2",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "12:30",
+     "end_time": "14:10",
+     "title_en": "Reliability-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "12:30",
+     "end_time": "14:10",
+     "title_en": "Material Processing",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "12:30",
+     "end_time": "14:10",
+     "title_en": "Power Electronics-2",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "14:25",
+     "end_time": "16:05",
+     "title_en": "Glass PKG-4",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "14:25",
+     "end_time": "16:05",
+     "title_en": "Co-packaged Optics",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "14:25",
+     "end_time": "16:05",
+     "title_en": "Hybrid Bonding-3",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "14:25",
+     "end_time": "16:05",
+     "title_en": "Reliability-2",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "14:25",
+     "end_time": "16:05",
+     "title_en": "Measurement Method",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "14:25",
+     "end_time": "16:05",
+     "title_en": "Power Electronics-3",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "16:20",
+     "end_time": "18:00",
+     "title_en": "Optoelectronics",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "16:20",
+     "end_time": "18:00",
+     "title_en": "TSV",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "16:20",
+     "end_time": "18:00",
+     "title_en": "Reliability-3",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-15",
+     "start_time": "09:00",
+     "end_time": "15:00",
+     "title_en": "Excursion (destination not yet published)",
+     "title_ja": "エクスカーション（行き先は未発表）",
+     "type": "excursion",
+     "must": false
+    }
+   ],
+   "note": "The published text has only navigation, dates and news, with no session titles or times, so no sessions could be extracted."
+  },
+  "title_en": "Extract the schedule",
+  "title_ja": "プログラムを取り出す",
+  "summary_en": "71 sessions over 4 days. The site lists 0; using the stored program (last edition moved to the new dates). The published text has only navigation, dates and news, with no session titles or times, so no sessions could be extracted.",
+  "summary_ja": "4日間で71セッション。サイト掲載は0件のため、保存済みプログラム（前回大会を新しい日付に移したもの）を使用。",
+  "counters": [
+   {
+    "value": 71,
+    "en": "sessions",
+    "ja": "セッション"
+   },
+   {
+    "value": 4,
+    "en": "days",
+    "ja": "日"
+   }
+  ],
+  "preview": {
+   "sessions": [
+    {
+     "day": "2027-05-12",
+     "start_time": "09:00",
+     "end_time": "10:40",
+     "title_en": "INEMI Session",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "09:00",
+     "end_time": "10:40",
+     "title_en": "Fan-Out Packaging-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "09:00",
+     "end_time": "10:40",
+     "title_en": "HB Process",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "09:00",
+     "end_time": "10:40",
+     "title_en": "Materials-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "09:00",
+     "end_time": "10:40",
+     "title_en": "Emerging Technologies-1",
+     "title_ja": null,
+     "type": "oral",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "09:00",
+     "end_time": "17:30",
+     "title_en": "Sponsors' Exhibition",
+     "title_ja": null,
+     "type": "other",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "10:55",
+     "end_time": "12:35",
+     "title_en": "MEF (MEMS Engineer Forum) Session",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "10:55",
+     "end_time": "12:35",
+     "title_en": "IMAPS Session",
+     "title_ja": null,
+     "type": "symposium",
+     "must": false
+    }
+   ],
+   "note": "The published text has only navigation, dates and news, with no session titles or times, so no sessions could be extracted.",
+   "source": "stored",
+   "on_site": 0
+  },
+  "confidence": null,
+  "n": 2,
+  "key": "schedule",
+  "agent": "scheduler",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 2040,
+  "tokens_in": 1285,
+  "tokens_out": 48
+ },
+ "3": {
+  "ctx": {
+   "must": [
+    14,
+    15,
+    16,
+    19,
+    47
+   ]
+  },
+  "title_en": "Sort the sessions",
+  "title_ja": "セッションを分類",
+  "summary_en": "5 must-attend, 66 skippable. Must-attend sessions are the Opening and Award Ceremony (14) and the four keynotes (15, 16, 19, 47), which are plenary sessions relevant to nearly all attendees. The luncheon talk (12) is a plausible optional addition but is more of a general-interest talk, so I left it out. Parallel orals, symposia, posters, the exhibition, social events and the excursion are skippable or depend on individual interest.",
+  "summary_ja": "必須5件、抜けられる66件。必須としたのは、ほぼ全参加者に関係する全体セッションである開会式・授賞式(14)と4件の基調講演(15, 16, 19, 47)です。ランチョントーク(12)は追加候補になり得ますが、一般的な話題のため除外しました。並列の口頭発表、シンポジウム、ポスター、展示、懇親会、エクスカーションは個人の関心次第で省略可能です。",
+  "counters": [
+   {
+    "value": 5,
+    "en": "must-attend",
+    "ja": "必須"
+   },
+   {
+    "value": 66,
+    "en": "skippable",
+    "ja": "抜けられる"
+   }
+  ],
+  "preview": {
+   "must": [
+    "Opening and Award Ceremony",
+    "Keynote I: Chip-Package Interaction on High Bandwidth Memory (Naoki Yokoi, Micron Memory Japan)",
+    "Keynote II: Enabling AI compute hardware through Silicon Photonics and advanced 3D assembly technologies (Peter Ossieur, imec)",
+    "Keynote III: Advanced Thinning and Cutting Technologies Enabling AI-Oriented Heterogeneous Integration (Youngsuk Kim, DISCO)",
+    "Keynote IV: The Future of Computing (Norishige Morimoto, IBM Japan)"
+   ],
+   "why_en": "Must-attend sessions are the Opening and Award Ceremony (14) and the four keynotes (15, 16, 19, 47), which are plenary sessions relevant to nearly all attendees. The luncheon talk (12) is a plausible optional addition but is more of a general-interest talk, so I left it out. Parallel orals, symposia, posters, the exhibition, social events and the excursion are skippable or depend on individual interest.",
+   "why_ja": "必須としたのは、ほぼ全参加者に関係する全体セッションである開会式・授賞式(14)と4件の基調講演(15, 16, 19, 47)です。ランチョントーク(12)は追加候補になり得ますが、一般的な話題のため除外しました。並列の口頭発表、シンポジウム、ポスター、展示、懇親会、エクスカーションは個人の関心次第で省略可能です。"
+  },
+  "confidence": 0.8,
+  "n": 3,
+  "key": "sort",
+  "agent": "sorter",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 3892,
+  "tokens_in": 2377,
+  "tokens_out": 325
+ },
+ "4": {
+  "ctx": {
+   "windows": [
+    {
+     "day": "2027-05-12",
+     "start_time": "06:30",
+     "end_time": "08:30",
+     "kind": "early_morning",
+     "plan_kinds": [
+      "short"
+     ],
+     "id": "w1",
+     "name_en": "Early morning, May 12",
+     "name_ja": "5/12 早朝",
+     "confidence": 0.95,
+     "reason_en": "No sessions before the luncheon talk, so attendees are free."
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "20:30",
+     "end_time": "23:00",
+     "kind": "evening",
+     "plan_kinds": [
+      "evening"
+     ],
+     "id": "w2",
+     "name_en": "Evening after reception, May 12",
+     "name_ja": "5/12 夜(レセプション後)",
+     "confidence": 0.93,
+     "reason_en": "The Welcome Reception ends at 20:00, before this window starts."
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "06:30",
+     "end_time": "08:00",
+     "kind": "early_morning",
+     "plan_kinds": [
+      "short"
+     ],
+     "id": "w3",
+     "name_en": "Early morning, May 13",
+     "name_ja": "5/13 早朝",
+     "confidence": 0.92,
+     "reason_en": "Window ends 08:00, before Keynote III at 08:30."
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "21:30",
+     "end_time": "23:00",
+     "kind": "evening",
+     "plan_kinds": [
+      "evening"
+     ],
+     "id": "w4",
+     "name_en": "Late evening, May 13",
+     "name_ja": "5/13 夜遅く",
+     "confidence": 0.93,
+     "reason_en": "The Sponsors' Exhibition Party ends at 21:00, before this window starts."
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "06:30",
+     "end_time": "08:30",
+     "kind": "early_morning",
+     "plan_kinds": [
+      "short"
+     ],
+     "id": "w5",
+     "name_en": "Early morning, May 14",
+     "name_ja": "5/14 早朝",
+     "confidence": 0.92,
+     "reason_en": "Window ends 08:30, before Keynote IV at 09:00."
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "18:30",
+     "end_time": "23:00",
+     "kind": "evening",
+     "plan_kinds": [
+      "evening"
+     ],
+     "id": "w6",
+     "name_en": "Evening, May 14",
+     "name_ja": "5/14 夜",
+     "confidence": 0.95,
+     "reason_en": "No events are scheduled in the evening."
+    },
+    {
+     "day": "2027-05-15",
+     "start_time": "06:30",
+     "end_time": "08:30",
+     "kind": "early_morning",
+     "plan_kinds": [
+      "short"
+     ],
+     "id": "w7",
+     "name_en": "Early morning, May 15",
+     "name_ja": "5/15 早朝",
+     "confidence": 0.9,
+     "reason_en": "Window ends 08:30, before the excursion starts at 09:00."
+    },
+    {
+     "day": "2027-05-15",
+     "start_time": "18:00",
+     "end_time": "22:00",
+     "kind": "after_close",
+     "plan_kinds": [
+      "short",
+      "evening",
+      "specialist"
+     ],
+     "id": "w8",
+     "name_en": "Evening after close, May 15",
+     "name_ja": "5/15 夜(閉会後)",
+     "confidence": 0.92,
+     "reason_en": "The excursion ends at 15:00, so the evening is free."
+    },
+    {
+     "day": "2027-05-15",
+     "start_time": "10:00",
+     "end_time": "23:59",
+     "kind": "extra_night",
+     "plan_kinds": [
+      "extra_night"
+     ],
+     "id": "w9",
+     "name_en": "Extra night, May 15",
+     "name_ja": "5/15 延泊",
+     "confidence": 0.6,
+     "reason_en": "The excursion covers only 10:00-15:00 of this window, so the rest of the afternoon and evening is free."
+    }
+   ]
+  },
+  "title_en": "Find free time",
+  "title_ja": "空き時間を見つける",
+  "summary_en": "Rules found 9 windows; the check kept 9.",
+  "summary_ja": "ルールで9枠、確認後9枠。",
+  "counters": [
+   {
+    "value": 9,
+    "en": "windows",
+    "ja": "空き時間"
+   },
+   {
+    "value": 0,
+    "en": "dropped by check",
+    "ja": "確認で除外"
+   }
+  ],
+  "preview": {
+   "windows": [
+    {
+     "day": "2027-05-12",
+     "start_time": "06:30",
+     "end_time": "08:30",
+     "kind": "early_morning",
+     "name_en": "Early morning, May 12",
+     "name_ja": "5/12 早朝",
+     "confidence": 0.95,
+     "reason_en": "No sessions before the luncheon talk, so attendees are free."
+    },
+    {
+     "day": "2027-05-12",
+     "start_time": "20:30",
+     "end_time": "23:00",
+     "kind": "evening",
+     "name_en": "Evening after reception, May 12",
+     "name_ja": "5/12 夜(レセプション後)",
+     "confidence": 0.93,
+     "reason_en": "The Welcome Reception ends at 20:00, before this window starts."
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "06:30",
+     "end_time": "08:00",
+     "kind": "early_morning",
+     "name_en": "Early morning, May 13",
+     "name_ja": "5/13 早朝",
+     "confidence": 0.92,
+     "reason_en": "Window ends 08:00, before Keynote III at 08:30."
+    },
+    {
+     "day": "2027-05-13",
+     "start_time": "21:30",
+     "end_time": "23:00",
+     "kind": "evening",
+     "name_en": "Late evening, May 13",
+     "name_ja": "5/13 夜遅く",
+     "confidence": 0.93,
+     "reason_en": "The Sponsors' Exhibition Party ends at 21:00, before this window starts."
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "06:30",
+     "end_time": "08:30",
+     "kind": "early_morning",
+     "name_en": "Early morning, May 14",
+     "name_ja": "5/14 早朝",
+     "confidence": 0.92,
+     "reason_en": "Window ends 08:30, before Keynote IV at 09:00."
+    },
+    {
+     "day": "2027-05-14",
+     "start_time": "18:30",
+     "end_time": "23:00",
+     "kind": "evening",
+     "name_en": "Evening, May 14",
+     "name_ja": "5/14 夜",
+     "confidence": 0.95,
+     "reason_en": "No events are scheduled in the evening."
+    },
+    {
+     "day": "2027-05-15",
+     "start_time": "06:30",
+     "end_time": "08:30",
+     "kind": "early_morning",
+     "name_en": "Early morning, May 15",
+     "name_ja": "5/15 早朝",
+     "confidence": 0.9,
+     "reason_en": "Window ends 08:30, before the excursion starts at 09:00."
+    },
+    {
+     "day": "2027-05-15",
+     "start_time": "18:00",
+     "end_time": "22:00",
+     "kind": "after_close",
+     "name_en": "Evening after close, May 15",
+     "name_ja": "5/15 夜(閉会後)",
+     "confidence": 0.92,
+     "reason_en": "The excursion ends at 15:00, so the evening is free."
+    },
+    {
+     "day": "2027-05-15",
+     "start_time": "10:00",
+     "end_time": "23:59",
+     "kind": "extra_night",
+     "name_en": "Extra night, May 15",
+     "name_ja": "5/15 延泊",
+     "confidence": 0.6,
+     "reason_en": "The excursion covers only 10:00-15:00 of this window, so the rest of the afternoon and evening is free."
+    }
+   ],
+   "dropped": []
+  },
+  "confidence": 0.89,
+  "n": 4,
+  "key": "free_time",
+  "agent": "scheduler",
+  "tool": "rules",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 9251,
+  "tokens_in": 793,
+  "tokens_out": 1276
+ },
+ "5": {
+  "ctx": {
+   "fields": [
+    "electronics_packaging",
+    "semiconductors",
+    "materials",
+    "engineering"
+   ],
+   "interests": [
+    "food",
+    "culture",
+    "drinks",
+    "shopping"
+   ]
+  },
+  "title_en": "Estimate the audience",
+  "title_ja": "参加者像を推定",
+  "summary_en": "ICEP 2027 is expected to draw mainly industry engineers and some academic researchers and students working on advanced packaging, heterogeneous integration, semiconductors and materials, with a notable minority of overseas attendees.",
+  "summary_ja": "ICEP 2027は、先端パッケージングや異種集積、半導体、材料に携わる企業の技術者が中心で、研究者や学生も参加し、海外からの参加者も一定数見込まれる会議です。",
+  "counters": [
+   {
+    "value": 4,
+    "en": "matching fields",
+    "ja": "分野タグ"
+   },
+   {
+    "value": "30%",
+    "en": "from overseas (estimate)",
+    "ja": "海外から（推定）"
+   }
+  ],
+  "preview": {
+   "fields": [
+    "electronics_packaging",
+    "semiconductors",
+    "materials",
+    "engineering"
+   ],
+   "roles": {
+    "academic_researcher": 0.25,
+    "industry_engineer": 0.62,
+    "student": 0.13,
+    "clinician": 0.0
+   },
+   "interests": [
+    "food",
+    "culture",
+    "drinks",
+    "shopping"
+   ]
+  },
+  "confidence": 0.6,
+  "n": 5,
+  "key": "audience",
+  "agent": "audience",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 3671,
+  "tokens_in": 341,
+  "tokens_out": 277
+ },
+ "6": {
+  "ctx": {
+   "windows": [
+    {
+     "window": "w1",
+     "name_en": "Early morning, May 12",
+     "name_ja": "5/12 早朝",
+     "day": "2027-05-12",
+     "start": "06:30",
+     "end": "08:30",
+     "fits": [
+      {
+       "id": "combo-run-and-seafood-breakfast",
+       "kind": "short",
+       "title_en": "Morning run and a seafood bowl breakfast",
+       "title_ja": "朝ランと二条市場の海鮮丼"
+      },
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-kita-no-gurume-tei",
+       "kind": "short",
+       "title_en": "Kita no Gurume-tei seafood bowls",
+       "title_ja": "北のグルメ亭"
+      },
+      {
+       "id": "short-morning-run-hokkaido-university",
+       "kind": "short",
+       "title_en": "Morning run at Hokkaido University",
+       "title_ja": "北大キャンパス 朝ラン"
+      },
+      {
+       "id": "short-morning-run-nakajima-park",
+       "kind": "short",
+       "title_en": "Nakajima Park and river run, about 5 km",
+       "title_ja": "中島公園と豊平川の朝ラン"
+      },
+      {
+       "id": "short-morning-run-odori-park",
+       "kind": "short",
+       "title_en": "Morning run in Odori Park",
+       "title_ja": "大通公園 朝ラン"
+      },
+      {
+       "id": "short-morning-run-shiroishi-kokoro",
+       "kind": "short",
+       "title_en": "Morning run on Shiroishi Kokoro-do path",
+       "title_ja": "白石こころーど 朝ラン"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "kind": "short",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-hot-spring-and-beer-museum",
+       "title_en": "Hot spring and Sapporo Beer Museum",
+       "title_ja": "苗穂で温泉とビール博物館",
+       "reason": "too_long",
+       "why_en": "needs 204 min with travel, window has 120",
+       "why_ja": "往復込みで204分必要、空きは120分"
+      },
+      {
+       "id": "combo-soup-curry-and-clock-tower",
+       "title_en": "Soup curry lunch and the Clock Tower",
+       "title_ja": "スープカレーと時計台",
+       "reason": "too_long",
+       "why_en": "needs 121 min with travel, window has 120",
+       "why_ja": "往復込みで121分必要、空きは120分"
+      },
+      {
+       "id": "combo-specialty-coffee-walk",
+       "title_en": "Sapporo specialty coffee walk",
+       "title_ja": "札幌のコーヒー店3軒",
+       "reason": "too_long",
+       "why_en": "needs 168 min with travel, window has 120",
+       "why_ja": "往復込みで168分必要、空きは120分"
+      },
+      {
+       "id": "short-authentic-sapporo-nijo-market",
+       "title_en": "Nijo Market seafood lunch walk",
+       "title_ja": "二条市場 海鮮ランチ散歩",
+       "reason": "too_long",
+       "why_en": "needs 188 min with travel, window has 120",
+       "why_ja": "往復込みで188分必要、空きは120分"
+      },
+      {
+       "id": "short-chitosetsuru-sake-museum",
+       "title_en": "Chitosetsuru Sake Museum",
+       "title_ja": "千歳鶴 酒ミュージアム",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:30",
+       "why_ja": "開始が10:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-historical-village-of-hokkaido",
+       "title_en": "Historical Village of Hokkaido",
+       "title_ja": "北海道開拓の村",
+       "reason": "too_long",
+       "why_en": "needs 232 min with travel, window has 120",
+       "why_ja": "往復込みで232分必要、空きは120分"
+      },
+      {
+       "id": "short-hitsujigaoka-observation-hill",
+       "title_en": "Hitsujigaoka Observation Hill",
+       "title_ja": "さっぽろ羊ヶ丘展望台",
+       "reason": "too_long",
+       "why_en": "needs 124 min with travel, window has 120",
+       "why_ja": "往復込みで124分必要、空きは120分"
+      },
+      {
+       "id": "short-hokkaido-university-museum",
+       "title_en": "Hokkaido University Museum",
+       "title_ja": "北海道大学総合博物館",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:30",
+       "why_ja": "開始が10:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-jr-tower-observatory-t38",
+       "title_en": "JR Tower Observatory T38",
+       "title_ja": "JRタワー展望室 T38",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:30",
+       "why_ja": "開始が10:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-kuranoyu-hot-spring-naebo",
+       "title_en": "Kuranoyu hot spring by Naebo Station",
+       "title_ja": "苗穂駅前温泉 蔵ノ湯",
+       "reason": "too_long",
+       "why_en": "needs 132 min with travel, window has 120",
+       "why_ja": "往復込みで132分必要、空きは120分"
+      },
+      {
+       "id": "short-marumi-coffee-odori-main",
+       "title_en": "Marumi Coffee Odori main store",
+       "title_ja": "丸美珈琲店 大通本店",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:30",
+       "why_ja": "開始が09:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-mituki-sakura-tea-ceremony",
+       "title_en": "Mituki Sakura tea ceremony trial",
+       "title_ja": "美月桜 茶道体験",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:00, so not back by 08:30",
+       "why_ja": "開始が11:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-morihico-main-store",
+       "title_en": "Morihico main store",
+       "title_ja": "森彦 本店",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:30",
+       "why_ja": "開始が09:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-new-chitose-airport-observation",
+       "title_en": "New Chitose Airport Observation Deck",
+       "title_ja": "新千歳空港 展望デッキ",
+       "reason": "too_long",
+       "why_en": "needs 230 min with travel, window has 120",
+       "why_ja": "往復込みで230分必要、空きは120分"
+      },
+      {
+       "id": "short-okurayama-ski-jump-observatory",
+       "title_en": "Okurayama ski jump and Olympic Museum",
+       "title_ja": "大倉山ジャンプ台と展望台",
+       "reason": "too_long",
+       "why_en": "needs 138 min with travel, window has 120",
+       "why_ja": "往復込みで138分必要、空きは120分"
+      },
+      {
+       "id": "short-sapporo-ainu-culture-promotion",
+       "title_en": "Sapporo Ainu Culture Promotion Center",
+       "title_ja": "札幌市アイヌ文化交流センター",
+       "reason": "too_long",
+       "why_en": "needs 178 min with travel, window has 120",
+       "why_ja": "往復込みで178分必要、空きは120分"
+      },
+      {
+       "id": "short-sapporo-beer-museum-guided",
+       "title_en": "Sapporo Beer Museum tour and tasting",
+       "title_ja": "サッポロビール博物館",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:00, so not back by 08:30",
+       "why_ja": "開始が11:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-sapporo-clock-tower",
+       "title_en": "Sapporo Clock Tower",
+       "title_ja": "札幌市時計台",
+       "reason": "ends_late",
+       "why_en": "can't start before 08:45, so not back by 08:30",
+       "why_ja": "開始が08:45になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-sapporo-maruyama-zoo",
+       "title_en": "Sapporo Maruyama Zoo",
+       "title_ja": "札幌市円山動物園",
+       "reason": "too_long",
+       "why_en": "needs 192 min with travel, window has 120",
+       "why_ja": "往復込みで192分必要、空きは120分"
+      },
+      {
+       "id": "short-sapporo-moiwa-ski-area",
+       "title_en": "Moiwa ski area night skiing",
+       "title_ja": "藻岩山スキー場 ナイター",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-sapporo-mt-moiwa-ropeway",
+       "title_en": "Sapporo Mt. Moiwa Ropeway",
+       "title_ja": "札幌もいわ山ロープウェイ",
+       "reason": "too_long",
+       "why_en": "needs 134 min with travel, window has 120",
+       "why_ja": "往復込みで134分必要、空きは120分"
+      },
+      {
+       "id": "short-sapporo-tv-tower",
+       "title_en": "Sapporo TV Tower",
+       "title_ja": "さっぽろテレビ塔",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:30",
+       "why_ja": "開始が09:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-sapporo-walking-tour-h",
+       "title_en": "Sapporo walking tour in English",
+       "title_ja": "札幌ウォーキングツアー（英語）",
+       "reason": "too_long",
+       "why_en": "needs 218 min with travel, window has 120",
+       "why_ja": "往復込みで218分必要、空きは120分"
+      },
+      {
+       "id": "short-shiroi-koibito-park",
+       "title_en": "Shiroi Koibito Park",
+       "title_ja": "白い恋人パーク",
+       "reason": "too_long",
+       "why_en": "needs 146 min with travel, window has 120",
+       "why_ja": "往復込みで146分必要、空きは120分"
+      },
+      {
+       "id": "short-snowshoe-trek-in-asahiyama",
+       "title_en": "Asahiyama snowshoe trek, hotel pickup",
+       "title_ja": "旭山記念公園 スノーシュー",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-soup-curry-king-central",
+       "title_en": "Soup Curry King Central",
+       "title_ja": "SOUP CURRY KING",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:30, so not back by 08:30",
+       "why_ja": "開始が11:30になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-susukino-natural-hot-spring",
+       "title_en": "Tokakyo hot spring in Susukino",
+       "title_ja": "すすきの天然温泉 湯香郷",
+       "reason": "too_long",
+       "why_en": "needs 126 min with travel, window has 120",
+       "why_ja": "往復込みで126分必要、空きは120分"
+      },
+      {
+       "id": "short-takino-snow-world-takino",
+       "title_en": "Takino Snow World",
+       "title_ja": "滝野スノーワールド",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-tokumitsu-coffee-odori",
+       "title_en": "Tokumitsu Coffee Odori",
+       "title_ja": "徳光珈琲 大通店",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:30",
+       "why_ja": "開始が10:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-upopoy-national-ainu-museum",
+       "title_en": "Upopoy National Ainu Museum and Park",
+       "title_ja": "ウポポイ アイヌ民族博物館",
+       "reason": "too_long",
+       "why_en": "needs 428 min with travel, window has 120",
+       "why_ja": "往復込みで428分必要、空きは120分"
+      }
+     ]
+    },
+    {
+     "window": "w2",
+     "name_en": "Evening after reception, May 12",
+     "name_ja": "5/12 夜(レセプション後)",
+     "day": "2027-05-12",
+     "start": "20:30",
+     "end": "23:00",
+     "fits": [
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "eve-1868ffb1",
+       "kind": "evening",
+       "title_en": "Sapporo Yakiniku Hishimaru",
+       "title_ja": "札幌焼肉 ひし丸"
+      },
+      {
+       "id": "eve-238d9c01",
+       "kind": "evening",
+       "title_en": "Kamoshiya Honten izakaya",
+       "title_ja": "カモシヤ ホンテン"
+      },
+      {
+       "id": "eve-3373d943",
+       "kind": "evening",
+       "title_en": "Chitosetsuru Kissyo izakaya",
+       "title_ja": "蔵元直営 千歳鶴 吉翔"
+      },
+      {
+       "id": "eve-ef3aefe1",
+       "kind": "evening",
+       "title_en": "Lamb-O jingisukan, Susukino",
+       "title_ja": "ジンギスカン ラム王"
+      },
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      },
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      },
+      {
+       "id": "eve-yoru-parfait-mua",
+       "kind": "evening",
+       "title_en": "Yoru Parfait MUA late-night parfaits",
+       "title_ja": "夜パフェ MUA"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ",
+       "reason": "too_long",
+       "why_en": "needs 204 min with travel, window has 150",
+       "why_ja": "往復込みで204分必要、空きは150分"
+      },
+      {
+       "id": "combo-moiwa-night-view-and-miso-ramen",
+       "title_en": "Mt Moiwa night view and miso ramen",
+       "title_ja": "藻岩山の夜景と味噌ラーメン",
+       "reason": "too_long",
+       "why_en": "needs 199 min with travel, window has 150",
+       "why_ja": "往復込みで199分必要、空きは150分"
+      },
+      {
+       "id": "combo-sake-brewery-and-izakaya",
+       "title_en": "Sake brewery tasting, then its izakaya",
+       "title_ja": "酒蔵の試飲と蔵元の居酒屋",
+       "reason": "too_long",
+       "why_en": "needs 223 min with travel, window has 150",
+       "why_ja": "往復込みで223分必要、空きは150分"
+      },
+      {
+       "id": "eve-008530cb",
+       "title_en": "Bettei seafood izakaya, Sapporo",
+       "title_ja": "海鮮居酒屋 別邸",
+       "reason": "too_long",
+       "why_en": "needs 152 min with travel, window has 150",
+       "why_ja": "往復込みで152分必要、空きは150分"
+      },
+      {
+       "id": "eve-07500563",
+       "title_en": "Sanka-tei yakiniku and lamb grill",
+       "title_ja": "さんか亭",
+       "reason": "too_long",
+       "why_en": "needs 168 min with travel, window has 150",
+       "why_ja": "往復込みで168分必要、空きは150分"
+      },
+      {
+       "id": "eve-1705e0f3",
+       "title_en": "Sakanaya Dojo seafood izakaya",
+       "title_ja": "さかなや道場 東札幌店",
+       "reason": "too_long",
+       "why_en": "needs 166 min with travel, window has 150",
+       "why_ja": "往復込みで166分必要、空きは150分"
+      },
+      {
+       "id": "eve-18488276",
+       "title_en": "Chukaro Chinese restaurant, LaSola",
+       "title_ja": "中華楼 ラソラ店",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 150",
+       "why_ja": "往復込みで164分必要、空きは150分"
+      },
+      {
+       "id": "eve-24cf3e2b",
+       "title_en": "Curry Shop S soup curry",
+       "title_ja": "カレーショップ エス",
+       "reason": "closed",
+       "why_en": "arrives 20:48, last start 19:30",
+       "why_ja": "着くのは20:48、開始は19:30まで"
+      },
+      {
+       "id": "eve-25959002",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目",
+       "reason": "too_long",
+       "why_en": "needs 160 min with travel, window has 150",
+       "why_ja": "往復込みで160分必要、空きは150分"
+      },
+      {
+       "id": "eve-2bf7d83c",
+       "title_en": "Sushi Kyu",
+       "title_ja": "鮨九",
+       "reason": "too_long",
+       "why_en": "needs 156 min with travel, window has 150",
+       "why_ja": "往復込みで156分必要、空きは150分"
+      },
+      {
+       "id": "eve-48802ccc",
+       "title_en": "Robatayaki Utari",
+       "title_ja": "炉ばた焼 ウタリ",
+       "reason": "too_long",
+       "why_en": "needs 160 min with travel, window has 150",
+       "why_ja": "往復込みで160分必要、空きは150分"
+      },
+      {
+       "id": "eve-5b208569",
+       "title_en": "Kushiro robatayaki, Susukino",
+       "title_ja": "炭焼炉ばた くし路",
+       "reason": "too_long",
+       "why_en": "needs 156 min with travel, window has 150",
+       "why_ja": "往復込みで156分必要、空きは150分"
+      },
+      {
+       "id": "eve-762e7596",
+       "title_en": "Imari seafood izakaya, Odori",
+       "title_ja": "海鮮個室酒場 伊まり",
+       "reason": "too_long",
+       "why_en": "needs 160 min with travel, window has 150",
+       "why_ja": "往復込みで160分必要、空きは150分"
+      },
+      {
+       "id": "eve-7d4d077a",
+       "title_en": "Kita no Utage private-room izakaya",
+       "title_ja": "個室居酒屋 北の宴",
+       "reason": "too_long",
+       "why_en": "needs 156 min with travel, window has 150",
+       "why_ja": "往復込みで156分必要、空きは150分"
+      },
+      {
+       "id": "eve-939a0d4f",
+       "title_en": "Matsuo Jingisukan lamb grill, Susukino",
+       "title_ja": "松尾ジンギスカン すすきの店",
+       "reason": "too_long",
+       "why_en": "needs 156 min with travel, window has 150",
+       "why_ja": "往復込みで156分必要、空きは150分"
+      },
+      {
+       "id": "eve-9548bd7a",
+       "title_en": "Izakaya Labo, Nishi 11-chome",
+       "title_ja": "イザカヤラボ 西11丁目店",
+       "reason": "too_long",
+       "why_en": "needs 192 min with travel, window has 150",
+       "why_ja": "往復込みで192分必要、空きは150分"
+      },
+      {
+       "id": "eve-957c9708",
+       "title_en": "Fudo jingisukan, Sapporo Station",
+       "title_ja": "ジンギスカン 風土 札幌駅前店",
+       "reason": "too_long",
+       "why_en": "needs 160 min with travel, window has 150",
+       "why_ja": "往復込みで160分必要、空きは150分"
+      },
+      {
+       "id": "eve-a1b59cc3",
+       "title_en": "Hyakuya seafood and charcoal grill",
+       "title_ja": "海鮮と炭焼 ひゃくや",
+       "reason": "too_long",
+       "why_en": "needs 188 min with travel, window has 150",
+       "why_ja": "往復込みで188分必要、空きは150分"
+      },
+      {
+       "id": "eve-bb7771b7",
+       "title_en": "Hyosetsu no Mon crab restaurant",
+       "title_ja": "氷雪の門",
+       "reason": "too_long",
+       "why_en": "needs 156 min with travel, window has 150",
+       "why_ja": "往復込みで156分必要、空きは150分"
+      },
+      {
+       "id": "eve-beer-bar-north-island",
+       "title_en": "North Island brewery bar, Odori",
+       "title_ja": "ビアバー ノースアイランド",
+       "reason": "too_long",
+       "why_en": "needs 154 min with travel, window has 150",
+       "why_ja": "往復込みで154分必要、空きは150分"
+      },
+      {
+       "id": "eve-f61f3452",
+       "title_en": "Kaimi Hachikyo seafood izakaya",
+       "title_ja": "海味はちきょう",
+       "reason": "too_long",
+       "why_en": "needs 160 min with travel, window has 150",
+       "why_ja": "往復込みで160分必要、空きは150分"
+      },
+      {
+       "id": "eve-otaru-masazushi-honten-sushi",
+       "title_en": "Otaru Masazushi Honten sushi restaurant",
+       "title_ja": "おたる政寿司 本店",
+       "reason": "too_long",
+       "why_en": "needs 246 min with travel, window has 150",
+       "why_ja": "往復込みで246分必要、空きは150分"
+      },
+      {
+       "id": "eve-sapporo-kanihonke-sapporo-ekimae",
+       "title_en": "Sapporo Kanihonke crab restaurant",
+       "title_ja": "札幌かに本家 札幌駅前本店",
+       "reason": "too_long",
+       "why_en": "needs 158 min with travel, window has 150",
+       "why_ja": "往復込みで158分必要、空きは150分"
+      }
+     ]
+    },
+    {
+     "window": "w3",
+     "name_en": "Early morning, May 13",
+     "name_ja": "5/13 早朝",
+     "day": "2027-05-13",
+     "start": "06:30",
+     "end": "08:00",
+     "fits": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-morning-run-hokkaido-university",
+       "kind": "short",
+       "title_en": "Morning run at Hokkaido University",
+       "title_ja": "北大キャンパス 朝ラン"
+      },
+      {
+       "id": "short-morning-run-nakajima-park",
+       "kind": "short",
+       "title_en": "Nakajima Park and river run, about 5 km",
+       "title_ja": "中島公園と豊平川の朝ラン"
+      },
+      {
+       "id": "short-morning-run-odori-park",
+       "kind": "short",
+       "title_en": "Morning run in Odori Park",
+       "title_ja": "大通公園 朝ラン"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-hot-spring-and-beer-museum",
+       "title_en": "Hot spring and Sapporo Beer Museum",
+       "title_ja": "苗穂で温泉とビール博物館",
+       "reason": "too_long",
+       "why_en": "needs 204 min with travel, window has 90",
+       "why_ja": "往復込みで204分必要、空きは90分"
+      },
+      {
+       "id": "combo-run-and-seafood-breakfast",
+       "title_en": "Morning run and a seafood bowl breakfast",
+       "title_ja": "朝ランと二条市場の海鮮丼",
+       "reason": "too_long",
+       "why_en": "needs 113 min with travel, window has 90",
+       "why_ja": "往復込みで113分必要、空きは90分"
+      },
+      {
+       "id": "combo-soup-curry-and-clock-tower",
+       "title_en": "Soup curry lunch and the Clock Tower",
+       "title_ja": "スープカレーと時計台",
+       "reason": "too_long",
+       "why_en": "needs 121 min with travel, window has 90",
+       "why_ja": "往復込みで121分必要、空きは90分"
+      },
+      {
+       "id": "combo-specialty-coffee-walk",
+       "title_en": "Sapporo specialty coffee walk",
+       "title_ja": "札幌のコーヒー店3軒",
+       "reason": "too_long",
+       "why_en": "needs 168 min with travel, window has 90",
+       "why_ja": "往復込みで168分必要、空きは90分"
+      },
+      {
+       "id": "short-authentic-sapporo-nijo-market",
+       "title_en": "Nijo Market seafood lunch walk",
+       "title_ja": "二条市場 海鮮ランチ散歩",
+       "reason": "too_long",
+       "why_en": "needs 188 min with travel, window has 90",
+       "why_ja": "往復込みで188分必要、空きは90分"
+      },
+      {
+       "id": "short-chitosetsuru-sake-museum",
+       "title_en": "Chitosetsuru Sake Museum",
+       "title_ja": "千歳鶴 酒ミュージアム",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:00",
+       "why_ja": "開始が10:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-historical-village-of-hokkaido",
+       "title_en": "Historical Village of Hokkaido",
+       "title_ja": "北海道開拓の村",
+       "reason": "too_long",
+       "why_en": "needs 232 min with travel, window has 90",
+       "why_ja": "往復込みで232分必要、空きは90分"
+      },
+      {
+       "id": "short-hitsujigaoka-observation-hill",
+       "title_en": "Hitsujigaoka Observation Hill",
+       "title_ja": "さっぽろ羊ヶ丘展望台",
+       "reason": "too_long",
+       "why_en": "needs 124 min with travel, window has 90",
+       "why_ja": "往復込みで124分必要、空きは90分"
+      },
+      {
+       "id": "short-hokkaido-university-museum",
+       "title_en": "Hokkaido University Museum",
+       "title_ja": "北海道大学総合博物館",
+       "reason": "too_long",
+       "why_en": "needs 100 min with travel, window has 90",
+       "why_ja": "往復込みで100分必要、空きは90分"
+      },
+      {
+       "id": "short-jr-tower-observatory-t38",
+       "title_en": "JR Tower Observatory T38",
+       "title_ja": "JRタワー展望室 T38",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:00",
+       "why_ja": "開始が10:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-kita-no-gurume-tei",
+       "title_en": "Kita no Gurume-tei seafood bowls",
+       "title_ja": "北のグルメ亭",
+       "reason": "ends_late",
+       "why_en": "can't start before 07:00, so not back by 08:00",
+       "why_ja": "開始が07:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-kuranoyu-hot-spring-naebo",
+       "title_en": "Kuranoyu hot spring by Naebo Station",
+       "title_ja": "苗穂駅前温泉 蔵ノ湯",
+       "reason": "too_long",
+       "why_en": "needs 132 min with travel, window has 90",
+       "why_ja": "往復込みで132分必要、空きは90分"
+      },
+      {
+       "id": "short-marumi-coffee-odori-main",
+       "title_en": "Marumi Coffee Odori main store",
+       "title_ja": "丸美珈琲店 大通本店",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:00",
+       "why_ja": "開始が09:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-mituki-sakura-tea-ceremony",
+       "title_en": "Mituki Sakura tea ceremony trial",
+       "title_ja": "美月桜 茶道体験",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:00, so not back by 08:00",
+       "why_ja": "開始が11:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-morihico-main-store",
+       "title_en": "Morihico main store",
+       "title_ja": "森彦 本店",
+       "reason": "too_long",
+       "why_en": "needs 98 min with travel, window has 90",
+       "why_ja": "往復込みで98分必要、空きは90分"
+      },
+      {
+       "id": "short-morning-run-shiroishi-kokoro",
+       "title_en": "Morning run on Shiroishi Kokoro-do path",
+       "title_ja": "白石こころーど 朝ラン",
+       "reason": "too_long",
+       "why_en": "needs 91 min with travel, window has 90",
+       "why_ja": "往復込みで91分必要、空きは90分"
+      },
+      {
+       "id": "short-new-chitose-airport-observation",
+       "title_en": "New Chitose Airport Observation Deck",
+       "title_ja": "新千歳空港 展望デッキ",
+       "reason": "too_long",
+       "why_en": "needs 230 min with travel, window has 90",
+       "why_ja": "往復込みで230分必要、空きは90分"
+      },
+      {
+       "id": "short-nijo-market",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場",
+       "reason": "too_long",
+       "why_en": "needs 96 min with travel, window has 90",
+       "why_ja": "往復込みで96分必要、空きは90分"
+      },
+      {
+       "id": "short-okurayama-ski-jump-observatory",
+       "title_en": "Okurayama ski jump and Olympic Museum",
+       "title_ja": "大倉山ジャンプ台と展望台",
+       "reason": "too_long",
+       "why_en": "needs 138 min with travel, window has 90",
+       "why_ja": "往復込みで138分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-ainu-culture-promotion",
+       "title_en": "Sapporo Ainu Culture Promotion Center",
+       "title_ja": "札幌市アイヌ文化交流センター",
+       "reason": "too_long",
+       "why_en": "needs 178 min with travel, window has 90",
+       "why_ja": "往復込みで178分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-beer-museum-guided",
+       "title_en": "Sapporo Beer Museum tour and tasting",
+       "title_ja": "サッポロビール博物館",
+       "reason": "too_long",
+       "why_en": "needs 95 min with travel, window has 90",
+       "why_ja": "往復込みで95分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-clock-tower",
+       "title_en": "Sapporo Clock Tower",
+       "title_ja": "札幌市時計台",
+       "reason": "ends_late",
+       "why_en": "can't start before 08:45, so not back by 08:00",
+       "why_ja": "開始が08:45になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場",
+       "reason": "too_long",
+       "why_en": "needs 98 min with travel, window has 90",
+       "why_ja": "往復込みで98分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-maruyama-zoo",
+       "title_en": "Sapporo Maruyama Zoo",
+       "title_ja": "札幌市円山動物園",
+       "reason": "too_long",
+       "why_en": "needs 192 min with travel, window has 90",
+       "why_ja": "往復込みで192分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-moiwa-ski-area",
+       "title_en": "Moiwa ski area night skiing",
+       "title_ja": "藻岩山スキー場 ナイター",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-sapporo-mt-moiwa-ropeway",
+       "title_en": "Sapporo Mt. Moiwa Ropeway",
+       "title_ja": "札幌もいわ山ロープウェイ",
+       "reason": "too_long",
+       "why_en": "needs 134 min with travel, window has 90",
+       "why_ja": "往復込みで134分必要、空きは90分"
+      },
+      {
+       "id": "short-sapporo-tv-tower",
+       "title_en": "Sapporo TV Tower",
+       "title_ja": "さっぽろテレビ塔",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:00",
+       "why_ja": "開始が09:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-sapporo-walking-tour-h",
+       "title_en": "Sapporo walking tour in English",
+       "title_ja": "札幌ウォーキングツアー（英語）",
+       "reason": "too_long",
+       "why_en": "needs 218 min with travel, window has 90",
+       "why_ja": "往復込みで218分必要、空きは90分"
+      },
+      {
+       "id": "short-shiroi-koibito-park",
+       "title_en": "Shiroi Koibito Park",
+       "title_ja": "白い恋人パーク",
+       "reason": "too_long",
+       "why_en": "needs 146 min with travel, window has 90",
+       "why_ja": "往復込みで146分必要、空きは90分"
+      },
+      {
+       "id": "short-snowshoe-trek-in-asahiyama",
+       "title_en": "Asahiyama snowshoe trek, hotel pickup",
+       "title_ja": "旭山記念公園 スノーシュー",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-soup-curry-king-central",
+       "title_en": "Soup Curry King Central",
+       "title_ja": "SOUP CURRY KING",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:30, so not back by 08:00",
+       "why_ja": "開始が11:30になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-susukino-natural-hot-spring",
+       "title_en": "Tokakyo hot spring in Susukino",
+       "title_ja": "すすきの天然温泉 湯香郷",
+       "reason": "too_long",
+       "why_en": "needs 126 min with travel, window has 90",
+       "why_ja": "往復込みで126分必要、空きは90分"
+      },
+      {
+       "id": "short-takino-snow-world-takino",
+       "title_en": "Takino Snow World",
+       "title_ja": "滝野スノーワールド",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-tokumitsu-coffee-odori",
+       "title_en": "Tokumitsu Coffee Odori",
+       "title_ja": "徳光珈琲 大通店",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:00",
+       "why_ja": "開始が10:00になり、08:00までに戻れない"
+      },
+      {
+       "id": "short-upopoy-national-ainu-museum",
+       "title_en": "Upopoy National Ainu Museum and Park",
+       "title_ja": "ウポポイ アイヌ民族博物館",
+       "reason": "too_long",
+       "why_en": "needs 428 min with travel, window has 90",
+       "why_ja": "往復込みで428分必要、空きは90分"
+      }
+     ]
+    },
+    {
+     "window": "w4",
+     "name_en": "Late evening, May 13",
+     "name_ja": "5/13 夜遅く",
+     "day": "2027-05-13",
+     "start": "21:30",
+     "end": "23:00",
+     "fits": [
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      },
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ",
+       "reason": "too_long",
+       "why_en": "needs 204 min with travel, window has 90",
+       "why_ja": "往復込みで204分必要、空きは90分"
+      },
+      {
+       "id": "combo-moiwa-night-view-and-miso-ramen",
+       "title_en": "Mt Moiwa night view and miso ramen",
+       "title_ja": "藻岩山の夜景と味噌ラーメン",
+       "reason": "too_long",
+       "why_en": "needs 199 min with travel, window has 90",
+       "why_ja": "往復込みで199分必要、空きは90分"
+      },
+      {
+       "id": "combo-sake-brewery-and-izakaya",
+       "title_en": "Sake brewery tasting, then its izakaya",
+       "title_ja": "酒蔵の試飲と蔵元の居酒屋",
+       "reason": "too_long",
+       "why_en": "needs 223 min with travel, window has 90",
+       "why_ja": "往復込みで223分必要、空きは90分"
+      },
+      {
+       "id": "eve-008530cb",
+       "title_en": "Bettei seafood izakaya, Sapporo",
+       "title_ja": "海鮮居酒屋 別邸",
+       "reason": "too_long",
+       "why_en": "needs 152 min with travel, window has 90",
+       "why_ja": "往復込みで152分必要、空きは90分"
+      },
+      {
+       "id": "eve-03477ef5",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING",
+       "reason": "too_long",
+       "why_en": "needs 126 min with travel, window has 90",
+       "why_ja": "往復込みで126分必要、空きは90分"
+      },
+      {
+       "id": "eve-07500563",
+       "title_en": "Sanka-tei yakiniku and lamb grill",
+       "title_ja": "さんか亭",
+       "reason": "too_long",
+       "why_en": "needs 168 min with travel, window has 90",
+       "why_ja": "往復込みで168分必要、空きは90分"
+      },
+      {
+       "id": "eve-1705e0f3",
+       "title_en": "Sakanaya Dojo seafood izakaya",
+       "title_ja": "さかなや道場 東札幌店",
+       "reason": "too_long",
+       "why_en": "needs 166 min with travel, window has 90",
+       "why_ja": "往復込みで166分必要、空きは90分"
+      },
+      {
+       "id": "eve-18488276",
+       "title_en": "Chukaro Chinese restaurant, LaSola",
+       "title_ja": "中華楼 ラソラ店",
+       "reason": "too_long",
+       "why_en": "needs 164 min with travel, window has 90",
+       "why_ja": "往復込みで164分必要、空きは90分"
+      },
+      {
+       "id": "eve-1868ffb1",
+       "title_en": "Sapporo Yakiniku Hishimaru",
+       "title_ja": "札幌焼肉 ひし丸",
+       "reason": "too_long",
+       "why_en": "needs 104 min with travel, window has 90",
+       "why_ja": "往復込みで104分必要、空きは90分"
+      },
+      {
+       "id": "eve-238d9c01",
+       "title_en": "Kamoshiya Honten izakaya",
+       "title_ja": "カモシヤ ホンテン",
+       "reason": "too_long",
+       "why_en": "needs 100 min with travel, window has 90",
+       "why_ja": "往復込みで100分必要、空きは90分"
+      },
+      {
+       "id": "eve-24cf3e2b",
+       "title_en": "Curry Shop S soup curry",
+       "title_ja": "カレーショップ エス",
+       "reason": "too_long",
+       "why_en": "needs 126 min with travel, window has 90",
+       "why_ja": "往復込みで126分必要、空きは90分"
+      },
+      {
+       "id": "eve-25959002",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目",
+       "reason": "too_long",
+       "why_en": "needs 160 min with travel, window has 90",
+       "why_ja": "往復込みで160分必要、空きは90分"
+      },
+      {
+       "id": "eve-2bf7d83c",
+       "title_en": "Sushi Kyu",
+       "title_ja": "鮨九",
+       "reason": "too_long",
+       "why_en": "needs 156 min with travel, window has 90",
+       "why_ja": "往復込みで156分必要、空きは90分"
+      },
+      {
+       "id": "eve-3373d943",
+       "title_en": "Chitosetsuru Kissyo izakaya",
+       "title_ja": "蔵元直営 千歳鶴 吉翔",
+       "reason": "too_long",
+       "why_en": "needs 150 min with travel, window has 90",
+       "why_ja": "往復込みで150分必要、空きは90分"
+      },
+      {
+       "id": "eve-48802ccc",
+       "title_en": "Robatayaki Utari",
+       "title_ja": "炉ばた焼 ウタリ",
+       "reason": "too_long",
+       "why_en": "needs 160 min with travel, window has 90",
+       "why_ja": "往復込みで160分必要、空きは90分"
+      },
+      {
+       "id": "eve-5b208569",
+       "title_en": "Kushiro robatayaki, Susukino",
+       "title_ja": "炭焼炉ばた くし路",
+       "reason": "too_long",
+       "why_en": "needs 156 min with travel, window has 90",
+       "why_ja": "往復込みで156分必要、空きは90分"
+      },
+      {
+       "id": "eve-762e7596",
+       "title_en": "Imari seafood izakaya, Odori",
+       "title_ja": "海鮮個室酒場 伊まり",
+       "reason": "too_long",
+       "why_en": "needs 160 min with travel, window has 90",
+       "why_ja": "往復込みで160分必要、空きは90分"
+      },
+      {
+       "id": "eve-7d4d077a",
+       "title_en": "Kita no Utage private-room izakaya",
+       "title_ja": "個室居酒屋 北の宴",
+       "reason": "too_long",
+       "why_en": "needs 156 min with travel, window has 90",
+       "why_ja": "往復込みで156分必要、空きは90分"
+      },
+      {
+       "id": "eve-939a0d4f",
+       "title_en": "Matsuo Jingisukan lamb grill, Susukino",
+       "title_ja": "松尾ジンギスカン すすきの店",
+       "reason": "too_long",
+       "why_en": "needs 156 min with travel, window has 90",
+       "why_ja": "往復込みで156分必要、空きは90分"
+      },
+      {
+       "id": "eve-9548bd7a",
+       "title_en": "Izakaya Labo, Nishi 11-chome",
+       "title_ja": "イザカヤラボ 西11丁目店",
+       "reason": "too_long",
+       "why_en": "needs 192 min with travel, window has 90",
+       "why_ja": "往復込みで192分必要、空きは90分"
+      },
+      {
+       "id": "eve-957c9708",
+       "title_en": "Fudo jingisukan, Sapporo Station",
+       "title_ja": "ジンギスカン 風土 札幌駅前店",
+       "reason": "too_long",
+       "why_en": "needs 160 min with travel, window has 90",
+       "why_ja": "往復込みで160分必要、空きは90分"
+      },
+      {
+       "id": "eve-a1b59cc3",
+       "title_en": "Hyakuya seafood and charcoal grill",
+       "title_ja": "海鮮と炭焼 ひゃくや",
+       "reason": "too_long",
+       "why_en": "needs 188 min with travel, window has 90",
+       "why_ja": "往復込みで188分必要、空きは90分"
+      },
+      {
+       "id": "eve-bb7771b7",
+       "title_en": "Hyosetsu no Mon crab restaurant",
+       "title_ja": "氷雪の門",
+       "reason": "too_long",
+       "why_en": "needs 156 min with travel, window has 90",
+       "why_ja": "往復込みで156分必要、空きは90分"
+      },
+      {
+       "id": "eve-beer-bar-north-island",
+       "title_en": "North Island brewery bar, Odori",
+       "title_ja": "ビアバー ノースアイランド",
+       "reason": "too_long",
+       "why_en": "needs 154 min with travel, window has 90",
+       "why_ja": "往復込みで154分必要、空きは90分"
+      },
+      {
+       "id": "eve-ef3aefe1",
+       "title_en": "Lamb-O jingisukan, Susukino",
+       "title_ja": "ジンギスカン ラム王",
+       "reason": "too_long",
+       "why_en": "needs 128 min with travel, window has 90",
+       "why_ja": "往復込みで128分必要、空きは90分"
+      },
+      {
+       "id": "eve-f61f3452",
+       "title_en": "Kaimi Hachikyo seafood izakaya",
+       "title_ja": "海味はちきょう",
+       "reason": "too_long",
+       "why_en": "needs 160 min with travel, window has 90",
+       "why_ja": "往復込みで160分必要、空きは90分"
+      },
+      {
+       "id": "eve-otaru-masazushi-honten-sushi",
+       "title_en": "Otaru Masazushi Honten sushi restaurant",
+       "title_ja": "おたる政寿司 本店",
+       "reason": "too_long",
+       "why_en": "needs 246 min with travel, window has 90",
+       "why_ja": "往復込みで246分必要、空きは90分"
+      },
+      {
+       "id": "eve-sapporo-kanihonke-sapporo-ekimae",
+       "title_en": "Sapporo Kanihonke crab restaurant",
+       "title_ja": "札幌かに本家 札幌駅前本店",
+       "reason": "too_long",
+       "why_en": "needs 158 min with travel, window has 90",
+       "why_ja": "往復込みで158分必要、空きは90分"
+      },
+      {
+       "id": "eve-yoru-parfait-mua",
+       "title_en": "Yoru Parfait MUA late-night parfaits",
+       "title_ja": "夜パフェ MUA",
+       "reason": "too_long",
+       "why_en": "needs 96 min with travel, window has 90",
+       "why_ja": "往復込みで96分必要、空きは90分"
+      }
+     ]
+    },
+    {
+     "window": "w5",
+     "name_en": "Early morning, May 14",
+     "name_ja": "5/14 早朝",
+     "day": "2027-05-14",
+     "start": "06:30",
+     "end": "08:30",
+     "fits": [
+      {
+       "id": "combo-run-and-seafood-breakfast",
+       "kind": "short",
+       "title_en": "Morning run and a seafood bowl breakfast",
+       "title_ja": "朝ランと二条市場の海鮮丼"
+      },
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-kita-no-gurume-tei",
+       "kind": "short",
+       "title_en": "Kita no Gurume-tei seafood bowls",
+       "title_ja": "北のグルメ亭"
+      },
+      {
+       "id": "short-morning-run-hokkaido-university",
+       "kind": "short",
+       "title_en": "Morning run at Hokkaido University",
+       "title_ja": "北大キャンパス 朝ラン"
+      },
+      {
+       "id": "short-morning-run-nakajima-park",
+       "kind": "short",
+       "title_en": "Nakajima Park and river run, about 5 km",
+       "title_ja": "中島公園と豊平川の朝ラン"
+      },
+      {
+       "id": "short-morning-run-odori-park",
+       "kind": "short",
+       "title_en": "Morning run in Odori Park",
+       "title_ja": "大通公園 朝ラン"
+      },
+      {
+       "id": "short-morning-run-shiroishi-kokoro",
+       "kind": "short",
+       "title_en": "Morning run on Shiroishi Kokoro-do path",
+       "title_ja": "白石こころーど 朝ラン"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "kind": "short",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-hot-spring-and-beer-museum",
+       "title_en": "Hot spring and Sapporo Beer Museum",
+       "title_ja": "苗穂で温泉とビール博物館",
+       "reason": "too_long",
+       "why_en": "needs 204 min with travel, window has 120",
+       "why_ja": "往復込みで204分必要、空きは120分"
+      },
+      {
+       "id": "combo-soup-curry-and-clock-tower",
+       "title_en": "Soup curry lunch and the Clock Tower",
+       "title_ja": "スープカレーと時計台",
+       "reason": "too_long",
+       "why_en": "needs 121 min with travel, window has 120",
+       "why_ja": "往復込みで121分必要、空きは120分"
+      },
+      {
+       "id": "combo-specialty-coffee-walk",
+       "title_en": "Sapporo specialty coffee walk",
+       "title_ja": "札幌のコーヒー店3軒",
+       "reason": "too_long",
+       "why_en": "needs 168 min with travel, window has 120",
+       "why_ja": "往復込みで168分必要、空きは120分"
+      },
+      {
+       "id": "short-authentic-sapporo-nijo-market",
+       "title_en": "Nijo Market seafood lunch walk",
+       "title_ja": "二条市場 海鮮ランチ散歩",
+       "reason": "too_long",
+       "why_en": "needs 188 min with travel, window has 120",
+       "why_ja": "往復込みで188分必要、空きは120分"
+      },
+      {
+       "id": "short-chitosetsuru-sake-museum",
+       "title_en": "Chitosetsuru Sake Museum",
+       "title_ja": "千歳鶴 酒ミュージアム",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:30",
+       "why_ja": "開始が10:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-historical-village-of-hokkaido",
+       "title_en": "Historical Village of Hokkaido",
+       "title_ja": "北海道開拓の村",
+       "reason": "too_long",
+       "why_en": "needs 232 min with travel, window has 120",
+       "why_ja": "往復込みで232分必要、空きは120分"
+      },
+      {
+       "id": "short-hitsujigaoka-observation-hill",
+       "title_en": "Hitsujigaoka Observation Hill",
+       "title_ja": "さっぽろ羊ヶ丘展望台",
+       "reason": "too_long",
+       "why_en": "needs 124 min with travel, window has 120",
+       "why_ja": "往復込みで124分必要、空きは120分"
+      },
+      {
+       "id": "short-hokkaido-university-museum",
+       "title_en": "Hokkaido University Museum",
+       "title_ja": "北海道大学総合博物館",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:30",
+       "why_ja": "開始が10:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-jr-tower-observatory-t38",
+       "title_en": "JR Tower Observatory T38",
+       "title_ja": "JRタワー展望室 T38",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:30",
+       "why_ja": "開始が10:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-kuranoyu-hot-spring-naebo",
+       "title_en": "Kuranoyu hot spring by Naebo Station",
+       "title_ja": "苗穂駅前温泉 蔵ノ湯",
+       "reason": "too_long",
+       "why_en": "needs 132 min with travel, window has 120",
+       "why_ja": "往復込みで132分必要、空きは120分"
+      },
+      {
+       "id": "short-marumi-coffee-odori-main",
+       "title_en": "Marumi Coffee Odori main store",
+       "title_ja": "丸美珈琲店 大通本店",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:30",
+       "why_ja": "開始が09:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-mituki-sakura-tea-ceremony",
+       "title_en": "Mituki Sakura tea ceremony trial",
+       "title_ja": "美月桜 茶道体験",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:00, so not back by 08:30",
+       "why_ja": "開始が11:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-morihico-main-store",
+       "title_en": "Morihico main store",
+       "title_ja": "森彦 本店",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:30",
+       "why_ja": "開始が09:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-new-chitose-airport-observation",
+       "title_en": "New Chitose Airport Observation Deck",
+       "title_ja": "新千歳空港 展望デッキ",
+       "reason": "too_long",
+       "why_en": "needs 230 min with travel, window has 120",
+       "why_ja": "往復込みで230分必要、空きは120分"
+      },
+      {
+       "id": "short-okurayama-ski-jump-observatory",
+       "title_en": "Okurayama ski jump and Olympic Museum",
+       "title_ja": "大倉山ジャンプ台と展望台",
+       "reason": "too_long",
+       "why_en": "needs 138 min with travel, window has 120",
+       "why_ja": "往復込みで138分必要、空きは120分"
+      },
+      {
+       "id": "short-sapporo-ainu-culture-promotion",
+       "title_en": "Sapporo Ainu Culture Promotion Center",
+       "title_ja": "札幌市アイヌ文化交流センター",
+       "reason": "too_long",
+       "why_en": "needs 178 min with travel, window has 120",
+       "why_ja": "往復込みで178分必要、空きは120分"
+      },
+      {
+       "id": "short-sapporo-beer-museum-guided",
+       "title_en": "Sapporo Beer Museum tour and tasting",
+       "title_ja": "サッポロビール博物館",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:00, so not back by 08:30",
+       "why_ja": "開始が11:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-sapporo-clock-tower",
+       "title_en": "Sapporo Clock Tower",
+       "title_ja": "札幌市時計台",
+       "reason": "ends_late",
+       "why_en": "can't start before 08:45, so not back by 08:30",
+       "why_ja": "開始が08:45になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-sapporo-maruyama-zoo",
+       "title_en": "Sapporo Maruyama Zoo",
+       "title_ja": "札幌市円山動物園",
+       "reason": "too_long",
+       "why_en": "needs 192 min with travel, window has 120",
+       "why_ja": "往復込みで192分必要、空きは120分"
+      },
+      {
+       "id": "short-sapporo-moiwa-ski-area",
+       "title_en": "Moiwa ski area night skiing",
+       "title_ja": "藻岩山スキー場 ナイター",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-sapporo-mt-moiwa-ropeway",
+       "title_en": "Sapporo Mt. Moiwa Ropeway",
+       "title_ja": "札幌もいわ山ロープウェイ",
+       "reason": "too_long",
+       "why_en": "needs 134 min with travel, window has 120",
+       "why_ja": "往復込みで134分必要、空きは120分"
+      },
+      {
+       "id": "short-sapporo-tv-tower",
+       "title_en": "Sapporo TV Tower",
+       "title_ja": "さっぽろテレビ塔",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:30",
+       "why_ja": "開始が09:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-sapporo-walking-tour-h",
+       "title_en": "Sapporo walking tour in English",
+       "title_ja": "札幌ウォーキングツアー（英語）",
+       "reason": "too_long",
+       "why_en": "needs 218 min with travel, window has 120",
+       "why_ja": "往復込みで218分必要、空きは120分"
+      },
+      {
+       "id": "short-shiroi-koibito-park",
+       "title_en": "Shiroi Koibito Park",
+       "title_ja": "白い恋人パーク",
+       "reason": "too_long",
+       "why_en": "needs 146 min with travel, window has 120",
+       "why_ja": "往復込みで146分必要、空きは120分"
+      },
+      {
+       "id": "short-snowshoe-trek-in-asahiyama",
+       "title_en": "Asahiyama snowshoe trek, hotel pickup",
+       "title_ja": "旭山記念公園 スノーシュー",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-soup-curry-king-central",
+       "title_en": "Soup Curry King Central",
+       "title_ja": "SOUP CURRY KING",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:30, so not back by 08:30",
+       "why_ja": "開始が11:30になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-susukino-natural-hot-spring",
+       "title_en": "Tokakyo hot spring in Susukino",
+       "title_ja": "すすきの天然温泉 湯香郷",
+       "reason": "too_long",
+       "why_en": "needs 126 min with travel, window has 120",
+       "why_ja": "往復込みで126分必要、空きは120分"
+      },
+      {
+       "id": "short-takino-snow-world-takino",
+       "title_en": "Takino Snow World",
+       "title_ja": "滝野スノーワールド",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-tokumitsu-coffee-odori",
+       "title_en": "Tokumitsu Coffee Odori",
+       "title_ja": "徳光珈琲 大通店",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:30",
+       "why_ja": "開始が10:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-upopoy-national-ainu-museum",
+       "title_en": "Upopoy National Ainu Museum and Park",
+       "title_ja": "ウポポイ アイヌ民族博物館",
+       "reason": "too_long",
+       "why_en": "needs 428 min with travel, window has 120",
+       "why_ja": "往復込みで428分必要、空きは120分"
+      }
+     ]
+    },
+    {
+     "window": "w6",
+     "name_en": "Evening, May 14",
+     "name_ja": "5/14 夜",
+     "day": "2027-05-14",
+     "start": "18:30",
+     "end": "23:00",
+     "fits": [
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "kind": "evening",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ"
+      },
+      {
+       "id": "combo-moiwa-night-view-and-miso-ramen",
+       "kind": "evening",
+       "title_en": "Mt Moiwa night view and miso ramen",
+       "title_ja": "藻岩山の夜景と味噌ラーメン"
+      },
+      {
+       "id": "eve-008530cb",
+       "kind": "evening",
+       "title_en": "Bettei seafood izakaya, Sapporo",
+       "title_ja": "海鮮居酒屋 別邸"
+      },
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "eve-07500563",
+       "kind": "evening",
+       "title_en": "Sanka-tei yakiniku and lamb grill",
+       "title_ja": "さんか亭"
+      },
+      {
+       "id": "eve-1705e0f3",
+       "kind": "evening",
+       "title_en": "Sakanaya Dojo seafood izakaya",
+       "title_ja": "さかなや道場 東札幌店"
+      },
+      {
+       "id": "eve-18488276",
+       "kind": "evening",
+       "title_en": "Chukaro Chinese restaurant, LaSola",
+       "title_ja": "中華楼 ラソラ店"
+      },
+      {
+       "id": "eve-1868ffb1",
+       "kind": "evening",
+       "title_en": "Sapporo Yakiniku Hishimaru",
+       "title_ja": "札幌焼肉 ひし丸"
+      },
+      {
+       "id": "eve-238d9c01",
+       "kind": "evening",
+       "title_en": "Kamoshiya Honten izakaya",
+       "title_ja": "カモシヤ ホンテン"
+      },
+      {
+       "id": "eve-24cf3e2b",
+       "kind": "evening",
+       "title_en": "Curry Shop S soup curry",
+       "title_ja": "カレーショップ エス"
+      },
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
+      },
+      {
+       "id": "eve-2bf7d83c",
+       "kind": "evening",
+       "title_en": "Sushi Kyu",
+       "title_ja": "鮨九"
+      },
+      {
+       "id": "eve-3373d943",
+       "kind": "evening",
+       "title_en": "Chitosetsuru Kissyo izakaya",
+       "title_ja": "蔵元直営 千歳鶴 吉翔"
+      },
+      {
+       "id": "eve-48802ccc",
+       "kind": "evening",
+       "title_en": "Robatayaki Utari",
+       "title_ja": "炉ばた焼 ウタリ"
+      },
+      {
+       "id": "eve-5b208569",
+       "kind": "evening",
+       "title_en": "Kushiro robatayaki, Susukino",
+       "title_ja": "炭焼炉ばた くし路"
+      },
+      {
+       "id": "eve-762e7596",
+       "kind": "evening",
+       "title_en": "Imari seafood izakaya, Odori",
+       "title_ja": "海鮮個室酒場 伊まり"
+      },
+      {
+       "id": "eve-7d4d077a",
+       "kind": "evening",
+       "title_en": "Kita no Utage private-room izakaya",
+       "title_ja": "個室居酒屋 北の宴"
+      },
+      {
+       "id": "eve-939a0d4f",
+       "kind": "evening",
+       "title_en": "Matsuo Jingisukan lamb grill, Susukino",
+       "title_ja": "松尾ジンギスカン すすきの店"
+      },
+      {
+       "id": "eve-9548bd7a",
+       "kind": "evening",
+       "title_en": "Izakaya Labo, Nishi 11-chome",
+       "title_ja": "イザカヤラボ 西11丁目店"
+      },
+      {
+       "id": "eve-957c9708",
+       "kind": "evening",
+       "title_en": "Fudo jingisukan, Sapporo Station",
+       "title_ja": "ジンギスカン 風土 札幌駅前店"
+      },
+      {
+       "id": "eve-a1b59cc3",
+       "kind": "evening",
+       "title_en": "Hyakuya seafood and charcoal grill",
+       "title_ja": "海鮮と炭焼 ひゃくや"
+      },
+      {
+       "id": "eve-bb7771b7",
+       "kind": "evening",
+       "title_en": "Hyosetsu no Mon crab restaurant",
+       "title_ja": "氷雪の門"
+      },
+      {
+       "id": "eve-beer-bar-north-island",
+       "kind": "evening",
+       "title_en": "North Island brewery bar, Odori",
+       "title_ja": "ビアバー ノースアイランド"
+      },
+      {
+       "id": "eve-ef3aefe1",
+       "kind": "evening",
+       "title_en": "Lamb-O jingisukan, Susukino",
+       "title_ja": "ジンギスカン ラム王"
+      },
+      {
+       "id": "eve-f61f3452",
+       "kind": "evening",
+       "title_en": "Kaimi Hachikyo seafood izakaya",
+       "title_ja": "海味はちきょう"
+      },
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      },
+      {
+       "id": "eve-sapporo-kanihonke-sapporo-ekimae",
+       "kind": "evening",
+       "title_en": "Sapporo Kanihonke crab restaurant",
+       "title_ja": "札幌かに本家 札幌駅前本店"
+      },
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      },
+      {
+       "id": "eve-yoru-parfait-mua",
+       "kind": "evening",
+       "title_en": "Yoru Parfait MUA late-night parfaits",
+       "title_ja": "夜パフェ MUA"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-sake-brewery-and-izakaya",
+       "title_en": "Sake brewery tasting, then its izakaya",
+       "title_ja": "酒蔵の試飲と蔵元の居酒屋",
+       "reason": "closed",
+       "why_en": "arrives 18:49, last start 17:15",
+       "why_ja": "着くのは18:49、開始は17:15まで"
+      },
+      {
+       "id": "eve-otaru-masazushi-honten-sushi",
+       "title_en": "Otaru Masazushi Honten sushi restaurant",
+       "title_ja": "おたる政寿司 本店",
+       "reason": "closed",
+       "why_en": "arrives 19:48, last start 19:30",
+       "why_ja": "着くのは19:48、開始は19:30まで"
+      }
+     ]
+    },
+    {
+     "window": "w7",
+     "name_en": "Early morning, May 15",
+     "name_ja": "5/15 早朝",
+     "day": "2027-05-15",
+     "start": "06:30",
+     "end": "08:30",
+     "fits": [
+      {
+       "id": "combo-run-and-seafood-breakfast",
+       "kind": "short",
+       "title_en": "Morning run and a seafood bowl breakfast",
+       "title_ja": "朝ランと二条市場の海鮮丼"
+      },
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-kita-no-gurume-tei",
+       "kind": "short",
+       "title_en": "Kita no Gurume-tei seafood bowls",
+       "title_ja": "北のグルメ亭"
+      },
+      {
+       "id": "short-morning-run-hokkaido-university",
+       "kind": "short",
+       "title_en": "Morning run at Hokkaido University",
+       "title_ja": "北大キャンパス 朝ラン"
+      },
+      {
+       "id": "short-morning-run-nakajima-park",
+       "kind": "short",
+       "title_en": "Nakajima Park and river run, about 5 km",
+       "title_ja": "中島公園と豊平川の朝ラン"
+      },
+      {
+       "id": "short-morning-run-odori-park",
+       "kind": "short",
+       "title_en": "Morning run in Odori Park",
+       "title_ja": "大通公園 朝ラン"
+      },
+      {
+       "id": "short-morning-run-shiroishi-kokoro",
+       "kind": "short",
+       "title_en": "Morning run on Shiroishi Kokoro-do path",
+       "title_ja": "白石こころーど 朝ラン"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "kind": "short",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-hot-spring-and-beer-museum",
+       "title_en": "Hot spring and Sapporo Beer Museum",
+       "title_ja": "苗穂で温泉とビール博物館",
+       "reason": "too_long",
+       "why_en": "needs 204 min with travel, window has 120",
+       "why_ja": "往復込みで204分必要、空きは120分"
+      },
+      {
+       "id": "combo-soup-curry-and-clock-tower",
+       "title_en": "Soup curry lunch and the Clock Tower",
+       "title_ja": "スープカレーと時計台",
+       "reason": "too_long",
+       "why_en": "needs 121 min with travel, window has 120",
+       "why_ja": "往復込みで121分必要、空きは120分"
+      },
+      {
+       "id": "combo-specialty-coffee-walk",
+       "title_en": "Sapporo specialty coffee walk",
+       "title_ja": "札幌のコーヒー店3軒",
+       "reason": "too_long",
+       "why_en": "needs 168 min with travel, window has 120",
+       "why_ja": "往復込みで168分必要、空きは120分"
+      },
+      {
+       "id": "short-authentic-sapporo-nijo-market",
+       "title_en": "Nijo Market seafood lunch walk",
+       "title_ja": "二条市場 海鮮ランチ散歩",
+       "reason": "too_long",
+       "why_en": "needs 188 min with travel, window has 120",
+       "why_ja": "往復込みで188分必要、空きは120分"
+      },
+      {
+       "id": "short-chitosetsuru-sake-museum",
+       "title_en": "Chitosetsuru Sake Museum",
+       "title_ja": "千歳鶴 酒ミュージアム",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:30",
+       "why_ja": "開始が10:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-historical-village-of-hokkaido",
+       "title_en": "Historical Village of Hokkaido",
+       "title_ja": "北海道開拓の村",
+       "reason": "too_long",
+       "why_en": "needs 232 min with travel, window has 120",
+       "why_ja": "往復込みで232分必要、空きは120分"
+      },
+      {
+       "id": "short-hitsujigaoka-observation-hill",
+       "title_en": "Hitsujigaoka Observation Hill",
+       "title_ja": "さっぽろ羊ヶ丘展望台",
+       "reason": "too_long",
+       "why_en": "needs 124 min with travel, window has 120",
+       "why_ja": "往復込みで124分必要、空きは120分"
+      },
+      {
+       "id": "short-hokkaido-university-museum",
+       "title_en": "Hokkaido University Museum",
+       "title_ja": "北海道大学総合博物館",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:30",
+       "why_ja": "開始が10:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-jr-tower-observatory-t38",
+       "title_en": "JR Tower Observatory T38",
+       "title_ja": "JRタワー展望室 T38",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:30",
+       "why_ja": "開始が10:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-kuranoyu-hot-spring-naebo",
+       "title_en": "Kuranoyu hot spring by Naebo Station",
+       "title_ja": "苗穂駅前温泉 蔵ノ湯",
+       "reason": "too_long",
+       "why_en": "needs 132 min with travel, window has 120",
+       "why_ja": "往復込みで132分必要、空きは120分"
+      },
+      {
+       "id": "short-marumi-coffee-odori-main",
+       "title_en": "Marumi Coffee Odori main store",
+       "title_ja": "丸美珈琲店 大通本店",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:30",
+       "why_ja": "開始が09:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-mituki-sakura-tea-ceremony",
+       "title_en": "Mituki Sakura tea ceremony trial",
+       "title_ja": "美月桜 茶道体験",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:00, so not back by 08:30",
+       "why_ja": "開始が11:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-morihico-main-store",
+       "title_en": "Morihico main store",
+       "title_ja": "森彦 本店",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:30",
+       "why_ja": "開始が09:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-new-chitose-airport-observation",
+       "title_en": "New Chitose Airport Observation Deck",
+       "title_ja": "新千歳空港 展望デッキ",
+       "reason": "too_long",
+       "why_en": "needs 230 min with travel, window has 120",
+       "why_ja": "往復込みで230分必要、空きは120分"
+      },
+      {
+       "id": "short-okurayama-ski-jump-observatory",
+       "title_en": "Okurayama ski jump and Olympic Museum",
+       "title_ja": "大倉山ジャンプ台と展望台",
+       "reason": "too_long",
+       "why_en": "needs 138 min with travel, window has 120",
+       "why_ja": "往復込みで138分必要、空きは120分"
+      },
+      {
+       "id": "short-sapporo-ainu-culture-promotion",
+       "title_en": "Sapporo Ainu Culture Promotion Center",
+       "title_ja": "札幌市アイヌ文化交流センター",
+       "reason": "too_long",
+       "why_en": "needs 178 min with travel, window has 120",
+       "why_ja": "往復込みで178分必要、空きは120分"
+      },
+      {
+       "id": "short-sapporo-beer-museum-guided",
+       "title_en": "Sapporo Beer Museum tour and tasting",
+       "title_ja": "サッポロビール博物館",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:00, so not back by 08:30",
+       "why_ja": "開始が11:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-sapporo-clock-tower",
+       "title_en": "Sapporo Clock Tower",
+       "title_ja": "札幌市時計台",
+       "reason": "ends_late",
+       "why_en": "can't start before 08:45, so not back by 08:30",
+       "why_ja": "開始が08:45になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-sapporo-maruyama-zoo",
+       "title_en": "Sapporo Maruyama Zoo",
+       "title_ja": "札幌市円山動物園",
+       "reason": "too_long",
+       "why_en": "needs 192 min with travel, window has 120",
+       "why_ja": "往復込みで192分必要、空きは120分"
+      },
+      {
+       "id": "short-sapporo-moiwa-ski-area",
+       "title_en": "Moiwa ski area night skiing",
+       "title_ja": "藻岩山スキー場 ナイター",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-sapporo-mt-moiwa-ropeway",
+       "title_en": "Sapporo Mt. Moiwa Ropeway",
+       "title_ja": "札幌もいわ山ロープウェイ",
+       "reason": "too_long",
+       "why_en": "needs 134 min with travel, window has 120",
+       "why_ja": "往復込みで134分必要、空きは120分"
+      },
+      {
+       "id": "short-sapporo-tv-tower",
+       "title_en": "Sapporo TV Tower",
+       "title_ja": "さっぽろテレビ塔",
+       "reason": "ends_late",
+       "why_en": "can't start before 09:00, so not back by 08:30",
+       "why_ja": "開始が09:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-sapporo-walking-tour-h",
+       "title_en": "Sapporo walking tour in English",
+       "title_ja": "札幌ウォーキングツアー（英語）",
+       "reason": "too_long",
+       "why_en": "needs 218 min with travel, window has 120",
+       "why_ja": "往復込みで218分必要、空きは120分"
+      },
+      {
+       "id": "short-shiroi-koibito-park",
+       "title_en": "Shiroi Koibito Park",
+       "title_ja": "白い恋人パーク",
+       "reason": "too_long",
+       "why_en": "needs 146 min with travel, window has 120",
+       "why_ja": "往復込みで146分必要、空きは120分"
+      },
+      {
+       "id": "short-snowshoe-trek-in-asahiyama",
+       "title_en": "Asahiyama snowshoe trek, hotel pickup",
+       "title_ja": "旭山記念公園 スノーシュー",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-soup-curry-king-central",
+       "title_en": "Soup Curry King Central",
+       "title_ja": "SOUP CURRY KING",
+       "reason": "ends_late",
+       "why_en": "can't start before 11:30, so not back by 08:30",
+       "why_ja": "開始が11:30になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-susukino-natural-hot-spring",
+       "title_en": "Tokakyo hot spring in Susukino",
+       "title_ja": "すすきの天然温泉 湯香郷",
+       "reason": "too_long",
+       "why_en": "needs 126 min with travel, window has 120",
+       "why_ja": "往復込みで126分必要、空きは120分"
+      },
+      {
+       "id": "short-takino-snow-world-takino",
+       "title_en": "Takino Snow World",
+       "title_ja": "滝野スノーワールド",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-tokumitsu-coffee-odori",
+       "title_en": "Tokumitsu Coffee Odori",
+       "title_ja": "徳光珈琲 大通店",
+       "reason": "ends_late",
+       "why_en": "can't start before 10:00, so not back by 08:30",
+       "why_ja": "開始が10:00になり、08:30までに戻れない"
+      },
+      {
+       "id": "short-upopoy-national-ainu-museum",
+       "title_en": "Upopoy National Ainu Museum and Park",
+       "title_ja": "ウポポイ アイヌ民族博物館",
+       "reason": "too_long",
+       "why_en": "needs 428 min with travel, window has 120",
+       "why_ja": "往復込みで428分必要、空きは120分"
+      }
+     ]
+    },
+    {
+     "window": "w8",
+     "name_en": "Evening after close, May 15",
+     "name_ja": "5/15 夜(閉会後)",
+     "day": "2027-05-15",
+     "start": "18:00",
+     "end": "22:00",
+     "fits": [
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "kind": "evening",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ"
+      },
+      {
+       "id": "combo-moiwa-night-view-and-miso-ramen",
+       "kind": "evening",
+       "title_en": "Mt Moiwa night view and miso ramen",
+       "title_ja": "藻岩山の夜景と味噌ラーメン"
+      },
+      {
+       "id": "eve-008530cb",
+       "kind": "evening",
+       "title_en": "Bettei seafood izakaya, Sapporo",
+       "title_ja": "海鮮居酒屋 別邸"
+      },
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "eve-07500563",
+       "kind": "evening",
+       "title_en": "Sanka-tei yakiniku and lamb grill",
+       "title_ja": "さんか亭"
+      },
+      {
+       "id": "eve-1705e0f3",
+       "kind": "evening",
+       "title_en": "Sakanaya Dojo seafood izakaya",
+       "title_ja": "さかなや道場 東札幌店"
+      },
+      {
+       "id": "eve-18488276",
+       "kind": "evening",
+       "title_en": "Chukaro Chinese restaurant, LaSola",
+       "title_ja": "中華楼 ラソラ店"
+      },
+      {
+       "id": "eve-1868ffb1",
+       "kind": "evening",
+       "title_en": "Sapporo Yakiniku Hishimaru",
+       "title_ja": "札幌焼肉 ひし丸"
+      },
+      {
+       "id": "eve-238d9c01",
+       "kind": "evening",
+       "title_en": "Kamoshiya Honten izakaya",
+       "title_ja": "カモシヤ ホンテン"
+      },
+      {
+       "id": "eve-24cf3e2b",
+       "kind": "evening",
+       "title_en": "Curry Shop S soup curry",
+       "title_ja": "カレーショップ エス"
+      },
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
+      },
+      {
+       "id": "eve-2bf7d83c",
+       "kind": "evening",
+       "title_en": "Sushi Kyu",
+       "title_ja": "鮨九"
+      },
+      {
+       "id": "eve-3373d943",
+       "kind": "evening",
+       "title_en": "Chitosetsuru Kissyo izakaya",
+       "title_ja": "蔵元直営 千歳鶴 吉翔"
+      },
+      {
+       "id": "eve-48802ccc",
+       "kind": "evening",
+       "title_en": "Robatayaki Utari",
+       "title_ja": "炉ばた焼 ウタリ"
+      },
+      {
+       "id": "eve-5b208569",
+       "kind": "evening",
+       "title_en": "Kushiro robatayaki, Susukino",
+       "title_ja": "炭焼炉ばた くし路"
+      },
+      {
+       "id": "eve-762e7596",
+       "kind": "evening",
+       "title_en": "Imari seafood izakaya, Odori",
+       "title_ja": "海鮮個室酒場 伊まり"
+      },
+      {
+       "id": "eve-7d4d077a",
+       "kind": "evening",
+       "title_en": "Kita no Utage private-room izakaya",
+       "title_ja": "個室居酒屋 北の宴"
+      },
+      {
+       "id": "eve-939a0d4f",
+       "kind": "evening",
+       "title_en": "Matsuo Jingisukan lamb grill, Susukino",
+       "title_ja": "松尾ジンギスカン すすきの店"
+      },
+      {
+       "id": "eve-9548bd7a",
+       "kind": "evening",
+       "title_en": "Izakaya Labo, Nishi 11-chome",
+       "title_ja": "イザカヤラボ 西11丁目店"
+      },
+      {
+       "id": "eve-957c9708",
+       "kind": "evening",
+       "title_en": "Fudo jingisukan, Sapporo Station",
+       "title_ja": "ジンギスカン 風土 札幌駅前店"
+      },
+      {
+       "id": "eve-a1b59cc3",
+       "kind": "evening",
+       "title_en": "Hyakuya seafood and charcoal grill",
+       "title_ja": "海鮮と炭焼 ひゃくや"
+      },
+      {
+       "id": "eve-bb7771b7",
+       "kind": "evening",
+       "title_en": "Hyosetsu no Mon crab restaurant",
+       "title_ja": "氷雪の門"
+      },
+      {
+       "id": "eve-beer-bar-north-island",
+       "kind": "evening",
+       "title_en": "North Island brewery bar, Odori",
+       "title_ja": "ビアバー ノースアイランド"
+      },
+      {
+       "id": "eve-ef3aefe1",
+       "kind": "evening",
+       "title_en": "Lamb-O jingisukan, Susukino",
+       "title_ja": "ジンギスカン ラム王"
+      },
+      {
+       "id": "eve-f61f3452",
+       "kind": "evening",
+       "title_en": "Kaimi Hachikyo seafood izakaya",
+       "title_ja": "海味はちきょう"
+      },
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      },
+      {
+       "id": "eve-sapporo-kanihonke-sapporo-ekimae",
+       "kind": "evening",
+       "title_en": "Sapporo Kanihonke crab restaurant",
+       "title_ja": "札幌かに本家 札幌駅前本店"
+      },
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      },
+      {
+       "id": "eve-yoru-parfait-mua",
+       "kind": "evening",
+       "title_en": "Yoru Parfait MUA late-night parfaits",
+       "title_ja": "夜パフェ MUA"
+      },
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-jr-tower-observatory-t38",
+       "kind": "short",
+       "title_en": "JR Tower Observatory T38",
+       "title_ja": "JRタワー展望室 T38"
+      },
+      {
+       "id": "short-kuranoyu-hot-spring-naebo",
+       "kind": "short",
+       "title_en": "Kuranoyu hot spring by Naebo Station",
+       "title_ja": "苗穂駅前温泉 蔵ノ湯"
+      },
+      {
+       "id": "short-sapporo-mt-moiwa-ropeway",
+       "kind": "short",
+       "title_en": "Sapporo Mt. Moiwa Ropeway",
+       "title_ja": "札幌もいわ山ロープウェイ"
+      },
+      {
+       "id": "short-sapporo-tv-tower",
+       "kind": "short",
+       "title_en": "Sapporo TV Tower",
+       "title_ja": "さっぽろテレビ塔"
+      },
+      {
+       "id": "short-soup-curry-king-central",
+       "kind": "short",
+       "title_en": "Soup Curry King Central",
+       "title_ja": "SOUP CURRY KING"
+      },
+      {
+       "id": "short-susukino-natural-hot-spring",
+       "kind": "short",
+       "title_en": "Tokakyo hot spring in Susukino",
+       "title_ja": "すすきの天然温泉 湯香郷"
+      },
+      {
+       "id": "short-tokumitsu-coffee-odori",
+       "kind": "short",
+       "title_en": "Tokumitsu Coffee Odori",
+       "title_ja": "徳光珈琲 大通店"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "combo-chitose-semiconductor-day",
+       "title_en": "Chitose semiconductor research visit",
+       "title_ja": "千歳の半導体研究と展望デッキ",
+       "reason": "too_long",
+       "why_en": "needs 325 min with travel, window has 240",
+       "why_ja": "往復込みで325分必要、空きは240分"
+      },
+      {
+       "id": "combo-dairy-and-beer-factories",
+       "title_en": "Dairy and beer factory tours",
+       "title_ja": "乳業とビールの工場めぐり",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "combo-disaster-medicine-half-day",
+       "title_en": "Disaster medicine half day",
+       "title_ja": "災害医療の半日見学",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "combo-hot-spring-and-beer-museum",
+       "title_en": "Hot spring and Sapporo Beer Museum",
+       "title_ja": "苗穂で温泉とビール博物館",
+       "reason": "closed",
+       "why_en": "arrives 18:21, last start 15:18",
+       "why_ja": "着くのは18:21、開始は15:18まで"
+      },
+      {
+       "id": "combo-run-and-seafood-breakfast",
+       "title_en": "Morning run and a seafood bowl breakfast",
+       "title_ja": "朝ランと二条市場の海鮮丼",
+       "reason": "closed",
+       "why_en": "arrives 18:18, last start 08:30",
+       "why_ja": "着くのは18:18、開始は08:30まで"
+      },
+      {
+       "id": "combo-sake-brewery-and-izakaya",
+       "title_en": "Sake brewery tasting, then its izakaya",
+       "title_ja": "酒蔵の試飲と蔵元の居酒屋",
+       "reason": "closed",
+       "why_en": "arrives 18:19, last start 17:15",
+       "why_ja": "着くのは18:19、開始は17:15まで"
+      },
+      {
+       "id": "combo-soup-curry-and-clock-tower",
+       "title_en": "Soup curry lunch and the Clock Tower",
+       "title_ja": "スープカレーと時計台",
+       "reason": "closed",
+       "why_en": "arrives 18:19, last start 15:47",
+       "why_ja": "着くのは18:19、開始は15:47まで"
+      },
+      {
+       "id": "combo-specialty-coffee-walk",
+       "title_en": "Sapporo specialty coffee walk",
+       "title_ja": "札幌のコーヒー店3軒",
+       "reason": "closed",
+       "why_en": "arrives 18:18, last start 16:48",
+       "why_ja": "着くのは18:18、開始は16:48まで"
+      },
+      {
+       "id": "eve-otaru-masazushi-honten-sushi",
+       "title_en": "Otaru Masazushi Honten sushi restaurant",
+       "title_ja": "おたる政寿司 本店",
+       "reason": "too_long",
+       "why_en": "needs 246 min with travel, window has 240",
+       "why_ja": "往復込みで246分必要、空きは240分"
+      },
+      {
+       "id": "short-authentic-sapporo-nijo-market",
+       "title_en": "Nijo Market seafood lunch walk",
+       "title_ja": "二条市場 海鮮ランチ散歩",
+       "reason": "closed",
+       "why_en": "arrives 18:19, last start 10:00",
+       "why_ja": "着くのは18:19、開始は10:00まで"
+      },
+      {
+       "id": "short-chitosetsuru-sake-museum",
+       "title_en": "Chitosetsuru Sake Museum",
+       "title_ja": "千歳鶴 酒ミュージアム",
+       "reason": "closed",
+       "why_en": "arrives 18:19, last start 17:15",
+       "why_ja": "着くのは18:19、開始は17:15まで"
+      },
+      {
+       "id": "short-historical-village-of-hokkaido",
+       "title_en": "Historical Village of Hokkaido",
+       "title_ja": "北海道開拓の村",
+       "reason": "closed",
+       "why_en": "arrives 18:41, last start 14:00",
+       "why_ja": "着くのは18:41、開始は14:00まで"
+      },
+      {
+       "id": "short-hitsujigaoka-observation-hill",
+       "title_en": "Hitsujigaoka Observation Hill",
+       "title_ja": "さっぽろ羊ヶ丘展望台",
+       "reason": "closed",
+       "why_en": "arrives 18:32, last start 16:00",
+       "why_ja": "着くのは18:32、開始は16:00まで"
+      },
+      {
+       "id": "short-hokkaido-university-museum",
+       "title_en": "Hokkaido University Museum",
+       "title_ja": "北海道大学総合博物館",
+       "reason": "closed",
+       "why_en": "arrives 18:20, last start 16:00",
+       "why_ja": "着くのは18:20、開始は16:00まで"
+      },
+      {
+       "id": "short-kita-no-gurume-tei",
+       "title_en": "Kita no Gurume-tei seafood bowls",
+       "title_ja": "北のグルメ亭",
+       "reason": "closed",
+       "why_en": "arrives 18:19, last start 14:15",
+       "why_ja": "着くのは18:19、開始は14:15まで"
+      },
+      {
+       "id": "short-marumi-coffee-odori-main",
+       "title_en": "Marumi Coffee Odori main store",
+       "title_ja": "丸美珈琲店 大通本店",
+       "reason": "closed",
+       "why_en": "arrives 18:18, last start 18:15",
+       "why_ja": "着くのは18:18、開始は18:15まで"
+      },
+      {
+       "id": "short-mituki-sakura-tea-ceremony",
+       "title_en": "Mituki Sakura tea ceremony trial",
+       "title_ja": "美月桜 茶道体験",
+       "reason": "closed",
+       "why_en": "arrives 18:16, last start 15:00",
+       "why_ja": "着くのは18:16、開始は15:00まで"
+      },
+      {
+       "id": "short-morihico-main-store",
+       "title_en": "Morihico main store",
+       "title_ja": "森彦 本店",
+       "reason": "closed",
+       "why_en": "arrives 18:19, last start 18:00",
+       "why_ja": "着くのは18:19、開始は18:00まで"
+      },
+      {
+       "id": "short-morning-run-hokkaido-university",
+       "title_en": "Morning run at Hokkaido University",
+       "title_ja": "北大キャンパス 朝ラン",
+       "reason": "closed",
+       "why_en": "arrives 18:20, last start 08:20",
+       "why_ja": "着くのは18:20、開始は08:20まで"
+      },
+      {
+       "id": "short-morning-run-nakajima-park",
+       "title_en": "Nakajima Park and river run, about 5 km",
+       "title_ja": "中島公園と豊平川の朝ラン",
+       "reason": "closed",
+       "why_en": "arrives 18:19, last start 08:20",
+       "why_ja": "着くのは18:19、開始は08:20まで"
+      },
+      {
+       "id": "short-morning-run-odori-park",
+       "title_en": "Morning run in Odori Park",
+       "title_ja": "大通公園 朝ラン",
+       "reason": "closed",
+       "why_en": "arrives 18:18, last start 08:30",
+       "why_ja": "着くのは18:18、開始は08:30まで"
+      },
+      {
+       "id": "short-morning-run-shiroishi-kokoro",
+       "title_en": "Morning run on Shiroishi Kokoro-do path",
+       "title_ja": "白石こころーど 朝ラン",
+       "reason": "closed",
+       "why_en": "arrives 18:23, last start 08:15",
+       "why_ja": "着くのは18:23、開始は08:15まで"
+      },
+      {
+       "id": "short-new-chitose-airport-observation",
+       "title_en": "New Chitose Airport Observation Deck",
+       "title_ja": "新千歳空港 展望デッキ",
+       "reason": "closed",
+       "why_en": "arrives 19:40, last start 19:30",
+       "why_ja": "着くのは19:40、開始は19:30まで"
+      },
+      {
+       "id": "short-nijo-market",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場",
+       "reason": "closed",
+       "why_en": "arrives 18:18, last start 16:00",
+       "why_ja": "着くのは18:18、開始は16:00まで"
+      },
+      {
+       "id": "short-okurayama-ski-jump-observatory",
+       "title_en": "Okurayama ski jump and Olympic Museum",
+       "title_ja": "大倉山ジャンプ台と展望台",
+       "reason": "closed",
+       "why_en": "arrives 18:24, last start 15:30",
+       "why_ja": "着くのは18:24、開始は15:30まで"
+      },
+      {
+       "id": "short-sapporo-ainu-culture-promotion",
+       "title_en": "Sapporo Ainu Culture Promotion Center",
+       "title_ja": "札幌市アイヌ文化交流センター",
+       "reason": "closed",
+       "why_en": "arrives 18:44, last start 15:30",
+       "why_ja": "着くのは18:44、開始は15:30まで"
+      },
+      {
+       "id": "short-sapporo-beer-museum-guided",
+       "title_en": "Sapporo Beer Museum tour and tasting",
+       "title_ja": "サッポロビール博物館",
+       "reason": "closed",
+       "why_en": "arrives 18:20, last start 17:05",
+       "why_ja": "着くのは18:20、開始は17:05まで"
+      },
+      {
+       "id": "short-sapporo-clock-tower",
+       "title_en": "Sapporo Clock Tower",
+       "title_ja": "札幌市時計台",
+       "reason": "closed",
+       "why_en": "arrives 18:19, last start 16:40",
+       "why_ja": "着くのは18:19、開始は16:40まで"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場",
+       "reason": "closed",
+       "why_en": "arrives 18:19, last start 14:00",
+       "why_ja": "着くのは18:19、開始は14:00まで"
+      },
+      {
+       "id": "short-sapporo-maruyama-zoo",
+       "title_en": "Sapporo Maruyama Zoo",
+       "title_ja": "札幌市円山動物園",
+       "reason": "closed",
+       "why_en": "arrives 18:21, last start 14:00",
+       "why_ja": "着くのは18:21、開始は14:00まで"
+      },
+      {
+       "id": "short-sapporo-moiwa-ski-area",
+       "title_en": "Moiwa ski area night skiing",
+       "title_ja": "藻岩山スキー場 ナイター",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-sapporo-walking-tour-h",
+       "title_en": "Sapporo walking tour in English",
+       "title_ja": "札幌ウォーキングツアー（英語）",
+       "reason": "closed",
+       "why_en": "arrives 18:19, last start 14:00",
+       "why_ja": "着くのは18:19、開始は14:00まで"
+      },
+      {
+       "id": "short-shiroi-koibito-park",
+       "title_en": "Shiroi Koibito Park",
+       "title_ja": "白い恋人パーク",
+       "reason": "closed",
+       "why_en": "arrives 18:28, last start 16:30",
+       "why_ja": "着くのは18:28、開始は16:30まで"
+      },
+      {
+       "id": "short-snowshoe-trek-in-asahiyama",
+       "title_en": "Asahiyama snowshoe trek, hotel pickup",
+       "title_ja": "旭山記念公園 スノーシュー",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-takino-snow-world-takino",
+       "title_en": "Takino Snow World",
+       "title_ja": "滝野スノーワールド",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "short-upopoy-national-ainu-museum",
+       "title_en": "Upopoy National Ainu Museum and Park",
+       "title_ja": "ウポポイ アイヌ民族博物館",
+       "reason": "too_long",
+       "why_en": "needs 428 min with travel, window has 240",
+       "why_ja": "往復込みで428分必要、空きは240分"
+      },
+      {
+       "id": "spec-chitose-institute-of-science",
+       "title_en": "CIST Silicon Research Center, Chitose",
+       "title_ja": "公立千歳科学技術大学",
+       "reason": "too_long",
+       "why_en": "needs 288 min with travel, window has 240",
+       "why_ja": "往復込みで288分必要、空きは240分"
+      },
+      {
+       "id": "spec-civil-engineering-research-institute",
+       "title_en": "CERI cold-region engineering institute",
+       "title_ja": "寒地土木研究所",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-hokkaido-research-organization-industrial",
+       "title_en": "HRO Industrial Research Institute",
+       "title_ja": "道総研 工業試験場",
+       "reason": "closed",
+       "why_en": "arrives 18:20, last start 17:00",
+       "why_ja": "着くのは18:20、開始は17:00まで"
+      },
+      {
+       "id": "spec-hokkaido-university-museum",
+       "title_en": "Hokkaido University Museum",
+       "title_ja": "北海道大学総合博物館",
+       "reason": "closed",
+       "why_en": "arrives 18:20, last start 17:00",
+       "why_ja": "着くのは18:20、開始は17:00まで"
+      },
+      {
+       "id": "spec-hokkaido-university-research-center",
+       "title_en": "Hokkaido University RCIQE",
+       "title_ja": "北大 量子集積研究センター",
+       "reason": "closed",
+       "why_en": "arrives 18:18, last start 16:30",
+       "why_ja": "着くのは18:18、開始は16:30まで"
+      },
+      {
+       "id": "spec-japanese-red-cross-hokkaido",
+       "title_en": "Hokkaido Red Cross Blood Center",
+       "title_ja": "北海道ブロック血液センター",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-jgsdf-camp-makomanai-unit",
+       "title_en": "JGSDF Camp Makomanai tour",
+       "title_ja": "陸上自衛隊 真駒内駐屯地",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-naro-hokkaido-agricultural-research",
+       "title_en": "Hokkaido Agricultural Research Center",
+       "title_ja": "北海道農業研究センター",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-rapidus-chitose-iim-1",
+       "title_en": "Rapidus Chitose (IIM-1 and RCS)",
+       "title_ja": "Rapidus千歳 IIM-1",
+       "reason": "closed",
+       "why_en": "arrives 18:40, last start 16:30",
+       "why_ja": "着くのは18:40、開始は16:30まで"
+      },
+      {
+       "id": "spec-sapporo-breweries-hokkaido-brewery",
+       "title_en": "Sapporo Breweries Hokkaido Brewery tour",
+       "title_ja": "サッポロビール北海道工場",
+       "reason": "closed",
+       "why_en": "arrives 19:17, last start 15:00",
+       "why_ja": "着くのは19:17、開始は15:00まで"
+      },
+      {
+       "id": "spec-sapporo-citizens-disaster-prevention",
+       "title_en": "Sapporo Disaster Prevention Center",
+       "title_ja": "札幌市民防災センター",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-sapporo-city-fire-academy",
+       "title_en": "Sapporo City Fire Academy",
+       "title_ja": "札幌市消防学校",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-sapporo-komaoka-waste-incineration",
+       "title_en": "Sapporo Komaoka Waste Plant",
+       "title_ja": "札幌市駒岡清掃工場",
+       "reason": "closed",
+       "why_en": "arrives 18:39, last start 16:30",
+       "why_ja": "着くのは18:39、開始は16:30まで"
+      },
+      {
+       "id": "spec-sapporo-medical-university-advanced",
+       "title_en": "SMU Advanced Critical Care Center",
+       "title_ja": "札幌医大 高度救命救急センター",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-sapporo-regional-headquarters-japan",
+       "title_en": "Sapporo Regional Headquarters, JMA",
+       "title_ja": "札幌管区気象台",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-snow-brand-megmilk-dairy",
+       "title_en": "Snow Brand Megmilk Dairy Museum",
+       "title_ja": "雪印メグミルク 酪農と乳の歴史館",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      },
+      {
+       "id": "spec-sumco-chitose-plant",
+       "title_en": "SUMCO Chitose Plant",
+       "title_ja": "SUMCO 千歳工場",
+       "reason": "too_long",
+       "why_en": "needs 264 min with travel, window has 240",
+       "why_ja": "往復込みで264分必要、空きは240分"
+      },
+      {
+       "id": "spec-teine-keijinkai-hospital-emergency",
+       "title_en": "Teine Keijinkai Emergency Center",
+       "title_ja": "手稲渓仁会病院 救命救急センター",
+       "reason": "field",
+       "why_en": "not for this field",
+       "why_ja": "この分野向けではない"
+      }
+     ]
+    },
+    {
+     "window": "w9",
+     "name_en": "Extra night, May 15",
+     "name_ja": "5/15 延泊",
+     "day": "2027-05-15",
+     "start": "10:00",
+     "end": "23:59",
+     "fits": [
+      {
+       "id": "combo-jozankei-and-market-brunch",
+       "kind": "extra_night",
+       "title_en": "Jozankei onsen night and market brunch",
+       "title_ja": "定山渓の温泉と市場ブランチ"
+      },
+      {
+       "id": "combo-noboribetsu-and-upopoy",
+       "kind": "extra_night",
+       "title_en": "Noboribetsu onsen and Upopoy",
+       "title_ja": "登別温泉とウポポイ"
+      },
+      {
+       "id": "combo-yoichi-whisky-and-otaru-sushi",
+       "kind": "extra_night",
+       "title_en": "Yoichi whisky and Otaru sushi night",
+       "title_ja": "余市ウイスキーと小樽の寿司"
+      },
+      {
+       "id": "xn-asahikawa-asahiyama-zoo-with",
+       "kind": "extra_night",
+       "title_en": "Asahiyama Zoo and Dormy Inn Asahikawa",
+       "title_ja": "旭山動物園とドーミーイン旭川"
+      },
+      {
+       "id": "xn-furano-ski-day-march",
+       "kind": "extra_night",
+       "title_en": "Shin Furano Prince Hotel",
+       "title_ja": "新富良野プリンスホテル"
+      },
+      {
+       "id": "xn-ginrinso-historic-herring-mansion",
+       "kind": "extra_night",
+       "title_en": "Ginrinso, historic ryokan above Otaru",
+       "title_ja": "料亭湯宿 銀鱗荘"
+      },
+      {
+       "id": "xn-jozankei-forest-onsen-resort",
+       "kind": "extra_night",
+       "title_en": "Jozankei Tsuruga Mori no Uta",
+       "title_ja": "定山渓鶴雅リゾートスパ 森の謌"
+      },
+      {
+       "id": "xn-jozankei-onsen-resort-hotel",
+       "kind": "extra_night",
+       "title_en": "Hotel Milione, Jozankei onsen",
+       "title_ja": "定山渓万世閣ホテルミリオーネ"
+      },
+      {
+       "id": "xn-lake-toya-onsen-resort",
+       "kind": "extra_night",
+       "title_en": "Toya Sun Palace and Mt Usu ropeway",
+       "title_ja": "洞爺サンパレスと有珠山"
+      },
+      {
+       "id": "xn-noboribetsu-dai-ichi-takimotokan",
+       "kind": "extra_night",
+       "title_en": "Dai-ichi Takimotokan, Noboribetsu",
+       "title_ja": "第一滝本館と登別地獄谷"
+      },
+      {
+       "id": "xn-otaru-canal-front-onsen",
+       "kind": "extra_night",
+       "title_en": "Furu-kawa, Otaru canal ryokan",
+       "title_ja": "運河の宿 おたる ふる川"
+      },
+      {
+       "id": "xn-otaru-canal-side-onsen",
+       "kind": "extra_night",
+       "title_en": "Hotel Sonia Otaru and glass blowing",
+       "title_ja": "ホテルソニア小樽と吹きガラス"
+      },
+      {
+       "id": "xn-suizantei-club-jozankei-adults",
+       "kind": "extra_night",
+       "title_en": "Suizantei Club Jozankei",
+       "title_ja": "翠山亭倶楽部定山渓"
+      },
+      {
+       "id": "xn-the-windsor-hotel-toya",
+       "kind": "extra_night",
+       "title_en": "The Windsor Hotel Toya",
+       "title_ja": "ザ・ウィンザーホテル洞爺"
+      },
+      {
+       "id": "xn-yoichi-nikka-whisky-distillery",
+       "kind": "extra_night",
+       "title_en": "Nikka Yoichi distillery and Otaru hotel",
+       "title_ja": "ニッカ余市蒸溜所と小樽の宿"
+      }
+     ],
+     "ruled_out": [
+      {
+       "id": "xn-kiroro-ski-in-luxury",
+       "title_en": "Yu Kiroro suite and a ski day",
+       "title_ja": "キロロのスイートとスキー",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "xn-niseko-ski-day-at",
+       "title_en": "Hilton Niseko Village and a ski day",
+       "title_ja": "ヒルトンニセコビレッジ",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      },
+      {
+       "id": "xn-rusutsu-ski-day-and",
+       "title_en": "Rusutsu Resort Hotel and a ski day",
+       "title_ja": "ルスツリゾートホテル",
+       "reason": "month",
+       "why_en": "not offered in May",
+       "why_ja": "5月は実施していない"
+      }
+     ]
+    }
+   ]
+  },
+  "title_en": "Check experiences against free time",
+  "title_ja": "体験を空き時間で照合",
+  "summary_en": "122 fits across 9 windows; 236 ruled out by opening hours, season, travel or last start.",
+  "summary_ja": "9枠で122件が合う。236件を営業時間、季節、移動、最終開始で除外。",
+  "counters": [
+   {
+    "value": 109,
+    "en": "experiences checked",
+    "ja": "照合した体験"
+   },
+   {
+    "value": 122,
+    "en": "accepted",
+    "ja": "採用"
+   },
+   {
+    "value": 236,
+    "en": "rejected",
+    "ja": "除外"
+   }
+  ],
+  "preview": {
+   "sample": {
+    "window": "w8",
+    "name_en": "Evening after close, May 15",
+    "name_ja": "5/15 夜(閉会後)",
+    "day": "2027-05-15",
+    "start": "18:00",
+    "end": "22:00",
+    "fits": [
+     {
+      "id": "combo-lamb-and-closing-parfait",
+      "kind": "evening",
+      "title_en": "Lamb grill, then a closing parfait",
+      "title_ja": "ジンギスカンとシメパフェ"
+     },
+     {
+      "id": "combo-moiwa-night-view-and-miso-ramen",
+      "kind": "evening",
+      "title_en": "Mt Moiwa night view and miso ramen",
+      "title_ja": "藻岩山の夜景と味噌ラーメン"
+     },
+     {
+      "id": "eve-008530cb",
+      "kind": "evening",
+      "title_en": "Bettei seafood izakaya, Sapporo",
+      "title_ja": "海鮮居酒屋 別邸"
+     },
+     {
+      "id": "eve-03477ef5",
+      "kind": "evening",
+      "title_en": "Tsuki to Taiyo Brewing",
+      "title_ja": "月と太陽BREWING"
+     },
+     {
+      "id": "eve-07500563",
+      "kind": "evening",
+      "title_en": "Sanka-tei yakiniku and lamb grill",
+      "title_ja": "さんか亭"
+     },
+     {
+      "id": "eve-1705e0f3",
+      "kind": "evening",
+      "title_en": "Sakanaya Dojo seafood izakaya",
+      "title_ja": "さかなや道場 東札幌店"
+     }
+    ],
+    "ruled_out": [
+     {
+      "id": "combo-chitose-semiconductor-day",
+      "title_en": "Chitose semiconductor research visit",
+      "title_ja": "千歳の半導体研究と展望デッキ",
+      "reason": "too_long",
+      "why_en": "needs 325 min with travel, window has 240",
+      "why_ja": "往復込みで325分必要、空きは240分"
+     },
+     {
+      "id": "combo-dairy-and-beer-factories",
+      "title_en": "Dairy and beer factory tours",
+      "title_ja": "乳業とビールの工場めぐり",
+      "reason": "field",
+      "why_en": "not for this field",
+      "why_ja": "この分野向けではない"
+     },
+     {
+      "id": "combo-disaster-medicine-half-day",
+      "title_en": "Disaster medicine half day",
+      "title_ja": "災害医療の半日見学",
+      "reason": "field",
+      "why_en": "not for this field",
+      "why_ja": "この分野向けではない"
+     },
+     {
+      "id": "combo-hot-spring-and-beer-museum",
+      "title_en": "Hot spring and Sapporo Beer Museum",
+      "title_ja": "苗穂で温泉とビール博物館",
+      "reason": "closed",
+      "why_en": "arrives 18:21, last start 15:18",
+      "why_ja": "着くのは18:21、開始は15:18まで"
+     },
+     {
+      "id": "combo-run-and-seafood-breakfast",
+      "title_en": "Morning run and a seafood bowl breakfast",
+      "title_ja": "朝ランと二条市場の海鮮丼",
+      "reason": "closed",
+      "why_en": "arrives 18:18, last start 08:30",
+      "why_ja": "着くのは18:18、開始は08:30まで"
+     },
+     {
+      "id": "combo-sake-brewery-and-izakaya",
+      "title_en": "Sake brewery tasting, then its izakaya",
+      "title_ja": "酒蔵の試飲と蔵元の居酒屋",
+      "reason": "closed",
+      "why_en": "arrives 18:19, last start 17:15",
+      "why_ja": "着くのは18:19、開始は17:15まで"
+     }
+    ]
+   },
+   "per_window": [
+    {
+     "name_en": "Early morning, May 12",
+     "name_ja": "5/12 早朝",
+     "fits": 9,
+     "ruled_out": 30
+    },
+    {
+     "name_en": "Evening after reception, May 12",
+     "name_ja": "5/12 夜(レセプション後)",
+     "fits": 8,
+     "ruled_out": 23
+    },
+    {
+     "name_en": "Early morning, May 13",
+     "name_ja": "5/13 早朝",
+     "fits": 4,
+     "ruled_out": 35
+    },
+    {
+     "name_en": "Late evening, May 13",
+     "name_ja": "5/13 夜遅く",
+     "fits": 2,
+     "ruled_out": 29
+    },
+    {
+     "name_en": "Early morning, May 14",
+     "name_ja": "5/14 早朝",
+     "fits": 9,
+     "ruled_out": 30
+    },
+    {
+     "name_en": "Evening, May 14",
+     "name_ja": "5/14 夜",
+     "fits": 29,
+     "ruled_out": 2
+    },
+    {
+     "name_en": "Early morning, May 15",
+     "name_ja": "5/15 早朝",
+     "fits": 9,
+     "ruled_out": 30
+    },
+    {
+     "name_en": "Evening after close, May 15",
+     "name_ja": "5/15 夜(閉会後)",
+     "fits": 37,
+     "ruled_out": 54
+    },
+    {
+     "name_en": "Extra night, May 15",
+     "name_ja": "5/15 延泊",
+     "fits": 15,
+     "ruled_out": 3
+    }
+   ]
+  },
+  "confidence": null,
+  "n": 6,
+  "key": "filter",
+  "agent": "filter",
+  "tool": "rules",
+  "mode": "live",
+  "model": null,
+  "ms": 4,
+  "tokens_in": null,
+  "tokens_out": null
+ },
+ "7": {
+  "ctx": {
+   "ideas": [
+    {
+     "window": "w1",
+     "title_en": "Morning run and seafood bowl breakfast",
+     "title_ja": "朝ラン&海鮮丼の朝ごはん",
+     "experience_ids": [
+      "combo-run-and-seafood-breakfast"
+     ],
+     "why_en": "A easy way to see Sapporo before sessions start, finishing with a fresh Hokkaido seafood bowl."
+    },
+    {
+     "window": "w2",
+     "title_en": "Lamb-O jingisukan in Susukino",
+     "title_ja": "ラムO(ラムオー)すすきの店でジンギスカン",
+     "experience_ids": [
+      "eve-ef3aefe1"
+     ],
+     "why_en": "Hokkaido's signature grilled lamb, a short walk from the reception."
+    },
+    {
+     "window": "w6",
+     "title_en": "Mt Moiwa night view and miso ramen",
+     "title_ja": "藻岩山の夜景と味噌ラーメン",
+     "experience_ids": [
+      "combo-moiwa-night-view-and-miso-ramen"
+     ],
+     "why_en": "One of Japan's best night views of Sapporo, followed by Sapporo's classic miso ramen."
+    },
+    {
+     "window": "w9",
+     "title_en": "Yoichi whisky and Otaru sushi night",
+     "title_ja": "余市ウイスキーと小樽寿司の夜",
+     "experience_ids": [
+      "combo-yoichi-whisky-and-otaru-sushi"
+     ],
+     "why_en": "Distillery visit and Otaru's sushi street make a full extra-night outing near Sapporo."
+    }
+   ]
+  },
+  "title_en": "Build experiences",
+  "title_ja": "体験を組み立てる",
+  "summary_en": "AI proposed 6 ideas; the check kept 4 and rejected 2.",
+  "summary_ja": "AIの提案6件、採用4件、却下2件。",
+  "counters": [
+   {
+    "value": 4,
+    "en": "ideas kept",
+    "ja": "採用"
+   },
+   {
+    "value": 2,
+    "en": "rejected by check",
+    "ja": "却下"
+   }
+  ],
+  "preview": {
+   "kept": [
+    {
+     "window": "w1",
+     "title_en": "Morning run and seafood bowl breakfast",
+     "title_ja": "朝ラン&海鮮丼の朝ごはん",
+     "experience_ids": [
+      "combo-run-and-seafood-breakfast"
+     ],
+     "why_en": "A easy way to see Sapporo before sessions start, finishing with a fresh Hokkaido seafood bowl."
+    },
+    {
+     "window": "w2",
+     "title_en": "Lamb-O jingisukan in Susukino",
+     "title_ja": "ラムO(ラムオー)すすきの店でジンギスカン",
+     "experience_ids": [
+      "eve-ef3aefe1"
+     ],
+     "why_en": "Hokkaido's signature grilled lamb, a short walk from the reception."
+    },
+    {
+     "window": "w6",
+     "title_en": "Mt Moiwa night view and miso ramen",
+     "title_ja": "藻岩山の夜景と味噌ラーメン",
+     "experience_ids": [
+      "combo-moiwa-night-view-and-miso-ramen"
+     ],
+     "why_en": "One of Japan's best night views of Sapporo, followed by Sapporo's classic miso ramen."
+    },
+    {
+     "window": "w9",
+     "title_en": "Yoichi whisky and Otaru sushi night",
+     "title_ja": "余市ウイスキーと小樽寿司の夜",
+     "experience_ids": [
+      "combo-yoichi-whisky-and-otaru-sushi"
+     ],
+     "why_en": "Distillery visit and Otaru's sushi street make a full extra-night outing near Sapporo."
+    }
+   ],
+   "rejected": [
+    {
+     "window": "w3",
+     "title_en": "Dawn walk at Hokkaido Shrine and Maruyama Park",
+     "title_ja": "北海道神宮と円山公園の朝さんぽ",
+     "experience_ids": [],
+     "why_en": "A quiet, forested shrine walk in central Sapporo that fits a short morning slot before the day's sessions.",
+     "reject_en": "not in our data",
+     "reject_ja": "データにない"
+    },
+    {
+     "window": "w8",
+     "title_en": "Jingisukan at Sapporo Beer Garden",
+     "title_ja": "サッポロビール園でジンギスカンと生ビール",
+     "experience_ids": [],
+     "why_en": "A well-known Sapporo dinner of lamb grill and fresh beer in a historic brick brewery, a good way to close the conference.",
+     "reject_en": "not in our data",
+     "reject_ja": "データにない"
+    }
+   ]
+  },
+  "confidence": null,
+  "n": 7,
+  "key": "build",
+  "agent": "builder",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 16366,
+  "tokens_in": 2633,
+  "tokens_out": 1203
+ },
+ "8": {
+  "ctx": {
+   "top": [
+    {
+     "window": "w1",
+     "name_en": "Early morning, May 12",
+     "name_ja": "5/12 早朝",
+     "picks": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "kind": "short",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場"
+      }
+     ],
+     "confidence": 0.8,
+     "needs_approval": false
+    },
+    {
+     "window": "w2",
+     "name_en": "Evening after reception, May 12",
+     "name_ja": "5/12 夜(レセプション後)",
+     "picks": [
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "eve-238d9c01",
+       "kind": "evening",
+       "title_en": "Kamoshiya Honten izakaya",
+       "title_ja": "カモシヤ ホンテン"
+      },
+      {
+       "id": "eve-ef3aefe1",
+       "kind": "evening",
+       "title_en": "Lamb-O jingisukan, Susukino",
+       "title_ja": "ジンギスカン ラム王"
+      }
+     ],
+     "confidence": 0.75,
+     "needs_approval": false
+    },
+    {
+     "window": "w3",
+     "name_en": "Early morning, May 13",
+     "name_ja": "5/13 早朝",
+     "picks": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-morning-run-odori-park",
+       "kind": "short",
+       "title_en": "Morning run in Odori Park",
+       "title_ja": "大通公園 朝ラン"
+      },
+      {
+       "id": "short-morning-run-hokkaido-university",
+       "kind": "short",
+       "title_en": "Morning run at Hokkaido University",
+       "title_ja": "北大キャンパス 朝ラン"
+      }
+     ],
+     "confidence": 0.6,
+     "needs_approval": false
+    },
+    {
+     "window": "w4",
+     "name_en": "Late evening, May 13",
+     "name_ja": "5/13 夜遅く",
+     "picks": [
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      },
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      }
+     ],
+     "confidence": 0.8,
+     "needs_approval": false
+    },
+    {
+     "window": "w5",
+     "name_en": "Early morning, May 14",
+     "name_ja": "5/14 早朝",
+     "picks": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "kind": "short",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場"
+      }
+     ],
+     "confidence": 0.8,
+     "needs_approval": false
+    },
+    {
+     "window": "w6",
+     "name_en": "Evening, May 14",
+     "name_ja": "5/14 夜",
+     "picks": [
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "kind": "evening",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ"
+      },
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
+      }
+     ],
+     "confidence": 0.75,
+     "needs_approval": false
+    },
+    {
+     "window": "w7",
+     "name_en": "Early morning, May 15",
+     "name_ja": "5/15 早朝",
+     "picks": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "kind": "short",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場"
+      }
+     ],
+     "confidence": 0.8,
+     "needs_approval": false
+    },
+    {
+     "window": "w8",
+     "name_en": "Evening after close, May 15",
+     "name_ja": "5/15 夜(閉会後)",
+     "picks": [
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "kind": "evening",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ"
+      },
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
+      }
+     ],
+     "confidence": 0.75,
+     "needs_approval": false
+    },
+    {
+     "window": "w9",
+     "name_en": "Extra night, May 15",
+     "name_ja": "5/15 延泊",
+     "picks": [
+      {
+       "id": "combo-yoichi-whisky-and-otaru-sushi",
+       "kind": "extra_night",
+       "title_en": "Yoichi whisky and Otaru sushi night",
+       "title_ja": "余市ウイスキーと小樽の寿司"
+      },
+      {
+       "id": "xn-yoichi-nikka-whisky-distillery",
+       "kind": "extra_night",
+       "title_en": "Nikka Yoichi distillery and Otaru hotel",
+       "title_ja": "ニッカ余市蒸溜所と小樽の宿"
+      },
+      {
+       "id": "xn-otaru-canal-side-onsen",
+       "kind": "extra_night",
+       "title_en": "Hotel Sonia Otaru and glass blowing",
+       "title_ja": "ホテルソニア小樽と吹きガラス"
+      }
+     ],
+     "confidence": 0.75,
+     "needs_approval": false
+    }
+   ]
+  },
+  "title_en": "Rank the top 3 per window",
+  "title_ja": "空き時間ごとに上位3件",
+  "summary_en": "Top picks for 9 windows; 0 flagged for the organizer to approve.",
+  "summary_ja": "9枠で上位を選定、0枠は主催者の承認待ち。",
+  "counters": [
+   {
+    "value": 9,
+    "en": "windows ranked",
+    "ja": "選定した枠"
+   },
+   {
+    "value": 0,
+    "en": "need approval",
+    "ja": "承認待ち"
+   }
+  ],
+  "preview": {
+   "top": [
+    {
+     "window": "w1",
+     "name_en": "Early morning, May 12",
+     "name_ja": "5/12 早朝",
+     "picks": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "kind": "short",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場"
+      }
+     ],
+     "confidence": 0.8,
+     "needs_approval": false
+    },
+    {
+     "window": "w2",
+     "name_en": "Evening after reception, May 12",
+     "name_ja": "5/12 夜(レセプション後)",
+     "picks": [
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "eve-238d9c01",
+       "kind": "evening",
+       "title_en": "Kamoshiya Honten izakaya",
+       "title_ja": "カモシヤ ホンテン"
+      },
+      {
+       "id": "eve-ef3aefe1",
+       "kind": "evening",
+       "title_en": "Lamb-O jingisukan, Susukino",
+       "title_ja": "ジンギスカン ラム王"
+      }
+     ],
+     "confidence": 0.75,
+     "needs_approval": false
+    },
+    {
+     "window": "w3",
+     "name_en": "Early morning, May 13",
+     "name_ja": "5/13 早朝",
+     "picks": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-morning-run-odori-park",
+       "kind": "short",
+       "title_en": "Morning run in Odori Park",
+       "title_ja": "大通公園 朝ラン"
+      },
+      {
+       "id": "short-morning-run-hokkaido-university",
+       "kind": "short",
+       "title_en": "Morning run at Hokkaido University",
+       "title_ja": "北大キャンパス 朝ラン"
+      }
+     ],
+     "confidence": 0.6,
+     "needs_approval": false
+    },
+    {
+     "window": "w4",
+     "name_en": "Late evening, May 13",
+     "name_ja": "5/13 夜遅く",
+     "picks": [
+      {
+       "id": "eve-sumire-susukino",
+       "kind": "evening",
+       "title_en": "Sumire Susukino miso ramen",
+       "title_ja": "すみれ 札幌すすきの店"
+      },
+      {
+       "id": "eve-mingle-ramen-food-hall",
+       "kind": "evening",
+       "title_en": "Mingle ramen food hall, Susukino",
+       "title_ja": "ミングル フードホール"
+      }
+     ],
+     "confidence": 0.8,
+     "needs_approval": false
+    },
+    {
+     "window": "w5",
+     "name_en": "Early morning, May 14",
+     "name_ja": "5/14 早朝",
+     "picks": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "kind": "short",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場"
+      }
+     ],
+     "confidence": 0.8,
+     "needs_approval": false
+    },
+    {
+     "window": "w6",
+     "name_en": "Evening, May 14",
+     "name_ja": "5/14 夜",
+     "picks": [
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "kind": "evening",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ"
+      },
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
+      }
+     ],
+     "confidence": 0.75,
+     "needs_approval": false
+    },
+    {
+     "window": "w7",
+     "name_en": "Early morning, May 15",
+     "name_ja": "5/15 早朝",
+     "picks": [
+      {
+       "id": "short-donbe-nijo-market",
+       "kind": "short",
+       "title_en": "Donbe Nijo Market seafood bowls",
+       "title_ja": "丼兵衛 二条市場店"
+      },
+      {
+       "id": "short-nijo-market",
+       "kind": "short",
+       "title_en": "Nijo Market",
+       "title_ja": "二条市場"
+      },
+      {
+       "id": "short-sapporo-curb-market-jogai",
+       "kind": "short",
+       "title_en": "Sapporo Curb Market (Jogai Shijo)",
+       "title_ja": "札幌場外市場"
+      }
+     ],
+     "confidence": 0.8,
+     "needs_approval": false
+    },
+    {
+     "window": "w8",
+     "name_en": "Evening after close, May 15",
+     "name_ja": "5/15 夜(閉会後)",
+     "picks": [
+      {
+       "id": "eve-03477ef5",
+       "kind": "evening",
+       "title_en": "Tsuki to Taiyo Brewing",
+       "title_ja": "月と太陽BREWING"
+      },
+      {
+       "id": "combo-lamb-and-closing-parfait",
+       "kind": "evening",
+       "title_en": "Lamb grill, then a closing parfait",
+       "title_ja": "ジンギスカンとシメパフェ"
+      },
+      {
+       "id": "eve-25959002",
+       "kind": "evening",
+       "title_en": "Sugino-me regional kaiseki",
+       "title_ja": "きょうど料理亭 杉ノ目"
+      }
+     ],
+     "confidence": 0.75,
+     "needs_approval": false
+    },
+    {
+     "window": "w9",
+     "name_en": "Extra night, May 15",
+     "name_ja": "5/15 延泊",
+     "picks": [
+      {
+       "id": "combo-yoichi-whisky-and-otaru-sushi",
+       "kind": "extra_night",
+       "title_en": "Yoichi whisky and Otaru sushi night",
+       "title_ja": "余市ウイスキーと小樽の寿司"
+      },
+      {
+       "id": "xn-yoichi-nikka-whisky-distillery",
+       "kind": "extra_night",
+       "title_en": "Nikka Yoichi distillery and Otaru hotel",
+       "title_ja": "ニッカ余市蒸溜所と小樽の宿"
+      },
+      {
+       "id": "xn-otaru-canal-side-onsen",
+       "kind": "extra_night",
+       "title_en": "Hotel Sonia Otaru and glass blowing",
+       "title_ja": "ホテルソニア小樽と吹きガラス"
+      }
+     ],
+     "confidence": 0.75,
+     "needs_approval": false
+    }
+   ]
+  },
+  "confidence": 0.76,
+  "n": 8,
+  "key": "rank",
+  "agent": "ranker",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 4169,
+  "tokens_in": 2716,
+  "tokens_out": 532
+ },
+ "9": {
+  "ctx": {
+   "intro_en": "Between sessions, Sapporo is ready to feed you: seafood bowls at Nijo Market at dawn, then miso ramen, lamb and craft beer in Susukino after dark. Here are our picks for May 12–15, plus an extra night out to Yoichi and Otaru for those staying on.",
+   "intro_ja": "ICEP 2027の合間に札幌の味を存分に楽しんでいただけるよう、5月12日〜15日のおすすめをまとめました。朝は二条市場の海鮮丼、夜はすすきのの味噌ラーメンやジンギスカンがおすすめで、15日の夜は余市と小樽へ足をのばすこともできます。",
+   "email_en": {
+    "subject": "Free-time page for ICEP 2027 attendees (May 12–15, Sapporo)",
+    "body": "Dear Organizer,\n\nI hope you're well. I've put together a short free-time page for ICEP 2027 attendees staying at the Grand Mercure Sapporo Odori Park. It offers a few ideas for each day: early-morning seafood bowls at Nijo Market, a morning run in Odori Park, and evenings in Susukino with ramen, lamb and craft beer. There is also an optional extra night on May 15 in Yoichi and Otaru.\n\nCould you take a look and, if it suits, share it with attendees through your usual channels? I'm happy to adjust anything.\n\nWarm regards"
+   },
+   "email_ja": {
+    "subject": "ICEP 2027 参加者向け「自由時間ページ」のご確認のお願い",
+    "body": "ICEP 2027ご担当者様\n\n参加者向けの自由時間ページの案をお送りします。朝は二条市場の海鮮丼、夜はすすきのの味噌ラーメンやジンギスカン、クラフトビールなどを、日ごとにまとめました。15日の夜には、余市と小樽を巡る小旅行も紹介しています。内容をご確認のうえ、参加者への案内にご活用いただけますと幸いです。修正のご希望もお気軽にお知らせください。どうぞよろしくお願いいたします。"
+   }
+  },
+  "title_en": "Write JA/EN copy",
+  "title_ja": "日英の紹介文を書く",
+  "summary_en": "Page intro and organizer email written in Japanese and English.",
+  "summary_ja": "ページ紹介文と主催者向けメールを日本語と英語で作成。",
+  "counters": [
+   {
+    "value": 2,
+    "en": "languages",
+    "ja": "言語"
+   },
+   {
+    "value": 2,
+    "en": "texts",
+    "ja": "文書"
+   }
+  ],
+  "preview": {
+   "intro_en": "Between sessions, Sapporo is ready to feed you: seafood bowls at Nijo Market at dawn, then miso ramen, lamb and craft beer in Susukino after dark. Here are our picks for May 12–15, plus an extra night out to Yoichi and Otaru for those staying on.",
+   "intro_ja": "ICEP 2027の合間に札幌の味を存分に楽しんでいただけるよう、5月12日〜15日のおすすめをまとめました。朝は二条市場の海鮮丼、夜はすすきのの味噌ラーメンやジンギスカンがおすすめで、15日の夜は余市と小樽へ足をのばすこともできます。",
+   "email_en": {
+    "subject": "Free-time page for ICEP 2027 attendees (May 12–15, Sapporo)",
+    "body": "Dear Organizer,\n\nI hope you're well. I've put together a short free-time page for ICEP 2027 attendees staying at the Grand Mercure Sapporo Odori Park. It offers a few ideas for each day: early-morning seafood bowls at Nijo Market, a morning run in Odori Park, and evenings in Susukino with ramen, lamb and craft beer. There is also an optional extra night on May 15 in Yoichi and Otaru.\n\nCould you take a look and, if it suits, share it with attendees through your usual channels? I'm happy to adjust anything.\n\nWarm regards"
+   },
+   "email_ja": {
+    "subject": "ICEP 2027 参加者向け「自由時間ページ」のご確認のお願い",
+    "body": "ICEP 2027ご担当者様\n\n参加者向けの自由時間ページの案をお送りします。朝は二条市場の海鮮丼、夜はすすきのの味噌ラーメンやジンギスカン、クラフトビールなどを、日ごとにまとめました。15日の夜には、余市と小樽を巡る小旅行も紹介しています。内容をご確認のうえ、参加者への案内にご活用いただけますと幸いです。修正のご希望もお気軽にお知らせください。どうぞよろしくお願いいたします。"
+   }
+  },
+  "confidence": null,
+  "n": 9,
+  "key": "write",
+  "agent": "writer",
+  "tool": "llm",
+  "mode": "live",
+  "model": "anthropic/claude-sonnet-5.5",
+  "ms": 13015,
+  "tokens_in": 679,
+  "tokens_out": 1666
+ }
+}

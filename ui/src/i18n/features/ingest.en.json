@@ -1,0 +1,36 @@
+{
+  "ingest": {
+    "title": "Read a new conference",
+    "intro": "Paste a conference website. Nine AI agents read it, find the free time and check every idea against our real experiences. Nothing here is pre-written: each step runs now.",
+    "urlLabel": "Conference website",
+    "run": "Run agents",
+    "tested": "Tested conferences",
+    "elapsed": "Elapsed",
+    "tokens": "Tokens",
+    "done": "Done in {s} s. Every number on this page came from this run.",
+    "failed": "Step {n} failed and no earlier run is saved for this URL.",
+    "replayNote": "This step failed live, so it shows the last good run of this URL.",
+    "confidence": "Confidence",
+    "approve": "Needs organizer approval",
+    "accepted": "Fits",
+    "rejected": "Rejected",
+    "kept": "Kept",
+    "stored": "From the stored program: the site lists {n} sessions so far.",
+    "dropped": "Dropped by the check",
+    "pages": "Pages read",
+    "mustAttend": "Must-attend",
+    "fields": "Fields",
+    "interests": "Interests",
+    "roles": "Who attends (estimate)",
+    "perWindow": "All windows",
+    "intro9": "Page intro",
+    "email": "Email to the organizer",
+    "steps": {
+      "1": "Read", "2": "Schedule", "3": "Sort", "4": "Free time", "5": "Audience",
+      "6": "Filter", "7": "Build", "8": "Rank", "9": "Write"
+    },
+    "facts": {
+      "name": "Name", "dates": "Dates", "venue": "Venue", "field": "Field", "attendees": "Expected"
+    }
+  }
+}

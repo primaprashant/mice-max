@@ -1,0 +1,122 @@
+---
+/** Nine pipeline nodes on a track. scripts/ingest-run.ts sets data-state on each node
+ * (idle, active, done, replay, failed) and data-flow on each connector. */
+import { t, type Lang } from "../../i18n";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const ICONS = ["globe", "calendar-dots", "funnel-simple", "clock", "users-three", "shield-check", "puzzle-piece", "ranking", "pen-nib"];
+---
+
+<div class="-mx-6 overflow-x-auto px-6 pb-2">
+  <ol class="ingest-track relative grid min-w-[980px] grid-cols-9" aria-label="Pipeline">
+    {ICONS.map((icon, i) => (
+      <li class="ingest-node relative flex flex-col items-center px-1 text-center" data-node={i + 1} data-state="idle">
+        {i < 8 && (
+          <span class="ingest-link" data-link={i + 1} aria-hidden="true">
+            <span class="ingest-fill"></span>
+            <span class="ingest-dot"></span>
+            <span class="ingest-dot"></span>
+            <span class="ingest-dot"></span>
+            <span class="ingest-dot"></span>
+          </span>
+        )}
+        <span class="ingest-orb relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 bg-paper">
+          <i class={`ph ph-${icon} text-xl`} aria-hidden="true"></i>
+        </span>
+        <span class="mt-2 font-mono text-[10px] tabular-nums text-ink-soft">{String(i + 1).padStart(2, "0")}</span>
+        <span class="text-sm font-semibold">{t(lang, `ingest.steps.${i + 1}`)}</span>
+        <span class="ingest-meta mt-1 min-h-[3.5rem] font-mono text-[10px] leading-4 text-ink-soft" data-meta></span>
+      </li>
+    ))}
+  </ol>
+</div>
+
+<style is:global>
+  .ingest-orb {
+    border-color: color-mix(in srgb, var(--color-ink) 15%, transparent);
+    color: var(--color-ink-soft);
+    transition: background-color 0.4s, border-color 0.4s, color 0.4s, transform 0.4s;
+  }
+  .ingest-node[data-state="active"] .ingest-orb {
+    border-color: var(--color-theme);
+    color: var(--color-theme);
+    animation: ingest-pulse 1.4s ease-out infinite;
+  }
+  .ingest-node[data-state="done"] .ingest-orb {
+    background: var(--color-theme);
+    border-color: var(--color-theme);
+    color: var(--color-paper);
+  }
+  .ingest-node[data-state="replay"] .ingest-orb {
+    border-style: dashed;
+    border-color: var(--color-ink-soft);
+    color: var(--color-ink);
+  }
+  .ingest-node[data-state="failed"] .ingest-orb {
+    border-color: var(--color-banana);
+    color: var(--color-banana);
+  }
+  .ingest-link {
+    position: absolute;
+    top: 23px;
+    left: calc(50% + 28px);
+    width: calc(100% - 56px);
+    height: 2px;
+    background: color-mix(in srgb, var(--color-ink) 10%, transparent);
+    overflow: visible;
+  }
+  .ingest-fill {
+    position: absolute;
+    inset: 0;
+    background: var(--color-theme);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s ease-out;
+  }
+  .ingest-link[data-flow="done"] .ingest-fill {
+    transform: scaleX(1);
+  }
+  .ingest-dot {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: var(--color-theme);
+    opacity: 0;
+  }
+  .ingest-link[data-flow="on"] .ingest-dot {
+    animation: ingest-flow 1.2s linear infinite;
+  }
+  .ingest-link[data-flow="on"] .ingest-dot:nth-child(3) { animation-delay: 0.3s; }
+  .ingest-link[data-flow="on"] .ingest-dot:nth-child(4) { animation-delay: 0.6s; }
+  .ingest-link[data-flow="on"] .ingest-dot:nth-child(5) { animation-delay: 0.9s; }
+  @keyframes ingest-flow {
+    0% { left: 0; opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { left: calc(100% - 6px); opacity: 0; }
+  }
+  @keyframes ingest-pulse {
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-theme) 45%, transparent); }
+    100% { box-shadow: 0 0 0 14px color-mix(in srgb, var(--color-theme) 0%, transparent); }
+  }
+  .ingest-card {
+    animation: ingest-in 0.5s ease-out both;
+  }
+  @keyframes ingest-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ingest-node[data-state="active"] .ingest-orb { animation: none; box-shadow: 0 0 0 4px var(--color-theme-soft); }
+    .ingest-link[data-flow="on"] .ingest-dot { animation: none; }
+    .ingest-link[data-flow="on"] .ingest-dot:nth-child(2) { opacity: 1; left: calc(50% - 3px); }
+    .ingest-fill { transition: none; }
+    .ingest-card { animation: none; }
+  }
+</style>
