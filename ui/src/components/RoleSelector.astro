@@ -1,0 +1,85 @@
+---
+/** The photo band shared by the four top-level pages: wordmark, title,
+ * the role tabs styled like the calendar's day tabs, and a hint line that
+ * describes the active tab. Tabs are plain links, so no script runs here.
+ * The page picks the photo (random per request, like login) and passes
+ * the slug in, so its footer credit names the same image. */
+import { t, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  active: "attendee" | "organizer" | "city" | "ops";
+  title?: string;
+  /** The page picks the photo so the footer credit names the same image. */
+  photoSlug: string;
+}
+
+const { lang, active, title, photoSlug } = Astro.props;
+
+const TABS = [
+  { id: "attendee", icon: "ph-users", href: "/home", labelKey: "login.roleAttendee" },
+  { id: "organizer", icon: "ph-user-gear", href: "/organize", labelKey: "login.roleOrganizer" },
+  { id: "city", icon: "ph-buildings", href: "/city", labelKey: "login.roleCity" },
+  { id: "ops", icon: "ph-graph", href: "/ops", labelKey: "home.tabOps" },
+] as const;
+
+/* Active tab and active lang pill share one look: solid ink fill, paper
+   text and a larger radius. The scrim's dark side sits under the tabs, so
+   ink reads as a clear step brighter than the photo behind it. */
+const ACTIVE_PILL = "border-ink bg-ink text-paper rounded-lg";
+const IDLE_PILL = "border-ink/25 bg-paper/85 text-ink-soft rounded-md";
+---
+
+<header class="relative flex min-h-[50dvh] flex-col">
+  <img
+    src={`/images/login/${photoSlug}.webp`}
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 h-full w-full object-cover"
+  />
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/40 to-ink/10"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="relative z-10 flex w-full justify-end px-6 pt-4">
+    <lang-toggle class="inline-flex rounded-md border border-white/20 bg-paper/20 p-0.5 text-xs backdrop-blur">
+      <button data-lang="en" class="rounded px-2 py-1 font-medium text-paper">EN</button>
+      <button data-lang="ja" class="rounded px-2 py-1 font-medium text-paper">JA</button>
+    </lang-toggle>
+  </div>
+  <div class="relative z-10 mx-auto mt-auto flex w-full max-w-7xl flex-col px-6 pb-10 pt-5">
+    <a href="/home" class="text-xs font-semibold uppercase tracking-widest text-paper">
+      {t(lang, "app.name")}
+    </a>
+    {title && (
+      <h1 class="mt-1 text-2xl font-semibold tracking-tight text-paper [text-shadow:0_1px_3px_rgba(0,0,0,0.5)]">
+        {title}
+      </h1>
+    )}
+
+    <div class="mt-6 grid grid-flow-col auto-cols-fr gap-1">
+      {
+        TABS.map((tab) => (
+          <a
+            href={tab.href}
+            aria-current={tab.id === active ? "page" : "false"}
+            class={`border px-3 py-1.5 text-center text-sm font-medium transition-colors ${
+              tab.id === active ? ACTIVE_PILL : `${IDLE_PILL} hover:bg-paper`
+            }`}
+          >
+            <i class={`ph ${tab.icon}`} aria-hidden="true" />
+            {t(lang, tab.labelKey)}
+          </a>
+        ))
+      }
+    </div>
+    <p class="mt-2 text-sm text-paper/90 [text-shadow:0_1px_3px_rgba(0,0,0,0.5)]">
+      {t(lang, `home.hint${active.charAt(0).toUpperCase()}${active.slice(1)}`)}
+    </p>
+  </div>
+</header>
+
+<script>
+  import "../scripts/lang-toggle";
+</script>
